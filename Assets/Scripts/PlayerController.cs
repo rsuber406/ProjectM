@@ -80,15 +80,10 @@ public class PlayerController : MonoBehaviour
         x = rb.linearVelocity.x;
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
-
-
-
-
-
         IsGrounded();
         SpeedControl();
         GetPlayerState();
-
+        Movement();
         Jump();
         Crouch();
         Dash();
