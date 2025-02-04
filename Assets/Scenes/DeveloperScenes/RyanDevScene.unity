@@ -176,6 +176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea319d0087274b843b2355a2ecbef48e, type: 3}
+--- !u!1 &638214415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6840536210652093781, guid: ea319d0087274b843b2355a2ecbef48e, type: 3}
+  m_PrefabInstance: {fileID: 181869998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &971491518
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5965119647676181393, guid: 8dea64603e63c38499f4e53b09246958, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 6911819181931214020, guid: 8dea64603e63c38499f4e53b09246958, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.2855015
@@ -451,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2902953311951474585, guid: ffcc54e8e7501e4418820b53a18bbcd1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 638214415}
     - target: {fileID: 8800016772444967756, guid: ffcc54e8e7501e4418820b53a18bbcd1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
