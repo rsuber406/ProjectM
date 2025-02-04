@@ -62,6 +62,10 @@ public class EnemyAI : MonoBehaviour, IDamage
                 if (hit.collider.CompareTag("Player"))
                 {
                     agent.SetDestination(playerPos);
+                    if (!isMelee)
+                    {
+                        // Enable range attacks
+                    }
                 }
             }
 
