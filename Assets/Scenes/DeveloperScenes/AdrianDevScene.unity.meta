@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/DeveloperScenes/AdrianDevScene.unity.meta
 guid: dc9bd334aab4c024aa5488dac2dc336f
 DefaultImporter:
+========
+guid: ea319d0087274b843b2355a2ecbef48e
+PrefabImporter:
+>>>>>>>> development:Assets/Prefabs/Player.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
