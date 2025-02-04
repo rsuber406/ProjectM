@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
@@ -69,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
         unCrouch = transform.localScale.y;
         groundRayCheck = height * 0.5f + 0.2f;
+
     }
 
     // Update is called once per frame

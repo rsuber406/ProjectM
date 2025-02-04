@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraController : MonoBehaviour
+public class FPSController : MonoBehaviour
 {
-    [SerializeField] int sensitivity;
+    [SerializeField] float sensitivity;
     [SerializeField] Transform orientation;
 
     float rotX;

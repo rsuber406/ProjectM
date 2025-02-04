@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraMovement : MonoBehaviour
+public class FPSMovement : MonoBehaviour
 {
     [SerializeField] Transform cameraPos;
 
