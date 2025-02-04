@@ -36,7 +36,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        
         CheckPlayerInRange();
     }
 
@@ -46,6 +45,11 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             
         }
+        else
+        {
+            // Roam for player
+        }
+        
         
     }
 
@@ -55,6 +59,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (dotProduct > 0.3f)
         {
             // Needs more logic
+            
             Debug.Log(dotProduct);
             return true;
         }
@@ -72,6 +77,15 @@ public class EnemyAI : MonoBehaviour, IDamage
             playerDetected = true;
         }
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.isTrigger) return;
+        if (other.CompareTag("Player"))
+        {
+            playerDetected = false;
+        }
     }
 
     public void TakeDamage(int amount)
