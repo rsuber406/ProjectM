@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class FPSController : MonoBehaviour
+public class FPCamController : MonoBehaviour
 {
     [SerializeField] float sensitivity;
     [SerializeField] Transform orientation;

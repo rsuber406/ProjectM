@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TPSController : MonoBehaviour
+public class TPCamController : MonoBehaviour
 {
     [SerializeField] Transform orientation;
     [SerializeField] Transform playerObj;

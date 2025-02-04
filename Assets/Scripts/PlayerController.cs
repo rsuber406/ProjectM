@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform orientation;
 
     [Header("----- Speeds -----")]
-    [SerializeField] float walkingSpeed;
-    [SerializeField] float sprintingSpeed;
-    [SerializeField] float crouchSpeed;
-    [SerializeField] float dashSpeed;
+    [SerializeField][Range(4, 8)] float walkingSpeed;
+    [SerializeField][Range(8, 15)] float sprintingSpeed;
+    [SerializeField][Range(2, 4)] float crouchSpeed;
+    [SerializeField][Range(100, 500)] float dashSpeed;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
     [SerializeField] float jumpForce;
-    [SerializeField] int jumpMax;
+    [SerializeField][Range(0, 2)] int jumpMax;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
 
