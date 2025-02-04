@@ -15,6 +15,7 @@ public  class AIController : MonoBehaviour
     {
         // Upon creation of a game manager I need to get the player position from that manager 
         instance = this;
+        playerPosition = GameManager.GetInstance().GetPlayerPosition();
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public  class AIController : MonoBehaviour
     public Vector3 UpdatePlayerPosition()
     {
         // Reference Game Manager player position;
-        return Vector3.zero;
+        return GameManager.GetInstance().GetPlayerPosition();
     }
 
    public Vector3 GetPlayerPosition()
