@@ -5,32 +5,32 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour, IDamage
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [Header("AI Stats")] 
-    [SerializeField] private int health;
+    [Header("AI Stats")] [SerializeField] private int health;
 
     [SerializeField] private int mana;
+
     [SerializeField] private int range;
+
     // Replace GameObject with the scriptable spell type
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
-    [Header("Configs")]
-    [SerializeField] private bool isMelee;
+    [Header("Configs")] [SerializeField] private bool isMelee;
 
     [SerializeField] private bool canRoam;
     [SerializeField] private int roamDistance;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private int FOV;
+    [SerializeField] private Transform headPos;
     private float convertedFOV = 0;
     private Vector3 playerPos;
-    
-    
+
+
     // private fields
     private bool playerDetected = false;
-    
-    
+
+
     void Start()
     {
-        playerPos = AIController.GetAIController().GetPlayerPosition();
-        convertedFOV = (float)FOV / 100f;
+        convertedFOV = 1f - ((float)FOV / 100);
     }
 
     // Update is called once per frame
@@ -43,26 +43,31 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (playerDetected && !CanSeePlayer())
         {
-            
         }
         else
         {
             // Roam for player
         }
-        
-        
     }
 
     bool CanSeePlayer()
     {
+        playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
-        if (dotProduct > 0.3f)
+        if (dotProduct > convertedFOV)
         {
-            // Needs more logic
-            
-            Debug.Log(dotProduct);
+            RaycastHit hit;
+            if (Physics.Raycast(headPos.position, playerPos - transform.position, out hit))
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    agent.SetDestination(playerPos);
+                }
+            }
+
             return true;
         }
+
 
         return false;
     }
@@ -70,13 +75,14 @@ public class EnemyAI : MonoBehaviour, IDamage
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger) return;
-
         if (other.CompareTag("Player"))
         {
-            playerPos = AIController.GetAIController().UpdatePlayerPosition();
+            playerPos = AIController.GetAIController().GetPlayerPosition();
+            Debug.Log("Player detected");
             playerDetected = true;
         }
-        
+
+        Debug.Log(other.tag);
     }
 
     private void OnTriggerExit(Collider other)
@@ -93,7 +99,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         health -= amount;
         if (health <= 0)
         {
-            
             Destroy(gameObject);
         }
     }
