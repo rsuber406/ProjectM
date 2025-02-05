@@ -5,7 +5,6 @@ public class TPCamController : MonoBehaviour
     [SerializeField] Transform orientation;
     [SerializeField] Transform playerObj;
     [SerializeField] Transform playerModel;
-    [SerializeField] Rigidbody rb;
     [SerializeField] float rotation;
 
 
@@ -20,18 +19,15 @@ public class TPCamController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //orientation.localRotation = playerObj.transform.localRotation;
-
+        // rotates orientation
         Vector3 direction = playerObj.position - new Vector3(transform.position.x, playerObj.position.y, transform.position.z);
         orientation.forward = direction.normalized;
 
-        Vector3 newDir = orientation.forward * Input.GetAxisRaw("Vertical") +
-                         orientation.right * Input.GetAxisRaw("Horizontal");
+        // rotates player model
+        Vector3 newDir = orientation.forward * Input.GetAxisRaw("Vertical") + orientation.right * Input.GetAxisRaw("Horizontal");
 
         if (newDir != Vector3.zero)
-        {
             playerModel.forward = Vector3.Slerp(playerModel.forward, newDir.normalized, Time.deltaTime * rotation);
-        }
 
     }
 }

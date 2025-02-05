@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             canJump = false;
 
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-            rb.AddForce(transform.up * jumpForce * 2f, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }

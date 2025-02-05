@@ -368,7 +368,6 @@ MonoBehaviour:
   orientation: {fileID: 266246604}
   playerObj: {fileID: 333192492}
   playerModel: {fileID: 625989111}
-  rb: {fileID: 333192493}
   rotation: 7
 --- !u!1 &89735484
 GameObject:
@@ -1241,7 +1240,7 @@ MonoBehaviour:
   crouchSpeed: 4
   dashSpeed: 200
   jumpForce: 5
-  jumpMax: 0
+  jumpMax: 2
   jumpCooldown: 0.75
   airMult: 0.4
   maxSlopeAngle: 0
