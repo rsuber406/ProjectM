@@ -1336,7 +1336,7 @@ MonoBehaviour:
   dashSpeed: 200
   speedMod: 12
   jumpForce: 5
-  jumpMax: 0
+  jumpMax: 2
   jumpCooldown: 0.75
   airMult: 0.4
   maxSlopeAngle: 0

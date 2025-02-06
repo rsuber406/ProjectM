@@ -304,7 +304,7 @@ MonoBehaviour:
   sprintingSpeed: 10
   crouchSpeed: 4
   dashSpeed: 200
-  jumpForce: 5
+  jumpForce: 10
   jumpMax: 0
   jumpCooldown: 0.75
   airMult: 0.4
@@ -395,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3518760791535907405}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player - FPS
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
