@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
+    [SerializeField] Animator anim;
 
     [Header("----- Speeds -----")]
-    [SerializeField][Range(4, 8)] float walkingSpeed;
-    [SerializeField][Range(8, 15)] float sprintingSpeed;
-    [SerializeField][Range(2, 4)] float crouchSpeed;
-    [SerializeField][Range(100, 500)] float dashSpeed;
+    [SerializeField][Range(4, 10)] int joggingSpeed;
+    [SerializeField][Range(7, 15)] int sprintingSpeed;
+    [SerializeField][Range(2, 6)] int crouchSpeed;
+    [SerializeField][Range(100, 500)] int dashSpeed;
+    [SerializeField][Range(5, 15)] int speedMod;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
     [SerializeField] float jumpForce;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float crouch;
     [SerializeField] float height;
     [SerializeField] float groundDrag;
+    [SerializeField] float groundRayCheck;
 
 
     // private fields
@@ -42,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
     float movementSpeed;
     float unCrouch;
-    float groundRayCheck;
 
     // for debugging
     float y;
@@ -53,11 +55,12 @@ public class PlayerController : MonoBehaviour
 
     public enum State
     {
-        walking
-        , sprinting
-        , crouching
-        , dashing
-        , air
+        idle
+        ,jogging
+        ,sprinting
+        ,crouching
+        ,dashing
+        ,air
     }
     State playerState;
 
@@ -69,7 +72,6 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
         canJump = true;
         unCrouch = transform.localScale.y;
-        groundRayCheck = height * 0.5f + 0.2f;
 
     }
 
@@ -80,17 +82,18 @@ public class PlayerController : MonoBehaviour
         x = rb.linearVelocity.x;
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
-        IsGrounded();
+
         SpeedControl();
         GetPlayerState();
-        Movement();
-        Jump();
-        Crouch();
-        Dash();
+
+        Jump(); // jump keybind temporarily set to "t"
+        Crouch(); // keybind set to left ctrl
+        Dash(); // key bind set to space
     }
 
     void FixedUpdate()
     {
+        IsGrounded();
         Movement();
     }
 
@@ -108,8 +111,8 @@ public class PlayerController : MonoBehaviour
 
     void IsGrounded()
     {
-        Debug.DrawRay(transform.position, Vector3.down * height * 0.5f, Color.red);
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, height * 0.5f + 0.2f, ground);
+        Debug.DrawRay(orientation.position, Vector3.down * height * groundRayCheck, Color.red);
+        isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundRayCheck, ground);
 
         if (isGrounded)
         {
@@ -154,15 +157,17 @@ public class PlayerController : MonoBehaviour
 
     void GetPlayerState()
     {
-        if (Input.GetButton("Sprint") && isGrounded)
+        if (moveDir == Vector3.zero)
+        {
+            playerState = State.idle;
+        }
+        else if (Input.GetButton("Sprint") && isGrounded)
         {
             playerState = State.sprinting;
-            movementSpeed = sprintingSpeed;
         }
-        else if (isGrounded)
+        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
         {
-            playerState = State.walking;
-            movementSpeed = walkingSpeed;
+            playerState = State.jogging;
         }
         else if (isCrouching)
         {
@@ -172,6 +177,80 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerState = State.air;
+        }
+
+        GetPlayerStateSpeed();
+        GetPlayerStateAnimation();
+    }
+
+    void GetPlayerStateSpeed()
+    {
+        switch (playerState)
+        {
+            case State.idle:
+                
+                movementSpeed -= speedMod * Time.deltaTime;
+                if (movementSpeed <= 0)
+                    movementSpeed = 0f;
+
+                break;
+
+            case State.jogging:
+
+                if (movementSpeed > joggingSpeed)
+                {
+                    movementSpeed -= speedMod * Time.deltaTime;
+                    if (movementSpeed <= joggingSpeed)
+                        movementSpeed = joggingSpeed;
+                }
+
+                if (movementSpeed < joggingSpeed)
+                {
+                    movementSpeed += speedMod * Time.deltaTime;
+                    if (movementSpeed >= joggingSpeed)
+                        movementSpeed = joggingSpeed;
+                }
+
+                break;
+
+            case State.sprinting:
+
+                movementSpeed += speedMod * Time.deltaTime;
+                if (movementSpeed >= sprintingSpeed)
+                    movementSpeed = sprintingSpeed;
+
+                break;
+
+            case State.dashing:
+
+                break;
+
+            case State.air:
+
+                break;
+        }
+    }
+
+    void GetPlayerStateAnimation()
+    {
+        switch (playerState)
+        {
+            case State.idle:
+                anim.SetBool("isMoving", false);
+                anim.SetBool("isSprinting", false);
+                break;
+
+            case State.jogging:
+                if (playerState != State.sprinting)
+                    anim.SetBool("isMoving", true);
+
+                anim.SetBool("isSprinting", false);
+                break;
+
+            case State.sprinting:
+                anim.SetBool("isMoving", true);
+                anim.SetBool("isSprinting", true);
+                break;
         }
     }
 
