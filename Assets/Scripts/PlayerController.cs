@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
 
     // private fields
-    Vector3 moveDir;
+    public Vector3 moveDir;
     Rigidbody rb;
 
     bool isGrounded;
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         ,dashing
         ,air
     }
-    State playerState;
+    public State playerState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        moveDir = orientation.forward * Input.GetAxisRaw("Vertical") +
+        moveDir = Camera.main.transform.forward * Input.GetAxisRaw("Vertical") +
                   orientation.right * Input.GetAxisRaw("Horizontal");
 
         if (isGrounded)
@@ -194,7 +194,6 @@ public class PlayerController : MonoBehaviour
                     movementSpeed = 0f;
 
                 break;
-
             case State.jogging:
 
                 if (movementSpeed > joggingSpeed)
@@ -212,7 +211,6 @@ public class PlayerController : MonoBehaviour
                 }
 
                 break;
-
             case State.sprinting:
 
                 movementSpeed += speedMod * Time.deltaTime;
@@ -220,11 +218,9 @@ public class PlayerController : MonoBehaviour
                     movementSpeed = sprintingSpeed;
 
                 break;
-
             case State.dashing:
 
                 break;
-
             case State.air:
 
                 break;

@@ -6,18 +6,21 @@ public class TPCamController : MonoBehaviour
     [SerializeField] Transform playerObj;
     [SerializeField] Transform playerModel;
     [SerializeField] Transform crossHair;
+    [SerializeField] Rigidbody rb;
     [SerializeField] float sensitivity;
 
     [SerializeField] GameObject basicCam;
     [SerializeField] GameObject combatCam;
 
-    bool combatMode;
+    bool inCombat;
+
+    Vector3 currentCam;
 
     CamStyle cam;
     enum CamStyle
     {
         Basic
-        ,Combat
+        , Combat
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,6 +34,7 @@ public class TPCamController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateCamera();
         GetCamStyle();
     }
 
@@ -56,7 +60,7 @@ public class TPCamController : MonoBehaviour
             combatCam.SetActive(true);
 
             Vector3 combatDir = crossHair.position - new Vector3(transform.position.x, crossHair.position.y, transform.position.z);
-            
+
             orientation.forward = combatDir.normalized;
             playerModel.forward = combatDir.normalized;
         }
@@ -67,15 +71,34 @@ public class TPCamController : MonoBehaviour
         basicCam.SetActive(false);
         combatCam.SetActive(false);
 
-        if (Input.GetButtonDown("Combat") && !combatMode)
+        if (Input.GetButtonDown("Combat") && !inCombat)
         {
-            combatMode = true;
+            inCombat = true;
             cam = CamStyle.Combat;
         }
-        else if (Input.GetButtonDown("Combat") && combatMode)
+        else if (Input.GetButtonDown("Combat") && inCombat)
         {
-            combatMode = false;
+            inCombat = false;
             cam = CamStyle.Basic;
         }
     }
+
+    void UpdateCamera()
+    {
+        if (!inCombat)
+        {
+            currentCam = Vector3.Lerp(combatCam.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
+            //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
+            Camera.main.transform.position = new Vector3(basicCam.transform.position.x, basicCam.transform.position.y, basicCam.transform.position.z);
+
+        }
+        else if (inCombat)
+        {
+            currentCam = Vector3.Lerp(basicCam.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
+            //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
+            Camera.main.transform.position = new Vector3(combatCam.transform.position.x, combatCam.transform.position.y, combatCam.transform.position.z);
+        }
+        Camera.main.transform.position = new Vector3(currentCam.x, currentCam.y, currentCam.z);
+    }
 }
+
