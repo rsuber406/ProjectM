@@ -11,10 +11,9 @@ public class TPCamController : MonoBehaviour
 
     [SerializeField] GameObject basicCam;
     [SerializeField] GameObject combatCam;
+    [SerializeField] GameObject mainCam;
 
     bool inCombat;
-
-    Vector3 currentCam;
 
     CamStyle cam;
     enum CamStyle
@@ -34,7 +33,7 @@ public class TPCamController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateCamera();
+        //UpdateCamera();
         GetCamStyle();
     }
 
@@ -87,18 +86,20 @@ public class TPCamController : MonoBehaviour
     {
         if (!inCombat)
         {
-            currentCam = Vector3.Lerp(combatCam.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
+            mainCam.transform.position = combatCam.transform.position;
+            //currentCam = Vector3.Lerp(combatCam.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
             //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
-            Camera.main.transform.position = new Vector3(basicCam.transform.position.x, basicCam.transform.position.y, basicCam.transform.position.z);
+            combatCam.transform.position = new Vector3(basicCam.transform.position.x, basicCam.transform.position.y, basicCam.transform.position.z);
 
         }
         else if (inCombat)
         {
-            currentCam = Vector3.Lerp(basicCam.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
+            mainCam.transform.position = basicCam.transform.position;
+            //currentCam = Vector3.Lerp(basicCam.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
             //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
-            Camera.main.transform.position = new Vector3(combatCam.transform.position.x, combatCam.transform.position.y, combatCam.transform.position.z);
+            basicCam.transform.position = new Vector3(combatCam.transform.position.x, combatCam.transform.position.y, combatCam.transform.position.z);
         }
-        Camera.main.transform.position = new Vector3(currentCam.x, currentCam.y, currentCam.z);
+        //Camera.main.transform.position = new Vector3(currentCam.x, currentCam.y, currentCam.z);
     }
 }
 
