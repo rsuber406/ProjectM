@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bb1ebae72f0a5489f6b73cd45b76eb, type: 3}
   m_Name: MasterSpellsList
   m_EditorClassIdentifier: 
-  keyValuePairs:
-  - key: 
-    value: {fileID: 0}
+  SpellList:
+  - key: fireball
+    value: {fileID: 11400000, guid: 8f6e7384bdcfe9e478336e7c6b17ebd8, type: 2}
+  - key: raijing
+    value: {fileID: 11400000, guid: 7237b49198908cd40af28d1ccc0f5ad8, type: 2}
+  - key: shield
+    value: {fileID: 11400000, guid: 52ca8420797c5634089bbc3ed5961e4d, type: 2}

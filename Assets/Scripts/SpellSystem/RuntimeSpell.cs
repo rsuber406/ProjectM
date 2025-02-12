@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-class RuntimeSpell
+public class RuntimeSpell
 {
     public float lastCastTime;
     public SpellBase spell;

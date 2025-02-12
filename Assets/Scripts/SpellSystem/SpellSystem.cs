@@ -8,14 +8,15 @@ public class SpellSystem : MonoBehaviour
     private SpellSystemState state = SpellSystemState.Ready;
     
     [SerializeField] private SpellSlotMap spellSlotMapping;
-    
+
+    public Dictionary<string, RuntimeSpell> BoundSpells => boundSpells;
     private Dictionary<string, RuntimeSpell> boundSpells = new Dictionary<string, RuntimeSpell>();
     private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
     
     private AttributesController attributesController;
     private MasterSpellsList masterSpellsList;
     
-    void Awake()
+    void Start()
     {
         masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
