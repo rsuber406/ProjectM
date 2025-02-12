@@ -22,12 +22,20 @@ public abstract class SpellBase : ScriptableObject, ISpell
     public void Init(SpellSystem spellSystem)
     {
         this.spellSystem = spellSystem;
+        OnSpellEnd += this.spellSystem.ResetSpellActivationState;
+    }
+
+    public void Cleanup()
+    {
+        spellSystem = null;
+        OnSpellEnd -= spellSystem.ResetSpellActivationState;
     }
 
     public abstract bool CanActivate();
 
     public virtual void Activate()
     {
+        if (!spellSystem.UseMana(cost)) return;
         Debug.Log($"{displayName} activated!");
     }
 

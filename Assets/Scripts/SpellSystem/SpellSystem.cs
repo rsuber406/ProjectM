@@ -1,28 +1,23 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-enum SpellSystemState
-{
-    Ready, // Can a spell be activated now?
-    Activated, // Is a spell in progress blocking other spells from activating
-    Offline,
-}
-
 
 [RequireComponent(typeof(AttributesController))]
 public class SpellSystem : MonoBehaviour
 {
     private SpellSystemState state = SpellSystemState.Ready;
     
-    private AttributesController attributesController;
-    [SerializeField] private MasterSpellsList masterSpellsList;
-    
     [SerializeField] private SpellSlotMap spellSlotMapping;
-    private Dictionary<string, SpellBase> boundSpells = new Dictionary<string, SpellBase>();
+    
+    private Dictionary<string, RuntimeSpell> boundSpells = new Dictionary<string, RuntimeSpell>();
     private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
+    
+    private AttributesController attributesController;
+    private MasterSpellsList masterSpellsList;
     
     void Awake()
     {
+        masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }
@@ -51,8 +46,11 @@ public class SpellSystem : MonoBehaviour
         {
             if (slot.assignedSpell != null)
             {
-                slot.assignedSpell.Init(this);
-                boundSpells[slot.slotName] = slot.assignedSpell;
+                GrantSpells(slot.assignedSpell);
+                RuntimeSpell targetSpell = new RuntimeSpell(slot.assignedSpell);
+                targetSpell.spell.Init(this);
+                
+                boundSpells[slot.slotName] = targetSpell;
             }
         }
     }
@@ -65,7 +63,7 @@ public class SpellSystem : MonoBehaviour
         foreach (var pair in boundSpells)
         {
             // If no spell assigned to slot then skipp slot
-            if (pair.Value == null)
+            if (pair.Value.spell == null)
             {
                 Debug.LogError($"{pair.Key} is unassigned!");
                 continue;
@@ -75,17 +73,36 @@ public class SpellSystem : MonoBehaviour
             {
                 if (pair.Value.CanActivate())
                 {
-                    pair.Value.Activate();
+                    pair.Value.spell.Activate();
+                    pair.Value.lastCastTime = Time.time;
                     state = SpellSystemState.Activated;
-                    pair.Value.OnSpellEnd += ResetSpellActivationState;
+                    
                 }
             }
         }
     }
 
-    private void ResetSpellActivationState()
+    public bool HasEnoughMana(float cost)
+    {
+        return attributesController.mana.currentValue >= cost;
+    }
+    
+    public bool UseMana(float cost)
+    {
+        if (HasEnoughMana(cost))
+        {
+            attributesController.mana.currentValue -= cost;
+            return true;
+        }
+
+        return false;
+    }
+
+    public void ResetSpellActivationState()
     {
         state = SpellSystemState.Ready;
         Debug.Log("SpellSystem is Ready to activate new spell!");
     }
+    
+    
 }

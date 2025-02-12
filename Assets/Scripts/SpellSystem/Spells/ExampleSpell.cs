@@ -9,7 +9,7 @@ public class ExampleSpell : SpellBase
     
     public override bool CanActivate()
     {
-       return true;
+       return spellSystem.HasEnoughMana(cost);
     }
 
     public override void Activate()

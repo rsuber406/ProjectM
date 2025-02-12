@@ -16,6 +16,6 @@ MonoBehaviour:
   description: 
   failedActivationMessage: 
   icon: {fileID: 0}
-  cooldown: 0
+  cooldown: 5
   cost: 0
   executionTime: 3
