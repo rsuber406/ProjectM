@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
     [SerializeField] Animator anim;
-    [SerializeField][Range(1, 10)] float animTransSpeed;
+    [SerializeField][Range(1, 10)] int animTransSpeed;
     
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] int joggingSpeed;
