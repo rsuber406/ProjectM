@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: []
   meshFilter: []
+  allowedAmountToTargetPlayer: 3
 --- !u!1 &8048847443793303424
 GameObject:
   m_ObjectHideFlags: 0

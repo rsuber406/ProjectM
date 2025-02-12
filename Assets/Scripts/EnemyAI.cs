@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +15,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Replace GameObject with the scriptable spell type
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
     [Header("Configs")] [SerializeField] private bool isMelee;
-
+    [SerializeField] private int rotationSpeed;
     [SerializeField] private bool canRoam;
     [SerializeField] private int roamDistance;
     [SerializeField] private NavMeshAgent agent;
@@ -64,6 +65,11 @@ public class EnemyAI : MonoBehaviour, IDamage
                     agent.SetDestination(playerPos);
                     if (!isMelee)
                     {
+                        if (Vector3.Distance(transform.position, playerPos) < agent.stoppingDistance)
+                        {
+                            // Make the AI face the target
+                            FaceTarget(ref playerPos);
+                        }
                         // Enable range attacks
                     }
                 }
@@ -89,6 +95,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         Debug.Log(other.tag);
     }
 
+    void FaceTarget(ref Vector3 target)
+    {
+        Vector3 direction = target - transform.position;
+        direction.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.isTrigger) return;
@@ -105,5 +119,34 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             Destroy(gameObject);
         }
+    }
+
+    private void AttackPlayer()
+    {
+        if (AIController.GetAIController().CanAttackPlayer())
+        {
+            if (isMelee)
+            {
+                if (Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition()) < 3)
+                {
+                    MeleeAttackPlayer();
+                }
+            }
+            else RangeAttackPlayer();
+            
+            AIController.GetAIController().RemoveFromAttackQue();
+        }
+    }
+
+    private IEnumerator MeleeAttackPlayer()
+    {
+        // handle melee combat
+        yield return new WaitForSeconds(1f);
+    }
+
+    private IEnumerator RangeAttackPlayer()
+    {
+        // handle range combat
+        yield return new WaitForSeconds(1f);
     }
 }
