@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] private Transform headPos;
     private float convertedFOV = 0;
     private Vector3 playerPos;
+    private bool isAttacking;
 
 
     // private fields
@@ -47,7 +48,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
         else
         {
-            // Roam for player
+           // Roam for player
+        }
+
+        if (!playerDetected && isAttacking)
+        {
+            AIController.GetAIController().RemoveFromAttackQue();
+            isAttacking = false;
         }
     }
 
@@ -70,7 +77,8 @@ public class EnemyAI : MonoBehaviour, IDamage
                             // Make the AI face the target
                             FaceTarget(ref playerPos);
                         }
-                        // Enable range attacks
+                        if(!isAttacking)
+                        AttackPlayer();
                     }
                 }
             }
@@ -125,28 +133,33 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (AIController.GetAIController().CanAttackPlayer())
         {
-            if (isMelee)
-            {
-                if (Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition()) < 3)
+            isAttacking = true;
+                if (Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition()) < 3 && isMelee)
                 {
                     MeleeAttackPlayer();
                 }
-            }
+            
             else RangeAttackPlayer();
             
-            AIController.GetAIController().RemoveFromAttackQue();
+            
         }
+
+       
     }
 
     private IEnumerator MeleeAttackPlayer()
     {
         // handle melee combat
         yield return new WaitForSeconds(1f);
+        AIController.GetAIController().RemoveFromAttackQue();
+        isAttacking = false;
     }
 
     private IEnumerator RangeAttackPlayer()
     {
         // handle range combat
         yield return new WaitForSeconds(1f);
+        AIController.GetAIController().RemoveFromAttackQue();
+        isAttacking = false;
     }
 }

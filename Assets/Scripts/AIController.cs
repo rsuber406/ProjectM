@@ -7,6 +7,7 @@ public  class AIController : MonoBehaviour
     [SerializeField] private MeshFilter[] meshFilter;
     [SerializeField] private int allowedAmountToTargetPlayer;
     private static AIController instance;
+    private bool playerDetectedByAnAI = false;
 
     private int currentlyAttackingPlayer = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +25,7 @@ public  class AIController : MonoBehaviour
     void Update()
     {
         UpdatePlayerPosition();
+        Debug.Log($"{currentlyAttackingPlayer} currently attacking");
     }
 
     void UpdatePlayerPosition()
@@ -55,6 +57,17 @@ public  class AIController : MonoBehaviour
         }
         
     }
+
+    public void SetPlayerDetectedByAnAI()
+    {
+        playerDetectedByAnAI = true;
+    }
+
+    public bool IsPlayerDetectedByAnAI()
+    {
+        return playerDetectedByAnAI;
+    }
+   
 
     public void RemoveFromAttackQue()
     {
