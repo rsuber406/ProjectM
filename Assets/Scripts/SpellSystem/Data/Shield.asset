@@ -17,5 +17,5 @@ MonoBehaviour:
   failedActivationMessage: 
   icon: {fileID: 21300000, guid: ae5d341a866c92f4c92ceb7b36cd96b5, type: 3}
   cooldown: 10
-  cost: 0
+  cost: 20
   executionTime: 5

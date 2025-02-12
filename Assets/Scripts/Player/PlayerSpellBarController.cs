@@ -34,7 +34,7 @@ public class PlayerSpellBarController : MonoBehaviour
 
             if (boundSpells.TryGetValue(spellSlotKey, out RuntimeSpell assignedSpell))
             {
-                slotUI.Init(assignedSpell.spell);
+                slotUI.Init(assignedSpell);
             }
             else
             {

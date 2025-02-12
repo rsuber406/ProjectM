@@ -9,8 +9,13 @@ public class RuntimeSpell
 
     public RuntimeSpell(SpellBase inSpell)
     {
-        lastCastTime = -1;
+        lastCastTime = Time.time - inSpell.cooldown;
         spell = inSpell;
+    }
+
+    public bool IsCooldownActive()
+    {
+        return GetRemainingCooldown() > 0;
     }
     
     public float GetRemainingCooldown()
