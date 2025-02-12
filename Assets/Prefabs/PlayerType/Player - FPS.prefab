@@ -300,18 +300,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   orientation: {fileID: 296978024387458202}
-  walkingSpeed: 6
+  anim: {fileID: 0}
+  joggingSpeed: 4
   sprintingSpeed: 10
   crouchSpeed: 4
   dashSpeed: 200
+  speedMod: 10
   jumpForce: 10
   jumpMax: 0
   jumpCooldown: 0.75
   airMult: 0.4
-  maxSlopeAngle: 0
   crouch: 0.5
   height: 2
   groundDrag: 5
+  groundRayCheck: 0
+  moveDir: {x: 0, y: 0, z: 0}
 --- !u!54 &8292139671738621303
 Rigidbody:
   m_ObjectHideFlags: 0

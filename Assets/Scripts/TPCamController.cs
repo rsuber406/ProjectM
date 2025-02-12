@@ -11,8 +11,8 @@ public class TPCamController : MonoBehaviour
 
     [SerializeField] GameObject basicCam;
     [SerializeField] GameObject combatCam;
-    [SerializeField] GameObject mainCam;
 
+    //[SerializeField] Rigidbody rb;
 
     bool inCombat;
 
