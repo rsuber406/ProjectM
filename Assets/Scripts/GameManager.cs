@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
 
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
-        //player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

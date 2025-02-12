@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        convertedFOV = 1f - ((float)FOV / 100);
+        convertedFOV = 1f - ((float)FOV / 100f);
     }
 
     // Update is called once per frame
@@ -71,6 +71,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
+        Debug.Log(dotProduct);
         if (dotProduct > convertedFOV)
         {
             RaycastHit hit;
