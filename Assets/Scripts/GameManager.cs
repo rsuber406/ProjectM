@@ -4,7 +4,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     [SerializeField] private GameObject player;
-    
+    [SerializeField] private MasterSpellsList masterSpellsList;
+
+    public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
     private AIController aiController;
     
