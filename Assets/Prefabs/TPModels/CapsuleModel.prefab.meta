@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Enemies.meta
+guid: 4d45ba4e75eb915408ce43133d9a8239
+folderAsset: yes
+DefaultImporter:
+========
 guid: 57cb4dac186d9d6409a4f6012b40c684
 PrefabImporter:
+>>>>>>>> development:Assets/Prefabs/TPModels/CapsuleModel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

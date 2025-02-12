@@ -2,15 +2,20 @@
 using UnityEngine;
 
 [Serializable]
-class RuntimeSpell
+public class RuntimeSpell
 {
     public float lastCastTime;
     public SpellBase spell;
 
     public RuntimeSpell(SpellBase inSpell)
     {
-        lastCastTime = -1;
+        lastCastTime = Time.time - inSpell.cooldown;
         spell = inSpell;
+    }
+
+    public bool IsCooldownActive()
+    {
+        return GetRemainingCooldown() > 0;
     }
     
     public float GetRemainingCooldown()
