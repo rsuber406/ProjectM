@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerPos = AIController.GetAIController().GetPlayerPosition();
-          
+          Debug.Log("player detected");
             playerDetected = true;
         }
     }
