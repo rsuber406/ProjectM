@@ -14,12 +14,13 @@ public class ExampleSpell : SpellBase
 
     public override void Activate()
     {
+        base.Activate();
         spellSystem.StartCoroutine(CastSpell());
     }
 
     IEnumerator CastSpell()
     {
-        Debug.Log("Casting Spell");
+        Debug.Log($"Casting {displayName}");
         yield return new WaitForSeconds(executionTime);
         Cancel();
     }

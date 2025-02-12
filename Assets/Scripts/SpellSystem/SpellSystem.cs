@@ -8,29 +8,29 @@ enum SpellSystemState
     Offline,
 }
 
+
 [RequireComponent(typeof(AttributesController))]
 public class SpellSystem : MonoBehaviour
 {
+    private SpellSystemState state = SpellSystemState.Ready;
+    
     private AttributesController attributesController;
     [SerializeField] private MasterSpellsList masterSpellsList;
     
-    private SpellSystemState state = SpellSystemState.Ready;
-    
-    [SerializeField]
-    private List<StringSpellPair> ActiveSpellMap = new List<StringSpellPair>();
-
-    private List<string> grantedSpells = new List<string>();
+    [SerializeField] private SpellSlotMap spellSlotMapping;
+    private Dictionary<string, SpellBase> boundSpells = new Dictionary<string, SpellBase>();
+    private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
     
     void Awake()
     {
+        attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }
 
-    void GrantSpells(SpellBase[] spells)
+    void GrantSpells(SpellBase spell)
     {
         // Here we give the player spells
-        
-        InitializeSpells();
+        grantedSpells.Add(spell);
     }
     
     void RemoveSpell(string spellName)
@@ -45,9 +45,15 @@ public class SpellSystem : MonoBehaviour
 
     void InitializeSpells()
     {
-        foreach (StringSpellPair pair in ActiveSpellMap)
+        boundSpells.Clear();
+        
+        foreach (SpellSlot slot in spellSlotMapping.spellSlots)
         {
-            pair.value.Init(this);
+            if (slot.assignedSpell != null)
+            {
+                slot.assignedSpell.Init(this);
+                boundSpells[slot.slotName] = slot.assignedSpell;
+            }
         }
     }
 
@@ -56,18 +62,22 @@ public class SpellSystem : MonoBehaviour
         // Block spell activation if system is not ready to recieve input
         if (state != SpellSystemState.Ready) return;
         
-        foreach (StringSpellPair pair in ActiveSpellMap)
+        foreach (var pair in boundSpells)
         {
             // If no spell assigned to slot then skipp slot
-            if (pair.value == null) continue;
-            
-            if (Input.GetButtonUp(pair.key))
+            if (pair.Value == null)
             {
-                if (pair.value.CanActivate())
+                Debug.LogError($"{pair.Key} is unassigned!");
+                continue;
+            }
+            
+            if (Input.GetButtonUp(pair.Key))
+            {
+                if (pair.Value.CanActivate())
                 {
-                    pair.value.Activate();
+                    pair.Value.Activate();
                     state = SpellSystemState.Activated;
-                    pair.value.OnSpellEnd += ResetSpellActivationState;
+                    pair.Value.OnSpellEnd += ResetSpellActivationState;
                 }
             }
         }
@@ -76,6 +86,6 @@ public class SpellSystem : MonoBehaviour
     private void ResetSpellActivationState()
     {
         state = SpellSystemState.Ready;
-        Debug.Log("SpellSystem is Ready to activate new spell");
+        Debug.Log("SpellSystem is Ready to activate new spell!");
     }
 }

@@ -33,7 +33,7 @@ public abstract class SpellBase : ScriptableObject, ISpell
 
     public virtual void Cancel()
     {
-        Debug.Log($"{displayName} activated!");
+        Debug.Log($"{displayName} cancelled!");
         OnSpellEnd?.Invoke();
     }
 }

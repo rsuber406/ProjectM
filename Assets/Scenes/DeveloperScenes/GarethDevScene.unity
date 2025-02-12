@@ -363,13 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterSpellsList: {fileID: 11400000, guid: aaec4fb0fd6f42c4683d42a1e17a37bd, type: 2}
-  ActiveSpellMap:
-  - key: Ability1
-    value: {fileID: 11400000, guid: 8f6e7384bdcfe9e478336e7c6b17ebd8, type: 2}
-  - key: Ability2
-    value: {fileID: 11400000, guid: 7237b49198908cd40af28d1ccc0f5ad8, type: 2}
-  - key: Ability3
-    value: {fileID: 11400000, guid: 52ca8420797c5634089bbc3ed5961e4d, type: 2}
+  spellSlotMapping: {fileID: 11400000, guid: 0699ff10d145e0641a2795a11a6267c9, type: 2}
 --- !u!114 &333192496
 MonoBehaviour:
   m_ObjectHideFlags: 0
