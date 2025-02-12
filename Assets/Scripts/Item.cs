@@ -2,8 +2,20 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    [Header("Item Config")]
+
+    [SerializeField] public ItemData itemData;
+
+    public ItemData data => itemData;
     public string itemName;
-    public ItemData data;
+
+   private void LoadItemData()
+    {
+        if (itemData != null)
+        {
+            itemName = itemData.name;
+        }
+    }
 
 
 }

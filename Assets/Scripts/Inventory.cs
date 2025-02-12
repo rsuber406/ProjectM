@@ -48,7 +48,10 @@ public class Inventory : MonoBehaviour
         }
         return count;
     }
-
+    public bool IsFull()
+    {
+        return CountInventorySlotsLeft() == 0;
+    }
     public int CountInventorySlotsLeft()
     {
         int count = 0;
@@ -145,6 +148,7 @@ public class Inventory : MonoBehaviour
         }
         OnInventoryChanged?.Invoke();
     }
+    //should be used when player dies
 
 }
 
