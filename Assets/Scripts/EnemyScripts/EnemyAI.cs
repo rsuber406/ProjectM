@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected Vector3 playerPos;
     protected bool isAttacking;
     protected bool playerDetected = false;
-
+    protected float agentStoppingDistanceOrig;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual void Update()
     {
         CheckPlayerInRange();
+        agentStoppingDistanceOrig = agent.stoppingDistance;
     }
 
     protected void CheckPlayerInRange()
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerPos = AIController.GetAIController().GetPlayerPosition();
-            Debug.Log("Player detected");
+          
             playerDetected = true;
         }
     }
@@ -78,8 +79,6 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Raycast hit");
-                    Debug.Log("Can see player was called");
                     
                     agent.SetDestination(playerPos);
 
@@ -128,33 +127,10 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    private void AttackPlayer()
+    protected virtual void AttackPlayer()
     {
-        if (AIController.GetAIController().CanAttackPlayer())
-        {
-            isAttacking = true;
-            if (Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition()) < 3 && isMelee)
-            {
-                MeleeAttackPlayer();
-            }
-
-            else RangeAttackPlayer();
-        }
+        
     }
-
-    protected virtual IEnumerator MeleeAttackPlayer()
-    {
-        // handle melee combat
-        yield return new WaitForSeconds(1f);
-        AIController.GetAIController().RemoveFromAttackQue();
-        isAttacking = false;
-    }
-
-    protected virtual IEnumerator RangeAttackPlayer()
-    {
-        // handle range combat
-        yield return new WaitForSeconds(1f);
-        AIController.GetAIController().RemoveFromAttackQue();
-        isAttacking = false;
-    }
+    
+   
 }
