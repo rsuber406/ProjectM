@@ -94,7 +94,10 @@ public class Inventory : MonoBehaviour
         {
             if (slots[i].item.name == itemName)
             {
+                var removedItem = slots[i].item;
                 slots[i].item = null;
+                OnItemRemoved?.Invoke(removedItem);
+                OnInventoryChanged?.Invoke();
             }
         }
         return false;
@@ -111,11 +114,36 @@ public class Inventory : MonoBehaviour
                 slots[i].item = item;
                 addedItem = true;
                 OnItemAdded?.Invoke(item);
+                OnInventoryChanged?.Invoke();
                 return addedItem;
             }
 
         }
         return addedItem;
+    }
+
+    public void SwapItemPositions(int fromSlot, int toSlot)
+    {
+        if (fromSlot == toSlot) return;
+        if(fromSlot < 0 || fromSlot > slots.Length || toSlot < 0 || toSlot >= slots.Length) return;
+        var tempItemSlot = slots[toSlot].item;
+        slots[toSlot].item = slots[fromSlot].item;
+        slots[toSlot] = slots[fromSlot];
+
+        OnInventoryChanged?.Invoke(); //I have no idea if this works yet or not, just had an idea and wanted to put it here.
+    }
+
+    public void ClearInventory()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                OnItemRemoved?.Invoke(slots[i].item);
+            }
+            slots[i] = null;
+        }
+        OnInventoryChanged?.Invoke();
     }
 
 }
