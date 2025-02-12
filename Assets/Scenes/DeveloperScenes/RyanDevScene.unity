@@ -24575,7 +24575,7 @@ Animator:
   m_GameObject: {fileID: 8102969495370929520}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 093a23f4fbc7d1e4a9e0af204a8b2b35, type: 3}
-  m_Controller: {fileID: 9100000, guid: eea634a3c397fb744b012e54a301c56d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ddbd793eed9a3e4497e240defa36619, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -29754,6 +29754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905228301575757321}
+  - component: {fileID: 7469026039563906246}
   - component: {fileID: 1984744116542266573}
   - component: {fileID: 7469026039563906245}
   m_Layer: 0
@@ -31927,6 +31928,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &7469026039563906246
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229539362315560947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!4 &7471944069235180125
 Transform:
   m_ObjectHideFlags: 0
@@ -32271,6 +32293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3520821655403341610}
+  - component: {fileID: 7656042363386453713}
   - component: {fileID: 2866337469959267822}
   - component: {fileID: 6623444166158669286}
   m_Layer: 0
@@ -32280,6 +32303,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &7656042363386453713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656042363386453712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1 &7657224701275352711
 GameObject:
   m_ObjectHideFlags: 0
@@ -37824,7 +37868,6 @@ GameObject:
   - component: {fileID: 8878942870612561867}
   - component: {fileID: 8878942870612561870}
   - component: {fileID: 8878942870612561869}
-  - component: {fileID: 8878942870612561871}
   m_Layer: 0
   m_Name: Ghoul-Blue (VFX)
   m_TagString: Untagged
@@ -39661,7 +39704,7 @@ NavMeshAgent:
   m_Acceleration: 32
   avoidancePriority: 50
   m_AngularSpeed: 400
-  m_StoppingDistance: 5
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -39693,6 +39736,10 @@ MonoBehaviour:
   FOV: 70
   headPos: {fileID: 2032523947}
   animationController: {fileID: 3303526301090223536}
+  castTime: 1
+  castCooldown: 5
+  rightWeapon: {fileID: 7469026039563906246}
+  leftWeapon: {fileID: 7656042363386453713}
 --- !u!135 &8878942870612561869
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39712,7 +39759,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &8878942870612561870
 CapsuleCollider:
@@ -39737,33 +39784,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!54 &8878942870612561871
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102969495370929520}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8913261346485612080
 GameObject:
   m_ObjectHideFlags: 0

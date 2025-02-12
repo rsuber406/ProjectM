@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual void Update()
     {
         CheckPlayerInRange();
-        agentStoppingDistanceOrig = agent.stoppingDistance;
+        
     }
 
     protected void CheckPlayerInRange()
@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             // Roam for player
         }
 
-        if (!playerDetected && isAttacking)
+        if (!playerDetected)
         {
             AIController.GetAIController().RemoveFromAttackQue();
             isAttacking = false;
@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    
+                    if(!isAttacking)
                     agent.SetDestination(playerPos);
 
                     if (Vector3.Distance(transform.position, playerPos) < agent.stoppingDistance)
@@ -87,8 +87,6 @@ public class EnemyAI : MonoBehaviour, IDamage
                         // Make the AI face the target
                         FaceTarget(ref playerPos);
                     }
-
-                    if (!isAttacking)
                         AttackPlayer();
                 }
             }

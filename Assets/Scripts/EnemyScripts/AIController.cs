@@ -53,6 +53,7 @@ public  class AIController : MonoBehaviour
         else
         {
             currentlyAttackingPlayer++;
+            Debug.Log(currentlyAttackingPlayer);
             return true;
         }
         
