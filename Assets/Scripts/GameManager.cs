@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     private AIController aiController;
     
     
-    void Awake()
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
