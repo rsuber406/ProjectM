@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
     [SerializeField] Animator anim;
-
+    [SerializeField][Range(1, 10)] float animTransSpeed;
+    
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] int joggingSpeed;
     [SerializeField][Range(7, 15)] int sprintingSpeed;
@@ -46,11 +47,11 @@ public class PlayerController : MonoBehaviour
 
     float movementSpeed;
     float unCrouch;
-    
+
     // Animation Speeds
     float ICSpeed;
     float OCSpeed;
-    float LFRSpeed;
+    float LFRDir;
 
     // for debugging
     float y;
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
         unCrouch = transform.localScale.y;
         OCSpeed = anim.GetFloat("OCSpeed");
         ICSpeed = anim.GetFloat("ICSpeed");
-        LFRSpeed = anim.GetFloat("LFR");
+        LFRDir = anim.GetFloat("LFR");
 
     }
 
@@ -263,14 +264,14 @@ public class PlayerController : MonoBehaviour
             {
                 case PlayerState.idle:
 
-                    OCSpeed -= Time.deltaTime * 5f;
+                    OCSpeed -= Time.deltaTime * animTransSpeed;
                     if (OCSpeed <= 0)
                         OCSpeed = 0f;
 
                     break;
                 case PlayerState.jogging:
 
-                    OCSpeed += Time.deltaTime * 5f;
+                    OCSpeed += Time.deltaTime * animTransSpeed;
                     if (OCSpeed >= 1)
                         OCSpeed = 1f;
 
@@ -284,14 +285,14 @@ public class PlayerController : MonoBehaviour
             {
                 case PlayerState.idle:
 
-                    ICSpeed -= Time.deltaTime * 5f;
+                    ICSpeed -= Time.deltaTime * animTransSpeed;
                     if (ICSpeed <= 0)
                         ICSpeed = 0f;
 
                     break;
                 case PlayerState.jogging:
 
-                    ICSpeed += Time.deltaTime * 5f;
+                    ICSpeed += Time.deltaTime * animTransSpeed;
                     if (ICSpeed >= 1)
                         ICSpeed = 1f;
 
@@ -303,17 +304,33 @@ public class PlayerController : MonoBehaviour
 
     void GetCombatState()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
+        {
             combatState = CombatState.forward;
+            
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+                combatState = CombatState.FR;
 
-        else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+                combatState = CombatState.FL;
+        }
+
+        else if (Input.GetKey(KeyCode.S))
             combatState = CombatState.backward;
 
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
             combatState = CombatState.right;
 
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
+        {
             combatState = CombatState.left;
+
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+                combatState = CombatState.FR;
+
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+                combatState = CombatState.FL;
+        }
 
         GetCombatStateAnimation();
     }
@@ -326,36 +343,68 @@ public class PlayerController : MonoBehaviour
             {
                 case CombatState.forward:
 
-                    if (LFRSpeed > 0.5)
+                    if (LFRDir > 0.5f)
                     {
-                        LFRSpeed -= Time.deltaTime * 5f;
-                        if (LFRSpeed <= 0.5f)
-                            LFRSpeed = 0.5f;
+                        LFRDir -= Time.deltaTime * animTransSpeed;
+                        if (LFRDir <= 0.5f)
+                            LFRDir = 0.5f;
                     }
-                    else if (LFRSpeed < 0.5)
+                    else if (LFRDir < 0.5f)
                     {
-                        LFRSpeed += Time.deltaTime * 5f;
-                        if (LFRSpeed >= 0.5f)
-                            LFRSpeed = 0.5f;
+                        LFRDir += Time.deltaTime * animTransSpeed;
+                        if (LFRDir >= 0.5f)
+                            LFRDir = 0.5f;
                     }
+
                     break;
                 case CombatState.right:
 
-                    LFRSpeed += Time.deltaTime * 5f;
-                    if (LFRSpeed >= 1f)
-                        LFRSpeed = 1f;
+                    LFRDir += Time.deltaTime * animTransSpeed;
+                    if (LFRDir >= 1f)
+                        LFRDir = 1f;
 
                     break;
-
                 case CombatState.left:
 
-                    LFRSpeed -= Time.deltaTime * 5f;
-                    if (LFRSpeed <= 0f)
-                        LFRSpeed = 0f;
+                    LFRDir -= Time.deltaTime * animTransSpeed;
+                    if (LFRDir <= 0f)
+                        LFRDir = 0f;
+
+                    break;
+                case CombatState.FR:
+
+                    if (LFRDir > 0.75)
+                    {
+                        LFRDir -= Time.deltaTime * animTransSpeed;
+                        if (LFRDir <= 0.75f)
+                            LFRDir = 0.75f;
+                    }
+                    else if (LFRDir < 0.75f)
+                    {
+                        LFRDir += Time.deltaTime * animTransSpeed;
+                        if (LFRDir >= 0.75f)
+                            LFRDir = 0.75f;
+                    }
+
+                    break;
+                case CombatState.FL:
+
+                    if (LFRDir > 0.25)
+                    {
+                        LFRDir -= Time.deltaTime * animTransSpeed;
+                        if (LFRDir <= 0.25f)
+                            LFRDir = 0.25f;
+                    }
+                    else if (LFRDir < 0.25f)
+                    {
+                        LFRDir += Time.deltaTime * animTransSpeed;
+                        if (LFRDir >= 0.25f)
+                            LFRDir = 0.25f;
+                    }
 
                     break;
             }
-            anim.SetFloat("LFR", LFRSpeed);
+            anim.SetFloat("LFR", LFRDir);
         }
         
     }
