@@ -314,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84682176}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.021286957, y: -0.000000011937238, z: -2.5416508e-10, w: 0.99977344}
+  m_LocalRotation: {x: -0.02128693, y: 9.290162e-16, z: 1.9780387e-17, w: 0.99977344}
   m_LocalPosition: {x: 0, y: 0.11801922, z: -3.8021142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -365,14 +365,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f91efbf2d49dfe488bf697b2c4f1ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivity: 9
   orientation: {fileID: 5547981987480430567}
   playerObj: {fileID: 333192492}
   playerModel: {fileID: 1064303469}
   crossHair: {fileID: 4402546222571905857}
-  rb: {fileID: 333192493}
-  sensitivity: 9
   basicCam: {fileID: 1963981108}
   combatCam: {fileID: 1620101482}
+  mainCam: {fileID: 84682176}
 --- !u!1 &89735484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3008,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 0
+  BlendHint: 8
 --- !u!1 &1624239514
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,7 +3859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 0
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -3887,7 +3887,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 0
+  BlendHint: 8
 --- !u!4 &1963981114
 Transform:
   m_ObjectHideFlags: 0
@@ -3896,7 +3896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963981108}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.021286957, y: -0.000000011937239, z: -2.54165e-10, w: 0.99977344}
+  m_LocalRotation: {x: -0.021286929, y: 9.289951e-16, z: 1.8789772e-17, w: 0.99977344}
   m_LocalPosition: {x: 0, y: 0.11801922, z: -3.8021142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

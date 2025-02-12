@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class TPCamController : MonoBehaviour
 {
+    [SerializeField] float sensitivity;
+
     [SerializeField] Transform orientation;
     [SerializeField] Transform playerObj;
     [SerializeField] Transform playerModel;
     [SerializeField] Transform crossHair;
-    [SerializeField] Rigidbody rb;
-    [SerializeField] float sensitivity;
 
     [SerializeField] GameObject basicCam;
     [SerializeField] GameObject combatCam;
     [SerializeField] GameObject mainCam;
+
 
     bool inCombat;
 
@@ -33,7 +34,6 @@ public class TPCamController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //UpdateCamera();
         GetCamStyle();
     }
 
@@ -80,26 +80,6 @@ public class TPCamController : MonoBehaviour
             inCombat = false;
             cam = CamStyle.Basic;
         }
-    }
-
-    void UpdateCamera()
-    {
-        if (!inCombat)
-        {
-            mainCam.transform.position = combatCam.transform.position;
-            //currentCam = Vector3.Lerp(combatCam.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
-            //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, basicCam.transform.position, Time.deltaTime * 10f);
-            combatCam.transform.position = new Vector3(basicCam.transform.position.x, basicCam.transform.position.y, basicCam.transform.position.z);
-
-        }
-        else if (inCombat)
-        {
-            mainCam.transform.position = basicCam.transform.position;
-            //currentCam = Vector3.Lerp(basicCam.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
-            //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, combatCam.transform.position, Time.deltaTime * 10f);
-            basicCam.transform.position = new Vector3(combatCam.transform.position.x, combatCam.transform.position.y, combatCam.transform.position.z);
-        }
-        //Camera.main.transform.position = new Vector3(currentCam.x, currentCam.y, currentCam.z);
     }
 }
 
