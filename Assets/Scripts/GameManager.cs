@@ -11,15 +11,16 @@ public class GameManager : MonoBehaviour
     private AIController aiController;
     
     
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
+
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -33,5 +34,10 @@ public class GameManager : MonoBehaviour
     public Vector3 GetPlayerPosition()
     {
         return player.transform.position;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }
