@@ -7,7 +7,7 @@ public  class AIController : MonoBehaviour
     [SerializeField] private MeshFilter[] meshFilter;
     [SerializeField] private int allowedAmountToTargetPlayer;
     private static AIController instance;
-    private bool playerDetectedByAnAI = false;
+    
 
     private int currentlyAttackingPlayer = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,16 +56,6 @@ public  class AIController : MonoBehaviour
             return true;
         }
         
-    }
-
-    public void SetPlayerDetectedByAnAI()
-    {
-        playerDetectedByAnAI = true;
-    }
-
-    public bool IsPlayerDetectedByAnAI()
-    {
-        return playerDetectedByAnAI;
     }
    
 
