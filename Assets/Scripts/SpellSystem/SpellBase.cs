@@ -11,12 +11,13 @@ public abstract class SpellBase : ScriptableObject, ISpell
     public string description;
     public string failedActivationMessage;
 
-    [Header("Spell Properties")]
+    [Header("Base Spell Properties")]
     public Sprite icon;
     public float cooldown;
     public float cost;
 
-    private SpellSystem spellSystem;
+    protected SpellSystem spellSystem;
+    public event Action OnSpellEnd;
     
     public void Init(SpellSystem spellSystem)
     {
@@ -24,6 +25,15 @@ public abstract class SpellBase : ScriptableObject, ISpell
     }
 
     public abstract bool CanActivate();
-    public abstract void Activate();
-    public abstract void Cancel();
+
+    public virtual void Activate()
+    {
+        Debug.Log($"{displayName} activated!");
+    }
+
+    public virtual void Cancel()
+    {
+        Debug.Log($"{displayName} activated!");
+        OnSpellEnd?.Invoke();
+    }
 }

@@ -1,8 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Spell System/Example Spell")]
 public class ExampleSpell : SpellBase
 {
+    [Header("Spell Properties")]
+    public float executionTime;
+    
     public override bool CanActivate()
     {
        return true;
@@ -10,11 +14,18 @@ public class ExampleSpell : SpellBase
 
     public override void Activate()
     {
-        Debug.Log("Spell Activated");
+        spellSystem.StartCoroutine(CastSpell());
+    }
+
+    IEnumerator CastSpell()
+    {
+        Debug.Log("Casting Spell");
+        yield return new WaitForSeconds(executionTime);
+        Cancel();
     }
 
     public override void Cancel()
     {
-        Debug.Log("Spell Cancelled");
+        base.Cancel();
     }
 }

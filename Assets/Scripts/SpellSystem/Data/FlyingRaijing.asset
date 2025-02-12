@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ab7fc874f4cb540ab69a10e1d04df5, type: 3}
   m_Name: FlyingRaijing
   m_EditorClassIdentifier: 
-  displayName: 
+  displayName: Flying Raijing
   description: 
   failedActivationMessage: 
   icon: {fileID: 0}
   cooldown: 0
   cost: 0
+  executionTime: 2

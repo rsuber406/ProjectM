@@ -13,25 +13,25 @@ public class StringSpellPair
 [CreateAssetMenu(fileName = "MasterSpellsList", menuName = "Spell System/MasterSpellsList")]
 public class MasterSpellsList : ScriptableObject
 {
-    public List<StringSpellPair> keyValuePairs = new List<StringSpellPair>();
+    public List<StringSpellPair> SpellList = new List<StringSpellPair>();
 
-    private Dictionary<string, SpellBase> _dictionary;
+    private Dictionary<string, SpellBase> dictionary;
     
     public void InitializeDictionary()
     {
-        _dictionary = new Dictionary<string, SpellBase>();
-        foreach (var pair in keyValuePairs)
+        dictionary = new Dictionary<string, SpellBase>();
+        foreach (var pair in SpellList)
         {
-            if (!_dictionary.ContainsKey(pair.key))
+            if (!dictionary.ContainsKey(pair.key))
             {
-                _dictionary.Add(pair.key, pair.value);
+                dictionary.Add(pair.key, pair.value);
             }
         }
     }
 
     public SpellBase GetValue(string key)
     {
-        if (_dictionary == null) InitializeDictionary();
-        return _dictionary.TryGetValue(key, out SpellBase value) ? value : null;
+        if (dictionary == null) InitializeDictionary();
+        return dictionary.TryGetValue(key, out SpellBase value) ? value : null;
     }
 }

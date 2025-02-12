@@ -268,6 +268,8 @@ GameObject:
   - component: {fileID: 333192492}
   - component: {fileID: 333192494}
   - component: {fileID: 333192493}
+  - component: {fileID: 333192496}
+  - component: {fileID: 333192495}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -348,6 +350,38 @@ MonoBehaviour:
   crouch: 0.5
   height: 2
   groundDrag: 5
+--- !u!114 &333192495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333192491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5979b2629c00648911d0f1eaf5f429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSpellsList: {fileID: 11400000, guid: aaec4fb0fd6f42c4683d42a1e17a37bd, type: 2}
+  ActiveSpellMap:
+  - key: Ability1
+    value: {fileID: 11400000, guid: 8f6e7384bdcfe9e478336e7c6b17ebd8, type: 2}
+  - key: Ability2
+    value: {fileID: 11400000, guid: 7237b49198908cd40af28d1ccc0f5ad8, type: 2}
+  - key: Ability3
+    value: {fileID: 11400000, guid: 52ca8420797c5634089bbc3ed5961e4d, type: 2}
+--- !u!114 &333192496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333192491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8174a1e74f4a9cd4d9397852fe4a7305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &549784602
 GameObject:
   m_ObjectHideFlags: 0
