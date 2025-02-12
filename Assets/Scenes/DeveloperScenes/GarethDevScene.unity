@@ -382,6 +382,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8174a1e74f4a9cd4d9397852fe4a7305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health:
+    attribute: 0
+    currentValue: 0
+    maxValue: 100
+    minValue: 0
+  mana:
+    attribute: 1
+    currentValue: 0
+    maxValue: 100
+    minValue: 0
 --- !u!1 &549784602
 GameObject:
   m_ObjectHideFlags: 0
