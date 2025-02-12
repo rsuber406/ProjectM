@@ -372,7 +372,6 @@ MonoBehaviour:
   crossHair: {fileID: 4402546222571905857}
   basicCam: {fileID: 1963981108}
   combatCam: {fileID: 1620101482}
-  mainCam: {fileID: 84682176}
 --- !u!1 &89735484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 333192492}
   - component: {fileID: 333192494}
-  - component: {fileID: 333192495}
   - component: {fileID: 333192493}
   m_Layer: 7
   m_Name: PlayerObj
@@ -1213,7 +1211,7 @@ MonoBehaviour:
   sprintingSpeed: 10
   crouchSpeed: 4
   dashSpeed: 200
-  speedMod: 12
+  speedMod: 15
   jumpForce: 5
   jumpMax: 2
   jumpCooldown: 0.75
@@ -1225,19 +1223,6 @@ MonoBehaviour:
   groundRayCheck: 0.57
   moveDir: {x: 0, y: 0, z: 0}
   playerState: 0
---- !u!114 &333192495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333192491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33cec7a18bef4d41a35d9d652cef909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1064303470}
 --- !u!1 &380042057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}

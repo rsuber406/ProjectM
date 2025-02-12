@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Range(7, 15)] int sprintingSpeed;
     [SerializeField][Range(2, 6)] int crouchSpeed;
     [SerializeField][Range(100, 500)] int dashSpeed;
-    [SerializeField][Range(5, 15)] int speedMod;
+    [SerializeField][Range(10, 20)] int speedMod;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
     [SerializeField] float jumpForce;
@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
 
-    [Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
-    [SerializeField] float maxSlopeAngle;
+    //[Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
+    //[SerializeField] float maxSlopeAngle;
 
     [Header("----- Other Player Settings ----- ")]
     [SerializeField] float crouch;
@@ -40,20 +40,26 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool canJump;
     bool isCrouching;
+    bool inCombat;
 
     int jumpCounter;
 
     float movementSpeed;
     float unCrouch;
+    
+    // Animation Speeds
+    float ICSpeed;
+    float OCSpeed;
+    float LFRSpeed;
 
     // for debugging
     float y;
     float x;
     float z;
+    
 
 
-
-    public enum State
+    enum PlayerState
     {
         idle
         ,jogging
@@ -62,7 +68,20 @@ public class PlayerController : MonoBehaviour
         ,dashing
         ,air
     }
-    public State playerState;
+    PlayerState playerState;
+
+    enum CombatState
+    {
+        forward
+        , backward
+        , right
+        , left
+        , FR
+        , FL
+        , casting
+        , dodging
+    }
+    CombatState combatState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -72,6 +91,9 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
         canJump = true;
         unCrouch = transform.localScale.y;
+        OCSpeed = anim.GetFloat("OCSpeed");
+        ICSpeed = anim.GetFloat("ICSpeed");
+        LFRSpeed = anim.GetFloat("LFR");
 
     }
 
@@ -85,9 +107,10 @@ public class PlayerController : MonoBehaviour
 
         SpeedControl();
         GetPlayerState();
+        GetCombatState();
 
-        Jump(); // jump keybind temporarily set to "t"
-        Crouch(); // keybind set to left ctrl
+        //Jump(); // jump keybind temporarily set to "t"
+        //Crouch(); // keybind set to left ctrl
         Dash(); // key bind set to space
     }
 
@@ -136,6 +159,225 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Dash()
+    {
+        if (Input.GetButtonDown("Dash") && isGrounded)
+        {
+            rb.AddForce(moveDir.normalized * dashSpeed, ForceMode.Impulse);
+        }
+    }
+
+    void GetPlayerState()
+    {
+        if (moveDir == Vector3.zero)
+        {
+            playerState = PlayerState.idle;
+        }
+        /*
+        else if (Input.GetButton("Sprint") && isGrounded)
+        {
+            playerState = State.sprinting;
+        }
+        */
+        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
+        {
+            playerState = PlayerState.jogging;
+        }
+        /*
+        else if (isCrouching)
+        {
+            playerState = State.crouching;
+            movementSpeed = crouchSpeed;
+        }
+        */
+        else
+        {
+            playerState = PlayerState.air;
+        }
+
+        GetPlayerStateSpeed();
+        GetPlayerStateAnimation();
+    }
+
+   
+
+    void GetPlayerStateSpeed()
+    {
+        switch (playerState)
+        {
+            case PlayerState.idle:
+                
+                movementSpeed -= speedMod * Time.deltaTime;
+                if (movementSpeed <= 0)
+                    movementSpeed = 0f;
+
+                break;
+            case PlayerState.jogging:
+
+                if (movementSpeed > joggingSpeed)
+                {
+                    movementSpeed -= speedMod * Time.deltaTime;
+                    if (movementSpeed <= joggingSpeed)
+                        movementSpeed = joggingSpeed;
+                }
+
+                if (movementSpeed < joggingSpeed)
+                {
+                    movementSpeed += speedMod * Time.deltaTime;
+                    if (movementSpeed >= joggingSpeed)
+                        movementSpeed = joggingSpeed;
+                }
+
+                break;
+            case PlayerState.sprinting:
+
+                movementSpeed += speedMod * Time.deltaTime;
+                if (movementSpeed >= sprintingSpeed)
+                    movementSpeed = sprintingSpeed;
+
+                break;
+            case PlayerState.dashing:
+
+                break;
+            case PlayerState.air:
+
+                break;
+        }
+    }
+
+    void GetPlayerStateAnimation()
+    {
+        if (Input.GetButtonDown("Combat"))
+        {
+            inCombat = !inCombat;
+
+            if (inCombat)
+                anim.SetBool("CombatMode", true);
+            else
+                anim.SetBool("CombatMode", false);
+        }
+
+        if (!inCombat)
+        {
+            switch (playerState)
+            {
+                case PlayerState.idle:
+
+                    OCSpeed -= Time.deltaTime * 5f;
+                    if (OCSpeed <= 0)
+                        OCSpeed = 0f;
+
+                    break;
+                case PlayerState.jogging:
+
+                    OCSpeed += Time.deltaTime * 5f;
+                    if (OCSpeed >= 1)
+                        OCSpeed = 1f;
+
+                    break;
+            }
+            anim.SetFloat("OCSpeed", OCSpeed);
+        }
+        else
+        {
+            switch (playerState)
+            {
+                case PlayerState.idle:
+
+                    ICSpeed -= Time.deltaTime * 5f;
+                    if (ICSpeed <= 0)
+                        ICSpeed = 0f;
+
+                    break;
+                case PlayerState.jogging:
+
+                    ICSpeed += Time.deltaTime * 5f;
+                    if (ICSpeed >= 1)
+                        ICSpeed = 1f;
+
+                    break;
+            }
+            anim.SetFloat("ICSpeed", ICSpeed);
+        }
+    }
+
+    void GetCombatState()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+            combatState = CombatState.forward;
+
+        else if (Input.GetKeyDown(KeyCode.S))
+            combatState = CombatState.backward;
+
+        else if (Input.GetKeyDown(KeyCode.D))
+            combatState = CombatState.right;
+
+        else if (Input.GetKeyDown(KeyCode.A))
+            combatState = CombatState.left;
+
+        GetCombatStateAnimation();
+    }
+
+    void GetCombatStateAnimation()
+    {
+        if (inCombat)
+        {
+            switch(combatState)
+            {
+                case CombatState.forward:
+
+                    if (LFRSpeed > 0.5)
+                    {
+                        LFRSpeed -= Time.deltaTime * 5f;
+                        if (LFRSpeed <= 0.5f)
+                            LFRSpeed = 0.5f;
+                    }
+                    else if (LFRSpeed < 0.5)
+                    {
+                        LFRSpeed += Time.deltaTime * 5f;
+                        if (LFRSpeed >= 0.5f)
+                            LFRSpeed = 0.5f;
+                    }
+                    break;
+                case CombatState.right:
+
+                    LFRSpeed += Time.deltaTime * 5f;
+                    if (LFRSpeed >= 1f)
+                        LFRSpeed = 1f;
+
+                    break;
+
+                case CombatState.left:
+
+                    LFRSpeed -= Time.deltaTime * 5f;
+                    if (LFRSpeed <= 0f)
+                        LFRSpeed = 0f;
+
+                    break;
+            }
+            anim.SetFloat("LFR", LFRSpeed);
+        }
+        
+    }
+    
+
+    // ----- SCRAPPED CODE ----- //
+
+    void Crouch()
+    {
+        if (Input.GetButtonDown("Crouch") && !isCrouching)
+        {
+            isCrouching = true;
+            transform.localScale = new Vector3(transform.localScale.x, crouch, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+        else if (Input.GetButtonDown("Crouch") && isCrouching)
+        {
+            isCrouching = false;
+            transform.localScale = new Vector3(transform.localScale.x, unCrouch, transform.localScale.z);
+            rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+        }
+    }
     void Jump()
     {
         if (Input.GetButton("Jump") && canJump && isGrounded && (jumpCounter < jumpMax))
@@ -154,126 +396,7 @@ public class PlayerController : MonoBehaviour
     {
         canJump = true;
     }
-
-    void GetPlayerState()
-    {
-        if (moveDir == Vector3.zero)
-        {
-            playerState = State.idle;
-        }
-        else if (Input.GetButton("Sprint") && isGrounded)
-        {
-            playerState = State.sprinting;
-        }
-        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
-        {
-            playerState = State.jogging;
-        }
-        else if (isCrouching)
-        {
-            playerState = State.crouching;
-            movementSpeed = crouchSpeed;
-        }
-        else
-        {
-            playerState = State.air;
-        }
-
-        GetPlayerStateSpeed();
-        GetPlayerStateAnimation();
-    }
-
-    void GetPlayerStateSpeed()
-    {
-        switch (playerState)
-        {
-            case State.idle:
-                
-                movementSpeed -= speedMod * Time.deltaTime;
-                if (movementSpeed <= 0)
-                    movementSpeed = 0f;
-
-                break;
-            case State.jogging:
-
-                if (movementSpeed > joggingSpeed)
-                {
-                    movementSpeed -= speedMod * Time.deltaTime;
-                    if (movementSpeed <= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                if (movementSpeed < joggingSpeed)
-                {
-                    movementSpeed += speedMod * Time.deltaTime;
-                    if (movementSpeed >= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                break;
-            case State.sprinting:
-
-                movementSpeed += speedMod * Time.deltaTime;
-                if (movementSpeed >= sprintingSpeed)
-                    movementSpeed = sprintingSpeed;
-
-                break;
-            case State.dashing:
-
-                break;
-            case State.air:
-
-                break;
-        }
-    }
-
-    void GetPlayerStateAnimation()
-    {
-        switch (playerState)
-        {
-            case State.idle:
-                anim.SetBool("isMoving", false);
-                anim.SetBool("isSprinting", false);
-                break;
-
-            case State.jogging:
-                if (playerState != State.sprinting)
-                    anim.SetBool("isMoving", true);
-
-                anim.SetBool("isSprinting", false);
-                break;
-
-            case State.sprinting:
-                anim.SetBool("isMoving", true);
-                anim.SetBool("isSprinting", true);
-                break;
-        }
-    }
-
-    void Crouch()
-    {
-        if (Input.GetButtonDown("Crouch") && !isCrouching)
-        {
-            isCrouching = true;
-            transform.localScale = new Vector3(transform.localScale.x, crouch, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        }
-        else if (Input.GetButtonDown("Crouch") && isCrouching)
-        {
-            isCrouching = false;
-            transform.localScale = new Vector3(transform.localScale.x, unCrouch, transform.localScale.z);
-            rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
-        }
-    }
-
-    void Dash()
-    {
-        if (Input.GetButtonDown("Dash") && isGrounded)
-        {
-            rb.AddForce(moveDir.normalized * dashSpeed, ForceMode.Impulse);
-        }
-    }
-
+   
 
 
 
