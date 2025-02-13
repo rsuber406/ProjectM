@@ -3491,6 +3491,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player - TPS
       objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.38807225
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.116838455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.87537885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.2635538
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868917343636426099, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: IgnoreTag
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868917343636426099, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: AvoidObstacles.DistanceLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258494286390926534, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: RecenteringTarget
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
