@@ -47,6 +47,7 @@ public class TPCamController : MonoBehaviour
         if (cam == CamStyle.Basic)
         {
             basicCam.SetActive(true);
+            Camera.main.transform.position = basicCam.transform.position;
 
             Vector3 newDir = orientation.forward * Input.GetAxisRaw("Vertical") +
                              orientation.right * Input.GetAxisRaw("Horizontal");
@@ -57,6 +58,7 @@ public class TPCamController : MonoBehaviour
         else if (cam == CamStyle.Combat)
         {
             combatCam.SetActive(true);
+            Camera.main.transform.position = combatCam.transform.position;
 
             Vector3 combatDir = crossHair.position - new Vector3(transform.position.x, crossHair.position.y, transform.position.z);
 
