@@ -14,6 +14,7 @@ public class SpellSlotUI : MonoBehaviour
 
     private Image originalBackground;
     private RuntimeSpell trackedSpell;
+    private bool isInitialized;
     public void Init(RuntimeSpell inSpell)
     {
         trackedSpell = inSpell;
@@ -22,6 +23,7 @@ public class SpellSlotUI : MonoBehaviour
         background.sprite = inSpell.spell.icon;
         
         CoolDownLayer.SetActive(false);
+        isInitialized = true;
     }
 
     public void ClearSlot()
@@ -31,6 +33,8 @@ public class SpellSlotUI : MonoBehaviour
 
     private void Update()
     {
+        if (!isInitialized) return;
+        
         if (trackedSpell.IsCooldownActive() && !CoolDownLayer.activeSelf)
         {
             CoolDownLayer.SetActive(true);

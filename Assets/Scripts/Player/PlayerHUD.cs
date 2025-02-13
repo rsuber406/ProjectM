@@ -16,7 +16,8 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         GameObject go = GameManager.GetInstance().GetPlayer();
-        playerSpellSystem = go.GetComponent<SpellSystem>();
+        playerSpellSystem = go.GetComponentInChildren<SpellSystem>();
+        
         playerSpellSystem.OnSpellOnCoolDown += () =>
         {
             StartCoroutine(ShowSpellActivationMessage("Spell On Cooldown"));
