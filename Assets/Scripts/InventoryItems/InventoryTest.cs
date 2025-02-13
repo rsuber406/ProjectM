@@ -15,6 +15,7 @@ public class InventoryTest : MonoBehaviour
 
             Debug.Log($"Inventory slots filled: {playerInventory.GetInventorySize()}");
             Debug.Log($"Slots remaining: {playerInventory.CountInventorySlotsLeft()}");
+            Debug.Log($"Sword in bag: {playerInventory.GetItem("Sword")}");
         }
     }
 }

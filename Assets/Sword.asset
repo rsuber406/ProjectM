@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   itemName: Test Sword
-  description: 
-  icon: {fileID: 21300000, guid: fa6d323a3431f2b43a98277276caea17, type: 3}
+  description: asdfTest
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemType: 0
   rarity: 0

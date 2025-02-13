@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+
+public class InventoryUI : MonoBehaviour
+{
+    [SerializeField] private GameObject[] itemIconSlots;
+
+
+
+    void Start()
+    {
+        FindAnyObjectByType<Inventory>().OnInventoryChanged += UpdateInventoryUI;
+    }
+
+
+
+    private void UpdateInventoryUI()
+    {
+        Inventory inventory = FindAnyObjectByType<Inventory>();
+        Debug.Log($"itemIconSlots: {itemIconSlots != null}");
+        Debug.Log($"inventory: {inventory != null}");
+        for (int i = 0; i < inventory.slots.Length; i++)
+        {
+          
+            if (i < itemIconSlots.Length) 
+            {
+                if (inventory.slots[i].item != null)
+                {
+                    itemIconSlots[i].SetActive(true);
+                    itemIconSlots[i].GetComponent<UnityEngine.UI.Image>().sprite = inventory.slots[i].item.data.icon;
+                }
+                else
+                {
+                    itemIconSlots[i].SetActive(false);
+                }
+            }
+        }
+    }
+
+}
