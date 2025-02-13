@@ -23,7 +23,7 @@ public class SpellSystem : MonoBehaviour
     
     void Awake()
     {
-        masterSpellsList = GameManager.GetInstance().MasterSpellsList;
+        //masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }
