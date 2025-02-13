@@ -8,16 +8,22 @@ public class SpellSystem : MonoBehaviour
     private SpellSystemState state = SpellSystemState.Ready;
     
     [SerializeField] private SpellSlotMap spellSlotMapping;
-    
+
+    public Dictionary<string, RuntimeSpell> BoundSpells => boundSpells;
     private Dictionary<string, RuntimeSpell> boundSpells = new Dictionary<string, RuntimeSpell>();
     private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
     
     private AttributesController attributesController;
     private MasterSpellsList masterSpellsList;
     
+    public event Action OnInsufficientMana;
+    public event Action OnSpellSystemBusy;
+    public event Action OnSpellOnCoolDown;
+
+    
     void Awake()
     {
-        masterSpellsList = GameManager.GetInstance().MasterSpellsList;
+        //masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }
@@ -58,7 +64,7 @@ public class SpellSystem : MonoBehaviour
     void CheckForInput()
     {
         // Block spell activation if system is not ready to recieve input
-        if (state != SpellSystemState.Ready) return;
+        //if (state != SpellSystemState.Ready) return;
         
         foreach (var pair in boundSpells)
         {
@@ -71,12 +77,24 @@ public class SpellSystem : MonoBehaviour
             
             if (Input.GetButtonUp(pair.Key))
             {
-                if (pair.Value.CanActivate())
+                // When input is detected and a spell was previously activated then exit
+                if (state == SpellSystemState.Activated)
+                {
+                    OnSpellSystemBusy?.Invoke();
+                    return;
+                }
+                
+                
+                if (pair.Value.IsCooldownActive())
+                {
+                    // Invoke Event for listeners interest in the spell cooldown notification such as Player HUD 
+                    OnSpellOnCoolDown?.Invoke();
+                    
+                } else if (pair.Value.CanActivate())
                 {
                     pair.Value.spell.Activate();
                     pair.Value.lastCastTime = Time.time;
                     state = SpellSystemState.Activated;
-                    
                 }
             }
         }
@@ -84,17 +102,22 @@ public class SpellSystem : MonoBehaviour
 
     public bool HasEnoughMana(float cost)
     {
-        return attributesController.mana.currentValue >= cost;
+        if (attributesController.mana.currentValue >= cost)
+        {
+            return true;
+        }
+        OnInsufficientMana?.Invoke();
+        return false;
     }
     
     public bool UseMana(float cost)
     {
-        if (HasEnoughMana(cost))
+        if (attributesController.mana.currentValue >= cost)
         {
             attributesController.mana.currentValue -= cost;
             return true;
         }
-
+        
         return false;
     }
 
@@ -103,6 +126,4 @@ public class SpellSystem : MonoBehaviour
         state = SpellSystemState.Ready;
         Debug.Log("SpellSystem is Ready to activate new spell!");
     }
-    
-    
 }
