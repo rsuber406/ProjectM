@@ -88,6 +88,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                         // Make the AI face the target
                         FaceTarget(ref playerPos);
                     }
+                    if(!isAttacking)
                         AttackPlayer();
                 }
             }
