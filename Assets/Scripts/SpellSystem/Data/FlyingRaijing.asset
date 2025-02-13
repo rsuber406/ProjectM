@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Flying Raijing
   description: 
   failedActivationMessage: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ae5d341a866c92f4c92ceb7b36cd96b5, type: 3}
   cooldown: 4
-  cost: 0
+  cost: 15
   executionTime: 2
