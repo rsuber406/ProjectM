@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour
     {
         foreach (var slot in slots)
         {
-            if (slot.item.itemName == itemName)
+            if ( slot.item != null && slot.item.itemName == itemName)
             {
                 return slot.item;
             }
