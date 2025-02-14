@@ -16,6 +16,7 @@ public class GhoulScript : EnemyAI
 
     [SerializeField] private BoxCollider leftWeapon;
 
+    [Range(1, 8)] [SerializeField] private int animationChangeRate;
     private float cooldownCompare;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,7 +41,7 @@ public class GhoulScript : EnemyAI
         {
             float animSpeed = animationController.GetFloat("Speed");
             float speed = agent.velocity.magnitude;
-            animationController.SetFloat("Speed", Mathf.MoveTowards(speed, animSpeed, 2 * Time.deltaTime));
+            animationController.SetFloat("Speed", Mathf.MoveTowards(speed, animSpeed, animationChangeRate * Time.deltaTime));
         }
         else
         {
@@ -76,9 +77,7 @@ public class GhoulScript : EnemyAI
         animationController.SetTrigger("Attack");
 
         yield return new WaitForSeconds(2f);
-       
-        rightWeapon.enabled = false;
-        leftWeapon.enabled = false;
+        
         isAttacking = false;
     }
 
