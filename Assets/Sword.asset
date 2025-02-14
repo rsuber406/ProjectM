@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Test Sword
   description: asdfTest
   icon: {fileID: 21300000, guid: a68afecacfd7d934ab7d79e9ebe89e67, type: 3}
+
   itemType: 0
   rarity: 0
