@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
@@ -11,6 +12,19 @@ public class ButtonFunctions : MonoBehaviour
     public void Settings()
     {
         GameManager.GetInstance().SettingsMenu();
+    }
+
+    public void Restart()
+    {
+        // Talk to game manager to teleport player to where they need to go
+    }
+
+    public void MainMenu()
+    {
+        // Ensure save logic is before the load scene or they lose progress
+        
+       // SceneManager.LoadScene("MainMenu");
+        
     }
 
     public void Exit()
