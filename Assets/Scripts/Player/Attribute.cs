@@ -4,7 +4,8 @@ using UnityEngine;
 public enum Attribute
 {
     Health,
-    Mana
+    Mana,
+    Armor
 }
 
 [Serializable]
