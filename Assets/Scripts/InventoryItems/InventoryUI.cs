@@ -5,12 +5,25 @@ using UnityEngine.UIElements;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject[] itemIconSlots;
+    [SerializeField] private GameObject inventoryPanel;
 
 
 
     void Start()
     {
         FindAnyObjectByType<Inventory>().OnInventoryChanged += UpdateInventoryUI;
+    }
+    void Update()
+    {
+            ToggleInventory(); 
+    }
+
+    private void ToggleInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+        }
     }
 
 
