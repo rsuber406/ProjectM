@@ -71,7 +71,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
-        Debug.Log(dotProduct);
+      
         if (dotProduct > convertedFOV)
         {
             RaycastHit hit;
