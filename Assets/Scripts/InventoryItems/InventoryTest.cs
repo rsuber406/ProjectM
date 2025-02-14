@@ -24,6 +24,9 @@ public class InventoryTest : MonoBehaviour
             bool wasRemoved = playerInventory.RemoveItem(("Sword"));
             
             Debug.Log($"Inventory slots removed: {playerInventory.GetItem("Sword")}");
+=======
+            Debug.Log($"Sword in bag: {playerInventory.GetItem("Sword")}");
+>>>>>>> origin/Dakota-Dev-Branch
         }
     }
 }
