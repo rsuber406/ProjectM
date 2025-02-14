@@ -34,6 +34,11 @@ public class AttributesController : MonoBehaviour
         health.ReduceValue(actualDamage);
         
         Debug.Log($"Took {actualDamage} damage. Health left: {health.currentValue}");
-        
+
+        if (health.currentValue <= 0f)
+        {
+            // The player has died, flash that menu
+            GameManager.GetInstance().LossMenu();
+        }
     }
 }
