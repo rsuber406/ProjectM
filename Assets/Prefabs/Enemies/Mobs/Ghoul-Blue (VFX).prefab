@@ -17048,6 +17048,7 @@ GameObject:
   - component: {fileID: 3808759070550823656}
   - component: {fileID: 8605736847686564579}
   - component: {fileID: 3683308629786608886}
+  - component: {fileID: 4490339210814051815}
   m_Layer: 0
   m_Name: WeaponFX
   m_TagString: Untagged
@@ -21741,6 +21742,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4490339210814051815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902818320639779862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5815206b6f5e24ba77895c5ce33b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &3930353447219030483
 GameObject:
   m_ObjectHideFlags: 0
@@ -22494,6 +22508,7 @@ GameObject:
   - component: {fileID: 194910132446704476}
   - component: {fileID: 4099107277359268119}
   - component: {fileID: 7678475079813936313}
+  - component: {fileID: 7745751100627793937}
   m_Layer: 0
   m_Name: WeaponFX
   m_TagString: Untagged
@@ -27187,6 +27202,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7745751100627793937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402756435204090698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5815206b6f5e24ba77895c5ce33b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &4410449389171400783
 GameObject:
   m_ObjectHideFlags: 0

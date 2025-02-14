@@ -6,7 +6,7 @@ public class DemonBossScript : EnemyAI
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Animator animationController;
-    [SerializeField] private int animationChangeRate;
+    [Range(1, 8)] [SerializeField] private int animationChangeRate;
 
     [SerializeField] private SphereCollider leftHandMeleeCollider;
     [SerializeField] private SphereCollider rightHandMeleeCollider;
@@ -43,8 +43,8 @@ public class DemonBossScript : EnemyAI
     {
         isAttacking = true;
         animationController.SetTrigger("Rage");
-        yield return new WaitForSeconds(2.767f);
-        int randomAttack = (int)AttackOptions.SecondAttack;
+        yield return new WaitForSeconds(3.767f);
+        int randomAttack = Random.Range(0,2);
         switch (randomAttack)
         {
             case (int) AttackOptions.FirstAttack:
@@ -78,11 +78,10 @@ public class DemonBossScript : EnemyAI
     private IEnumerator AttackTwo()
     {
         animationController.SetTrigger("Attack2");
-        yield return new WaitForSeconds(1.30f);
+        yield return new WaitForSeconds(1.35f);
         rightHandMeleeCollider.enabled = true;
-        yield return new WaitForSeconds(0.05f);
         leftHandMeleeCollider.enabled = true;
-        yield return new WaitForSeconds(1.30f);
+        yield return new WaitForSeconds(1.35f);
 
     }
 

@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] private int mana;
 
-    [SerializeField] private int range;
+    [SerializeField] protected int range;
 
     // Replace GameObject with the scriptable spell type
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
