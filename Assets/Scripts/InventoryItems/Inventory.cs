@@ -95,12 +95,14 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].item.name == itemName)
+            if (slots[i].item != null && slots[i].item.name == itemName)
             {
                 var removedItem = slots[i].item;
                 slots[i].item = null;
                 OnItemRemoved?.Invoke(removedItem);
                 OnInventoryChanged?.Invoke();
+                
+                return true;
             }
         }
         return false;

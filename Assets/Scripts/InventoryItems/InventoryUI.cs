@@ -30,7 +30,7 @@ public class InventoryUI : MonoBehaviour
                     itemIconSlots[i].SetActive(true);
                     itemIconSlots[i].GetComponent<UnityEngine.UI.Image>().sprite = inventory.slots[i].item.data.icon;
                 }
-                else
+                else if (itemIconSlots[i].activeSelf)
                 {
                     itemIconSlots[i].SetActive(false);
                 }
