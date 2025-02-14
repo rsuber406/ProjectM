@@ -5,9 +5,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private GameObject player;
     [SerializeField] private MasterSpellsList masterSpellsList;
-
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject lossMenu;
+    [SerializeField] private GameObject settingsMenu;
     public GameObject damagePanel;
-
+    private GameObject menuActive = null;
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
@@ -25,6 +27,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuActive == null)
+            {
+                menuActive = pauseMenu;
+                menuActive.SetActive(true);
+                StatePause();
+            }
+            else if(menuActive == pauseMenu) ResumeGame();
+        }
         
     }
 
@@ -42,4 +54,31 @@ public class GameManager : MonoBehaviour
     {
         return player;
     }
+
+    
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        menuActive.SetActive(false);
+        menuActive = null;
+    }
+
+    private void StatePause()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
+    }
+
+    public void SettingsMenu()
+    {
+        menuActive = settingsMenu;
+        menuActive.SetActive(true);
+    }
+    
+    
 }
