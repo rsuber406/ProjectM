@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance;
     [SerializeField] private GameObject player;
     [SerializeField] private MasterSpellsList masterSpellsList;
 
+    public GameObject damagePanel;
+
+    
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
     private AIController aiController;
-    
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

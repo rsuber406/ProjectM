@@ -42,8 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9005052214310101234}
   - component: {fileID: 6193368412943276983}
-  - component: {fileID: 5091215494560514642}
   - component: {fileID: 8484086505065435152}
+  - component: {fileID: 5091215494560514642}
   m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -94,11 +94,36 @@ MonoBehaviour:
   jumpMax: 2
   jumpCooldown: 0.75
   airMult: 0.4
+  health: 0
+  healthRegen: 0
+  healthRegenDelay: 0
   crouch: 0.5
   height: 2
   groundDrag: 5
   groundRayCheck: 0.57
   moveDir: {x: 0, y: 0, z: 0}
+--- !u!114 &8484086505065435152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8174a1e74f4a9cd4d9397852fe4a7305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    attribute: 0
+    currentValue: 0
+    maxValue: 100
+    minValue: 0
+  mana:
+    attribute: 1
+    currentValue: 0
+    maxValue: 100
+    minValue: 0
 --- !u!54 &5091215494560514642
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,28 +151,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8484086505065435152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8174a1e74f4a9cd4d9397852fe4a7305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health:
-    attribute: 0
-    currentValue: 0
-    maxValue: 100
-    minValue: 0
-  mana:
-    attribute: 1
-    currentValue: 0
-    maxValue: 100
-    minValue: 0
 --- !u!1 &1314316387541837336
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,8 +245,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12830943, y: -0.4727033, z: -0.0697929, w: 0.8690324}
-  m_LocalPosition: {x: 3.813681, y: -1.0929116, z: -2.468383}
+  m_LocalRotation: {x: -0.074348286, y: -0.47611344, z: -0.040441163, w: 0.8753016}
+  m_LocalPosition: {x: 3.4790933, y: -0.42914295, z: -2.2518232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -326,7 +329,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -57.087265
+    Value: -57.08727
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -336,7 +339,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -0.75717396
+    Value: 6.7893066
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -490,7 +493,7 @@ MonoBehaviour:
     MaximumEffort: 4
     SmoothingTime: 0
     Damping: 0.4
-    DampingWhenOccluded: 0.2
+    DampingWhenOccluded: 10
   ShotQualityEvaluation:
     Enabled: 0
     OptimalDistance: 10
@@ -559,8 +562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1308932, y: 0.0000000011690996, z: 1.5435482e-10, w: 0.9913965}
-  m_LocalPosition: {x: 0, y: -0.599, z: -20.770784}
+  m_LocalRotation: {x: -0.07434828, y: -0.47611344, z: -0.040441167, w: 0.8753016}
+  m_LocalPosition: {x: 3.4790933, y: -0.42914295, z: -2.2518232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -706,8 +709,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8764773186653022487}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0787854, y: 0.1861804, z: 0.014979311, w: 0.97923714}
-  m_LocalPosition: {x: 0, y: 0.11801922, z: -3.8021142}
+  m_LocalRotation: {x: 0.116773725, y: 0.8754228, z: 0.26340777, w: -0.38809177}
+  m_LocalPosition: {x: 4.098912, y: -1.5424125, z: 2.3551233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -790,7 +793,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 0
+    Value: -119.88049
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -800,7 +803,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 12.6
+    Value: -6.999178
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -903,7 +906,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
@@ -916,7 +919,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0
         DecelTime: 0

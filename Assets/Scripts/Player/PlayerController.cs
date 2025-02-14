@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
@@ -23,7 +23,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Range(0, 2)] int jumpMax;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
-
+/*
+    [Header("------- Player Health -------")]
+    [SerializeField] float health;
+    [SerializeField] int healthRegen;
+    [SerializeField] private float healthRegenDelay;
+*/
     //[Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
     //[SerializeField] float maxSlopeAngle;
 
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
 
     // private fields
+    AttributesController attributes;
     public Vector3 moveDir;
     Rigidbody rb;
 
@@ -47,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     float movementSpeed;
     float unCrouch;
+    float health;
 
     // Animation Speeds
     float ICSpeed;
@@ -86,16 +93,20 @@ public class PlayerController : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
         canJump = true;
         unCrouch = transform.localScale.y;
+
+
         OCSpeed = anim.GetFloat("OCSpeed");
         ICSpeed = anim.GetFloat("ICSpeed");
         LFRDir = anim.GetFloat("LFR");
 
+        attributes = GetComponent<AttributesController>();
     }
 
     // Update is called once per frame
@@ -105,6 +116,8 @@ public class PlayerController : MonoBehaviour
         x = rb.linearVelocity.x;
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
+
+        health = attributes.health.currentValue;
 
         SpeedControl();
         GetPlayerState();
@@ -174,16 +187,16 @@ public class PlayerController : MonoBehaviour
         {
             playerState = PlayerState.idle;
         }
+        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
+        {
+            playerState = PlayerState.jogging;
+        }
         /*
         else if (Input.GetButton("Sprint") && isGrounded)
         {
             playerState = State.sprinting;
         }
         */
-        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
-        {
-            playerState = PlayerState.jogging;
-        }
         /*
         else if (isCrouching)
         {
@@ -408,6 +421,20 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    IEnumerator FlashDamagePanel()
+    {
+        GameManager.instance.damagePanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        GameManager.instance.damagePanel.SetActive(false);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        attributes.health.ReduceValue(amount);
+        StartCoroutine(FlashDamagePanel());
+    }
+
     
 
     // ----- SCRAPPED CODE ----- //
@@ -445,7 +472,8 @@ public class PlayerController : MonoBehaviour
     {
         canJump = true;
     }
-   
+
+
 
 
 
