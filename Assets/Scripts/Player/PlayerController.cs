@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
-        attributes.health.ReduceValue(amount);
+        attributes.TakeDamage(amount);
         StartCoroutine(FlashDamagePanel());
     }
 

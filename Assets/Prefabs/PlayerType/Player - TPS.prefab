@@ -44,6 +44,9 @@ GameObject:
   - component: {fileID: 6193368412943276983}
   - component: {fileID: 8484086505065435152}
   - component: {fileID: 5091215494560514642}
+  - component: {fileID: 4060631488636382767}
+  - component: {fileID: 6357876903979031937}
+  - component: {fileID: 4175419468583804517}
   m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -94,9 +97,6 @@ MonoBehaviour:
   jumpMax: 2
   jumpCooldown: 0.75
   airMult: 0.4
-  health: 0
-  healthRegen: 0
-  healthRegenDelay: 0
   crouch: 0.5
   height: 2
   groundDrag: 5
@@ -151,6 +151,63 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4060631488636382767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2ae1ba92a2ae34795969d204475f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 16
+--- !u!114 &6357876903979031937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ccd21596225340ae1158e24cc2d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testItem: {fileID: 0}
+  playerInventory: {fileID: 4060631488636382767}
+--- !u!114 &4175419468583804517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2317e58008cae13408b0d7f968c9c7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIconSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryPanel: {fileID: 0}
 --- !u!1 &1314316387541837336
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,8 +302,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.074348286, y: -0.47611344, z: -0.040441163, w: 0.8753016}
-  m_LocalPosition: {x: 3.4790933, y: -0.42914295, z: -2.2518232}
+  m_LocalRotation: {x: -0.122018576, y: -0.29311892, z: -0.037747465, w: 0.9475062}
+  m_LocalPosition: {x: 2.4973955, y: -0.8796278, z: -3.650117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,7 +386,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -57.08727
+    Value: -34.379776
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -339,7 +396,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 6.7893066
+    Value: 1.7901967
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -442,7 +499,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: -0
+      InputValue: 0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
@@ -455,7 +512,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: -0
+      InputValue: 0
       Driver:
         AccelTime: 0
         DecelTime: 0
@@ -493,7 +550,7 @@ MonoBehaviour:
     MaximumEffort: 4
     SmoothingTime: 0
     Damping: 0.4
-    DampingWhenOccluded: 10
+    DampingWhenOccluded: 0.2
   ShotQualityEvaluation:
     Enabled: 0
     OptimalDistance: 10
@@ -543,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4465824423169734599}
-  - component: {fileID: 4453434531339395961}
+  - component: {fileID: 4993010115563993367}
   - component: {fileID: 1559988171983968262}
   - component: {fileID: 9172864460858835355}
   - component: {fileID: 3949114574671337087}
@@ -562,14 +619,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07434828, y: -0.47611344, z: -0.040441167, w: 0.8753016}
-  m_LocalPosition: {x: 3.4790933, y: -0.42914295, z: -2.2518232}
+  m_LocalRotation: {x: -0.122018576, y: -0.29311892, z: -0.037747458, w: 0.9475062}
+  m_LocalPosition: {x: 1.895184, y: -0.599, z: -2.769943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2503873805218046158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4453434531339395961
+--- !u!114 &4993010115563993367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,7 +635,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8684131270940623896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f91efbf2d49dfe488bf697b2c4f1ddc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a7e62ae83eeee1419d14c99d69b0ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 9
@@ -709,8 +766,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8764773186653022487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.116773725, y: 0.8754228, z: 0.26340777, w: -0.38809177}
-  m_LocalPosition: {x: 4.098912, y: -1.5424125, z: 2.3551233}
+  m_LocalRotation: {x: -0.0787854, y: 0.1861804, z: 0.014979311, w: 0.97923714}
+  m_LocalPosition: {x: 0, y: 0.11801922, z: -3.8021142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,7 +850,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -119.88049
+    Value: 0
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -803,7 +860,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -6.999178
+    Value: 12.6
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -906,7 +963,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: -0
+      InputValue: 0
       Driver:
         AccelTime: 0.2
         DecelTime: 0.2
@@ -919,7 +976,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: -0
+      InputValue: 0
       Driver:
         AccelTime: 0
         DecelTime: 0

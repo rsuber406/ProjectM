@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] private int mana;
 
-    [SerializeField] private int range;
+    [SerializeField] protected int range;
 
     // Replace GameObject with the scriptable spell type
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
@@ -121,13 +121,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void TakeDamage(int amount)
     {
         health -= amount;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        OnDeath();
     }
 
     protected virtual void AttackPlayer()
+    {
+        
+    }
+
+    protected virtual void OnDeath()
     {
         
     }
