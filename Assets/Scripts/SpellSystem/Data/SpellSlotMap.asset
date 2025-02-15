@@ -18,4 +18,4 @@ MonoBehaviour:
   - slotName: Ability2
     assignedSpell: {fileID: 11400000, guid: 7237b49198908cd40af28d1ccc0f5ad8, type: 2}
   - slotName: Ability3
-    assignedSpell: {fileID: 11400000, guid: 52ca8420797c5634089bbc3ed5961e4d, type: 2}
+    assignedSpell: {fileID: 11400000, guid: 391827686481f244c8f21c4c31f4de30, type: 2}
