@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Spell System/Example Spell")]
+[CreateAssetMenu(menuName = "Spell System/ Spells /Example Spell")]
 public class ExampleSpell : SpellBase
 {
     [Header("Spell Properties")]
