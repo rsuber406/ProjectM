@@ -11662,7 +11662,7 @@ Transform:
   m_GameObject: {fileID: 1607809758808254684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.094428, y: 0, z: 1.8782989}
+  m_LocalPosition: {x: 0, y: 1, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11723,6 +11723,7 @@ MonoBehaviour:
   castCooldown: 5
   rightWeapon: {fileID: 3808759070550823656}
   leftWeapon: {fileID: 194910132446704476}
+  animationChangeRate: 0
 --- !u!195 &8734009093407866967
 NavMeshAgent:
   m_ObjectHideFlags: 0
