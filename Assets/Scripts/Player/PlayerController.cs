@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
-    [SerializeField] Animator anim;
-    [SerializeField][Range(1, 10)] int animTransSpeed;
-    
+
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] int joggingSpeed;
     [SerializeField][Range(7, 15)] int sprintingSpeed;
@@ -23,12 +21,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField][Range(0, 2)] int jumpMax;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
-/*
-    [Header("------- Player Health -------")]
-    [SerializeField] float health;
-    [SerializeField] int healthRegen;
-    [SerializeField] private float healthRegenDelay;
-*/
+
+
     //[Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
     //[SerializeField] float maxSlopeAngle;
 
@@ -39,15 +33,15 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float groundRayCheck;
 
 
+
     // private fields
     AttributesController attributes;
-    public Vector3 moveDir;
     Rigidbody rb;
+    Vector3 moveDir;
 
     bool isGrounded;
     bool canJump;
     bool isCrouching;
-    bool inCombat;
 
     int jumpCounter;
 
@@ -55,10 +49,6 @@ public class PlayerController : MonoBehaviour, IDamage
     float unCrouch;
     float health;
 
-    // Animation Speeds
-    float ICSpeed;
-    float OCSpeed;
-    float LFRDir;
 
     // for debugging
     float y;
@@ -67,7 +57,7 @@ public class PlayerController : MonoBehaviour, IDamage
     
 
 
-    enum PlayerState
+    public enum PlayerState
     {
         idle
         ,jogging
@@ -76,20 +66,21 @@ public class PlayerController : MonoBehaviour, IDamage
         ,dashing
         ,air
     }
-    PlayerState playerState;
-
-    enum CombatState
+    public PlayerState playerState;
+    public enum CombatState
     {
         forward
-        , backward
-        , right
-        , left
-        , FR
-        , FL
-        , casting
-        , dodging
+        ,backward
+        ,right
+        ,left
+        ,FR
+        ,FL
+        ,BR
+        ,BL
+        ,casting
+        ,dodging
     }
-    CombatState combatState;
+    public CombatState combatState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -102,9 +93,9 @@ public class PlayerController : MonoBehaviour, IDamage
         unCrouch = transform.localScale.y;
 
 
-        OCSpeed = anim.GetFloat("OCSpeed");
-        ICSpeed = anim.GetFloat("ICSpeed");
-        LFRDir = anim.GetFloat("LFR");
+        //OCSpeed = anim.GetFloat("OCSpeed");
+        //ICSpeed = anim.GetFloat("ICSpeed");
+        //LFRDir = anim.GetFloat("LFR");
 
         attributes = GetComponent<AttributesController>();
     }
@@ -177,7 +168,8 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (Input.GetButtonDown("Dash") && isGrounded)
         {
-            rb.AddForce(moveDir.normalized * dashSpeed, ForceMode.Impulse);
+            rb.linearVelocity = new Vector3(moveDir.normalized.x * dashSpeed, moveDir.normalized.y, moveDir.normalized.z * dashSpeed);
+
         }
     }
 
@@ -210,7 +202,6 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         GetPlayerStateSpeed();
-        GetPlayerStateAnimation();
     }
 
    
@@ -259,62 +250,6 @@ public class PlayerController : MonoBehaviour, IDamage
         }
     }
 
-    void GetPlayerStateAnimation()
-    {
-        if (Input.GetButtonDown("Combat"))
-        {
-            inCombat = !inCombat;
-
-            if (inCombat)
-                anim.SetBool("CombatMode", true);
-            else
-                anim.SetBool("CombatMode", false);
-        }
-
-        if (!inCombat)
-        {
-            switch (playerState)
-            {
-                case PlayerState.idle:
-
-                    OCSpeed -= Time.deltaTime * animTransSpeed;
-                    if (OCSpeed <= 0)
-                        OCSpeed = 0f;
-
-                    break;
-                case PlayerState.jogging:
-
-                    OCSpeed += Time.deltaTime * animTransSpeed;
-                    if (OCSpeed >= 1)
-                        OCSpeed = 1f;
-
-                    break;
-            }
-            anim.SetFloat("OCSpeed", OCSpeed);
-        }
-        else
-        {
-            switch (playerState)
-            {
-                case PlayerState.idle:
-
-                    ICSpeed -= Time.deltaTime * animTransSpeed;
-                    if (ICSpeed <= 0)
-                        ICSpeed = 0f;
-
-                    break;
-                case PlayerState.jogging:
-
-                    ICSpeed += Time.deltaTime * animTransSpeed;
-                    if (ICSpeed >= 1)
-                        ICSpeed = 1f;
-
-                    break;
-            }
-            anim.SetFloat("ICSpeed", ICSpeed);
-        }
-    }
-
     void GetCombatState()
     {
         if (Input.GetKey(KeyCode.W))
@@ -329,99 +264,26 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         else if (Input.GetKey(KeyCode.S))
+        {
             combatState = CombatState.backward;
+
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+                combatState = CombatState.BR;
+
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+                combatState = CombatState.BL;
+        }
+
+        else if (Input.GetKey(KeyCode.A))
+            combatState = CombatState.left;
 
         else if (Input.GetKey(KeyCode.D))
             combatState = CombatState.right;
 
-        else if (Input.GetKey(KeyCode.A))
-        {
-            combatState = CombatState.left;
 
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-                combatState = CombatState.FR;
-
-            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-                combatState = CombatState.FL;
-        }
-
-        GetCombatStateAnimation();
     }
 
-    void GetCombatStateAnimation()
-    {
-        if (inCombat)
-        {
-            switch(combatState)
-            {
-                case CombatState.forward:
-
-                    if (LFRDir > 0.5f)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.5f)
-                            LFRDir = 0.5f;
-                    }
-                    else if (LFRDir < 0.5f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.5f)
-                            LFRDir = 0.5f;
-                    }
-
-                    break;
-                case CombatState.right:
-
-                    LFRDir += Time.deltaTime * animTransSpeed;
-                    if (LFRDir >= 1f)
-                        LFRDir = 1f;
-
-                    break;
-                case CombatState.left:
-
-                    LFRDir -= Time.deltaTime * animTransSpeed;
-                    if (LFRDir <= 0f)
-                        LFRDir = 0f;
-
-                    break;
-                case CombatState.FR:
-
-                    if (LFRDir > 0.75)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.75f)
-                            LFRDir = 0.75f;
-                    }
-                    else if (LFRDir < 0.75f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.75f)
-                            LFRDir = 0.75f;
-                    }
-
-                    break;
-                case CombatState.FL:
-
-                    if (LFRDir > 0.25)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.25f)
-                            LFRDir = 0.25f;
-                    }
-                    else if (LFRDir < 0.25f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.25f)
-                            LFRDir = 0.25f;
-                    }
-
-                    break;
-            }
-            anim.SetFloat("LFR", LFRDir);
-        }
-        
-    }
-
+ 
     IEnumerator FlashDamagePanel()
     {
         GameManager.instance.damagePanel.SetActive(true);
