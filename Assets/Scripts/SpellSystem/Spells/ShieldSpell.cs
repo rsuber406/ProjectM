@@ -28,13 +28,16 @@ public class ShieldSpell : SpellBase
         {
             shieldObj = Instantiate(ShieldPrefab, GameManager.GetInstance().GetPlayer().transform.GetChild(0).GetChild(0));
         }
+        // Cast time , for som reason this is needed before we can call end
+        yield return new WaitForSeconds(1);
+        End();
         yield return new WaitForSeconds(Duration);
+        
         Cancel();
     }
 
     public override void Cancel()
     {
-        base.Cancel();
         Destroy(shieldObj);
     }
 }
