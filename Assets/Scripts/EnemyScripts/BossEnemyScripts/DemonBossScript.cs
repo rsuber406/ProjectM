@@ -94,6 +94,12 @@ public class DemonBossScript : EnemyAI
     {
         
     }
+    protected override void OnDeath()
+    {
+        animationController.SetTrigger("Death");
+        agent.isStopped = true;
+        Destroy(gameObject);
+    }
 }
 
 enum AttackOptions : int

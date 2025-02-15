@@ -9,7 +9,7 @@ public class SkeletonScript : EnemyAI
     [SerializeField] private BoxCollider weaponCollider;
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (playerDetected)
         {
@@ -57,5 +57,12 @@ public class SkeletonScript : EnemyAI
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
        
+    }
+
+    protected override void OnDeath()
+    {
+        animationController.SetTrigger("Death");
+        agent.isStopped = true;
+        Destroy(gameObject);
     }
 }

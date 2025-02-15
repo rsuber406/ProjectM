@@ -80,6 +80,12 @@ public class GhoulScript : EnemyAI
         
         isAttacking = false;
     }
+    protected override void OnDeath()
+    {
+        animationController.SetTrigger("Death");
+        agent.isStopped = true;
+        Destroy(gameObject);
+    }
 
     // Update is called once per frame
 }
