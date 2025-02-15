@@ -21,10 +21,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void MainMenu()
     {
-        // Ensure save logic is before the load scene or they lose progress
-        
-       // SceneManager.LoadScene("MainMenu");
-        
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void Exit()
