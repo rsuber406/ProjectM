@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour, IDamage
 {
@@ -23,16 +24,19 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float airMult;
 
 
-    //[Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
-    //[SerializeField] float maxSlopeAngle;
+    [Header("----- Slope ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
+    [SerializeField] float slopeAngle;
+    [SerializeField] float slopeCheck;
+    RaycastHit slopeRaycast;
 
     [Header("----- Other Player Settings ----- ")]
     [SerializeField] float crouch;
     [SerializeField] float height;
     [SerializeField] float groundDrag;
-    [SerializeField] float groundRayCheck;
+    [SerializeField] float groundCheck;
 
 
+    public float health;
 
     // private fields
     AttributesController attributes;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 moveDir;
 
     bool isGrounded;
+    bool isOnSlope;
     bool canJump;
     bool isCrouching;
 
@@ -47,7 +52,6 @@ public class PlayerController : MonoBehaviour, IDamage
 
     float movementSpeed;
     float unCrouch;
-    float health;
 
 
     // for debugging
@@ -92,11 +96,6 @@ public class PlayerController : MonoBehaviour, IDamage
         canJump = true;
         unCrouch = transform.localScale.y;
 
-
-        //OCSpeed = anim.GetFloat("OCSpeed");
-        //ICSpeed = anim.GetFloat("ICSpeed");
-        //LFRDir = anim.GetFloat("LFR");
-
         attributes = GetComponent<AttributesController>();
     }
 
@@ -117,6 +116,8 @@ public class PlayerController : MonoBehaviour, IDamage
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
         Dash(); // key bind set to space
+        
+        isOnSlope = OnSlope();
     }
 
     void FixedUpdate()
@@ -130,17 +131,38 @@ public class PlayerController : MonoBehaviour, IDamage
         moveDir = Camera.main.transform.forward * Input.GetAxisRaw("Vertical") +
                   orientation.right * Input.GetAxisRaw("Horizontal");
 
+        if (isOnSlope)
+        {
+            rb.AddForce(GetSlopeDirection() * movementSpeed * 15f, ForceMode.Force);
+
+            if (rb.linearVelocity.y > 0)
+            {
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
+        }
+
         if (isGrounded)
-            rb.AddForce(moveDir.normalized * movementSpeed * 15f, ForceMode.Force);
+        {
+            rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y, moveDir.normalized.z * movementSpeed);
+    
+            if (isOnSlope)
+            {
+                if (rb.linearVelocity.y < 0)
+                    rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
+            }
+
+        }
 
         else
-            rb.AddForce(moveDir.normalized * movementSpeed * airMult * 15f, ForceMode.Force);
+            rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed * airMult, rb.linearVelocity.y, moveDir.normalized.z * movementSpeed * airMult);
+
+        rb.useGravity = !isOnSlope;
     }
 
     void IsGrounded()
     {
-        Debug.DrawRay(orientation.position, Vector3.down * height * groundRayCheck, Color.red);
-        isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundRayCheck, ground);
+        Debug.DrawRay(orientation.position, Vector3.down * height * groundCheck, Color.red);
+        isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundCheck, ground);
 
         if (isGrounded)
         {
@@ -155,13 +177,38 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-
-        if (flatVel.magnitude > movementSpeed)
+        if (isOnSlope)
         {
-            Vector3 limitedVel = flatVel.normalized * movementSpeed;
-            rb.linearVelocity = new Vector3(limitedVel.normalized.x * movementSpeed, rb.linearVelocity.y, limitedVel.normalized.z * movementSpeed);
+            if (rb.linearVelocity.magnitude > movementSpeed)
+                rb.linearVelocity = rb.linearVelocity.normalized * movementSpeed;
         }
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+            if (flatVel.magnitude > movementSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * movementSpeed;
+                rb.linearVelocity = new Vector3(limitedVel.normalized.x * movementSpeed, rb.linearVelocity.y, limitedVel.normalized.z * movementSpeed);
+            }
+        }
+    }
+
+    bool OnSlope()
+    {
+        Debug.DrawRay(orientation.position, Vector3.down * height * slopeCheck, Color.blue);
+
+        if (Physics.Raycast(orientation.position, Vector3.down, out slopeRaycast, height * slopeCheck))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeRaycast.normal);
+            return angle < slopeAngle && angle!= 0;
+        }
+        return false;
+    }
+
+    Vector3 GetSlopeDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDir, slopeRaycast.normal).normalized;
     }
 
     void Dash()
@@ -173,7 +220,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
     }
 
-    void GetPlayerState()
+    public void GetPlayerState()
     {
         if (moveDir == Vector3.zero)
         {
@@ -250,7 +297,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
     }
 
-    void GetCombatState()
+    public void GetCombatState()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -279,8 +326,6 @@ public class PlayerController : MonoBehaviour, IDamage
 
         else if (Input.GetKey(KeyCode.D))
             combatState = CombatState.right;
-
-
     }
 
  
@@ -295,6 +340,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         attributes.TakeDamage(amount);
         StartCoroutine(FlashDamagePanel());
+
     }
 
     
@@ -336,22 +382,4 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
 
-
-
-
-
-
-
-    /*  bool OnSlope()
-      {
-          RaycastHit hit;
-          if (Physiscs.Raycast(transform.position, Vector3.down, out  hit, ))
-          {
-              if (hit.normal != Vector3.up)
-              {
-                  return true;
-              }
-          }
-
-      }*/
 }

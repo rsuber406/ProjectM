@@ -13,17 +13,20 @@ public class PlayerAnimation : MonoBehaviour
     // Animation Speeds
     float ICSpeed;
     float OCSpeed;
-    float LFRDir;
+    float XZMovement;
+    float BFDir;
+    float LRDir;
+
 
     bool inCombat;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         OCSpeed = anim.GetFloat("OCSpeed");
         ICSpeed = anim.GetFloat("ICSpeed");
-        LFRDir = anim.GetFloat("LFR");
+        XZMovement = anim.GetFloat("XZMovement");
+        BFDir = anim.GetFloat("BF");
+        LRDir = anim.GetFloat("LR");
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         GetPlayerStateAnimation();
         GetCombatStateAnimation();
+        PlayerDeathAnimation();
     }
 
     void GetPlayerStateAnimation()
@@ -85,7 +89,63 @@ public class PlayerAnimation : MonoBehaviour
 
                     break;
             }
-            anim.SetFloat("CombatMovement", ICSpeed);
+            anim.SetFloat("ICSpeed", ICSpeed);
+        }
+    }
+
+    void GetXZCombatStateAnimation()
+    {
+        if (inCombat)
+        {
+            // will calculate the direction of the player (horizontal or vertical)
+            switch (player.combatState)
+            {
+                case PlayerController.CombatState.forward:
+
+                    XZMovement += Time.deltaTime * animTransSpeed;
+                    if (XZMovement >= 1f)
+                        XZMovement = 1f;
+
+                    break;
+                case PlayerController.CombatState.backward:
+
+                    XZMovement += Time.deltaTime * animTransSpeed;
+                    if (XZMovement >= 1f)
+                        XZMovement = 1f;
+
+                    break;
+                case PlayerController.CombatState.left:
+
+                    XZMovement -= Time.deltaTime * animTransSpeed;
+                    if (XZMovement <= 0f)
+                        XZMovement = 0f;
+
+                    break;
+                case PlayerController.CombatState.right:
+
+                    XZMovement -= Time.deltaTime * animTransSpeed;
+                    if (XZMovement <= 0f)
+                        XZMovement = 0f;
+
+                    break;
+                default:    // if player it moving diagonally
+
+                    if (XZMovement > 0.5f)
+                    {
+                        XZMovement -= Time.deltaTime * animTransSpeed;
+                        if (XZMovement <= 0.5f)
+                            XZMovement = 0.5f;
+                    }
+                    else if (XZMovement < 0.5f)
+                    {
+                        XZMovement += Time.deltaTime * animTransSpeed;
+                        if (XZMovement >= 0.5f)
+                            XZMovement = 0.5f;
+                    }
+
+                    break;
+            }
+            anim.SetFloat("XZMovement", XZMovement);
         }
     }
 
@@ -93,73 +153,94 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (inCombat)
         {
+            GetXZCombatStateAnimation();
+
+            // 
             switch (player.combatState)
             {
                 case PlayerController.CombatState.forward:
 
-                    if (LFRDir > 0.5f)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.5f)
-                            LFRDir = 0.5f;
-                    }
-                    else if (LFRDir < 0.5f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.5f)
-                            LFRDir = 0.5f;
-                    }
+                    BFDir += Time.deltaTime * animTransSpeed;
+                    if (BFDir >= 1f)
+                        BFDir = 1f;
+
+                    break;
+                case PlayerController.CombatState.backward:
+
+                    BFDir -= Time.deltaTime * animTransSpeed;
+                    if (BFDir <= 0f)
+                        BFDir = 0f;
 
                     break;
                 case PlayerController.CombatState.right:
 
-                    LFRDir += Time.deltaTime * animTransSpeed;
-                    if (LFRDir >= 1f)
-                        LFRDir = 1f;
+                    LRDir += Time.deltaTime * animTransSpeed;
+                    if (LRDir >= 1f)
+                        LRDir = 1f;
 
                     break;
                 case PlayerController.CombatState.left:
 
-                    LFRDir -= Time.deltaTime * animTransSpeed;
-                    if (LFRDir <= 0f)
-                        LFRDir = 0f;
+                    LRDir -= Time.deltaTime * animTransSpeed;
+                    if (LRDir <= 0f)
+                        LRDir = 0f;
 
                     break;
                 case PlayerController.CombatState.FR:
 
-                    if (LFRDir > 0.75)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.75f)
-                            LFRDir = 0.75f;
-                    }
-                    else if (LFRDir < 0.75f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.75f)
-                            LFRDir = 0.75f;
-                    }
+                    BFDir += Time.deltaTime * animTransSpeed;
+                    if (BFDir >= 1f)
+                        BFDir = 1f;
+
+                    LRDir += Time.deltaTime * animTransSpeed;
+                    if (LRDir >= 1f)
+                        LRDir = 1f;
 
                     break;
                 case PlayerController.CombatState.FL:
 
-                    if (LFRDir > 0.25)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.25f)
-                            LFRDir = 0.25f;
-                    }
-                    else if (LFRDir < 0.25f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.25f)
-                            LFRDir = 0.25f;
-                    }
+                    BFDir += Time.deltaTime * animTransSpeed;
+                    if (BFDir >= 1f)
+                        BFDir = 1f;
+
+                    LRDir -= Time.deltaTime * animTransSpeed;
+                    if (LRDir <= 0f)
+                        LRDir = 0f;
+
+                    break;
+                case PlayerController.CombatState.BR:
+
+                    BFDir -= Time.deltaTime * animTransSpeed;
+                    if (BFDir <= 0f)
+                        BFDir = 0f;
+
+                    LRDir += Time.deltaTime * animTransSpeed;
+                    if (LRDir >= 1f)
+                        LRDir = 1f;
+
+                    break;
+                case PlayerController.CombatState.BL:
+
+                    BFDir -= Time.deltaTime * animTransSpeed;
+                    if (BFDir <= 0f)
+                        BFDir = 0f;
+
+                    LRDir -= Time.deltaTime * animTransSpeed;
+                    if (LRDir <= 0f)
+                        LRDir = 0f;
 
                     break;
             }
-            anim.SetFloat("LFR", LFRDir);
+            anim.SetFloat("BF", BFDir);
+            anim.SetFloat("LR", LRDir);
         }
+    }
 
+    void PlayerDeathAnimation()
+    {
+        if (player.health <= 0)
+        {
+            anim.SetBool("Death", true);
+        }
     }
 }
