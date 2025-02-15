@@ -42,6 +42,12 @@ public abstract class SpellBase : ScriptableObject, ISpell
     public virtual void Cancel()
     {
         Debug.Log($"{displayName} cancelled!");
+        End();
+    }
+    
+    public virtual void End()
+    {
+        Debug.Log($"{displayName} end!");
         OnSpellEnd?.Invoke();
     }
 }
