@@ -16,7 +16,7 @@ public class PlayerSpellBarController : MonoBehaviour
     void Start()
     {
         GameObject go = GameManager.GetInstance().GetPlayer();
-        playerSpellSystem = go.GetComponentInChildren<SpellSystem>();
+        playerSpellSystem = go.GetComponentInParent<SpellSystem>();
 
         InitializeSpellSlots();
     }
