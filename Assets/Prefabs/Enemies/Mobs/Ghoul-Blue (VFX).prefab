@@ -11723,7 +11723,7 @@ MonoBehaviour:
   castCooldown: 5
   rightWeapon: {fileID: 3808759070550823656}
   leftWeapon: {fileID: 194910132446704476}
-  animationChangeRate: 0
+  animationChangeRate: 1
 --- !u!195 &8734009093407866967
 NavMeshAgent:
   m_ObjectHideFlags: 0
