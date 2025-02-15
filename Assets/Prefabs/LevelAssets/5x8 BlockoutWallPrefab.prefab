@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8331206320376870289}
   - component: {fileID: 7945654425968847400}
   - component: {fileID: 4565805295114789950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 5x8 BlockoutWallPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
