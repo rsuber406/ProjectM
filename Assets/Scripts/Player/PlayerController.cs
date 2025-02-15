@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField][Range(4, 10)] int joggingSpeed;
     [SerializeField][Range(7, 15)] int sprintingSpeed;
     [SerializeField][Range(2, 6)] int crouchSpeed;
-    [SerializeField][Range(100, 500)] int dashSpeed;
+    [SerializeField][Range(5, 15)] int dodgeSpeed;
     [SerializeField][Range(10, 20)] int speedMod;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
@@ -23,9 +23,14 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
 
+    [Header("----- Dodge -----")]
+    [SerializeField] float dodgeForce;
+    [SerializeField] float dodgeUpwardForce;
+    [SerializeField] float dodgeDur;
+    [SerializeField] float dodgeCd;
 
     [Header("----- Slope ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
-    [SerializeField] float slopeAngle;
+    [SerializeField] float maxSlopeAngle;
     [SerializeField] float slopeCheck;
     RaycastHit slopeRaycast;
 
@@ -36,15 +41,17 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float groundCheck;
 
 
-    public float health;
+    public float HP;
 
     // private fields
     AttributesController attributes;
     Rigidbody rb;
     Vector3 moveDir;
+    Vector3 dodgeDelay;
 
     bool isGrounded;
     bool isOnSlope;
+    bool isDodging;
     bool canJump;
     bool isCrouching;
 
@@ -52,13 +59,12 @@ public class PlayerController : MonoBehaviour, IDamage
 
     float movementSpeed;
     float unCrouch;
-
+    float dodgeCdTimer;
 
     // for debugging
     float y;
     float x;
     float z;
-    
 
 
     public enum PlayerState
@@ -67,7 +73,7 @@ public class PlayerController : MonoBehaviour, IDamage
         ,jogging
         ,sprinting
         ,crouching
-        ,dashing
+        ,dodging
         ,air
     }
     public PlayerState playerState;
@@ -93,10 +99,10 @@ public class PlayerController : MonoBehaviour, IDamage
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        attributes = GetComponent<AttributesController>();
+
         canJump = true;
         unCrouch = transform.localScale.y;
-
-        attributes = GetComponent<AttributesController>();
     }
 
     // Update is called once per frame
@@ -107,23 +113,29 @@ public class PlayerController : MonoBehaviour, IDamage
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
 
-        health = attributes.health.currentValue;
+        HP = attributes.health.currentValue;
 
+        isOnSlope = OnSlope();
+
+        if (dodgeCdTimer > 0)
+            dodgeCdTimer -= Time.deltaTime;
+
+        UpdatePlayerUI();
         SpeedControl();
         GetPlayerState();
         GetCombatState();
-
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
-        Dash(); // key bind set to space
         
-        isOnSlope = OnSlope();
     }
 
     void FixedUpdate()
     {
         IsGrounded();
         Movement();
+
+        if (Input.GetButtonDown("Dodge"))
+            Dodge(); // key bind set to space
     }
 
     void Movement()
@@ -133,7 +145,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if (isOnSlope)
         {
-            rb.AddForce(GetSlopeDirection() * movementSpeed * 15f, ForceMode.Force);
+            rb.AddForce(GetSlopeDirection() * movementSpeed * speedMod, ForceMode.Force);
 
             if (rb.linearVelocity.y > 0)
             {
@@ -164,7 +176,7 @@ public class PlayerController : MonoBehaviour, IDamage
         Debug.DrawRay(orientation.position, Vector3.down * height * groundCheck, Color.red);
         isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundCheck, ground);
 
-        if (isGrounded)
+        if (playerState != PlayerState.dodging && playerState != PlayerState.air)
         {
             rb.linearDamping = groundDrag;
         }
@@ -198,10 +210,10 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         Debug.DrawRay(orientation.position, Vector3.down * height * slopeCheck, Color.blue);
 
-        if (Physics.Raycast(orientation.position, Vector3.down, out slopeRaycast, height * slopeCheck))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeRaycast, height * slopeCheck))
         {
             float angle = Vector3.Angle(Vector3.up, slopeRaycast.normal);
-            return angle < slopeAngle && angle!= 0;
+            return angle < maxSlopeAngle && angle!= 0;
         }
         return false;
     }
@@ -211,25 +223,50 @@ public class PlayerController : MonoBehaviour, IDamage
         return Vector3.ProjectOnPlane(moveDir, slopeRaycast.normal).normalized;
     }
 
-    void Dash()
+    void Dodge()
     {
-        if (Input.GetButtonDown("Dash") && isGrounded)
-        {
-            rb.linearVelocity = new Vector3(moveDir.normalized.x * dashSpeed, moveDir.normalized.y, moveDir.normalized.z * dashSpeed);
+      
+        if (dodgeCdTimer > 0)
+            return;
+        else
+            dodgeCdTimer = dodgeCd;
 
-        }
+        isDodging = true;
+
+        //Vector3 dodge = orientation.forward * dodgeForce + orientation.up * dodgeUpwardForce;
+        //dodgeDelay = dodge;
+
+        Invoke(nameof(DodgeDelay), 0.025f);
+        Invoke(nameof(ResetDodge), dodgeDur);
+        //rb.linearVelocity = new Vector3(moveDir.normalized.x * dashSpeed, moveDir.normalized.y, moveDir.normalized.z * dashSpeed);
+    }
+
+    void DodgeDelay()
+    {
+        rb.AddForce(dodgeDelay, ForceMode.Impulse);
+    }
+
+    void ResetDodge()
+    {
+        isDodging = false;
+    }
+
+    void UpdatePlayerUI()
+    {
+        GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
     }
 
     public void GetPlayerState()
     {
         if (moveDir == Vector3.zero)
-        {
             playerState = PlayerState.idle;
-        }
-        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
-        {
+
+        else if (isGrounded && moveDir != Vector3.zero && !isDodging)
             playerState = PlayerState.jogging;
-        }
+
+        else if (isDodging)
+            playerState = PlayerState.dodging;
+
         /*
         else if (Input.GetButton("Sprint") && isGrounded)
         {
@@ -240,13 +277,10 @@ public class PlayerController : MonoBehaviour, IDamage
         else if (isCrouching)
         {
             playerState = State.crouching;
-            movementSpeed = crouchSpeed;
         }
         */
         else
-        {
             playerState = PlayerState.air;
-        }
 
         GetPlayerStateSpeed();
     }
@@ -288,7 +322,9 @@ public class PlayerController : MonoBehaviour, IDamage
                     movementSpeed = sprintingSpeed;
 
                 break;
-            case PlayerState.dashing:
+            case PlayerState.dodging:
+
+                movementSpeed = dodgeSpeed;
 
                 break;
             case PlayerState.air:

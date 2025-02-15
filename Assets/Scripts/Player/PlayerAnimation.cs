@@ -238,7 +238,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void PlayerDeathAnimation()
     {
-        if (player.health <= 0)
+        if (player.HP <= 0)
         {
             anim.SetBool("Death", true);
         }
