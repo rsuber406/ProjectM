@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
 
     public float HP;
+    public float mana;
 
     // private fields
     AttributesController attributes;
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour, IDamage
         y = rb.linearVelocity.y;
 
         HP = attributes.health.currentValue;
+        mana = attributes.mana.currentValue;
 
         isOnSlope = OnSlope();
 
@@ -254,6 +256,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void UpdatePlayerUI()
     {
         GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
+        GameManager.instance.healthBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     public void GetPlayerState()
