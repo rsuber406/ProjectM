@@ -811,6 +811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.254404
@@ -901,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1617,6 +1625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.21054268
@@ -1851,6 +1863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.195541
@@ -2051,6 +2067,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2380,6 +2400,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3590,6 +3614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.745594
@@ -3978,6 +4006,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4552,6 +4584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.223541
@@ -4630,6 +4666,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5560,6 +5600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.223541
@@ -6293,6 +6337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.254406
@@ -6526,6 +6574,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7186,6 +7238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.254406
@@ -7481,6 +7537,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8581,6 +8641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.21354
@@ -8705,6 +8769,10 @@ PrefabInstance:
     - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Name
       value: Standardized_Doorframe (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4681034066073338473, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Mesh
@@ -9071,6 +9139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.195541
@@ -9149,6 +9221,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9383,6 +9459,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9962,6 +10042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.745593
@@ -10373,6 +10457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.2367477
@@ -10694,6 +10782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.7664585
@@ -10939,6 +11031,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11470,6 +11566,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12028,6 +12128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.2367477
@@ -12583,6 +12687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standardized_Doorframe (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4681034066073338473, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -12617,6 +12725,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12920,6 +13032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.221748
@@ -13198,6 +13314,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13559,6 +13679,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14050,6 +14174,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14707,6 +14835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.745594
@@ -15260,6 +15392,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15900,6 +16036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.7664585
@@ -16105,6 +16245,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17018,6 +17162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.195541
@@ -17389,6 +17537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.7664585
@@ -17589,6 +17741,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18119,6 +18275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.254406
@@ -18509,6 +18669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.745593
@@ -18583,6 +18747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.769459
@@ -18651,6 +18819,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19547,6 +19719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.21354
@@ -20121,6 +20297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.7664585
@@ -20377,6 +20557,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21171,6 +21355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standardized_Doorframe
       objectReference: {fileID: 0}
+    - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4681034066073338473, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -21200,6 +21388,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21434,6 +21626,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21874,6 +22070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.195541
@@ -22112,6 +22312,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22506,6 +22710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2435417
@@ -22756,6 +22964,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23315,6 +23527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.745594
@@ -23558,6 +23774,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24163,6 +24383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.745593
@@ -24562,6 +24786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.195541
@@ -24630,6 +24858,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24864,6 +25096,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25269,6 +25505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.223541
@@ -25469,6 +25709,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25973,6 +26217,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26585,6 +26833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.7664585
@@ -27115,6 +27367,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28068,6 +28324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.745594
@@ -28791,6 +29051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.745594
@@ -29344,6 +29608,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x

@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.58
@@ -509,14 +513,14 @@ PrefabInstance:
     - target: {fileID: 4565805295114789950, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1879986135}
+      objectReference: {fileID: 855447333}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 855447333}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5701
+      value: 5704
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -856,6 +860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.42
@@ -906,19 +914,19 @@ PrefabInstance:
       objectReference: {fileID: 570795714}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].b
@@ -982,6 +990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.58
@@ -1032,15 +1044,15 @@ PrefabInstance:
       objectReference: {fileID: 1879986135}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5701
+      value: 5704
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -1296,7 +1308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -1542,6 +1554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5852318
@@ -1592,15 +1608,15 @@ PrefabInstance:
       objectReference: {fileID: 135232161}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5625
+      value: 5628
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -1816,7 +1832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -1929,31 +1945,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8951817
+      value: 1.5690002
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59899855
+      value: -0.4490052
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7699385
+      value: -2.2946625
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9475062
+      value: 0.94752955
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12201856
+      value: -0.12217983
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.29311904
+      value: -0.29297227
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.037747465
+      value: -0.0377775
       objectReference: {fileID: 0}
     - target: {fileID: 6423730428231168063, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1969,19 +1985,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423730428231168063, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9475061
+      value: 0.9475296
       objectReference: {fileID: 0}
     - target: {fileID: 6423730428231168063, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12201856
+      value: -0.12217983
       objectReference: {fileID: 0}
     - target: {fileID: 6423730428231168063, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.293119
+      value: -0.29297224
       objectReference: {fileID: 0}
     - target: {fileID: 6423730428231168063, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.03774748
+      value: -0.037777502
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2330,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.391481
@@ -2380,15 +2400,15 @@ PrefabInstance:
       objectReference: {fileID: 554400951}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5903
+      value: 5906
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -2844,7 +2864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -2920,6 +2940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.414768
@@ -2963,14 +2987,14 @@ PrefabInstance:
     - target: {fileID: 4565805295114789950, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1837073221}
+      objectReference: {fileID: 391950873}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 391950873}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 7945654425968847400, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
@@ -3340,9 +3364,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 103280536}
   - {fileID: 1846014788}
   - {fileID: 1438276976}
-  - {fileID: 103280536}
   - {fileID: 1478985853}
   - {fileID: 1956202344}
   - {fileID: 1685391394}
@@ -3368,6 +3392,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3419,15 +3447,15 @@ PrefabInstance:
       objectReference: {fileID: 969796449}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5569
+      value: 5572
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -3683,7 +3711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -4084,6 +4112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.414768
@@ -4127,14 +4159,14 @@ PrefabInstance:
     - target: {fileID: 4565805295114789950, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 250084386}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 250084386}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 7945654425968847400, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
@@ -4537,15 +4569,15 @@ PrefabInstance:
       objectReference: {fileID: 1410030126}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 6537
+      value: 6543
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -5141,7 +5173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -5382,6 +5414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.42
@@ -5432,15 +5468,15 @@ PrefabInstance:
       objectReference: {fileID: 717956169}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5761
+      value: 5764
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Tangents.Array.data[4].x
@@ -5768,7 +5804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -5887,14 +5923,14 @@ PrefabInstance:
     - target: {fileID: 4565805295114789950, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1410030126}
+      objectReference: {fileID: 1560374004}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1560374004}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 6537
+      value: 6543
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -7108,6 +7144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.4
@@ -7158,19 +7198,19 @@ PrefabInstance:
       objectReference: {fileID: 1537936583}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7945654425968847400, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
@@ -7573,15 +7613,15 @@ PrefabInstance:
       objectReference: {fileID: 1256180594}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 6061
+      value: 6064
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -7989,7 +8029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_SelectedEdges.Array.data[0].a
@@ -8843,10 +8883,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1182357315}
+    - target: {fileID: 3164928656060755935, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
+      propertyPath: m_VersionIndex
+      value: 6240
+      objectReference: {fileID: 0}
     - target: {fileID: 3614129189401006408, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 461346525}
+    - target: {fileID: 3614129189401006408, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
+      propertyPath: m_VersionIndex
+      value: 6186
+      objectReference: {fileID: 0}
     - target: {fileID: 4105582821120014119, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.91723
@@ -8899,10 +8947,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 177065829}
+    - target: {fileID: 6916042923213692336, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
+      propertyPath: m_VersionIndex
+      value: 5522
+      objectReference: {fileID: 0}
     - target: {fileID: 6950744721586007080, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 746063048}
+    - target: {fileID: 6950744721586007080, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
+      propertyPath: m_VersionIndex
+      value: 6364
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8924,6 +8980,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8975,7 +9035,7 @@ PrefabInstance:
       objectReference: {fileID: 1837073221}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 7945654425968847400, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
@@ -9045,11 +9105,15 @@ PrefabInstance:
       objectReference: {fileID: 1902653456}
     - target: {fileID: 1384856070545099292, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_VersionIndex
-      value: 9723
+      value: 9726
       objectReference: {fileID: 0}
     - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Name
       value: Standardized_Doorframe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519219220337345692, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4681034066073338473, guid: dc197ba6d2962dc41b025e4379c77f40, type: 3}
       propertyPath: m_Mesh
@@ -9075,6 +9139,10 @@ PrefabInstance:
     - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Name
       value: 5x8 BlockoutWallPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216995903067653333, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3906086925253193833, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9126,7 +9194,7 @@ PrefabInstance:
       objectReference: {fileID: 1917295060}
     - target: {fileID: 5020345061683205104, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_VersionIndex
-      value: 5531
+      value: 5534
       objectReference: {fileID: 0}
     - target: {fileID: 7945654425968847400, guid: e423b9260a1d7314bb43144f617b91fa, type: 3}
       propertyPath: m_Mesh
