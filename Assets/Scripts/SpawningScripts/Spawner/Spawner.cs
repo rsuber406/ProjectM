@@ -20,7 +20,17 @@ public class Spawner : MonoBehaviour
     public void ChosenEnemy(List<GameObject> enemies)
     {
         enemyToSpawn = enemies;
+        
+    }
+
+    public void HasBoss()
+    {
         containsBoss = true;
+    }
+
+    public void DoesNotHaveBoss()
+    {
+        containsBoss = false;
     }
 
     private void SpawnEnemy()

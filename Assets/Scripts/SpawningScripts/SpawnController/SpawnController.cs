@@ -30,6 +30,7 @@ public class SpawnController : MonoBehaviour
         int randomBossLocation = Random.Range(0, dungeonSpawners.Count);
         Spawner spawnerScript = dungeonSpawners[randomBossLocation].GetComponent<Spawner>();
         spawnerScript.ChosenEnemy(bossEnemies);
+        spawnerScript.HasBoss();
         for (int i = 0; i < dungeonSpawners.Count; i++)
         {
             if (i == randomBossLocation) continue;
@@ -37,6 +38,7 @@ public class SpawnController : MonoBehaviour
             {
                 spawnerScript = dungeonSpawners[i].GetComponent<Spawner>();
                 spawnerScript.ChosenEnemy(normalEnemies);
+                spawnerScript.DoesNotHaveBoss();
             }
         }
         
