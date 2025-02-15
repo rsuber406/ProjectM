@@ -6,10 +6,11 @@ public class ShieldSpell : SpellBase
 {
     [Header("Spell Properties")]
     public float Duration;
-
     public GameObject ShieldPrefab;
-    private GameObject shieldObj;
     
+    private GameObject shieldObj;
+    private AttributesController playerAttributesRef;
+
     public override bool CanActivate()
     {
         return spellSystem.HasEnoughMana(cost);
@@ -24,17 +25,26 @@ public class ShieldSpell : SpellBase
     IEnumerator CastSpell()
     {
         Debug.Log($"Casting {displayName}");
+        GameObject player = GameManager.GetInstance().GetPlayer();
+        playerAttributesRef = player.GetComponentInChildren<AttributesController>();
+
         if (ShieldPrefab)
         {
-            shieldObj = Instantiate(ShieldPrefab, GameManager.GetInstance().GetPlayer().transform.GetChild(0).GetChild(0));
+            shieldObj = Instantiate(ShieldPrefab, player.transform.GetChild(0).GetChild(0));
         }
+
+        // Cast time , for some reason this is needed before we can call end
+        yield return new WaitForSeconds(1);
+        playerAttributesRef.IsImmune = true;
+        End();
         yield return new WaitForSeconds(Duration);
+        
         Cancel();
     }
 
     public override void Cancel()
     {
-        base.Cancel();
+        playerAttributesRef.IsImmune = false;
         Destroy(shieldObj);
     }
 }
