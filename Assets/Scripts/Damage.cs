@@ -16,7 +16,6 @@ public class Damage : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
 
-    bool yes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +41,6 @@ public class Damage : MonoBehaviour
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {
-            yes = true;
             dmg.TakeDamage(damageAmount);
         }
 

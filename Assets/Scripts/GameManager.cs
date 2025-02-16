@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
     [SerializeField] private GameObject settingsMenu;
+    
     public GameObject damagePanel;
     private GameObject menuActive = null;
+    
+    public Image healthBar;
+    public Image manaBar;
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
