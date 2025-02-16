@@ -131,29 +131,13 @@ GameObject:
   - component: {fileID: 20135753}
   - component: {fileID: 20135752}
   - component: {fileID: 20135751}
-  - component: {fileID: 20135750}
   m_Layer: 0
   m_Name: LoadTrigger
-  m_TagString: Untagged
+  m_TagString: LoadLevelTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &20135750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20135749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efce5375e0e2795499f02085e80444b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelPool:
-  - Map1
-  entryPointTag: EntryPoint
 --- !u!135 &20135751
 SphereCollider:
   m_ObjectHideFlags: 0
