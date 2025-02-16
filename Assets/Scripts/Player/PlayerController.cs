@@ -1,112 +1,85 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
-    [SerializeField] Animator anim;
-    [SerializeField][Range(1, 10)] int animTransSpeed;
-    
+
     [Header("----- Speeds -----")]
-    [SerializeField][Range(4, 10)] int joggingSpeed;
-    [SerializeField][Range(7, 15)] int sprintingSpeed;
-    [SerializeField][Range(2, 6)] int crouchSpeed;
-    [SerializeField][Range(100, 500)] int dashSpeed;
-    [SerializeField][Range(10, 20)] int speedMod;
+    [SerializeField][Range(4, 10)] public int joggingSpeed;
+    [SerializeField][Range(7, 15)] public int sprintingSpeed;  // disabled
+    [SerializeField][Range(2, 6)] public int crouchSpeed;      // disabled
+    [SerializeField][Range(5, 15)] public int dodgeSpeed;
+    [SerializeField][Range(10, 20)] public int speedMod;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
     [SerializeField] float jumpForce;
     [SerializeField][Range(0, 2)] int jumpMax;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMult;
-/*
-    [Header("------- Player Health -------")]
-    [SerializeField] float health;
-    [SerializeField] int healthRegen;
-    [SerializeField] private float healthRegenDelay;
-*/
-    //[Header("----- Slopes ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
-    //[SerializeField] float maxSlopeAngle;
+
+    [Header("----- Dodge -----")]
+    [SerializeField] float dodgeForce;
+    [SerializeField] float dodgeDur;
+    [SerializeField] float dodgeCd;
+
+    [Header("----- Slope ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
+    [SerializeField] float maxSlopeAngle;
+    [SerializeField] float slopeCheck;
+
+    [Header("----- Ground -----")]
+    [SerializeField] float groundDrag;
+    [SerializeField] float groundCheck;
 
     [Header("----- Other Player Settings ----- ")]
     [SerializeField] float crouch;
     [SerializeField] float height;
-    [SerializeField] float groundDrag;
-    [SerializeField] float groundRayCheck;
 
+    public PlayerStateController stateController;
+    public Vector3 moveDir;
+    
+    public bool inCombat;
+    public bool isGrounded;
+    public bool isDodging;
+
+    public float movementSpeed;
+    public float HP;
+    public float mana;
+    public float dodgeCdTimer;
 
     // private fields
     AttributesController attributes;
-    public Vector3 moveDir;
     Rigidbody rb;
+    Vector3 dodgeDelay;
+    RaycastHit slopeRaycast;
 
-    bool isGrounded;
+    bool isOnSlope;
     bool canJump;
     bool isCrouching;
-    bool inCombat;
 
     int jumpCounter;
 
-    float movementSpeed;
     float unCrouch;
-    float health;
-
-    // Animation Speeds
-    float ICSpeed;
-    float OCSpeed;
-    float LFRDir;
 
     // for debugging
     float y;
     float x;
     float z;
-    
-
-
-    enum PlayerState
-    {
-        idle
-        ,jogging
-        ,sprinting
-        ,crouching
-        ,dashing
-        ,air
-    }
-    PlayerState playerState;
-
-    enum CombatState
-    {
-        forward
-        , backward
-        , right
-        , left
-        , FR
-        , FL
-        , casting
-        , dodging
-    }
-    CombatState combatState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        attributes = GetComponent<AttributesController>();
+        stateController = GetComponent<PlayerStateController>();
 
         canJump = true;
         unCrouch = transform.localScale.y;
-
-
-        OCSpeed = anim.GetFloat("OCSpeed");
-        ICSpeed = anim.GetFloat("ICSpeed");
-        LFRDir = anim.GetFloat("LFR");
-
-        attributes = GetComponent<AttributesController>();
     }
 
     // Update is called once per frame
@@ -117,21 +90,29 @@ public class PlayerController : MonoBehaviour, IDamage
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
 
-        health = attributes.health.currentValue;
+        HP = attributes.health.currentValue;
+        mana = attributes.mana.currentValue;
 
+        isOnSlope = OnSlope();
+
+        if (dodgeCdTimer > 0)
+            dodgeCdTimer -= Time.deltaTime;
+
+        UpdatePlayerUI();
         SpeedControl();
-        GetPlayerState();
-        GetCombatState();
-
+        
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
-        Dash(); // key bind set to space
+        
     }
 
     void FixedUpdate()
     {
         IsGrounded();
         Movement();
+
+        if (Input.GetButtonDown("Dodge") && inCombat)
+            Dodge(); // key bind set to space
     }
 
     void Movement()
@@ -139,19 +120,40 @@ public class PlayerController : MonoBehaviour, IDamage
         moveDir = Camera.main.transform.forward * Input.GetAxisRaw("Vertical") +
                   orientation.right * Input.GetAxisRaw("Horizontal");
 
+        if (isOnSlope)
+        {
+            rb.AddForce(GetSlopeDirection() * movementSpeed * speedMod, ForceMode.Force);
+
+            if (rb.linearVelocity.y > 0)
+            {
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
+        }
+
         if (isGrounded)
-            rb.AddForce(moveDir.normalized * movementSpeed * 15f, ForceMode.Force);
+        {
+            rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y, moveDir.normalized.z * movementSpeed);
+    
+            if (isOnSlope)
+            {
+                if (rb.linearVelocity.y < 0)
+                    rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
+            }
+
+        }
 
         else
-            rb.AddForce(moveDir.normalized * movementSpeed * airMult * 15f, ForceMode.Force);
+            rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed * airMult, rb.linearVelocity.y, moveDir.normalized.z * movementSpeed * airMult);
+
+        rb.useGravity = !isOnSlope;
     }
 
     void IsGrounded()
     {
-        Debug.DrawRay(orientation.position, Vector3.down * height * groundRayCheck, Color.red);
-        isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundRayCheck, ground);
+        Debug.DrawRay(orientation.position, Vector3.down * height * groundCheck, Color.red);
+        isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundCheck, ground);
 
-        if (isGrounded)
+        if (stateController.playerState != PlayerStateController.PlayerState.dodging && stateController.playerState != PlayerStateController.PlayerState.air)
         {
             rb.linearDamping = groundDrag;
         }
@@ -164,262 +166,72 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-
-        if (flatVel.magnitude > movementSpeed)
+        if (isOnSlope)
         {
-            Vector3 limitedVel = flatVel.normalized * movementSpeed;
-            rb.linearVelocity = new Vector3(limitedVel.normalized.x * movementSpeed, rb.linearVelocity.y, limitedVel.normalized.z * movementSpeed);
-        }
-    }
-
-    void Dash()
-    {
-        if (Input.GetButtonDown("Dash") && isGrounded)
-        {
-            rb.AddForce(moveDir.normalized * dashSpeed, ForceMode.Impulse);
-        }
-    }
-
-    void GetPlayerState()
-    {
-        if (moveDir == Vector3.zero)
-        {
-            playerState = PlayerState.idle;
-        }
-        else if (isGrounded && moveDir != Vector3.zero && !isCrouching)
-        {
-            playerState = PlayerState.jogging;
-        }
-        /*
-        else if (Input.GetButton("Sprint") && isGrounded)
-        {
-            playerState = State.sprinting;
-        }
-        */
-        /*
-        else if (isCrouching)
-        {
-            playerState = State.crouching;
-            movementSpeed = crouchSpeed;
-        }
-        */
-        else
-        {
-            playerState = PlayerState.air;
-        }
-
-        GetPlayerStateSpeed();
-        GetPlayerStateAnimation();
-    }
-
-   
-
-    void GetPlayerStateSpeed()
-    {
-        switch (playerState)
-        {
-            case PlayerState.idle:
-                
-                movementSpeed -= speedMod * Time.deltaTime;
-                if (movementSpeed <= 0)
-                    movementSpeed = 0f;
-
-                break;
-            case PlayerState.jogging:
-
-                if (movementSpeed > joggingSpeed)
-                {
-                    movementSpeed -= speedMod * Time.deltaTime;
-                    if (movementSpeed <= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                if (movementSpeed < joggingSpeed)
-                {
-                    movementSpeed += speedMod * Time.deltaTime;
-                    if (movementSpeed >= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                break;
-            case PlayerState.sprinting:
-
-                movementSpeed += speedMod * Time.deltaTime;
-                if (movementSpeed >= sprintingSpeed)
-                    movementSpeed = sprintingSpeed;
-
-                break;
-            case PlayerState.dashing:
-
-                break;
-            case PlayerState.air:
-
-                break;
-        }
-    }
-
-    void GetPlayerStateAnimation()
-    {
-        if (Input.GetButtonDown("Combat"))
-        {
-            inCombat = !inCombat;
-
-            if (inCombat)
-                anim.SetBool("CombatMode", true);
-            else
-                anim.SetBool("CombatMode", false);
-        }
-
-        if (!inCombat)
-        {
-            switch (playerState)
-            {
-                case PlayerState.idle:
-
-                    OCSpeed -= Time.deltaTime * animTransSpeed;
-                    if (OCSpeed <= 0)
-                        OCSpeed = 0f;
-
-                    break;
-                case PlayerState.jogging:
-
-                    OCSpeed += Time.deltaTime * animTransSpeed;
-                    if (OCSpeed >= 1)
-                        OCSpeed = 1f;
-
-                    break;
-            }
-            anim.SetFloat("OCSpeed", OCSpeed);
+            if (rb.linearVelocity.magnitude > movementSpeed)
+                rb.linearVelocity = rb.linearVelocity.normalized * movementSpeed;
         }
         else
         {
-            switch (playerState)
+            Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+            if (flatVel.magnitude > movementSpeed)
             {
-                case PlayerState.idle:
-
-                    ICSpeed -= Time.deltaTime * animTransSpeed;
-                    if (ICSpeed <= 0)
-                        ICSpeed = 0f;
-
-                    break;
-                case PlayerState.jogging:
-
-                    ICSpeed += Time.deltaTime * animTransSpeed;
-                    if (ICSpeed >= 1)
-                        ICSpeed = 1f;
-
-                    break;
+                Vector3 limitedVel = flatVel.normalized * movementSpeed;
+                rb.linearVelocity = new Vector3(limitedVel.normalized.x * movementSpeed, rb.linearVelocity.y, limitedVel.normalized.z * movementSpeed);
             }
-            anim.SetFloat("ICSpeed", ICSpeed);
         }
     }
 
-    void GetCombatState()
+    bool OnSlope()
     {
-        if (Input.GetKey(KeyCode.W))
+        Debug.DrawRay(orientation.position, Vector3.down * height * slopeCheck, Color.blue);
+
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeRaycast, height * slopeCheck))
         {
-            combatState = CombatState.forward;
-            
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-                combatState = CombatState.FR;
-
-            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
-                combatState = CombatState.FL;
+            float angle = Vector3.Angle(Vector3.up, slopeRaycast.normal);
+            return angle < maxSlopeAngle && angle!= 0;
         }
-
-        else if (Input.GetKey(KeyCode.S))
-            combatState = CombatState.backward;
-
-        else if (Input.GetKey(KeyCode.D))
-            combatState = CombatState.right;
-
-        else if (Input.GetKey(KeyCode.A))
-        {
-            combatState = CombatState.left;
-
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-                combatState = CombatState.FR;
-
-            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-                combatState = CombatState.FL;
-        }
-
-        GetCombatStateAnimation();
+        return false;
     }
 
-    void GetCombatStateAnimation()
+    Vector3 GetSlopeDirection()
     {
-        if (inCombat)
-        {
-            switch(combatState)
-            {
-                case CombatState.forward:
+        return Vector3.ProjectOnPlane(moveDir, slopeRaycast.normal).normalized;
+    }
 
-                    if (LFRDir > 0.5f)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.5f)
-                            LFRDir = 0.5f;
-                    }
-                    else if (LFRDir < 0.5f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.5f)
-                            LFRDir = 0.5f;
-                    }
+    void Dodge()
+    {
+      
+        if (dodgeCdTimer > 0)
+            return;
+        else
+            dodgeCdTimer = dodgeCd;
 
-                    break;
-                case CombatState.right:
+        isDodging = true;
 
-                    LFRDir += Time.deltaTime * animTransSpeed;
-                    if (LFRDir >= 1f)
-                        LFRDir = 1f;
+        Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
+        dodgeDelay = dodge;
+        rb.AddForce(dodgeDelay);
 
-                    break;
-                case CombatState.left:
+        //Invoke(nameof(DodgeDelay), 0.025f);
+        Invoke(nameof(ResetDodge), dodgeDur);
+        //rb.linearVelocity = new Vector3(moveDir.normalized.x * dashSpeed, moveDir.normalized.y, moveDir.normalized.z * dashSpeed);
+    }
 
-                    LFRDir -= Time.deltaTime * animTransSpeed;
-                    if (LFRDir <= 0f)
-                        LFRDir = 0f;
+    void DodgeDelay()
+    {
+    }
 
-                    break;
-                case CombatState.FR:
+    void ResetDodge()
+    {
+        isDodging = false;
+    }
 
-                    if (LFRDir > 0.75)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.75f)
-                            LFRDir = 0.75f;
-                    }
-                    else if (LFRDir < 0.75f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.75f)
-                            LFRDir = 0.75f;
-                    }
-
-                    break;
-                case CombatState.FL:
-
-                    if (LFRDir > 0.25)
-                    {
-                        LFRDir -= Time.deltaTime * animTransSpeed;
-                        if (LFRDir <= 0.25f)
-                            LFRDir = 0.25f;
-                    }
-                    else if (LFRDir < 0.25f)
-                    {
-                        LFRDir += Time.deltaTime * animTransSpeed;
-                        if (LFRDir >= 0.25f)
-                            LFRDir = 0.25f;
-                    }
-
-                    break;
-            }
-            anim.SetFloat("LFR", LFRDir);
-        }
-        
+    void UpdatePlayerUI()
+    {
+        GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
+        GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     IEnumerator FlashDamagePanel()
@@ -431,8 +243,9 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
-        attributes.health.ReduceValue(amount);
+        attributes.TakeDamage(amount);
         StartCoroutine(FlashDamagePanel());
+
     }
 
     
@@ -474,22 +287,4 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
 
-
-
-
-
-
-
-    /*  bool OnSlope()
-      {
-          RaycastHit hit;
-          if (Physiscs.Raycast(transform.position, Vector3.down, out  hit, ))
-          {
-              if (hit.normal != Vector3.up)
-              {
-                  return true;
-              }
-          }
-
-      }*/
 }
