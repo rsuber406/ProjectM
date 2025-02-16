@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] private int roamDistance;
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] private int FOV;
-    [SerializeField] private Transform headPos;
+    [SerializeField] protected Transform headPos;
     protected float convertedFOV = 0;
     protected Vector3 playerPos;
     protected bool isAttacking;
@@ -123,7 +123,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         health -= amount;
         
         if (health <= 0)
-            OnDeath();
+            StartCoroutine(OnDeath());
     }
 
     protected virtual void AttackPlayer()
@@ -131,10 +131,11 @@ public class EnemyAI : MonoBehaviour, IDamage
         
     }
 
-    protected virtual void OnDeath()
+    protected virtual IEnumerator OnDeath()
     {
-        
+        yield return null;
     }
+
     
    
 }

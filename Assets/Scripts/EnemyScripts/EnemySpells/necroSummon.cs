@@ -16,8 +16,8 @@ public class necroSummon : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
-        rigidBody.linearVelocity = Vector3.forward * speed * Time.deltaTime - (Vector3.up * 150 * Time.deltaTime);
+        Vector3 direction = (AIController.GetAIController().GetPlayerPosition() - transform.position).normalized;
+        rigidBody.linearVelocity = direction * speed;
         
         Destroy(gameObject, destroyTime);
     }

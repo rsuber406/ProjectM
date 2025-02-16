@@ -31,7 +31,7 @@ public class NecromancerScript : EnemyAI
                 Mathf.MoveTowards(animSpeed, speed, Time.deltaTime * animationChangeRate));
         }
       
-
+        Debug.DrawRay(spellCastPosition.position, AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position, Color.green);
         base.Update();
 
         cooldownTimer += Time.deltaTime;
@@ -87,25 +87,37 @@ public class NecromancerScript : EnemyAI
         int randomSpell = Random.Range(0, 99);
         yield return new WaitForSeconds(1.3f);
         Vector3 directionToPlayer = (AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position);
-        Quaternion rotationToApply = Quaternion.LookRotation(directionToPlayer);
+        Quaternion rotationToApply = Quaternion.LookRotation(-directionToPlayer);
         spellCastPosition.rotation = rotationToApply;
-        if (randomSpell > 80)
+      
+        if (randomSpell > 10)
         {
-            Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
+          GameObject spell =  Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
+          
         }
-        else Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
+        else AttackSpell(spells[1]);
         Debug.Log(spellCastPosition.rotation);
         yield return new WaitForSeconds(2.0f);
         agent.isStopped = false;
         isAttacking = false;
     }
-    protected override void OnDeath()
+    protected override IEnumerator OnDeath()
     {
         animationController.SetTrigger("Death");
+        yield return new WaitForSeconds(2f);
         agent.isStopped = true;
         Destroy(gameObject);
     }
+private void AttackSpell(GameObject spell)
+{
+    float distance = Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition());
+    spell.transform.localScale = new Vector3(1f, 1f, distance);
+   Instantiate(spell, spellCastPosition.position, spellCastPosition.rotation);
+ 
 }
+
+}
+
 
 enum NecromancerAttack
 {

@@ -59,9 +59,10 @@ public class SkeletonScript : EnemyAI
        
     }
 
-    protected override void OnDeath()
+    protected override IEnumerator OnDeath()
     {
         animationController.SetTrigger("Death");
+        yield return new WaitForSeconds(1.2f);
         agent.isStopped = true;
         Destroy(gameObject);
     }
