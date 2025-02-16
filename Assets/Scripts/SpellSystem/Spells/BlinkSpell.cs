@@ -6,7 +6,6 @@ public class BlinkSpell : SpellBase
 {
     [Header("Spell Properties")]
     public float Distance;
-    public Vector3 DefaultDirection = Vector3.forward;
 
     public GameObject ParticleEffects;
     private GameObject effect;
@@ -26,18 +25,22 @@ public class BlinkSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
 
-        Rigidbody playerRigidBody = GameManager.GetInstance().GetPlayer().GetComponentInChildren<Rigidbody>();
+        GameObject player = GameManager.GetInstance().GetPlayer();
+        Rigidbody playerRigidBody = player.GetComponent<Rigidbody>();
 
-        Vector3 direction = DefaultDirection;
+        // Blink in the cameras forward direction by default
+        Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
+        Vector3 direction = cameraTransform.forward;
 
         if (playerRigidBody.linearVelocity.magnitude > 0.13) 
             direction = playerRigidBody.linearVelocity.normalized;
         
         playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
-
+        player.transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        
         if (ParticleEffects)
         {
-            effect = Instantiate(ParticleEffects, GameManager.GetInstance().GetPlayer().transform.GetChild(0).GetChild(0));
+            effect = Instantiate(ParticleEffects, player.transform);
         }
         
         // Cast time , for som reason this is needed before we can call end
