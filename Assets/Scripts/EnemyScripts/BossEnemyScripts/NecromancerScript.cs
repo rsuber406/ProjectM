@@ -23,12 +23,14 @@ public class NecromancerScript : EnemyAI
     {
         if (playerDetected)
         {
+            
             float animSpeed = animationController.GetFloat("Speed");
             float speed = agent.velocity.magnitude;
             speed = speed * 0.5f;
             animationController.SetFloat("Speed",
                 Mathf.MoveTowards(animSpeed, speed, Time.deltaTime * animationChangeRate));
         }
+      
 
         base.Update();
 
@@ -83,12 +85,17 @@ public class NecromancerScript : EnemyAI
         animationController.SetTrigger("CastSpell");
         agent.isStopped = true;
         int randomSpell = Random.Range(0, 99);
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(1.3f);
+        Vector3 directionToPlayer = (AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position);
+        Quaternion rotationToApply = Quaternion.LookRotation(directionToPlayer);
+        spellCastPosition.rotation = rotationToApply;
         if (randomSpell > 80)
         {
             Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
         }
         else Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
+        Debug.Log(spellCastPosition.rotation);
+        yield return new WaitForSeconds(2.0f);
         agent.isStopped = false;
         isAttacking = false;
     }
