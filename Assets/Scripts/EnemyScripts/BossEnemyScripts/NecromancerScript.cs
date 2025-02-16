@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NecromancerScript : EnemyAI
@@ -8,6 +9,8 @@ public class NecromancerScript : EnemyAI
     [SerializeField] private float spellCooldown;
     [SerializeField] private Transform spellCastPosition;
     [SerializeField] private SphereCollider weaponCollider;
+    [SerializeField] private List<GameObject> spells;
+    
 
     private float cooldownTimer;
 
@@ -79,7 +82,13 @@ public class NecromancerScript : EnemyAI
         isAttacking = true;
         animationController.SetTrigger("CastSpell");
         agent.isStopped = true;
+        int randomSpell = Random.Range(0, 99);
         yield return new WaitForSeconds(3.3f);
+        if (randomSpell > 80)
+        {
+            Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
+        }
+        else Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
         agent.isStopped = false;
         isAttacking = false;
     }
