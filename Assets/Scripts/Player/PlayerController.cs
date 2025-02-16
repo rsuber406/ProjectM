@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] Transform orientation;
 
     [Header("----- Speeds -----")]
-    [SerializeField][Range(4, 10)] int joggingSpeed;
-    [SerializeField][Range(7, 15)] int sprintingSpeed;  // disabled
-    [SerializeField][Range(2, 6)] int crouchSpeed;      // disabled
-    [SerializeField][Range(5, 15)] int dodgeSpeed;
-    [SerializeField][Range(10, 20)] int speedMod;
+    [SerializeField][Range(4, 10)] public int joggingSpeed;
+    [SerializeField][Range(7, 15)] public int sprintingSpeed;  // disabled
+    [SerializeField][Range(2, 6)] public int crouchSpeed;      // disabled
+    [SerializeField][Range(5, 15)] public int dodgeSpeed;
+    [SerializeField][Range(10, 20)] public int speedMod;
 
     [Header("----- Jump ----- ")] // added jump just in case, set to 0 for no jump
     [SerializeField] float jumpForce;
@@ -40,59 +40,36 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float crouch;
     [SerializeField] float height;
 
+    public PlayerStateController stateController;
+    public Vector3 moveDir;
+    
+    public bool inCombat;
+    public bool isGrounded;
+    public bool isDodging;
 
+    public float movementSpeed;
     public float HP;
     public float mana;
+    public float dodgeCdTimer;
 
     // private fields
     AttributesController attributes;
     Rigidbody rb;
-    Vector3 moveDir;
     Vector3 dodgeDelay;
     RaycastHit slopeRaycast;
 
-    bool isGrounded;
     bool isOnSlope;
-    bool isDodging;
     bool canJump;
     bool isCrouching;
 
     int jumpCounter;
 
-    float movementSpeed;
     float unCrouch;
-    float dodgeCdTimer;
 
     // for debugging
     float y;
     float x;
     float z;
-
-
-    public enum PlayerState
-    {
-        idle
-        ,jogging
-        ,sprinting
-        ,crouching
-        ,dodging
-        ,air
-    }
-    public PlayerState playerState;
-    public enum CombatState
-    {
-        forward
-        ,backward
-        ,right
-        ,left
-        ,FR
-        ,FL
-        ,BR
-        ,BL
-        ,casting
-        ,dodging
-    }
-    public CombatState combatState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -102,6 +79,7 @@ public class PlayerController : MonoBehaviour, IDamage
         rb.freezeRotation = true;
 
         attributes = GetComponent<AttributesController>();
+        stateController = GetComponent<PlayerStateController>();
 
         canJump = true;
         unCrouch = transform.localScale.y;
@@ -125,8 +103,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         UpdatePlayerUI();
         SpeedControl();
-        GetPlayerState();
-        GetCombatState();
+        
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
         
@@ -137,7 +114,7 @@ public class PlayerController : MonoBehaviour, IDamage
         IsGrounded();
         Movement();
 
-        if (Input.GetButtonDown("Dodge"))
+        if (Input.GetButtonDown("Dodge") && inCombat)
             Dodge(); // key bind set to space
     }
 
@@ -179,7 +156,7 @@ public class PlayerController : MonoBehaviour, IDamage
         Debug.DrawRay(orientation.position, Vector3.down * height * groundCheck, Color.red);
         isGrounded = Physics.Raycast(orientation.position, Vector3.down, height * groundCheck, ground);
 
-        if (playerState != PlayerState.dodging && playerState != PlayerState.air)
+        if (stateController.playerState != PlayerStateController.PlayerState.dodging && stateController.playerState != PlayerStateController.PlayerState.air)
         {
             rb.linearDamping = groundDrag;
         }
@@ -238,15 +215,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
         Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
         dodgeDelay = dodge;
+        rb.AddForce(dodgeDelay);
 
-        Invoke(nameof(DodgeDelay), 0.025f);
+        //Invoke(nameof(DodgeDelay), 0.025f);
         Invoke(nameof(ResetDodge), dodgeDur);
         //rb.linearVelocity = new Vector3(moveDir.normalized.x * dashSpeed, moveDir.normalized.y, moveDir.normalized.z * dashSpeed);
     }
 
     void DodgeDelay()
     {
-        rb.AddForce(dodgeDelay, ForceMode.Impulse);
     }
 
     void ResetDodge()
@@ -260,115 +237,6 @@ public class PlayerController : MonoBehaviour, IDamage
         GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
-    public void GetPlayerState()
-    {
-        if (moveDir == Vector3.zero)
-            playerState = PlayerState.idle;
-
-        else if (isGrounded && moveDir != Vector3.zero && !isDodging)
-            playerState = PlayerState.jogging;
-
-        else if (isDodging)
-            playerState = PlayerState.dodging;
-
-        /*
-        else if (Input.GetButton("Sprint") && isGrounded)
-        {
-            playerState = State.sprinting;
-        }
-        */
-        /*
-        else if (isCrouching)
-        {
-            playerState = State.crouching;
-        }
-        */
-        else
-            playerState = PlayerState.air;
-
-        GetPlayerStateSpeed();
-    }
-
-   
-
-    void GetPlayerStateSpeed()
-    {
-        switch (playerState)
-        {
-            case PlayerState.idle:
-                
-                movementSpeed -= speedMod * Time.deltaTime;
-                if (movementSpeed <= 0)
-                    movementSpeed = 0f;
-
-                break;
-            case PlayerState.jogging:
-
-                if (movementSpeed > joggingSpeed)
-                {
-                    movementSpeed -= speedMod * Time.deltaTime;
-                    if (movementSpeed <= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                if (movementSpeed < joggingSpeed)
-                {
-                    movementSpeed += speedMod * Time.deltaTime;
-                    if (movementSpeed >= joggingSpeed)
-                        movementSpeed = joggingSpeed;
-                }
-
-                break;
-            case PlayerState.sprinting:
-
-                movementSpeed += speedMod * Time.deltaTime;
-                if (movementSpeed >= sprintingSpeed)
-                    movementSpeed = sprintingSpeed;
-
-                break;
-            case PlayerState.dodging:
-
-                movementSpeed = dodgeSpeed;
-
-                break;
-            case PlayerState.air:
-
-                break;
-        }
-    }
-
-    public void GetCombatState()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            combatState = CombatState.forward;
-            
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-                combatState = CombatState.FR;
-
-            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
-                combatState = CombatState.FL;
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            combatState = CombatState.backward;
-
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-                combatState = CombatState.BR;
-
-            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-                combatState = CombatState.BL;
-        }
-
-        else if (Input.GetKey(KeyCode.A))
-            combatState = CombatState.left;
-
-        else if (Input.GetKey(KeyCode.D))
-            combatState = CombatState.right;
-    }
-
- 
     IEnumerator FlashDamagePanel()
     {
         GameManager.instance.damagePanel.SetActive(true);
