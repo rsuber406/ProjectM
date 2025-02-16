@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 6357876903979031937}
   - component: {fileID: 4175419468583804517}
   - component: {fileID: 3839481100040156285}
-  - component: {fileID: 2709934937227216735}
   - component: {fileID: 2122194703362033314}
   m_Layer: 7
   m_Name: PlayerObj
@@ -147,8 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health:
     attribute: 0
-    currentValue: 10
-    maxValue: 3
+    currentValue: 0
+    maxValue: 100
     minValue: 0
   mana:
     attribute: 1

@@ -26,11 +26,11 @@ public class ShieldSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
-        playerAttributesRef = player.GetComponentInChildren<AttributesController>();
+        playerAttributesRef = player.GetComponent<AttributesController>();
 
         if (ShieldPrefab)
         {
-            shieldObj = Instantiate(ShieldPrefab, player.transform.GetChild(0).GetChild(0));
+            shieldObj = Instantiate(ShieldPrefab, player.transform);
         }
 
         // Cast time , for some reason this is needed before we can call end

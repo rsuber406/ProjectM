@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private GameObject player;
+    [SerializeField] private Camera playerCamera;
     [SerializeField] private MasterSpellsList masterSpellsList;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
@@ -52,12 +54,7 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetPlayerPosition()
     {
-        // 2 is reference to the position of the model that is moving
-       // Debug.Log(player.transform.GetChild(0).GetChild(0).position);
-        
-      // return player.transform.GetChild(0).GetChild(0).position;
       return player.transform.position;
-        
     }
 
     public GameObject GetPlayer()
@@ -65,7 +62,10 @@ public class GameManager : MonoBehaviour
         return player;
     }
 
-    
+    public Camera GetPlayerCamera()
+    {
+        return playerCamera;
+    }
 
     public void ResumeGame()
     {
@@ -96,8 +96,4 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
         StatePause();
     }
-    
-    
-    
-    
 }
