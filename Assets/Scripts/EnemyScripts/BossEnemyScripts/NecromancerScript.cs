@@ -16,7 +16,7 @@ public class NecromancerScript : EnemyAI
         cooldownTimer = spellCooldown;
     }
 
-    void Update()
+    protected override void Update()
     {
         if (playerDetected)
         {
@@ -82,6 +82,12 @@ public class NecromancerScript : EnemyAI
         yield return new WaitForSeconds(3.3f);
         agent.isStopped = false;
         isAttacking = false;
+    }
+    protected override void OnDeath()
+    {
+        animationController.SetTrigger("Death");
+        agent.isStopped = true;
+        Destroy(gameObject);
     }
 }
 

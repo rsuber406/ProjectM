@@ -1,52 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class LoadLevel : MonoBehaviour
+public class LoadHub : MonoBehaviour
 {
-    public static LoadLevel Instance { get; private set; }
-
-    [SerializeField] private List<string> Levels = new List<string>();
-
-    private List<string> remainingLevels;
-
-    private string lastScene;
-
-    private void Awake()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Instance == null)
+        if (other.CompareTag("Player"))
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            ResetLevelPool();
-        }
-        else
-        {
-            Destroy(gameObject);
+            //Call MainScene and load a random level
+            //if there are no more levels available, load the boss scene
         }
     }
 
-    public void ResetLevelPool()
-    {
-        remainingLevels = new List<string>(Levels);
-        lastScene = "";
-    }
-
-    public string GetNextLevel()
-    {
-        if (remainingLevels.Count == 0)
-        {
-            ResetLevelPool();
-        }
-
-        string nextScene;
-        do
-        {
-            nextScene = remainingLevels[Random.Range(0, remainingLevels.Count)];
-        } while (nextScene == lastScene && remainingLevels.Count > 1);
-
-        remainingLevels.Remove(nextScene);
-        lastScene = nextScene;
-
-        return nextScene;
-    }
 }
