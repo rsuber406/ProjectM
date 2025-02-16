@@ -12,6 +12,8 @@ public class InventoryUI : MonoBehaviour
     private GameObject activeContextMenu;
     [SerializeField] public Inventory inventory;
     
+    private int currentSelectedSlotIndex = -1; 
+    
     void Start()
     {
         inventory = FindAnyObjectByType<Inventory>();
@@ -37,12 +39,13 @@ public class InventoryUI : MonoBehaviour
         if (item != null)
         {
             
-            inventory.RemoveItem(item.itemName);
+            inventory.RemoveItem(item.itemName, slotIndex);
             
-            CloseContextMenu();
+            
         }
-        else
+        if(activeContextMenu != null)
         {
+           CloseContextMenu();
             Debug.Log("No item to delete");
         }
     }
@@ -61,7 +64,8 @@ public class InventoryUI : MonoBehaviour
 
     public void ShowContextMenu(InventorySlotUI slot, Vector2 position)
     {
-    
+        currentSelectedSlotIndex = slot.slotIndex;
+        Debug.Log($"Showing context menu for {slot.slotIndex}");
         if (inventory.slots[slot.slotIndex].item == null) 
         {
             return;
@@ -83,8 +87,10 @@ public class InventoryUI : MonoBehaviour
             switch (button.name)
             {
                 case "DeleteButton":
-                    button.onClick.AddListener(() => {
-                        DeleteItem(slot.slotIndex);
+                    button.onClick.RemoveAllListeners();
+                    Debug.Log(button.name + " is clicked");
+                    button.onClick.AddListener(() => { DeleteItem(currentSelectedSlotIndex);
+                        
                     }
                         );
                     break;
