@@ -1,21 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Playables;
+
 
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     [SerializeField] Animator anim;
     [SerializeField][Range(1, 10)] int animTransSpeed;
-
-
+    
     // Animation Speeds
     float ICSpeed;
     float OCSpeed;
     float XZMovement;
     float BFDir;
     float LRDir;
+    
+    public event Action onActionModeEnabled;
+    public event Action onActionModeDisabled;
+
     float DodgeXZ;
     float DodgeX;
     float DodgeZ;
@@ -56,10 +58,15 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetPlayerStateAnimation()
     {
-        if (player.inCombat)
+        if (player.inCombat) {
             anim.SetBool("CombatMode", true);
-        else
+            onActionModeEnabled?.Invoke();
+        }
+            
+        else {
             anim.SetBool("CombatMode", false);
+            onActionModeDisabled?.Invoke();
+        }
 
         if (!player.inCombat)
         {
