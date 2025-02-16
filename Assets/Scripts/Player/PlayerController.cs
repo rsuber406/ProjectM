@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         attributes = GetComponent<AttributesController>();

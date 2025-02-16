@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
             }
             else if(menuActive == pauseMenu) ResumeGame();
         }
-        
     }
 
     public static GameManager GetInstance()
@@ -53,7 +52,12 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetPlayerPosition()
     {
-        return player.transform.position;
+        // 2 is reference to the position of the model that is moving
+       // Debug.Log(player.transform.GetChild(0).GetChild(0).position);
+        
+      // return player.transform.GetChild(0).GetChild(0).position;
+      return player.transform.position;
+        
     }
 
     public GameObject GetPlayer()
@@ -92,6 +96,8 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
         StatePause();
     }
+    
+    
     
     
 }
