@@ -97,7 +97,7 @@ MonoBehaviour:
   jumpMax: 2
   jumpCooldown: 0.75
   airMult: 0.4
-  dodgeForce: 0
+  dodgeForce: 50
   dodgeDur: 0.25
   dodgeCd: 1.5
   maxSlopeAngle: 40
@@ -307,7 +307,7 @@ Transform:
   m_GameObject: {fileID: 4411207638665721122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 1.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -808,8 +808,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8764773186653022487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.116773725, y: 0.8754228, z: 0.26340777, w: -0.38809177}
-  m_LocalPosition: {x: 0, y: 0.11801922, z: -3.8021142}
+  m_LocalRotation: {x: 0.04171077, y: 0.18661363, z: -0.007930387, w: 0.9815155}
+  m_LocalPosition: {x: 0, y: 0.84801924, z: -3.8021142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0, y: 0.73, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 0, y: 0, z: 0}
@@ -943,7 +943,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 1.28, z: 0}
+  TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
     Enabled: 0
