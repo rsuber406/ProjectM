@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
+    public void resetPlayerStats()
+    {
+        //player Health and Mana needs to be reset here. This is urgent
+    }
     public Vector3 GetPlayerPosition()
     {
         // 2 is reference to the position of the model that is moving
@@ -59,7 +63,10 @@ public class GameManager : MonoBehaviour
       return player.transform.position;
         
     }
-
+    public void TeleportPlayer(float xcords, float ycords, float zcords)
+    {
+        player.transform.position = new Vector3(xcords, ycords, zcords);
+    }
     public GameObject GetPlayer()
     {
         return player;
