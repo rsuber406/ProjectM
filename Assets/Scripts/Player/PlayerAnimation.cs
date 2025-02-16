@@ -19,7 +19,8 @@ public class PlayerAnimation : MonoBehaviour
 
 
     bool inCombat;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public bool InCombat => inCombat;
     void Start()
     {
         OCSpeed = anim.GetFloat("OCSpeed");
