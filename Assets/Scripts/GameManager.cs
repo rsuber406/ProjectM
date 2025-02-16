@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     
     public Image healthBar;
     public Image manaBar;
-    
+
+
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
     private AIController aiController;
@@ -85,7 +86,15 @@ public class GameManager : MonoBehaviour
 
     public void SettingsMenu()
     {
+        menuActive.SetActive(false);
         menuActive = settingsMenu;
+        menuActive.SetActive(true);
+    }
+
+    public void PauseMenu()
+    {
+        menuActive.SetActive(false);
+        menuActive = pauseMenu;
         menuActive.SetActive(true);
     }
 

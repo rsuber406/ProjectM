@@ -14,6 +14,21 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.GetInstance().SettingsMenu();
     }
 
+    public void Back()
+    {
+        GameManager.GetInstance().PauseMenu();
+    }
+
+    public void MasterVolume()
+    {
+
+    }
+
+    public void MasterVolumeSlider()
+    {
+
+    }
+
     public void Restart()
     {
         // Talk to game manager to teleport player to where they need to go

@@ -111,11 +111,14 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void FixedUpdate()
     {
-        IsGrounded();
-        Movement();
+        if (HP > 0)
+        {
+            IsGrounded();
+            Movement();
 
-        if (Input.GetButtonDown("Dodge") && inCombat)
-            Dodge(); // key bind set to space
+            if (Input.GetButtonDown("Dodge") && inCombat)
+                Dodge(); // key bind set to space
+        }
     }
 
     void Movement()
@@ -233,15 +236,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void UpdatePlayerUI()
     {
-        GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
-        GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
+        GameManager.GetInstance().healthBar.fillAmount = (float)HP / attributes.health.maxValue;
+        GameManager.GetInstance().manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     IEnumerator FlashDamagePanel()
     {
-        GameManager.instance.damagePanel.SetActive(true);
+        GameManager.GetInstance().damagePanel.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        GameManager.instance.damagePanel.SetActive(false);
+        GameManager.GetInstance().damagePanel.SetActive(false);
     }
 
     public void TakeDamage(int amount)
