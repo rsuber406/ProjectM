@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AttributesController : MonoBehaviour
@@ -6,6 +7,8 @@ public class AttributesController : MonoBehaviour
     public AttributeInfo health;
     public AttributeInfo mana;
     public AttributeInfo armor;
+    public float healthRegenRate;
+    public float manaRegenRate;
 
     private bool isImmuneToDamage;
     
@@ -17,6 +20,27 @@ public class AttributesController : MonoBehaviour
         health.Reset();
         mana.Reset();
         armor.Reset();
+        
+        StartCoroutine(RegenerateAttributes());
+    }
+    
+
+    private IEnumerator RegenerateAttributes()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+                
+            if (health.currentValue < health.maxValue)
+            {
+                health.AddValue(healthRegenRate);
+            }
+                
+            if (mana.currentValue < mana.maxValue)
+            {
+                mana.AddValue(manaRegenRate);
+            }
+        }
     }
     
     public static float CalculateDamageReduction(float armor, float k)
