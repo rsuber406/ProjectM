@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 6357876903979031937}
   - component: {fileID: 4175419468583804517}
   - component: {fileID: 3839481100040156285}
-  - component: {fileID: 2709934937227216735}
   - component: {fileID: 2122194703362033314}
   - component: {fileID: 155549950604736639}
   m_Layer: 7
@@ -126,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health:
     attribute: 0
-    currentValue: 10
-    maxValue: 3
+    currentValue: 0
+    maxValue: 100
     minValue: 0
   mana:
     attribute: 1
@@ -224,29 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellSlotMapping: {fileID: 11400000, guid: 0699ff10d145e0641a2795a11a6267c9, type: 2}
---- !u!136 &2709934937227216735
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &2122194703362033314
 Rigidbody:
   m_ObjectHideFlags: 0
