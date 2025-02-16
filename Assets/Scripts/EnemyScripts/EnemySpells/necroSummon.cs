@@ -43,6 +43,7 @@ public class necroSummon : MonoBehaviour
     // }
     private void OnCollisionEnter(Collision collision)
     {
+      
         if (collision.gameObject.CompareTag("Ground"))
         {
             TrailRenderer trailRenderer = gameObject.GetComponent<TrailRenderer>();
