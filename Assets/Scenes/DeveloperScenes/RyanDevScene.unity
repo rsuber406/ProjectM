@@ -600,6 +600,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d28314080163a749b863287bbf05cf3, type: 3}
+--- !u!1 &256290949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256290950}
+  m_Layer: 0
+  m_Name: SpellCastPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256290950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256290949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.629, y: 0.982, z: 0.201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1018214162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &446727185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,6 +639,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2911894347099940034, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
+      propertyPath: spellCastPosition
+      value: 
+      objectReference: {fileID: 256290950}
+    - target: {fileID: 2911894347099940034, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
+      propertyPath: spells.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911894347099940034, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
+      propertyPath: 'spells.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2453704118328830514, guid: 9f2e55f6b8cbcbc4bbe89f82cad536fc, type: 3}
     - target: {fileID: 7380347089976303335, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
       propertyPath: m_Name
       value: Necromancer
@@ -654,7 +697,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8700619804279619905, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 256290950}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
 --- !u!1 &971491518
@@ -818,7 +864,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c3cf2cec30890be4d9ab7390e665718f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -863,6 +909,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1018214162 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8700619804279619905, guid: b564c4d4799a9414c8acd5a3be88ef2f, type: 3}
+  m_PrefabInstance: {fileID: 446727185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1237644174
 PrefabInstance:
   m_ObjectHideFlags: 0
