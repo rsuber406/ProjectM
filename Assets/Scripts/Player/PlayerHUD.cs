@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHUD : MonoBehaviour
 {
+    [SerializeField] private GameObject crossHair;
     [SerializeField] private GameObject spellbar;
     [SerializeField] private GameObject spellActivationMessageObj;
     [SerializeField] private float spellActivationTimer;
@@ -11,7 +12,6 @@ public class PlayerHUD : MonoBehaviour
     
     private TMP_Text spellActivationMessage;
     private SpellSystem playerSpellSystem;
-
     
     void Start()
     {
@@ -38,6 +38,10 @@ public class PlayerHUD : MonoBehaviour
             spellActivationMessageObj.SetActive(false);
         }
         
+        PlayerAnimation animationControllerRef = go.GetComponentInChildren<PlayerAnimation>();
+        animationControllerRef.onActionModeEnabled += EnableCrossHair;
+        animationControllerRef.onActionModeDisabled += DisableCrossHair;
+        DisableCrossHair();
         
         if (spellbar && enableSpellBarOnStart)
         {
@@ -57,6 +61,16 @@ public class PlayerHUD : MonoBehaviour
     void DisableSpellBar()
     {
         spellbar.SetActive(false);
+    }
+    
+    void EnableCrossHair()
+    {
+        crossHair.SetActive(true);
+    }
+    
+    void DisableCrossHair()
+    {
+        crossHair.SetActive(false);
     }
 
     IEnumerator ShowSpellActivationMessage(string message)

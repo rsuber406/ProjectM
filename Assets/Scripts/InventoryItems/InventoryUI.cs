@@ -6,9 +6,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject[] itemIconSlots;
     [SerializeField] private GameObject inventoryPanel;
-
-
-
+    
     void Start()
     {
         FindAnyObjectByType<Inventory>().OnInventoryChanged += UpdateInventoryUI;

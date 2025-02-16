@@ -72,12 +72,12 @@ public class TPCamController : MonoBehaviour
         basicCam.SetActive(false);
         combatCam.SetActive(false);
 
-        if (Input.GetButtonDown("Combat") && !inCombat)
+        if (Input.GetButtonDown("Combat") && !inCombat && Time.deltaTime != 0)
         {
             inCombat = true;
             cam = CamStyle.Combat;
         }
-        else if (Input.GetButtonDown("Combat") && inCombat)
+        else if (Input.GetButtonDown("Combat") && inCombat && Time.deltaTime != 0)
         {
             inCombat = false;
             cam = CamStyle.Basic;
