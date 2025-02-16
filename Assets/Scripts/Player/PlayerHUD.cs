@@ -16,7 +16,7 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         GameObject go = GameManager.GetInstance().GetPlayer();
-        playerSpellSystem = go.GetComponentInParent<SpellSystem>();
+        playerSpellSystem = go.GetComponentInChildren<SpellSystem>();
         
         playerSpellSystem.OnSpellOnCoolDown += () =>
         {

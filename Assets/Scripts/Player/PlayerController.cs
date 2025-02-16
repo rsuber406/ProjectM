@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] int joggingSpeed;
-    [SerializeField][Range(7, 15)] int sprintingSpeed;
-    [SerializeField][Range(2, 6)] int crouchSpeed;
+    [SerializeField][Range(7, 15)] int sprintingSpeed;  // disabled
+    [SerializeField][Range(2, 6)] int crouchSpeed;      // disabled
     [SerializeField][Range(5, 15)] int dodgeSpeed;
     [SerializeField][Range(10, 20)] int speedMod;
 
@@ -25,20 +25,20 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("----- Dodge -----")]
     [SerializeField] float dodgeForce;
-    [SerializeField] float dodgeUpwardForce;
     [SerializeField] float dodgeDur;
     [SerializeField] float dodgeCd;
 
     [Header("----- Slope ----- ")] // working on slope mechanics for testing, not sure if will implement to final product
     [SerializeField] float maxSlopeAngle;
     [SerializeField] float slopeCheck;
-    RaycastHit slopeRaycast;
+
+    [Header("----- Ground -----")]
+    [SerializeField] float groundDrag;
+    [SerializeField] float groundCheck;
 
     [Header("----- Other Player Settings ----- ")]
     [SerializeField] float crouch;
     [SerializeField] float height;
-    [SerializeField] float groundDrag;
-    [SerializeField] float groundCheck;
 
 
     public float HP;
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Rigidbody rb;
     Vector3 moveDir;
     Vector3 dodgeDelay;
+    RaycastHit slopeRaycast;
 
     bool isGrounded;
     bool isOnSlope;
@@ -235,8 +236,8 @@ public class PlayerController : MonoBehaviour, IDamage
 
         isDodging = true;
 
-        //Vector3 dodge = orientation.forward * dodgeForce + orientation.up * dodgeUpwardForce;
-        //dodgeDelay = dodge;
+        Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
+        dodgeDelay = dodge;
 
         Invoke(nameof(DodgeDelay), 0.025f);
         Invoke(nameof(ResetDodge), dodgeDur);
@@ -256,7 +257,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void UpdatePlayerUI()
     {
         GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
-        GameManager.instance.healthBar.fillAmount = (float)mana / attributes.mana.maxValue;
+        GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     public void GetPlayerState()
