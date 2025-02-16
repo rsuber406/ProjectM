@@ -6,7 +6,7 @@ public class ProjectileSpell : SpellBase
 {
     [Header("Spell Properties")]
     public GameObject ProjectilePrefab;
-
+    public int damageAmount;
     public LayerMask layerMask;
     public override bool CanActivate()
     {
@@ -39,7 +39,7 @@ public class ProjectileSpell : SpellBase
             GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
 
             ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
-            projectileRef.Init(direction);
+            projectileRef.Init(direction, damageAmount);
         }
 
         // Cast time , for some reason this is needed before we can call end

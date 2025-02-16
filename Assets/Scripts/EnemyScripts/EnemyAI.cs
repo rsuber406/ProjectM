@@ -121,7 +121,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void TakeDamage(int amount)
     {
         health -= amount;
-        OnDeath();
+        
+        if (health <= 0)
+            OnDeath();
     }
 
     protected virtual void AttackPlayer()
