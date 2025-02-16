@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour, IDamage
     bool isGrounded;
     bool isOnSlope;
     bool isDodging;
+    bool inCombat;
     bool canJump;
     bool isCrouching;
 
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour, IDamage
         IsGrounded();
         Movement();
 
-        if (Input.GetButtonDown("Dodge"))
+        if (Input.GetButtonDown("Dodge") && inCombat)
             Dodge(); // key bind set to space
     }
 
@@ -269,7 +270,10 @@ public class PlayerController : MonoBehaviour, IDamage
             playerState = PlayerState.jogging;
 
         else if (isDodging)
+        {
             playerState = PlayerState.dodging;
+            combatState = CombatState.dodging;
+        }
 
         /*
         else if (Input.GetButton("Sprint") && isGrounded)
@@ -328,7 +332,7 @@ public class PlayerController : MonoBehaviour, IDamage
                 break;
             case PlayerState.dodging:
 
-                movementSpeed = dodgeSpeed;
+                    movementSpeed = dodgeSpeed;
 
                 break;
             case PlayerState.air:
@@ -339,6 +343,12 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void GetCombatState()
     {
+        if (Input.GetButtonDown("Combat") && !inCombat)
+            inCombat = true;
+
+        else if (Input.GetButtonDown("Combat") && inCombat)
+            inCombat = false;
+
         if (Input.GetKey(KeyCode.W))
         {
             combatState = CombatState.forward;

@@ -39,7 +39,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetPlayerStateAnimation()
     {
-        if (Input.GetButtonDown("Combat"))
+        if (Input.GetButtonDown("Combat") && Time.deltaTime != 0)
         {
             inCombat = !inCombat;
 
