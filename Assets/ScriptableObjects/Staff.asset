@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff113cd6c6c5ff744beddaf615a1bec6, type: 3}
-  m_Name: New Item
+  m_Name: Staff
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  itemName: Staff
+  description: asdf1234
+  icon: {fileID: 21300000, guid: 8e96d178fb42e5b4d80bb41d97b7061f, type: 3}
   itemType: 0
   rarity: 0
   armor: 0

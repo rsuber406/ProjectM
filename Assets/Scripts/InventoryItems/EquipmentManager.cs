@@ -25,11 +25,11 @@ public class EquipmentManager : MonoBehaviour
     
     private void Start()
     {
-        attributesController.armor.currentValue = 0f;
-        attributesController.health.currentValue = 0f;
-        attributesController.mana.currentValue = 0f;
-        attributesController = GetComponent<AttributesController>();
-        equipmentManager.EquipItem(equippedChestplate);
+     //   attributesController.armor.currentValue = 0f;
+     //   attributesController.health.currentValue = 0f;
+     ///   attributesController.mana.currentValue = 0f;
+     //   attributesController = GetComponent<AttributesController>();
+       // equipmentManager.EquipItem(equippedChestplate);
     }
 
     private void UpdateCharacterUI()
