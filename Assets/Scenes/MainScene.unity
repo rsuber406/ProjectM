@@ -827,6 +827,7 @@ MonoBehaviour:
   _tutScene: TutScene
   _bossScene: BossRoom
   PlayerActivateables: {fileID: 727761931}
+  _Hublvl: {fileID: 0}
 --- !u!1 &727761931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1314316387541837336, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
@@ -841,7 +842,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867033528}
-  - component: {fileID: 867033529}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -867,30 +867,6 @@ Transform:
   - {fileID: 202872876}
   m_Father: {fileID: 978665915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &867033529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867033527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00bd49d6c29daa646953c5b6a17e87e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadScreen: {fileID: 0}
-  MenuActivatebles: {fileID: 0}
-  _Hub: PersistentLevel
-  _DynamicScenes:
-  - 
-  - 
-  - 
-  - 
-  - 
-  _tutScene: TutScene
-  _bossScene: BossRoom
-  PlayerActivateables: {fileID: 0}
 --- !u!1 &959846520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,15 +1164,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000000035760195
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5436344
+      value: 0.6918546
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.233923
+      value: -3.491439
       objectReference: {fileID: 0}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalRotation.w
