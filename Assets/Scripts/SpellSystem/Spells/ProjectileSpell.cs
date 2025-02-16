@@ -31,7 +31,7 @@ public class ProjectileSpell : SpellBase
             player.transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             Vector3 spawnPosition = player.transform.position + player.transform.forward * 1.5f + player.transform.up * 1.5f + player.transform.right * 1f;
 
-            if (player.GetComponent<PlayerAnimation>().InCombat)
+            if (player.GetComponent<PlayerController>().inCombat)
             {
                 spawnPosition += player.transform.right * .5f;
             }
