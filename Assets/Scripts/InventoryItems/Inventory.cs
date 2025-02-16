@@ -4,12 +4,12 @@ using UnityEngine;
 public class InventorySlot
 {
     public Item item;
-    
+    public int index;
 
-    public InventorySlot()
+    public InventorySlot(int index)
     {
         item = null;
-        
+        this.index = index;
     }
     
 }
@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         slots = new InventorySlot[inventorySize];
         for (int i = 0; i < inventorySize; i++)
         {
-            slots[i] = new InventorySlot();
+            slots[i] = new InventorySlot(i);
         }
     }
     public int GetInventorySize()
@@ -89,23 +89,22 @@ public class Inventory : MonoBehaviour
         }
         return null;
     }
-    public bool RemoveItem(string itemName)
+    public bool RemoveItem(string itemName, int index)
     {
-        if (string.IsNullOrEmpty(itemName)) return false;
+      if (string.IsNullOrEmpty(itemName)) return false;
 
-        for (int i = 0; i < slots.Length; i++)
+    for (int i = 0; i < slots.Length; i++)
+    {
+        if (slots[i].item != null && slots[i].item.name == itemName && index == slots[i].index || index == slots[i].index)
         {
-            if (slots[i].item != null && slots[i].item.name == itemName)
-            {
-                var removedItem = slots[i].item;
-                slots[i].item = null;
-                OnItemRemoved?.Invoke(removedItem);
-                OnInventoryChanged?.Invoke();
-                
-                return true;
-            }
+            var removedItem = slots[i].item;
+            slots[i].item = null;
+            OnItemRemoved?.Invoke(removedItem);
+            OnInventoryChanged?.Invoke();
+            return true;
         }
-        return false;
+    }
+    return false;
     }
     public bool AddItem(Item item)
     {
@@ -129,13 +128,18 @@ public class Inventory : MonoBehaviour
 
     public void SwapItemPositions(int fromSlot, int toSlot)
     {
-        if (fromSlot == toSlot) return;
-        if(fromSlot < 0 || fromSlot > slots.Length || toSlot < 0 || toSlot >= slots.Length) return;
-        var tempItemSlot = slots[toSlot].item;
-        slots[toSlot].item = slots[fromSlot].item;
-        slots[toSlot] = slots[fromSlot];
+        
+            if (fromSlot == toSlot) return;
+            if (fromSlot < 0 || fromSlot >= slots.Length || toSlot < 0 || toSlot >= slots.Length) return;
 
-        OnInventoryChanged?.Invoke(); //I have no idea if this works yet or not, just had an idea and wanted to put it here.
+         
+            var tempItem = slots[toSlot].item;  
+            slots[toSlot].item = slots[fromSlot].item;  
+            slots[fromSlot].item = tempItem;  
+
+            OnInventoryChanged?.Invoke();
+        
+        
     }
 
     public void ClearInventory()
@@ -146,7 +150,7 @@ public class Inventory : MonoBehaviour
             {
                 OnItemRemoved?.Invoke(slots[i].item);
             }
-            slots[i] = null;
+            slots[i].item = null;
         }
         OnInventoryChanged?.Invoke();
     }
