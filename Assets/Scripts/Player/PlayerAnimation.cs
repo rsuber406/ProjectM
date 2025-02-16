@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Playables;
+
 
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     [SerializeField] Animator anim;
     [SerializeField][Range(1, 10)] int animTransSpeed;
-
-
+    
     // Animation Speeds
     float ICSpeed;
     float OCSpeed;
     float XZMovement;
     float BFDir;
     float LRDir;
-
-
+    
     bool inCombat;
+    public event Action onActionModeEnabled;
+    public event Action onActionModeDisabled;
 
     public bool InCombat => inCombat;
     void Start()
@@ -45,9 +44,16 @@ public class PlayerAnimation : MonoBehaviour
             inCombat = !inCombat;
 
             if (inCombat)
+            {
                 anim.SetBool("CombatMode", true);
+                onActionModeEnabled?.Invoke();
+            }
+
             else
+            {
                 anim.SetBool("CombatMode", false);
+                onActionModeDisabled?.Invoke();
+            }
         }
 
         if (!inCombat)
@@ -155,8 +161,7 @@ public class PlayerAnimation : MonoBehaviour
         if (inCombat)
         {
             GetXZCombatStateAnimation();
-
-            // 
+            
             switch (player.combatState)
             {
                 case PlayerController.CombatState.forward:
