@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
@@ -19,7 +20,7 @@ public class MainSceneLogic : MonoBehaviour
 
     [Header("---World 1 Levels---")]
     [SerializeField] private string _Hub = "Hub";
-    public List<string> DynamicMaps = new List<string> { "Map1", "Map2"};
+    public string[] DynamicMaps = { "Map1", "Map2"};
     [SerializeField] private string _tutScene = "TutScene";
     [SerializeField] private string _bossScene = "BossRoom";
 
@@ -28,6 +29,9 @@ public class MainSceneLogic : MonoBehaviour
 
     public string currLvl;
     public GameObject _Hublvl;
+
+    public int mapnum = 0;
+
     private void Start()
     {
         MSInstance = this;
@@ -58,7 +62,7 @@ public class MainSceneLogic : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
         currLvl = _tutScene;
-        SceneManager.LoadSceneAsync(_tutScene, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
         PlayerActivateables.SetActive (true);
     }
@@ -68,34 +72,27 @@ public class MainSceneLogic : MonoBehaviour
         MenuActivatebles.SetActive (false);
     }
 
-    public void loadHub()
-    {
-        //unload current scene and move Player to 0, 0, -32.20
-        SceneManager.UnloadSceneAsync(currLvl);
-    }
-
     public void loadLevel()
     {
         //unload any active scene.
-        SceneManager.UnloadSceneAsync(currLvl);
-        if (DynamicMaps.Count == 0)
+        if (!string.IsNullOrEmpty(currLvl))
         {
-            SceneManager.LoadSceneAsync(_bossScene, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(currLvl);
+        }
+        if (mapnum >= DynamicMaps.Count())
+        {
             currLvl = _bossScene;
+            SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
             return;
         }
-
-        for (int i = DynamicMaps.Count - 1; i > 0; i--)
+        else
         {
-            int j = i - 1;
-            (DynamicMaps[i], DynamicMaps[j]) = (DynamicMaps[j], DynamicMaps[i]);
-            //using Fisher Yates Shuffle to randomize
+            currLvl = DynamicMaps[mapnum];
+            mapnum++;
+            SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         }
-
-        string activeLevel = DynamicMaps[0];
-
         // Remove the selected map
-        DynamicMaps.RemoveAt(0);
+        //DynamicMaps.RemoveAt(0);
 
     }
     public void Quitgame()

@@ -3505,7 +3505,7 @@ MonoBehaviour:
   - {fileID: 3098615199906110900}
   - {fileID: 811439606017317088}
   - {fileID: 7801700540113386137}
-  inventoryPanel: {fileID: 6193778977411416067}
+  inventoryPanel: {fileID: 7004085221689948184}
   contextMenuPrefab: {fileID: 2614160588755977163}
   inventory: {fileID: 0}
 --- !u!223 &4438748879636497809
