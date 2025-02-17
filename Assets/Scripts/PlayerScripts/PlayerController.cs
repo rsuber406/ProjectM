@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
+    [SerializeField] AudioSource aud;
 
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] public int joggingSpeed;
@@ -37,6 +38,11 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float crouch;
     [SerializeField] float height;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip[] audSteps;
+
+
+
     public PlayerStateController stateController;
     public Vector3 moveDir;
     
@@ -58,6 +64,7 @@ public class PlayerController : MonoBehaviour, IDamage
     bool isOnSlope;
     bool canJump;
     bool isCrouching;
+    bool isPlayingSteps;
 
     int jumpCounter;
 
@@ -143,6 +150,10 @@ public class PlayerController : MonoBehaviour, IDamage
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
+            if (moveDir.magnitude > 0.3f && !isPlayingSteps)
+            {
+                StartCoroutine(PlaySteps());
+            }
         }
 
         else
@@ -237,13 +248,6 @@ public class PlayerController : MonoBehaviour, IDamage
         GameManager.GetInstance().manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
-    IEnumerator FlashDamagePanel()
-    {
-        GameManager.GetInstance().damagePanel.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        GameManager.GetInstance().damagePanel.SetActive(false);
-    }
-
     public void TakeDamage(int amount)
     {
         attributes.TakeDamage(amount);
@@ -251,7 +255,23 @@ public class PlayerController : MonoBehaviour, IDamage
 
     }
 
-    
+    IEnumerator FlashDamagePanel()
+    {
+        GameManager.GetInstance().damagePanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        GameManager.GetInstance().damagePanel.SetActive(false);
+    }
+
+    IEnumerator PlaySteps()
+    {
+        isPlayingSteps = true;
+
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length)], GameManager.GetInstance().GetSoundManager().SFXVol);
+        yield return new WaitForSeconds(0.3f);
+
+        isPlayingSteps = false;
+    }
+
 
     // ----- SCRAPPED CODE ----- //
 

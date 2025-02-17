@@ -21,8 +21,9 @@ public class PlayerAnimation : MonoBehaviour
     float DodgeXZ;
     float DodgeX;
     float DodgeZ;
-    float OR;   //override layer speed
-
+    float layer1OR;   //override layer speed - Dodge
+    float layer2OR;   //override layer speed - 
+    float castingTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +37,10 @@ public class PlayerAnimation : MonoBehaviour
         DodgeX = anim.GetFloat("DodgeX");
         DodgeZ = anim.GetFloat("DodgeZ");
 
-        OR = 0;
+        layer1OR = 0;
+        layer2OR = 0;
+
+        castingTimer = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +50,13 @@ public class PlayerAnimation : MonoBehaviour
         GetCombatStateAnimation();
         GetDodgeStateAnimation();
         PlayerDeathAnimation();
+
+        if (castingTimer > 0f)
+        {
+            castingTimer -= 13f * Time.deltaTime;
+            if (castingTimer < 0f)
+                castingTimer = 0f;
+        }
     }
 
     void PlayerDeathAnimation()
@@ -58,12 +69,14 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetPlayerStateAnimation()
     {
-        if (player.inCombat) {
+        if (player.inCombat) 
+        {
             anim.SetBool("CombatMode", true);
             onActionModeEnabled?.Invoke();
         }
             
-        else {
+        else 
+        {
             anim.SetBool("CombatMode", false);
             onActionModeDisabled?.Invoke();
         }
@@ -112,6 +125,12 @@ public class PlayerAnimation : MonoBehaviour
                     anim.SetBool("isDodging", true);
                     DodgeLayerOverride();
 
+                    break;
+                case PlayerStateController.PlayerState.casting:
+
+                    castingTimer = 1;
+                    anim.SetBool("isCasting", true);
+                    CastingLayerOverride();
 
                     break;
             }
@@ -120,7 +139,13 @@ public class PlayerAnimation : MonoBehaviour
             if (player.dodgeCdTimer < 0)
             {
                 anim.SetBool("isDodging", false);
-                BaseLayerOverride();
+                DodgeLayerOverrideBase();
+            }
+
+            if (castingTimer == 0f)
+            {
+                anim.SetBool("isCasting", false);
+                CastingLayerOverrideBase();
             }
         }
     }
@@ -355,15 +380,29 @@ public class PlayerAnimation : MonoBehaviour
 
     void DodgeLayerOverride()
     {
-        OR += 13f * Time.deltaTime;
-        if (OR > 1)
-            OR = 1f;
-        anim.SetLayerWeight(1, OR);
+        layer1OR += 13f * Time.deltaTime;
+        if (layer1OR > 1)
+            layer1OR = 1f;
+        anim.SetLayerWeight(1, layer1OR);
     }
 
-    void BaseLayerOverride()
+    void CastingLayerOverride()
     {
-        OR = 0f;
-        anim.SetLayerWeight(1, OR);
+        layer2OR += 13f * Time.deltaTime;
+        if (layer2OR > 1)
+            layer2OR = 1f;
+        anim.SetLayerWeight(2, layer2OR);
+    }
+
+    void DodgeLayerOverrideBase()
+    {
+        layer1OR = 0f;
+        anim.SetLayerWeight(1, layer1OR);
+    }
+
+    void CastingLayerOverrideBase()
+    {
+        layer2OR = 0f;
+        anim.SetLayerWeight(2, layer2OR);
     }
 }

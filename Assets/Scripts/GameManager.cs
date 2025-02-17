@@ -11,7 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
     [SerializeField] private GameObject settingsMenu;
-    
+
+    private SoundManager soundController;
+    public Slider masterSlider;
+    public Slider SFXSlider;
+    public Slider musicSlider;
+
     public GameObject damagePanel;
     private GameObject menuActive = null;
     
@@ -29,12 +34,19 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
+        soundController = this.GetComponent<SoundManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
     {
+        if (GetInstance().GetSoundManager().masterVol > 0)
+        {
+            GetInstance().GetSoundManager().SFXVol = GetInstance().GetSoundManager().masterVol * GetInstance().SFXSlider.value;
+            GetInstance().GetSoundManager().musicVol = GetInstance().GetSoundManager().masterVol * GetInstance().musicSlider.value;
+        }
+
         if (Input.GetButtonDown("Cancel"))
         {
             if (menuActive == null)
@@ -60,6 +72,11 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return player;
+    }
+
+    public SoundManager GetSoundManager()
+    {
+        return soundController;
     }
 
     public Camera GetPlayerCamera()

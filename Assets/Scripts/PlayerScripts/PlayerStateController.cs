@@ -11,6 +11,7 @@ public class PlayerStateController : MonoBehaviour
         , sprinting
         , crouching
         , dodging
+        , casting
         , air
     }
     public PlayerState playerState;
@@ -63,6 +64,9 @@ public class PlayerStateController : MonoBehaviour
 
         else if (player.isDodging)
             playerState = PlayerState.dodging;
+        
+        else if (Input.GetButtonDown("Fire"))
+            playerState = PlayerState.casting;
 
         /*
         else if (Input.GetButton("Sprint") && isGrounded)
