@@ -249,6 +249,10 @@ PrefabInstance:
       propertyPath: PlayerActivateables
       value: 
       objectReference: {fileID: 727761931}
+    - target: {fileID: 1889666777927038104, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4232029306780985198, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_Name
       value: UI
