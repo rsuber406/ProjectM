@@ -7481,7 +7481,7 @@ Transform:
   m_GameObject: {fileID: 667372021}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.55, y: -11.606, z: 13.76}
+  m_LocalPosition: {x: -9.55, y: -1.36, z: 24.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9728,7 +9728,7 @@ Transform:
   m_GameObject: {fileID: 900063290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -32.41, y: -11.79, z: 13.76}
+  m_LocalPosition: {x: -9.52, y: -0.79, z: 13.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21023,7 +21023,7 @@ Transform:
   m_GameObject: {fileID: 1559594652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -30.21, y: -11.79, z: 5.789}
+  m_LocalPosition: {x: -8, y: 0.4, z: 5.789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21252,7 +21252,7 @@ Transform:
   m_GameObject: {fileID: 1570631236}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4568024, y: -1.8, z: 4.8483505}
+  m_LocalPosition: {x: -4.4568024, y: -1.78, z: 4.8483505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21299,15 +21299,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 722239163575567693, guid: 32971b0f635e3a94fb49029ade9f4762, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.04
+      value: -8.72
       objectReference: {fileID: 0}
     - target: {fileID: 722239163575567693, guid: 32971b0f635e3a94fb49029ade9f4762, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.79
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 722239163575567693, guid: 32971b0f635e3a94fb49029ade9f4762, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.789
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5553311530688489194, guid: 32971b0f635e3a94fb49029ade9f4762, type: 3}
       propertyPath: spawnPoints.Array.size

@@ -2316,7 +2316,9 @@ MonoBehaviour:
   - Map2
   _tutScene: TutScene
   _bossScene: BossRoom
-  PlayerActivateables: {fileID: 0}
+  PlayerActivateables:
+  - {fileID: 1889666777927038104}
+  - {fileID: 0}
   currLvl: 
   _Hublvl: {fileID: 0}
   mapnum: 0
