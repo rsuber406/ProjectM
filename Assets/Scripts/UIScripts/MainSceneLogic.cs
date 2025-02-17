@@ -98,8 +98,8 @@ public class MainSceneLogic : MonoBehaviour
         }
         // Remove the selected map
         //DynamicMaps.RemoveAt(0);
-
     }
+
     public void Quitgame()
     {   
 #if UNITY_EDITOR

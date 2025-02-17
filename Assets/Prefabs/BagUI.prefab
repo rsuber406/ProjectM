@@ -3373,6 +3373,8 @@ GameObject:
   - component: {fileID: 4011004240677221998}
   - component: {fileID: 3722656275271436123}
   - component: {fileID: 6100065112327557594}
+  - component: {fileID: 3601356094758142354}
+  - component: {fileID: 5004172748752316591}
   m_Layer: 5
   m_Name: BagSlot
   m_TagString: Untagged
@@ -3438,6 +3440,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3601356094758142354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665094641441356167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b73d3601e992ebd9ee24f36c94fc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 0
+--- !u!225 &5004172748752316591
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665094641441356167}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5688254323190659008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,7 +3532,7 @@ MonoBehaviour:
   - {fileID: 3098615199906110900}
   - {fileID: 811439606017317088}
   - {fileID: 7801700540113386137}
-  inventoryPanel: {fileID: 7004085221689948184}
+  inventoryPanel: {fileID: 6193778977411416067}
   contextMenuPrefab: {fileID: 2614160588755977163}
   inventory: {fileID: 0}
 --- !u!223 &4438748879636497809
@@ -3769,6 +3796,7 @@ GameObject:
   - component: {fileID: 7039501951755923713}
   - component: {fileID: 2960771193479944494}
   - component: {fileID: 6585201653450045655}
+  - component: {fileID: 7620090271050989774}
   m_Layer: 5
   m_Name: BagSlot (1)
   m_TagString: Untagged
@@ -3846,6 +3874,19 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7620090271050989774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191177734639336143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b73d3601e992ebd9ee24f36c94fc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 1
 --- !u!1 &6193778977411416067
 GameObject:
   m_ObjectHideFlags: 0
