@@ -30,9 +30,10 @@ public class GhoulScript : EnemyAI
         isAttacking = false;
     }
 
-    private void Start()
+    protected override void Start()
     {
         cooldownCompare = castCooldown;
+        base.Start();
     }
 
     protected override void Update()
@@ -82,9 +83,11 @@ public class GhoulScript : EnemyAI
     }
     protected override IEnumerator OnDeath()
     {
+        leftWeapon.enabled = false;
+        rightWeapon.enabled = false;
         animationController.SetTrigger("Death");
-        yield return new WaitForSeconds(2f);
         agent.isStopped = true;
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 

@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff113cd6c6c5ff744beddaf615a1bec6, type: 3}
-  m_Name: Sword
+  m_Name: Staff
   m_EditorClassIdentifier: 
-  itemName: Test Sword
-  description: asdfTest
-  icon: {fileID: 21300000, guid: a68afecacfd7d934ab7d79e9ebe89e67, type: 3}
-
+  itemName: Staff
+  description: asdf1234
+  icon: {fileID: 21300000, guid: 8e96d178fb42e5b4d80bb41d97b7061f, type: 3}
   itemType: 0
   rarity: 0
+  armor: 0
+  armorModifier: 0
+  healthModifier: 0
+  manaModifier: 0

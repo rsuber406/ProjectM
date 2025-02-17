@@ -14,9 +14,10 @@ public class NecromancerScript : EnemyAI
 
     private float cooldownTimer;
 
-    void Start()
+    protected override void Start()
     {
         cooldownTimer = spellCooldown;
+        base.Start();
     }
 
     protected override void Update()
@@ -90,7 +91,7 @@ public class NecromancerScript : EnemyAI
         Quaternion rotationToApply = Quaternion.LookRotation(-directionToPlayer);
         spellCastPosition.rotation = rotationToApply;
       
-        if (randomSpell > 10)
+        if (randomSpell > 70)
         {
           GameObject spell =  Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
           
@@ -104,14 +105,14 @@ public class NecromancerScript : EnemyAI
     protected override IEnumerator OnDeath()
     {
         animationController.SetTrigger("Death");
-        yield return new WaitForSeconds(2f);
         agent.isStopped = true;
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 private void AttackSpell(GameObject spell)
 {
     float distance = Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition());
-    spell.transform.localScale = new Vector3(1f, 1f, distance);
+   // spell.transform.localScale = new Vector3(1f, 1f, distance);
    Instantiate(spell, spellCastPosition.position, spellCastPosition.rotation);
  
 }

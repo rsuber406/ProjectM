@@ -27,8 +27,16 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected bool playerDetected = false;
     protected float agentStoppingDistanceOrig;
 
-    void Start()
+    private List<Color> originalColors = new List<Color>();
+    protected virtual void Start()
     {
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            originalColors.Add(renderer.material.color);
+            
+        }
+        
         convertedFOV = 1f - ((float)FOV / 100f);
     }
 
@@ -121,7 +129,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void TakeDamage(int amount)
     {
         health -= amount;
-        
+        StartCoroutine(FlashDamage());
         if (health <= 0)
             StartCoroutine(OnDeath());
     }
@@ -134,6 +142,24 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual IEnumerator OnDeath()
     {
         yield return null;
+    }
+
+    private IEnumerator FlashDamage()
+    {
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material.color = Color.red;
+            
+        }
+        yield return new WaitForSeconds(0.1f);
+        int counter = 0;
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material.color = originalColors[counter];
+            counter++;
+        }
+       
     }
 
     
