@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bb1ebae72f0a5489f6b73cd45b76eb, type: 3}
+  m_Name: MasterSpellsList
+  m_EditorClassIdentifier: 
+  SpellList:
+  - key: fireball
+    value: {fileID: 11400000, guid: 5a43a0b862566884e872b5e06f4ec89a, type: 2}
+  - key: blink
+    value: {fileID: 11400000, guid: 77e0284e96265af4d96462a59fceea94, type: 2}
+  - key: shield
+    value: {fileID: 11400000, guid: 391827686481f244c8f21c4c31f4de30, type: 2}
