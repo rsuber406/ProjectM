@@ -28,15 +28,21 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected float agentStoppingDistanceOrig;
 
     private List<Color> originalColors = new List<Color>();
+
     protected virtual void Start()
     {
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
-            originalColors.Add(renderer.material.color);
-            
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color"))
+                {
+                    originalColors.Add(renderer.material.color);
+                }
+            }
         }
-        
+
         convertedFOV = 1f - ((float)FOV / 100f);
     }
 
@@ -44,7 +50,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual void Update()
     {
         CheckPlayerInRange();
-        
     }
 
     protected void CheckPlayerInRange()
@@ -70,7 +75,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerPos = AIController.GetAIController().GetPlayerPosition();
-          Debug.Log("player detected");
+            Debug.Log("player detected");
             playerDetected = true;
         }
     }
@@ -79,7 +84,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
-      
+
         if (dotProduct > convertedFOV)
         {
             RaycastHit hit;
@@ -88,15 +93,16 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    if(!isAttacking)
-                    agent.SetDestination(playerPos);
+                    if (!isAttacking)
+                        agent.SetDestination(playerPos);
 
                     if (Vector3.Distance(transform.position, playerPos) < agent.stoppingDistance)
                     {
                         // Make the AI face the target
                         FaceTarget(ref playerPos);
                     }
-                    if(!isAttacking)
+
+                    if (!isAttacking)
                         AttackPlayer();
                 }
             }
@@ -136,7 +142,6 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     protected virtual void AttackPlayer()
     {
-        
     }
 
     protected virtual IEnumerator OnDeath()
@@ -149,19 +154,28 @@ public class EnemyAI : MonoBehaviour, IDamage
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
-            renderer.material.color = Color.red;
-            
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color"))
+                {
+                    renderer.material.color = Color.red;
+                }
+            }
         }
+
         yield return new WaitForSeconds(0.1f);
         int counter = 0;
         foreach (Renderer renderer in renderers)
         {
-            renderer.material.color = originalColors[counter];
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color") && counter < originalColors.Count)
+                {
+                    renderer.material.color = originalColors[counter];
+                }
+            }
             counter++;
-        }
-       
-    }
 
-    
-   
+        }
+    }
 }
