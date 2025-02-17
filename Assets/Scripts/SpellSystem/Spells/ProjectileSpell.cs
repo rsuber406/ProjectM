@@ -7,6 +7,8 @@ public class ProjectileSpell : SpellBase
     [Header("Spell Properties")]
     public GameObject ProjectilePrefab;
     public int damageAmount;
+    public Vector3 SpawnOffset;
+    public Vector3 SpawnOffsetCombat;
     public LayerMask layerMask;
     public override bool CanActivate()
     {
@@ -29,18 +31,17 @@ public class ProjectileSpell : SpellBase
         if (ProjectilePrefab)
         {
 
-            Vector3 spawnPosition = player.transform.position;
+            Vector3 spawnPosition = player.transform.GetChild(0).position;
 
             if (player.GetComponent<PlayerController>().inCombat)
             {
-                spawnPosition += player.transform.right * .5f;
+                spawnPosition += SpawnOffsetCombat;
             }
             else
             {
-                player.transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+                spawnPosition += SpawnOffset;
+                player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             }
-            
-            spawnPosition += player.transform.forward * 1.5f + player.transform.up * 1.5f + player.transform.right * 1f;
             
             GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
 
@@ -53,11 +54,6 @@ public class ProjectileSpell : SpellBase
         End();
         
         Cancel();
-    }
-
-    public override void Cancel()
-    {
-        //Destroy(shieldObj);
     }
 }
 

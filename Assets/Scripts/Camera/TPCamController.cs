@@ -11,19 +11,16 @@ public class TPCamController : MonoBehaviour
 
     [SerializeField] GameObject basicCam;
     [SerializeField] GameObject combatCam;
-
-    [SerializeField] Rigidbody rb;
-
+    
     bool inCombat;
 
     CamStyle cam;
     enum CamStyle
     {
-        Basic
-        , Combat
+        Basic,
+        Combat
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
