@@ -17399,6 +17399,7 @@ MonoBehaviour:
   weaponCollider: {fileID: 8490509182569284721}
   spells:
   - {fileID: 6248638296988901992, guid: 4cee5b1213d331c42a14bfa6224b50a8, type: 3}
+  - {fileID: 2453704118328830514, guid: 9f2e55f6b8cbcbc4bbe89f82cad536fc, type: 3}
 --- !u!195 &5273622685367120409
 NavMeshAgent:
   m_ObjectHideFlags: 0
