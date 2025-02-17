@@ -51,6 +51,9 @@ GameObject:
   - component: {fileID: 3839481100040156285}
   - component: {fileID: 2122194703362033314}
   - component: {fileID: 2709934937227216735}
+  - component: {fileID: 8723265616804472942}
+  - component: {fileID: 4443877421692931135}
+  - component: {fileID: 7705785872992515908}
   m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Player
@@ -67,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 444834868501528335}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,7 +159,7 @@ MonoBehaviour:
     maxValue: 100
     minValue: 0
   armor:
-    attribute: 0
+    attribute: 2
     currentValue: 0
     maxValue: 0
     minValue: 0
@@ -234,6 +237,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryPanel: {fileID: 0}
+  contextMenuPrefab: {fileID: 0}
+  inventory: {fileID: 4060631488636382767}
 --- !u!114 &3839481100040156285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +302,61 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8723265616804472942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fffa5cfebffbb47a29b05082b25a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedHelmet: {fileID: 0}
+  equippedChestplate: {fileID: 11400000, guid: 786acb0eb9fe36540a0a5f4212b24467, type: 2}
+  equippedBoots: {fileID: 0}
+  equippedLegs: {fileID: 0}
+  equippedRing: {fileID: 0}
+  equippedAmulet: {fileID: 0}
+  equippedGloves: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+--- !u!114 &4443877421692931135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104c3c008366792f5b84370dbe85cfca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmetSlot: {fileID: 0}
+  chestSlot: {fileID: 0}
+  leggingsSlot: {fileID: 0}
+  bootsSlot: {fileID: 0}
+  glovesSlot: {fileID: 0}
+  ringSlot: {fileID: 0}
+  amuletSlot: {fileID: 0}
+  weaponSlot: {fileID: 0}
+--- !u!114 &7705785872992515908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444834868501528335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2e9d43bc51002daafce06e7a5ecc4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 4060631488636382767}
+  equipmentManager: {fileID: 8723265616804472942}
+  testItem: {fileID: 0}
 --- !u!1 &1314316387541837336
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,8 +451,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05867553, y: -0.000000051098876, z: 0.0000000030034282, w: 0.9982771}
-  m_LocalPosition: {x: 0, y: 0.6918546, z: -3.491439}
+  m_LocalRotation: {x: -0.12202698, y: -0.2931186, z: -0.03775007, w: 0.94750506}
+  m_LocalPosition: {x: 2.4973955, y: -0.8796278, z: -4.540117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -475,7 +535,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 0
+    Value: -34.379776
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -485,7 +545,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 18.877432
+    Value: 1.7901967
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -708,8 +768,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05867553, y: -0.000000051098876, z: 0.0000000030034284, w: 0.9982771}
-  m_LocalPosition: {x: 0, y: 0.6918546, z: -3.491439}
+  m_LocalRotation: {x: -0.12202697, y: -0.2931186, z: -0.03775006, w: 0.9475051}
+  m_LocalPosition: {x: 1.895184, y: -0.599, z: -3.659943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1181,7 +1241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}
       propertyPath: m_TagString
-      value: PlayerSocket
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}
       propertyPath: m_Controller
