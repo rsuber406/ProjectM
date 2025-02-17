@@ -17,7 +17,7 @@ public class LoadLevel : MonoBehaviour
                   Destroy(enemies[i]);
               }
           }
-            GameManager.instance.TeleportPlayer(0f, 0f, 0f);
+            GameManager.instance.TeleportPlayer(0f, 1f, 0f);
         }
     }
 
