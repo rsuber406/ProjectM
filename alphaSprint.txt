@@ -1,0 +1,2367 @@
+commit 78b9713428d667f61a94565301a2f2021773a353
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 23:03:14 2025 -0500
+
+    Fixed UI
+
+commit 48701f2f88bf519c7a578f7b3d260d4429a4f4bf
+Merge: b0d0dcc e753982
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 22:33:40 2025 -0500
+
+    conflicts resolved
+
+commit b0d0dccd1fcce17554480ff766eeaea7ddb7013f
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 22:32:21 2025 -0500
+
+    implemented a settings screen with functioning SFX Music and master volume. Still needs a few tweaks and further inspection.
+
+commit e753982d92d800d5afa0052e6075eb3958f6e6f7
+Merge: 4681cb1 fe3471c
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 22:17:15 2025 -0500
+
+    Merge pull request #76 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit fe3471c312bbdd047bd041113fba4ccd2053b7bf
+Merge: a0c0e43 4681cb1
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 22:10:59 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit a0c0e43747173b4b0e37a09e7b5e9355a379fa59
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 22:09:10 2025 -0500
+
+    Victory Screen + Functionality
+
+commit 4681cb169bd5209d5730314b918fe57f983b8976
+Merge: e6734d5 8f81de2
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:50:33 2025 -0500
+
+    Merge pull request #75 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 8f81de239d28bb04821ab6806558f162d3e08de7
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:47:59 2025 -0500
+
+    BugFixes
+
+commit 21bd0fb2f80ef4fe6544beb37e2143ccce393c89
+Merge: e840659 e6734d5
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:47:37 2025 -0500
+
+    BugPatch
+
+commit e6734d54e0abaa51995daa6489d92a1eef95d09d
+Merge: f24e52c fb66da3
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:43:08 2025 -0500
+
+    Merge pull request #74 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit fb66da358fd864722c8437a8b030e4768a643731
+Merge: 0d57e4f f24e52c
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:42:16 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit f24e52c80ae9e16c86208ca6627831df4fa9818c
+Merge: 28324e8 40c3800
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:41:57 2025 -0500
+
+    Merge pull request #73 from rsuber406/Dakota-Dev-Branch
+    
+    added items to the hub for demo
+
+commit 0d57e4ff13a77e248e2c16646fd2bb53f03d8e8c
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:41:35 2025 -0500
+
+    Fixed issue with enemies staying through levels
+
+commit 40c3800551f3cb5115dcf242ddaf8e7edc5868a8
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 21:40:44 2025 -0500
+
+    added some items to the hub
+    
+    added some items to the hub
+
+commit e840659d4bc307dd319bfa648e9d2bd1339c0c5d
+Merge: fbe18ee 28324e8
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:40:04 2025 -0500
+
+    bugfixesp4
+
+commit 0a5427a0a42595ffa40938289c0caa9013ce4b29
+Merge: bc4dde3 28324e8
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 21:35:49 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit 28324e8c8ff91f5972da0ccc61115578c5a355d2
+Merge: 26412af 1aa0080
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:30:19 2025 -0500
+
+    Merge pull request #72 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 1aa0080027ba2abb4c7ce222321676a1d7e7259e
+Merge: df85d8a 26412af
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:29:52 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit df85d8a8a0524322913b3f935d88dfb73afa514c
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:29:33 2025 -0500
+
+    Boss room is rigged and ready to go
+
+commit fbe18eee2913c81c41119931adbba3f97eb7ae1f
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:29:24 2025 -0500
+
+    Bugfix part3
+
+commit 26412afe4f392ba84d6b8084e4de9b7717ef7561
+Merge: 533620a 7e0618f
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:20:39 2025 -0500
+
+    Merge pull request #71 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 7e0618fdb836e276a704e1173af12cad4a05b4fa
+Merge: 407b3bf 533620a
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:20:02 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 407b3bf7a9d4c9f6dc5b05edef71968a009410ca
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:19:40 2025 -0500
+
+    Map two is rigged and ready
+
+commit 14eeb4970eb50009b19fe97ae341c1b8a125a7de
+Merge: 6266cfe 533620a
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:11:21 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit 6266cfe151dd22f326b4d90990707190af1ea4fe
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 21:11:11 2025 -0500
+
+    Bugfixing maps p2
+
+commit 533620add46929434fb05ae824866f2edd1fe54d
+Merge: 6baee16 bc4dde3
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:01:44 2025 -0500
+
+    Merge pull request #70 from rsuber406/Dakota-Dev-Branch
+    
+    updated prefabs- again
+
+commit bc4dde3f6fb90e9ce56a2fd86d6d000b62207fc7
+Merge: de50ea6 6baee16
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 21:01:34 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit d0aa01d6f7787c0cf280dfe3033f69ddc263d585
+Merge: eb1394b 6baee16
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 20:55:07 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit 6baee165638f4a0d4b6e37b753e6775c3624c32e
+Merge: 2e0cf92 073082d
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:54:24 2025 -0500
+
+    Merge pull request #69 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 073082d4c15d9e87832ac832043bb960b35fffef
+Merge: 6f615ce 2e0cf92
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:53:55 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit de50ea691b05517678429665e4ea77dd1373b0af
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 20:53:39 2025 -0500
+
+    updated prefabs- again
+
+commit 6f615ce10b5840d99e31ab3484c9f25d0671ce5b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:53:35 2025 -0500
+
+    Done with map 1
+
+commit eb1394b898340997f3ab7bbc4a912d0d2d47455e
+Merge: ad03d86 2e0cf92
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 20:46:45 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit ad03d86e4099ba3684b39397ddaa5bcf0ff0bcf6
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 20:46:36 2025 -0500
+
+    Map Refinements
+
+commit 5922cc9b200e7c6e94b865692488690c05a4ae94
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:44:57 2025 -0500
+
+    moved the spawners to be apart of parent object map1
+
+commit 589dd1fb12d595d4f6575e4463dd8d0d4325e1e2
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:43:32 2025 -0500
+
+    Spawn points addded to map 1
+
+commit 2e0cf922707e75a4c08e7d6c26d518eb18c1b7b4
+Merge: 94b09ec a7438a5
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:24:13 2025 -0500
+
+    Merge pull request #68 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit a7438a59ee248a0bc88cd610a51f0a7947391798
+Merge: 55a52a3 94b09ec
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:19:13 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 55a52a350a235c364948c05460060634a4740cc1
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:18:53 2025 -0500
+
+    Fixed null reference on ghoul prefab when swapping mesh color.
+
+commit 94b09ec0a3b8110d6e9fb1ea0060c2fc69106987
+Merge: 0e38fa5 a912c53
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 20:03:08 2025 -0500
+
+    Merge pull request #67 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit a912c53f07f1a61384166cdf77fc2ab4ce01bbad
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 20:02:21 2025 -0500
+
+    Merge Resolve for Final Scene transition Code
+
+commit 962f679aa7423ea6be01ed0886c916916c872256
+Merge: a73df18 0e38fa5
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 19:59:19 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit a73df18c7e398f1eb5c3fdd37bdebfed692a4851
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 19:59:04 2025 -0500
+
+    Scene Transitions Completed.
+    Hub and Linear Scene transitions are implemented
+
+commit 0e38fa5620113176234ba79151ee76432fc4e43f
+Merge: 04d4bf1 09ea50a
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 19:50:36 2025 -0500
+
+    Merge pull request #66 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 09ea50ac1afd7874341116ca9677e5eaa18d3ea5
+Merge: aabccdf 04d4bf1
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 19:50:03 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit aabccdf1d93d24fd8e50a87734e29cf475f926ff
+Merge: f1882d3 d476748
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 19:49:14 2025 -0500
+
+    Fixed a couple issues with the enemy AI and added indications that they are being hit.
+
+commit 04d4bf1840a04c9dac6facd659124ffe07bc8398
+Merge: d476748 3e21a32
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 19:36:52 2025 -0500
+
+    Merge pull request #65 from rsuber406/Dakota-Dev-Branch
+    
+    prefab fix
+
+commit 3e21a32969e5c0885662980c1b5efb80507ce1f9
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 19:35:56 2025 -0500
+
+    prefab fix
+
+commit 9d15418ec1621b71ac099b8557f6fbb1c8f439ce
+Merge: 319a293 8785e3d
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 19:32:40 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit 319a293191eceb8521ec52bbc8882cc70cfd2557
+Merge: 274ea76 d74d2c7
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 19:32:34 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit 274ea7676bb59bdd651e31b5b8e7a7b557499f8e
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 19:32:28 2025 -0500
+
+    updated working prefabs
+
+commit d47674834bb0fca2cbe06df9eab51c3bc7347496
+Merge: 1d7554f c80bf23
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:58:22 2025 -0500
+
+    Merge pull request #64 from rsuber406/Dakota-Fix-Branch
+    
+    Dakota fix branch
+
+commit c80bf239f875cfd01591783ea2e4cc50c61d46a3
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 18:57:00 2025 -0500
+
+    fixing this stupid a s
+
+commit ecd4b3b2dbea19fd9567750cda386e6851e90788
+Merge: d40652a 8785e3d
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 18:49:31 2025 -0500
+
+    Merge branch 'development' into Dakota-Fix-Branch
+
+commit f1882d356bb12ae0a00f33c93752102134ea1eac
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:36:36 2025 -0500
+
+    Adjusted the speed of the summon spell
+
+commit f711ee42b806df10f93ba69b79e291b97d729af4
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:34:39 2025 -0500
+
+    Fixed summon spell
+
+commit 8785e3d8948fbd1178a8a593839f9a1f6e4395dd
+Merge: d40652a 1d7554f
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 18:24:44 2025 -0500
+
+    Merge remote-tracking branch 'origin/development' into development
+
+commit 1d7554f95b141acfa402ed8c092ad13807c91a42
+Merge: 2795e85 f7cf3d2
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:19:13 2025 -0500
+
+    Merge pull request #63 from rsuber406/Adrian-NDev-Branch
+    
+    Emergency UI Fixes.
+
+commit f7cf3d271c01898ac8bd88552d030ad7c29035fa
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 18:16:05 2025 -0500
+
+    Emergency UI Fixes.
+
+commit 2795e8549d5d5748b98189215ab832a1e0dd7fa9
+Merge: ea0883f d74d2c7
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:01:58 2025 -0500
+
+    Merge pull request #62 from rsuber406/Dakota-Dev-Branch
+    
+    Dakota dev branch
+
+commit ea0883ff7fca5e04ec07e3745a36be7e31638805
+Merge: b6d6016 5c1c258
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 18:00:52 2025 -0500
+
+    Merge pull request #61 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit d40652ac413a0b37546ada3da1886b1fd8ca078d
+Merge: b6d6016 0bbb07a
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:58:26 2025 -0500
+
+    Merge branch 'Dakota-Dev-Branch' into development
+
+commit 5c1c25898522415601a2acd060b6b411c74401a6
+Merge: 7f89612 b6d6016
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 17:54:16 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit 7f896122ac65592d032b3fc77c04c2244b172e2d
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 17:53:54 2025 -0500
+
+    A Very Overdue and almost finished fully working teleport System in the MainScene
+
+commit d74d2c7106abdc16a6c88764747002fc25dd7ac1
+Merge: 0bbb07a 428cf57
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:50:45 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit 0bbb07aa3e647669e3d974f75389ecaa7b9e0c39
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:50:11 2025 -0500
+
+    updated ui prefab
+    
+    updated ui prefab to remove the bag ui
+
+commit d04c622fddb71ac89a99b3caa5b92923b2ea7c14
+Merge: 1ab96d8 b6d6016
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:41:39 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit 428cf57f825cebb99e696165c79d93e8d7b1701c
+Merge: f921482 c8f8ad9
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:38:04 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit f9214828b9f36d56545ea9fb80c34fbd3161b0b2
+Merge: 1ab96d8 b6d6016
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:36:50 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit 1ab96d827e31a6d27bbfc877ff7550c0e6021817
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:24:15 2025 -0500
+
+    Auto stash before merge of "Dakota-Dev-Branch" and "origin/Dakota-Dev-Branch"
+
+commit c8f8ad90d55508abcbc3ac16509f55af7733364f
+Merge: 0733fc5 24668a4
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 17:21:45 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit 052a3148006d39112aa8eab685bb6b643696fb69
+Merge: 0392078 b6d6016
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 17:15:45 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit 0392078338a12efaeb4e1ef21fe476a1c5e5f3b7
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 17:15:29 2025 -0500
+
+    imported sounds, and starting to make settings menu. Merging from dev now
+
+commit 1a001581209b51995c92789d9c9a9b3dd380fb1a
+Merge: 08bf7a6 b6d6016
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 16:25:22 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 08bf7a6c6b351c80d4c6cb9720e6a6a960542736
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 16:25:01 2025 -0500
+
+    something changed idk
+
+commit b6d6016fd09ccc34cad7a13f116f1545581c00a5
+Merge: 7e6665e 81ba200
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 16:24:29 2025 -0500
+
+    Merge pull request #59 from rsuber406/feature/health-regen
+    
+    health and mana regen
+
+commit 81ba20052c79e82444bdcf92278e8c798530f5c5
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 16:22:28 2025 -0500
+
+    health regen
+
+commit 148e9e72a701401ed3482f6239a90efa18394d96
+Merge: 2573e74 7e6665e
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 16:13:08 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 7e6665e036835870ccb74ae1b909a369a61d47ca
+Merge: f4fbd3b 19a50da
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 16:10:08 2025 -0500
+
+    Merge pull request #58 from rsuber406/feature/fireball-spell
+    
+    Feature/fireball spell
+
+commit 0733fc5132e7f2d3f6161e32f71217ed02a75f3c
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 15:57:15 2025 -0500
+
+    equipment test, unifinished
+
+commit 5da448ad5e00293a87deac873f6f99190d013000
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 15:56:37 2025 -0500
+
+    fixed a bug with deleting items with the same name
+
+commit 19a50da4e181f306148eea35536b9cb0c455c1fc
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 15:53:16 2025 -0500
+
+    fixed  player snapping
+
+commit 4743aa6285a4b29bb668ed5a400ff31be8ec3c3e
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 15:32:34 2025 -0500
+
+    fireball integration with main
+
+commit 55c74350bda2873b55fc7ddbcc2fe72df9ce773a
+Merge: 400e1c5 f4fbd3b
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 15:20:28 2025 -0500
+
+    Merge branch 'refs/heads/development' into feature/fireball-spell
+
+commit 495335cf91ffc3c88dbf9de705fffe453f66b632
+Merge: 95a0790 f4fbd3b
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 15:09:18 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit 95a0790972e2f4f6dcb1fba7200986e695fd34a5
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 15:09:02 2025 -0500
+
+    checking for merge
+
+commit 400e1c548421ca6453920da210b7cdd7a9db1c19
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 14:51:14 2025 -0500
+
+    Updates
+
+commit fa048057e864393f35e542b139b885a14eaecc19
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 14:50:04 2025 -0500
+
+    Fireball Damage to player
+
+commit ec88292c774960194a9bbbc586b0d5f1631382b1
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 14:30:54 2025 -0500
+
+    Added Fireball VFX
+
+commit a8d6edd3f91fa6becf9f1edcb4ab1ab98bd164e8
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 14:04:48 2025 -0500
+
+    Added Crosshair
+
+commit 2573e74d2fa841c8d928bdb484d6b75072c3a6b2
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 13:42:45 2025 -0500
+
+    working out some logic with the spell cast
+
+commit 6da801c02866fe8965057c54e70a12dca7de0431
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 13:31:49 2025 -0500
+
+    Fireball working
+
+commit f4fbd3b91de4e89a97f9161e9fba977963e2a4bd
+Merge: fed883b 8fa62c4
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 13:10:47 2025 -0500
+
+    Merge pull request #57 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit 8fa62c41f4540c22d9954b3d5ae9ef4d5e8e95f4
+Merge: 05768b5 fed883b
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 13:08:34 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit 05768b542b98dad11db9f1b874d54f9cf18792be
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sun Feb 16 13:07:58 2025 -0500
+
+    implemetned dodge animations, tweaked playerscript and added new playerStateController script
+
+commit 0de31b6f92d94059ba8e0c658df2a283d75982c5
+Merge: 5a071af fed883b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 13:00:08 2025 -0500
+
+    Fixed merge issues
+
+commit 5a071af1410c1486b88e04b83187788bdddea8a7
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 12:48:34 2025 -0500
+
+    Necromancer can now summon enemies
+
+commit fed883b4be4db4e20fa33e98391c8391ddb5dbcd
+Merge: 98e6f48 2289d92
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 12:29:47 2025 -0500
+
+    Merge pull request #56 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 2289d92860ca6ccfbda2b3941e45fb4118f85bf4
+Merge: d0e6117 98e6f48
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 12:23:10 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit d0e6117e631757525676fa246fcbb40bc0015c1e
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 12:22:57 2025 -0500
+
+    Progress on the Main Scene. It is still a mess, but experimentation is going to be underway
+
+commit f5d2098fc274e45da13502d24cc598fea207b0db
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sun Feb 16 11:09:13 2025 -0500
+
+    Fixed Parenting issues with spell
+
+commit 585a81524036c4ae1d30eff3a94bb2878f97e614
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 11:07:15 2025 -0500
+
+    fixing ui
+
+commit 24668a4ed724d03218fa935d588803538c8968ce
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 09:13:47 2025 -0500
+
+    updated prefabs
+
+commit 8d3be3691653eed3c7bf684fae8d2e1315c2865b
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 01:14:38 2025 -0500
+
+    added character silhouette
+    
+    added character silhouette and updated itemdata class to handle more robust inputs
+
+commit 8d6aca9119f99113714a86fbaa4f4e8800d45f19
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 01:14:01 2025 -0500
+
+    updated inventory ui
+    
+    updated inventory UI system, added eventhandlers and a script on each item slot to handle input
+
+commit b68f4d119747d22d69180c91914213cc7f58129e
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 01:13:31 2025 -0500
+
+    more changes to equipment system
+
+commit a922a5361d156c8f7dfb26c376b4343ef95ee74a
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Sun Feb 16 01:13:04 2025 -0500
+
+    added equipment manager class and ui
+    
+    added equipment manager class, ui, and test classes
+
+commit 98e6f4875353f031170940b8720704f7b456640e
+Merge: 4273b22 52a6c06
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 00:26:49 2025 -0500
+
+    Merge pull request #55 from rsuber406/Adrian-NDev-Branch
+    
+    MainScene Main Menu Integration.
+
+commit 4273b22bc1911d1ce842af154245898933710ac9
+Merge: 6e1963e 3fc96fc
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sun Feb 16 00:25:18 2025 -0500
+
+    Merge pull request #54 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 52a6c066203bfad10e9ecefa375ee31b709761a5
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sun Feb 16 00:24:20 2025 -0500
+
+    MainScene Main Menu Integration.
+    Small Issues Local to MainScene
+
+commit 268bf931bdf8e34234072e1dc04d0229b7098f7b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 23:51:26 2025 -0500
+
+    Added more effects for spells
+
+commit 3fc96fc98e605044b0a93a7722507cb2be71d107
+Merge: 39a1141 6e1963e
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 22:38:44 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit 39a1141e73dfbdd085a7c2bd835678912192350a
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 22:38:28 2025 -0500
+
+    Staging Levels for MainScene Integration
+
+commit 4ee6de5798c835dae8f7529e7cdd1d319847aedd
+Merge: db41c53 6e1963e
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 22:23:41 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit db41c5395a50a74280b586cf014e3028632f617d
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 22:22:09 2025 -0500
+
+    made animation changes and relocated player attributes bars into player HUD in the UI. Also only allowed dash while in combat
+
+commit 6e1963e9c073ce63adf6873766de5e0699d797e9
+Merge: c9bca89 1939cf0
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 21:22:04 2025 -0500
+
+    Merge pull request #52 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 1939cf0612adaffbee6db1d807dc834b838e3340
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 21:21:14 2025 -0500
+
+    turned off root motion
+
+commit 6ac103774ab8b6f5a95f71c2a272d1bd73f6dddd
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 21:15:30 2025 -0500
+
+    Fixed issues between AI and spell system permanently
+
+commit c9bca891e641a581fc9e5af378946a86142c57d4
+Merge: ba39a13 aa69a1e
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 19:50:16 2025 -0500
+
+    Merge pull request #51 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit aa69a1ef23f58bc6952d1422d2070ef0e1e038fb
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 19:32:00 2025 -0500
+
+    saved settings to player prefab
+
+commit cb19990d66a9b28a824e065c7958c39bfa3eb8c5
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 19:30:50 2025 -0500
+
+    resolved conflicts and tweaked dodge
+
+commit 26056889c1c72b2f639ad78533c339c0f66c72f8
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 18:32:44 2025 -0500
+
+    mana bar depletion should theoretically work, i have no way to test it. SHOULD work tho
+
+commit 88a5bdc8721097e290c21c4c3e95d9a037047464
+Merge: cc3d91e ba39a13
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 18:28:59 2025 -0500
+
+    merged from dev to luis dev
+
+commit cc3d91eca5c62ddc60c8cbbea69be2d69be47a0c
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 18:27:26 2025 -0500
+
+    converted dash to dodge, still needs some tweaks and the removal of code that doesnt do anything.
+    
+    added health bar and mana bar. health deplets when damaged. not health regen yet. mana bar does not deplet yet.
+
+commit ba39a1318ce096c85ff3d36a36798a8acbb04c8f
+Merge: 3d98431 acd1b3a
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 12:05:07 2025 -0500
+
+    Merge pull request #50 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit acd1b3a116d07e8eeef79fda8abad1e4f6cab85d
+Merge: bc25278 3d98431
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 10:48:12 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit bc252789c3c25a06cccf995ad14a042b4d10a690
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 10:47:57 2025 -0500
+
+    Level 2 Complete + level1 Bugfixes
+
+commit 3d984311c4104ee391bf7e84813da1ecf7733d31
+Merge: 5b4dd48 f5ca72e
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 09:48:57 2025 -0500
+
+    Merge pull request #49 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit f5ca72ee8c0b500789309038302aab85ed436083
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 09:44:43 2025 -0500
+
+    Fixed Null reference coming from player spell bar and hud files
+
+commit 6a0281c266df0ba1f8502b5aed92ad16ae6315dd
+Merge: 7589c37 5b4dd48
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 09:32:56 2025 -0500
+
+    Fixed merge
+
+commit 5b4dd48e54a36547046d2cb2a357cc7e216076db
+Merge: 14a1d70 28a73a8
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 08:46:58 2025 -0500
+
+    Merge pull request #48 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 28a73a82d975ae7c4b17d384fa4d8e9f2e68098e
+Merge: 009205a 14a1d70
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 08:46:00 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit 14a1d708ca4830c2cd951f0dd967ff18532f8354
+Merge: 067f8ba ed85465
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Sat Feb 15 08:44:51 2025 -0500
+
+    Merge pull request #47 from rsuber406/feature/blink-spell
+    
+    Feature/blink spell
+
+commit 70971f845a98e1c739a285149fb385f3e2fdc17a
+Merge: faf227d 067f8ba
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 01:12:58 2025 -0500
+
+    merged from dev
+
+commit faf227d2d38c12cc12a28b282c829f7e11df9070
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Sat Feb 15 01:11:58 2025 -0500
+
+    updated player prefab, implemeted slope logic, imroved player movement animations, added player death animation, still needs work.
+
+commit 009205a392194a0c153555c1a46f7a1d5f97be80
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 01:07:08 2025 -0500
+
+    Git Merge Fixes
+
+commit a10570e0877fdd45cf2996be51f213aa04ab25d0
+Merge: bc00aae 067f8ba
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 01:00:33 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit bc00aaee5860d6b1078c9c0e88b3ab0a201b2c62
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Sat Feb 15 01:00:13 2025 -0500
+
+    BossRoom Blockout + Level1 Complete + Triggers
+
+commit ed85465c5f79f55b6305789d9ee3281a74aff933
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sat Feb 15 00:41:46 2025 -0500
+
+    Fixed shield spell to toggle damage immunity
+
+commit 5db68de044ca23af0b29e0147697e44e2e5e5f25
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sat Feb 15 00:09:25 2025 -0500
+
+    Blink Spell first draft
+
+commit 87e2d4e49c00986acda6c049fc115e5574eec4bd
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Sat Feb 15 00:05:19 2025 -0500
+
+    remove bad fx
+
+commit 7589c37ec1794bcdd9b70b531839a25fee8fdcc7
+Merge: 9f748f0 067f8ba
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 23:03:30 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 067f8ba94457bd83610bc75562da3c31b02649a1
+Merge: 565da12 95c1ec0
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 23:01:14 2025 -0500
+
+    Merge pull request #46 from rsuber406/feature/shield-spell
+    
+    Shield spell
+
+commit 95c1ec02897a8a6cd2d0a59817fa471eb5584643
+Merge: 1b60b21 565da12
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 23:00:19 2025 -0500
+
+    Merge branch 'development' into feature/shield-spell
+
+commit 1b60b21b7051d2142fdd3f11300103bf47cfedac
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Fri Feb 14 22:53:38 2025 -0500
+
+    Shield spell
+
+commit 9f748f01c44f84cd26d326536bbe68c62584132c
+Merge: 22bb535 565da12
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 22:04:06 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 22bb535bafdfa8e161e36cdf179e149fb3f291be
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 22:03:43 2025 -0500
+
+    random modify file
+
+commit 565da12e451b493af9f4020162fb92dc0cd4a3f5
+Merge: bda13c4 95f4f51
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 22:01:59 2025 -0500
+
+    Merge pull request #45 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 95f4f517d383423d673651aa631ac5064769a7f6
+Merge: b3dfdc2 bda13c4
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Fri Feb 14 21:25:19 2025 -0500
+
+    Inital Main Menu + Pause Menu OverHaul
+
+commit b3dfdc276ad9d27678415537ea609db757165a4d
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Fri Feb 14 21:23:30 2025 -0500
+
+    Main Menu Working Build + Pause Menu Overhaul
+
+commit e923c9dcfac107de515821b4369e8d9cafbe68bb
+Merge: 7603442 bda13c4
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Fri Feb 14 20:55:42 2025 -0500
+
+    merged from dev
+
+commit 760344240af9564247234edc1e1151d4d27a3b4b
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Fri Feb 14 20:49:32 2025 -0500
+
+    preparing merge from dev
+    
+    also migrated player animations from controller script to animation script
+
+commit bda13c4f0d16664b8a29fb614b743e6d19c57dfb
+Merge: 5cb3bd8 cb263ec
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 20:36:21 2025 -0500
+
+    Merge pull request #44 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit cb263eca41bf83fe483f7a4d06ffb4b31e6db5d4
+Merge: ad97d18 5cb3bd8
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 20:35:48 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit ad97d187d14c105f651cc3cd154580d79be2e6d1
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 20:35:01 2025 -0500
+
+    Added death animations to the enemies
+
+commit 5cb3bd8c125953ba4ff425743ea10a80d8a69358
+Merge: 535ece8 39e5ef5
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:46:33 2025 -0500
+
+    Merge pull request #43 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 39e5ef507e1aca99562ff1c34e442e3c71a691c9
+Merge: a6755a7 535ece8
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Fri Feb 14 19:45:20 2025 -0500
+
+    Map1 FirstMilestone
+
+commit a6755a7bc72dcdd7c249d859487a76f1bc7352f9
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Fri Feb 14 19:42:20 2025 -0500
+
+    Level1 Milestone1
+
+commit 535ece8e31719ef00b19f696c4f1e894e443dd5b
+Merge: dcb61c7 35362a2
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:41:06 2025 -0500
+
+    Merge pull request #42 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 35362a2ce2c9cd370210fe4e16e4bd5115414505
+Merge: 3c26a12 dcb61c7
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:40:32 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 3c26a12e180f947b4cac2ce6fd4ed97e5f8b4378
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:34:07 2025 -0500
+
+    Fixed minor logic flaw with the spawn system
+
+commit dcb61c7c5d5b48f5ccfbb37240e08b1c3dd330dd
+Merge: cbd88ca 636938a
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:27:05 2025 -0500
+
+    Merge pull request #41 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 636938aa6d00ce08d423d66df2cb1cb7414325e5
+Merge: 5a5dc72 cbd88ca
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:26:29 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 5a5dc72c418877575e4c06efeab24e9cb5362b38
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 19:26:07 2025 -0500
+
+    Spawn controller and Spawner logic is working. You need to feed the spawn controller spawners and then the spawners will take spawn locations
+
+commit cbd88ca6574e1fe2354dc0b5a0bf59acda996c68
+Merge: 975bac8 87f063d
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 18:33:49 2025 -0500
+
+    Merge pull request #40 from rsuber406/Adrian-NDev-Branch
+    
+    Portal Mesh created + Hub Blockout Redone
+
+commit 87f063df40c72b1adf78ec6dcae4c9e00fa730a5
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Fri Feb 14 18:31:35 2025 -0500
+
+    Portal Mesh created + Hub Blockout Redone
+
+commit 975bac8308d0964717e313528640a36678f7234b
+Merge: 78547cd 3f63c97
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 16:13:32 2025 -0500
+
+    Merge pull request #38 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 3f63c973b4b2bb78383291c345aa6dcb88944387
+Merge: 2597ef9 78547cd
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 16:10:44 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 2597ef95a2e9cc4e9d63dc24f821479c64eb9e7b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 16:09:28 2025 -0500
+
+    Loss screen is implemented
+
+commit 78547cdfe480e62aa42d46c599461afe92388bf5
+Merge: b6cdc3f 32b736f
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 15:46:14 2025 -0500
+
+    Merge pull request #37 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 32b736fc1cbd3d74f5c406fa07a6a454bc7bcc52
+Merge: 08a5229 b6cdc3f
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 15:45:38 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit b6cdc3fe1b44c5c04db25ff1389f8677a7d7e223
+Merge: 0afa831 791ba77
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 15:45:08 2025 -0500
+
+    Merge pull request #36 from rsuber406/Dakota-Dev-Branch
+    
+    added an attribute and method for armor
+
+commit 08a5229a41809e7aff27d13510364039da823592
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 15:43:09 2025 -0500
+
+    Fixed Resume UI buttons
+
+commit 791ba771c800faaed97fd1fb0f935d0ff9c5f2d6
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 15:40:00 2025 -0500
+
+    added an attribute and method for armor
+
+commit e266b48e904b5783fc4be72b2eaef08140386454
+Merge: 9aa1eb2 0afa831
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 15:39:21 2025 -0500
+
+    Pause menu being worked on
+
+commit 9aa1eb2a3c06f98888661bf2a214153f4e7c9b2a
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 14:39:27 2025 -0500
+
+    changed material settings to render to gpu. Skeleton works and is a prefab.
+
+commit 0afa83142b68aaa4684ddf6fd57b78c40413a01f
+Merge: de465aa 68ca1d5
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 14:38:21 2025 -0500
+
+    Merge pull request #35 from rsuber406/Dakota-Dev-Branch
+    
+    Dakota dev branch
+
+commit 68ca1d5da1bbcec7d084a58ec5f64303638aa9e5
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 14:33:57 2025 -0500
+
+    updated dev scene
+
+commit a10ce35a2c34a08bf8ed051a34fed59257a851fa
+Merge: 406894f b8b8bc0
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 14:19:30 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit 406894f02a281e811048fadffa95d2067d75133a
+Merge: 86e3e88 de465aa
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:55:43 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit 86e3e886b32d0b791832539812f1c36f3801ccfd
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:45:26 2025 -0500
+
+    Auto stash before merge of "Dakota-Dev-Branch" and "origin/Dakota-Dev
+
+commit b8b8bc02f998b2eaec3d2a3658041be6e609d443
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:45:26 2025 -0500
+
+    Auto stash before merge of "Dakota-Dev-Branch" and "origin/Dakota-Dev
+
+commit 2d704aa9b2782cbec1bd9125988110448c8a277a
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:43:30 2025 -0500
+
+    attempt at fixing merge conflict
+    
+    f
+
+commit a00257f9956ce989f3efa7f36f8ceb388bb144b4
+Merge: 47547d0 f092bd7
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:36:23 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit 47547d043bf0ae2c567eb9923c5c3d48de5ca5b2
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:36:20 2025 -0500
+
+    trying to fix merge conflict
+
+commit f092bd7559d9aa4a3124b551b6d679db3a37f4ac
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:31:59 2025 -0500
+
+    fixed conflict
+
+commit c70781c98949292029db2b732f0cbd7e555a6e67
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:05:32 2025 -0500
+
+    staging files? not sure. whats happening here.
+
+commit c81edc3cd889f2fb259d2af98e03689fd20c64bd
+Merge: b869e1a eef0c49
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 13:04:58 2025 -0500
+
+    Merge remote-tracking branch 'origin/Dakota-Dev-Branch' into Dakota-Dev-Branch
+
+commit b869e1aa04ea82476c83347191b75ad1c9c13ec9
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 11:59:49 2025 -0500
+
+    Fixed null references
+    
+    Fixed null references, added icons for items
+
+commit 394c0c22dc95fe316d095f14b6913c4a6103d331
+Author: Dakota Cottman <djcottman@gmail.com>
+Date:   Fri Feb 14 11:46:43 2025 -0500
+
+    Updated some functions to fix null references
+    
+    Updated delete item to handle null reference
+
+commit 8cdc11e7c89faa63d6e773e059441775c10dfe04
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 16:46:37 2025 -0500
+
+    deleted some files that were conflicting with my last merge
+
+commit de465aa69c4eb22bfc8950459fa7fa47b6af5d52
+Merge: 9fc24b7 6dd61c1
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 11:05:17 2025 -0500
+
+    Merge pull request #34 from rsuber406/Ryan-Dev-Branch
+    
+    Necromancer boss added, need to fine tune some logic for it to summon…
+
+commit 6dd61c1ed2bd42c0133d8c75e2874554a13e0ca8
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Fri Feb 14 11:01:16 2025 -0500
+
+    Necromancer boss added, need to fine tune some logic for it to summon allies.
+
+commit 9fc24b701cac80f28b81f6f02273679ede18c1a2
+Merge: a5aa0fc 61e7cc0
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 23:35:51 2025 -0500
+
+    Merge pull request #33 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit 61e7cc0f30e707df2c4cce34a8572177f4dc5349
+Merge: 10999ea a5aa0fc
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 13 23:32:48 2025 -0500
+
+    merged from dev into luis branch
+
+commit 10999eab7bb96b069f98c626871a802146a45083
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 13 23:31:24 2025 -0500
+
+    implemented dealing damage to player. player loses health and flashes with red screen.
+
+commit a5aa0fc844f6b27da67b27f028bc34c6ca1ac540
+Merge: c49071a a8ead18
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 21:20:52 2025 -0500
+
+    Merge pull request #32 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit a8ead180b15928b4281e2557a7326a7d4cb3b508
+Merge: f7a876d c49071a
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 21:18:47 2025 -0500
+
+    Fixed conflicting issues
+
+commit f7a876d90cefd536527c3e407646b9358ae1dfff
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 21:11:51 2025 -0500
+
+    Script meta file updated?
+
+commit 551a09cfcc2f07572df0c7c6eb70390bb6dc03b5
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 21:10:22 2025 -0500
+
+    Fixed folder structure
+
+commit c49071a74250391c33df68293816cc7a245f2a3f
+Merge: 89d7f56 74c0b6f
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 20:36:54 2025 -0500
+
+    Merge pull request #30 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 74c0b6f71dcd0514472d1a001b0cb3c07763b018
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 20:32:52 2025 -0500
+
+    Boss melee timings are corrected
+
+commit 60135e397e6de0071d2ad25265eab7ca2ff68a56
+Merge: b1a6610 89d7f56
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 20:13:54 2025 -0500
+
+    Merge branch 'development' into Adrian-NDev-Branch
+
+commit b1a6610da983140d7326699faef39c9047536517
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 20:13:40 2025 -0500
+
+    Changes to Tut Level + Initial Draft to Scripts for level Transitions
+
+commit 8c8fbcf3dcfdbf817ed39b66e8668af8e8bbf9b1
+Merge: 302c22d 89d7f56
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 13 20:07:16 2025 -0500
+
+    merged
+
+commit 302c22d1b21ca1dabc0069c118dd6c1018a54f5e
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 13 20:06:37 2025 -0500
+
+    making merge
+
+commit ffd435288120e1bd835ed7746f4a748625fcbba4
+Merge: 953d8fc 89d7f56
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 18:45:30 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 953d8fcc56c6c70bb0827ce1658ff3e418ae0f5d
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 18:44:55 2025 -0500
+
+    Adding stuff to make the demon boss work
+
+commit 89d7f5631b9ea8d1e31741e17269feaad1bb7f6e
+Merge: 61dc7df e9d4a10
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 18:31:13 2025 -0500
+
+    Merge pull request #29 from rsuber406/Adrian-NDev-Branch
+    
+    Updates to the Tut Level for refining
+
+commit e9d4a10ca6abbcd550853bb334165953665888d5
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 18:29:47 2025 -0500
+
+    Updates to the Tut Level for refining
+
+commit 61dc7df2f67a039d21a4e4be488f2bda15444aa2
+Merge: 80d4958 6ba7e9d
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 17:13:21 2025 -0500
+
+    Merge pull request #28 from rsuber406/Adrian-NDev-Branch
+    
+    Early Tutorial Level Blockout + Reforms to Hub Level
+
+commit 6ba7e9dcc9bb7e08899bb12a879d74c63948c081
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 17:06:24 2025 -0500
+
+    Early Tutorial Level Blockout + Reforms to Hub Level
+
+commit eef0c49f25b55616977b8c09e0d1523a1586ac6b
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 16:46:37 2025 -0500
+
+    deleted some files that were conflicting with my last merge
+
+commit 80d495802fce4e3525fb930f859ce2839aa796c5
+Merge: eb72b1d 6d79fad
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 14:02:32 2025 -0500
+
+    Merge pull request #27 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 6d79fad260dc9feed86390b076dca7a9956084d4
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 14:01:25 2025 -0500
+
+    Fixed issue with reference on player tps object for spell sytem
+
+commit b0771dc1bc8bd6236e05eec78ff7d36c3394d8f9
+Merge: 55f1983 c242902
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 11:13:13 2025 -0500
+
+    Merge branch 'Dakota-Dev-Branch' of https://github.com/rsuber406/ProjectM into Dakota-Dev-Branch
+
+commit 55f1983d816165631d67da3bc14da6c2b17ce718
+Merge: ffe7839 eb72b1d
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 11:08:25 2025 -0500
+
+    Merge branch 'development' of https://github.com/rsuber406/ProjectM into Dakota-Dev-Branch
+
+commit c0849aadf64c5e6ec27052355659abd866282d85
+Merge: 56d7f83 eb72b1d
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 11:02:50 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit eb72b1d14c68be1f91c4a7b1e28137791843e44d
+Merge: 05b8f38 5cd2000
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 11:01:18 2025 -0500
+
+    Merge pull request #26 from rsuber406/Adrian-NDev-Branch
+    
+    Adrian n dev branch
+
+commit 5cd20002746e9c9ba879eb3c8d811631bf7554a2
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 10:59:40 2025 -0500
+
+    Hub Scene Blockout + Local Bugfixes.
+
+commit ffe783975ed7bb81a5561c7b8303f1911bad7f4a
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 10:58:58 2025 -0500
+
+    Fix
+    
+    Fix commit, fixing Ui conflict manually
+
+commit 56d7f83529a49e8838e64560838d595dbd936f84
+Merge: 6246afc 05b8f38
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 10:56:31 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 6246afcca960a0bde06745d83fb796229e51eae5
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Thu Feb 13 10:55:31 2025 -0500
+
+    change in dev scene
+
+commit c242902921ad99963fbfad60fd6d74cdfde4c25a
+Merge: d70fcfd 7fbd545
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 10:51:59 2025 -0500
+
+    Merge remote-tracking branch 'origin/Luis-Dev-Branch' into Dakota-Dev-Branch
+
+commit d70fcfdae06c5b6bbd3cdc29ca09f9a934137460
+Merge: 6dbad72 05b8f38
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 10:30:09 2025 -0500
+
+    Added some ui stuff
+    
+    added some ui stuff from the unity store. 15mb total
+
+commit ed865fb8d910ced717c81a0384a0f993f5088a33
+Merge: c27aa89 05b8f38
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Thu Feb 13 10:27:03 2025 -0500
+
+    Merge branch 'development' into Adrian-Dev-Branch
+
+commit 6dbad72afdda1e2320f8d23f8c875d89ae85b10c
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 10:22:08 2025 -0500
+
+    apart of last commit
+
+commit e2883164d7509e986099228cde6f65cdcbdbba91
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Thu Feb 13 10:21:51 2025 -0500
+
+    Added a few things
+    
+    Updated some stuff, moved some stuff around for organization.
+
+commit 7fbd545d8d2dd26eb084074236cf0a1774f944f4
+Merge: ad5b01c 05b8f38
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 22:15:40 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit ad5b01cf752dd1b761bbbae0c686dbbf776e306f
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 22:15:16 2025 -0500
+
+    rearranged scripts into files. will be pulling updated dev and merging
+
+commit 05b8f3813a8c61b0a43e36a838c0ee7a2cad05d4
+Merge: 02ddce7 c457b68
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 20:21:08 2025 -0500
+
+    Merge pull request #25 from rsuber406/Ryan-Dev-Branch
+    
+    fixed issue with AI not attacking, ai controller was not set properly
+
+commit c457b684be31e3f62be4b4c0ff2bfc4640bae79f
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 20:20:24 2025 -0500
+
+    fixed issue with AI not attacking, ai controller was not set properly
+
+commit 02ddce72b6c55a2e4b2b53b36514becb087db695
+Merge: 9f7691e a35f749
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 20:01:38 2025 -0500
+
+    Merge pull request #24 from rsuber406/feature/spell-hud
+    
+    Feature/spell hud
+
+commit a35f749a4f93d61bb116f43d03a956744f00a816
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 19:39:18 2025 -0500
+
+    dissabled master list
+
+commit 43ddc4de07691ea33d580684bafbcdcaefe58c56
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 19:32:17 2025 -0500
+
+    Third person and UI prefab fixes and integration
+
+commit 9f7691e10cec6b11ec5d005b30c8e0a58619b91e
+Merge: f936206 0eee0de
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 19:11:53 2025 -0500
+
+    Merge pull request #23 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 0eee0de83063ee0a58103ea8404685a67dfedf01
+Merge: ce85cf6 f936206
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 19:11:12 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit ce85cf64246559ad24a0a0acbf216063ee82a69c
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 19:09:33 2025 -0500
+
+    Changed some settings for materials for gpu instancing.
+
+commit 38bde0b2fb6e83e86ea9306f57722d0a83d6c0f0
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:58:53 2025 -0500
+
+    adjustment to ghoul prefab
+
+commit 546f06e497372e93dbe8f2d99a3f2bb262a8d6bc
+Merge: 3b84a3d f936206
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 18:49:13 2025 -0500
+
+    Merge branch 'refs/heads/development' into feature/spell-hud
+    
+    # Conflicts:
+    #       Assets/Prefabs/UI.prefab
+
+commit 3b84a3dc9591ae5731a0d236654e0e68f72b66f1
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 18:47:37 2025 -0500
+
+    prefab consolidations
+
+commit 00fae6e0092db2ba17eaa7c9211c76d8bf6eca17
+Merge: ea37871 f936206
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 18:35:17 2025 -0500
+
+    merged from dev
+
+commit ea37871ac00100a513850d5da70bcdc4ec36b24c
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 18:33:25 2025 -0500
+
+    preparing merge
+
+commit c27aa89171f4d288bcb51a44efbdb13d22e1a9d6
+Merge: 45c2842 f936206
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Wed Feb 12 18:32:24 2025 -0500
+
+    Merge branch 'development' into Adrian-Dev-Branch
+
+commit f936206ca5cb3b15ed4874a7b4f9f7b845b7d36d
+Merge: 48d2d2e dcabae5
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:30:37 2025 -0500
+
+    Merge pull request #21 from rsuber406/Ryan-Dev-Branch
+    
+    UI prefab nuked itself, rebuilt the UI prefab
+
+commit dcabae55d5d2dc2c3c8fac5cd7a4cda918413c19
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:29:29 2025 -0500
+
+    UI prefab nuked itself, rebuilt the UI prefab
+
+commit 45c2842d3129817473b3f187bc1a3c21a7c29429
+Merge: 7ea11f4 d2ab216
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Wed Feb 12 18:24:27 2025 -0500
+
+    Map init + HubLevel Blockout
+
+commit 48d2d2e4bbbd77f38dd79545b49cef757e0dff0e
+Merge: 7167220 de3467b
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:13:16 2025 -0500
+
+    Merge pull request #20 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit de3467b26efe819c6ac1578b654de54fcefe7303
+Merge: 749aadf 7167220
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:12:36 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 71672206efd10085913f930a2abd7d8ebde14441
+Merge: d2ab216 82dc203
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:11:02 2025 -0500
+
+    Merge pull request #19 from rsuber406/feature/spell-hud
+    
+    Feature/spell hud
+
+commit 749aadf556e9dad3745b61221bc4065963b2eae8
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 18:08:52 2025 -0500
+
+    Fixed a couple merge issues, build is good
+
+commit 82dc2034b8e8e07a7b4710ceaa4ddc292c6c8a5d
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 18:03:16 2025 -0500
+
+    Spell Hud Working with cooldowns and dynamic activation
+
+commit 7ea11f4d4542bdcdf02d8cf039e63f98e6246d28
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Wed Feb 12 17:57:21 2025 -0500
+
+    map initialization
+
+commit 5cc4c00046bab53833690cfc218013c33ef585e9
+Merge: 03ce2ce d2ab216
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 17:44:41 2025 -0500
+
+    merge with Luis
+
+commit d2ab216ae84144aee1c27f8bc130e78b2032101b
+Merge: 5593f92 c839309
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 17:34:54 2025 -0500
+
+    Merge pull request #18 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit c839309adfa936c84a53a5813ebfc4338df08920
+Merge: cbd805a 5593f92
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 17:33:46 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit 03ce2ce10d265f119179877bee0c4dcefcf18fa3
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 17:24:12 2025 -0500
+
+    First enemy is created
+
+commit 5593f92ae5b7bbcd76d8b8374a23768d36e4560b
+Merge: a7001cb 57edee8
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 17:23:39 2025 -0500
+
+    Merge pull request #17 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit cbd805a827901365ce2dcc58243148dfdee65d29
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 17:19:25 2025 -0500
+
+    updated prefab before merge
+
+commit fc01056d2c79e6a75c07093d8e1c5d152c9b6303
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 17:18:38 2025 -0500
+
+    merging
+
+commit 6767c3dc9c7b0e5f6587a6f1a46007c5017964aa
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 17:18:29 2025 -0500
+
+    preparing merge into dev
+
+commit df049b8acaf9af9855b986e205fdc4cddf7f2ac0
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 17:15:22 2025 -0500
+
+    unity didnt save, had to implement animations again. Did it better this time. Backwards animation not implemented yet.
+
+commit f5a2916c7d954319d75692d968fe80cfca6d38dd
+Merge: a6d22fb a7001cb
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 16:49:08 2025 -0500
+
+    Merge branch 'development' into Luis-Dev-Branch
+
+commit a6d22fb38f5b5aee373a6c35361aa728f6458137
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 16:48:47 2025 -0500
+
+    fixed the animations of combat mode. animations can show running forward, left and right. still few bugs to fix.
+
+commit 0a1ab92ea24f95c53ffaaafd3e8a9d2cec878a5d
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 16:09:06 2025 -0500
+
+    Player spell hud first draft
+
+commit d16fc9dfc9f658fb30561bd91e5146a7b369b847
+Merge: b4e0db1 a7001cb
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 16:02:34 2025 -0500
+
+    Merge branch 'development' into Dakota-Dev-Branch
+
+commit b4e0db1d8d41b73cc6cff2d3eb6a784775ff5b8c
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 16:02:08 2025 -0500
+
+    added getters and a trigger for items
+    
+    added some getters and a loaditem data function along with a trigger
+
+commit f350efe432bf78a36ac9b89f8dc04413a6caa28d
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 15:25:11 2025 -0500
+
+    Working on ghoul enemy to work. Override class is working as expected. Getting animations to work
+
+commit 5b5523c51e1040a7ac2bffafa305506879741274
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 14:55:15 2025 -0500
+
+    updated item/item data classes
+    
+    Updated item/itemdata classes. Added enums and fields. Added a method to inventory to check if its full.
+
+commit f93f01515a80da80eac2a5fa571fe56d4777251e
+Merge: 297ff8c a7001cb
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Wed Feb 12 14:25:00 2025 -0500
+
+    Merge branch 'development' into Adrian-Dev-Branch
+
+commit 297ff8cdab8427fd78eb6c8a778f5c1adbcba24a
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Wed Feb 12 14:24:41 2025 -0500
+
+    Hub Scene Blockout
+
+commit 2f58f67b8f2e36c6225b0c018f9291919db80f1a
+Merge: 06a11a6 a7001cb
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 14:23:25 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit 06a11a6e12ee25058ef1a43ff0e95e660cac849d
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 14:21:32 2025 -0500
+
+    First enemy models being worked on. Troubleshooting a derived class issue with animations.
+
+commit 711a94307239143dd67bd8fbea3b69a2adaae8de
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 14:01:45 2025 -0500
+
+    added event system & new method
+    
+    added an event system to trigger when items are removed or added, or the inventory changes. Added a swapitempositions method- untested
+
+commit a7001cb6cad8e702c0af575285b7b74a7d12bf5a
+Merge: 71fd037 700d95d
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 14:01:43 2025 -0500
+
+    Merge pull request #16 from rsuber406/feature/spell-system
+    
+    Feature/spell system
+
+commit 700d95dcda51092acec374148052e837a7067558
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 13:48:41 2025 -0500
+
+    More Modularization to spell system, Added cooldowns and mana consumption.
+
+commit ebdb8c656dcc3157f875a5af7e4318aaa42056c0
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 13:46:05 2025 -0500
+
+    updated inventory
+    
+    updated inventory,adding new logic and methods
+
+commit b6d0f9049e2106b65092a70b9039811047717e96
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 12:34:38 2025 -0500
+
+    Removed unnecessary boolean and function from AI controller
+
+commit 67fdb13617aad908711f495e90e00b976391987d
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 12:31:11 2025 -0500
+
+    Troubleshot issues with the polite AI Queue, should be working correctly, need projectiles or attacks to verify.
+
+commit 9281fb1dad80ab9c4ce8e13556f4a64ea00bd0c5
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Wed Feb 12 12:09:15 2025 -0500
+
+    Added logic to the AI so it can rotate when player is past navmesh stopping distance. Also added in but not complete is the AI attack queue system.
+
+commit 57edee86a63ee6bf2c2137148deead9d19795b3c
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 12 11:53:43 2025 -0500
+
+    tweaked TPCam script and adjusted the third person free look
+
+commit f8f11885297cf767772fbb9e6e444941316d8679
+Author: DakotaCottman <djcottman@gmail.com>
+Date:   Wed Feb 12 09:46:20 2025 -0500
+
+    updated code
+    
+    added inventory.cs and itemdata scriptable object classes/ updated inventory class code
+
+commit 7e24c9bb80aeee3d1d103be9f8536f6755fbc3a5
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 01:16:49 2025 -0500
+
+    Using Spell slots scriptable objects instead of manual prefab assignments
+
+commit cbcded60a4b61c05556bf02c4179576949a52b45
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 00:40:30 2025 -0500
+
+    Added attribute management script for player
+
+commit 1f20897bc605fe4cca4013b06564daa81a2ac1b3
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Wed Feb 12 00:17:33 2025 -0500
+
+    Base Spell Execution
+
+commit 26c53b9e3b457b56c2600a34e1ee1f2a2ed5a862
+Author: Gareth Thomas <11306782+forevergareth@users.noreply.github.com>
+Date:   Tue Feb 11 23:02:06 2025 -0500
+
+    Initially spell system classes
+
+commit 13a63b957c1bf31e569e8d94f78de66c80406ada
+Author: kraken444444 <166565143+kraken444444@users.noreply.github.com>
+Date:   Tue Feb 11 14:51:12 2025 -0500
+
+    Added base classes
+    
+    Added base classes for inventory, rough draft code with a few basic functions
+
+commit f22ef0268d1b781ab20cfd2a3a24b6ab01dfc693
+Merge: af554b6 71fd037
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Tue Feb 11 08:42:36 2025 -0500
+
+    Merge branch 'development' into Adrian-Dev-Branch
+
+commit 83e1cf3ac11c15d6f0bc24f0dd639c02c11605c0
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Mon Feb 10 15:58:23 2025 -0500
+
+    changed few things in TP camera script
+
+commit 1ef3ee70c0509c4b6cebbe493493527f7ff019a5
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Mon Feb 10 12:20:44 2025 -0500
+
+    completed third person view and player obj. Have Few Animations implemented, still working on combat view and animations.
+
+commit fd9618008620342eb819241642893fa671965932
+Merge: c272ec5 536f885
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 6 17:41:59 2025 -0500
+
+    merged confilcts
+
+commit c272ec50dd833dd2b94c6b818f3a9e3363b5c9ac
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Thu Feb 6 17:40:38 2025 -0500
+
+    added a mage character and animations to the player obj. Also implemented a switch from basic third person to combat third person.
+
+commit 536f885ae750a25bad11b094f6f98b6beb2567a0
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Wed Feb 5 11:17:04 2025 -0500
+
+    Made few adjustmentst to player prefab and TPCam
+
+commit 3f99c8c219a5e2c0a089e0ea9e60773f08e52cdc
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Tue Feb 4 16:57:31 2025 -0500
+
+    Made Few Adjusments to PlayerController
+
+commit 355e822306340fe4da6430a0724d27ee7b58153f
+Merge: 7c6c824 71fd037
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Tue Feb 4 16:44:36 2025 -0500
+
+    Merged from dev into luis-Dev
+
+commit 7c6c824816f780bd8cc22b828f9cbfd2fb71c61e
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Tue Feb 4 16:41:46 2025 -0500
+
+    Created Third Person movement
+    Now we have a choice between First Person and Third Person
+
+commit 71fd037b7e44bbc2a7d551559fcce10753637f0a
+Merge: 96d1408 0c37d0f
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 11:40:36 2025 -0500
+
+    Merge pull request #15 from rsuber406/Ryan-Dev-Branch
+    
+    Added SpellScriptable object. Preparing to work on AI Controller.
+
+commit 0c37d0f679b6d67d6f4258f409440363dbe299e4
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 11:39:51 2025 -0500
+
+    Added SpellScriptable object. Preparing to work on AI Controller.
+
+commit 96d1408efd774d2501f4934f9f03c1f227692c0d
+Merge: 6a86a06 35bd428
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 10:15:59 2025 -0500
+
+    Merge pull request #14 from rsuber406/Adrian-Dev-Branch
+    
+    Adrian dev branch
+
+commit 6a86a06821733f3fd3dc4d5216bf956c72e31b5d
+Merge: 2038936 b604236
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 10:15:20 2025 -0500
+
+    Merge pull request #13 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit b604236d47f7413e931cee757582da5648d9ef19
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 10:14:21 2025 -0500
+
+    Fixed issue with caused by the auto brake on the NavMesh Agent
+
+commit d03d5383f73070ed1fca05e0b74b7ff5f552a63c
+Merge: b697325 2038936
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 10:12:38 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit b6973255a82d2f7005acbd0fc157aa2af127717b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Tue Feb 4 10:12:12 2025 -0500
+
+    Some update on my scene
+
+commit af554b6f298b260175248d24baf8a658e0022c2c
+Merge: cb84505 2038936
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Tue Feb 4 10:07:26 2025 -0500
+
+    Merge branch 'development' into Adrian-Dev-Branch
+
+commit cb845058fc0c283bcbd322b10478367cbc70ec70
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Tue Feb 4 09:23:26 2025 -0500
+
+    The most minor changes
+
+commit 20389364220fe4f138ece1f53351033173eb775c
+Merge: e3afef7 13c2f86
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 23:01:26 2025 -0500
+
+    Merge pull request #12 from rsuber406/Ryan-Dev-Branch
+    
+    Added vision to the AI, it can track the player'
+
+commit 13c2f86a539a5a9206b6c99e7ba7c43f36635636
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 22:59:19 2025 -0500
+
+    Added vision to the AI, it can track the player'
+
+commit 35bd428ef9b85511f69312e2ef460d0df0483e49
+Merge: 136b111 d8e52a4
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Mon Feb 3 21:44:44 2025 -0500
+
+    Minor Map Starts
+
+commit e3afef78c6a35da2443dad716239cd997b164033
+Merge: 71b7c65 050cba5
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 21:11:04 2025 -0500
+
+    Merge pull request #11 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit 050cba5a66d111f6d68585b80fd908f6506c6c7b
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 21:10:16 2025 -0500
+
+    Called movement function in appropriate spot
+
+commit f810e9c85eaf6b6658953a43eda978f528fc5749
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 21:03:06 2025 -0500
+
+    created generic UI prefab'
+
+commit 71b7c65c3111576d42e30bf85f109a1862f95d49
+Merge: d8e52a4 c981804
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 21:01:12 2025 -0500
+
+    Merge pull request #10 from rsuber406/Ryan-Dev-Branch
+    
+    Hooking game manager up to the AI Controller
+
+commit c98180425cbbb6aa76a48409d5480f82ea19e776
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 21:00:00 2025 -0500
+
+    Hooking game manager up to the AI Controller
+
+commit d8e52a48897ddfb393595bedd1c1a91048c24f77
+Merge: f7a7ca7 8bd2c82
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:30:07 2025 -0500
+
+    Merge pull request #9 from rsuber406/Luis-Dev-Branch
+    
+    Luis dev branch
+
+commit 8bd2c821ace992df1aefc0d9e7bf20acd07013c1
+Merge: 9e36be1 f7a7ca7
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Mon Feb 3 20:28:43 2025 -0500
+
+    merged from dev
+
+commit 9e36be1f4608e626ac53d8b6c4e2d4fe7444ca14
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Mon Feb 3 20:24:57 2025 -0500
+
+    Basic Movement Applied
+    crouch
+    sprint
+    dash
+    jump
+    camera set up
+
+commit f7a7ca78bda133e7f44d9ac8ec0296d98ae56fc6
+Merge: e8f928f b75ce27
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:19:52 2025 -0500
+
+    Merge pull request #8 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit b75ce27adcbd0c7360ddb475d54697ff61f752ae
+Merge: a1d54e5 e8f928f
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:19:07 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit a1d54e57a6401f168a5c43cdfdc96f13a8eda534
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:18:44 2025 -0500
+
+    added accessor to private instance of game manager
+
+commit e8f928fe41a79d3f40bab00f5878fd8e21d5de7b
+Merge: 7c7ee32 d08b865
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:16:25 2025 -0500
+
+    Merge pull request #7 from rsuber406/Ryan-Dev-Branch
+    
+    Ryan dev branch
+
+commit d08b8651d20595a1584fb0244e5bd6f812274b33
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 20:15:26 2025 -0500
+
+    GameManger is being added
+
+commit 136b111faae666eb64cc4ab32fa86371ee9e1156
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Mon Feb 3 19:54:13 2025 -0500
+
+    VeryTemp Map Building
+
+commit 587bf45d597c07cc3f51bd1685214fded37f00e4
+Merge: 1b9b1d8 7c7ee32
+Author: luisnxnez <169059992+luisnxnez@users.noreply.github.com>
+Date:   Mon Feb 3 19:43:15 2025 -0500
+
+    Merge pull request #6 from rsuber406/development
+    
+    Merging
+
+commit 6b8dc767263da31adb8b05ead5c258c21953ffc4
+Merge: 859768f 7c7ee32
+Author: AV-Cables <ajmcdo618@gmail.com>
+Date:   Mon Feb 3 19:07:59 2025 -0500
+
+    Merge remote-tracking branch 'origin/development' into Adrian-Dev-Branch
+
+commit b31066bdc19ba849d10c9171fdf6b4b1093a2dc9
+Merge: ca05c5e 7c7ee32
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 18:50:41 2025 -0500
+
+    Merge branch 'development' into Ryan-Dev-Branch
+
+commit ca05c5e38987b12c1c561dc5b60987065c7c2575
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 18:50:00 2025 -0500
+
+    adding more AI code
+
+commit 7c7ee32e876e43ae318eaac71b8c655d42155971
+Merge: d738fdb 900d680
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 18:04:40 2025 -0500
+
+    Merge pull request #5 from rsuber406/Ryan-Dev-Branch
+    
+    Begining the AI code
+
+commit 900d68000641c2ed6c87c2222c651ad7d364f999
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 18:03:10 2025 -0500
+
+    Begining the AI code
+
+commit 1b9b1d82fb5b3a43527e08277961be8539c734b5
+Merge: 3e9c883 d738fdb
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 16:21:11 2025 -0500
+
+    Merge pull request #3 from rsuber406/development
+    
+    Development
+
+commit 859768f8dd9a7c13be697ff676b784ce94326aeb
+Merge: 3e9c883 d738fdb
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 16:20:13 2025 -0500
+
+    Merge pull request #1 from rsuber406/development
+    
+    Development
+
+commit d738fdbbb21d0a10a880de273a75effb526789cf
+Merge: afb5522 48c4b65
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 16:16:56 2025 -0500
+
+    Merge branch 'main' into development
+
+commit afb55229a1b35468bdf5aeea90aabf289af5fee7
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 16:16:30 2025 -0500
+
+    more setup
+
+commit 48c4b6526eec6b1ca64e056819ae9cdc8963e293
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 16:14:52 2025 -0500
+
+    initial folders made'
+
+commit 8dd1453fbbcd0381180cb4c75294c2bb6a4a63b4
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 15:35:13 2025 -0500
+
+    Final sync push
+
+commit 3e9c883fe14b79ec0344b09539510c21d13ea30a
+Author: Ryan <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 15:19:02 2025 -0500
+
+    Initial commit
+
+commit a9e76b971394c44a4729d83ba8236018c9003e2a
+Author: Ryan Suber <120147127+rsuber406@users.noreply.github.com>
+Date:   Mon Feb 3 15:06:23 2025 -0500
+
+    Initial commit
