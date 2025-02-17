@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private MasterSpellsList masterSpellsList;
+
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
+    [SerializeField] private GameObject victoryMenu;
+
     [SerializeField] private GameObject settingsMenu;
 
     private SoundManager soundController;
@@ -64,11 +67,18 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
+    public void resetPlayerStats()
+    {
+        //player Health and Mana needs to be reset here. This is urgent
+    }
     public Vector3 GetPlayerPosition()
     {
       return player.transform.position;
     }
-
+    public void TeleportPlayer(float xcords, float ycords, float zcords)
+    {
+        player.transform.position = new Vector3(xcords, ycords, zcords);
+    }
     public GameObject GetPlayer()
     {
         return player;
@@ -93,7 +103,7 @@ public class GameManager : MonoBehaviour
         menuActive = null;
     }
 
-    private void StatePause()
+    public void StatePause()
     {
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -118,6 +128,12 @@ public class GameManager : MonoBehaviour
     public void LossMenu()
     {
         menuActive = lossMenu;
+        menuActive.SetActive(true);
+        StatePause();
+    }
+    public void tmpVictoryScreen()
+    {
+        menuActive = victoryMenu;
         menuActive.SetActive(true);
         StatePause();
     }

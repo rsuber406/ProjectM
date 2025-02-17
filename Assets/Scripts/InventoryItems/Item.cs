@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IPickup
 {
     [Header("Item Config")]
 
@@ -24,20 +24,19 @@ public class Item : MonoBehaviour
     {
         return itemData.description;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Pickup()
     {
-        if (other.CompareTag("Player"))
+        Inventory inventory = FindFirstObjectByType<Inventory>();
+        if (inventory != null && inventory.AddItem(this))
         {
-            Inventory inventory = other.GetComponent<Inventory>();
-            if (inventory != null)
-            {
-
-                if (inventory.AddItem(this))
-                Debug.Log( "Item added successfully!");
-                {
-                    gameObject.SetActive(false);
-                }
-            }
+            gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject)
+        {
+            Pickup();
         }
     }
 }

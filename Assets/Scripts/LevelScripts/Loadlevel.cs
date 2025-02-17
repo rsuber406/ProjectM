@@ -2,14 +2,22 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class LoadHub : MonoBehaviour
+public class LoadLevel : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //Call MainScene and load a random level
-            //if there are no more levels available, load the boss scene
+            MainSceneLogic.MSInstance.loadLevel();
+          GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
+          if (enemies != null)
+          {
+              for (int i = 0; i < enemies.Length; i++)
+              {
+                  Destroy(enemies[i]);
+              }
+          }
+            GameManager.instance.TeleportPlayer(0f, 1f, 0f);
         }
     }
 

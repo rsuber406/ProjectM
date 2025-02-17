@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff113cd6c6c5ff744beddaf615a1bec6, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 258d60b892e2111499cec62f71658a57, type: 3}
+  m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  itemName: Test Sword
-  description: asdfTest
-  icon: {fileID: 21300000, guid: a68afecacfd7d934ab7d79e9ebe89e67, type: 3}
-
-  itemType: 0
-  rarity: 0
+  manaCost: 0
+  damage: 15
+  range: 50
+  speed: 30
+  radius: 20
+  particleEffect: {fileID: 173133770878167521, guid: 67dec29296ce3b74181c8634e8c866ba, type: 3}
+  soundEffect: {fileID: 0}

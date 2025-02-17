@@ -3794,7 +3794,8 @@ Transform:
   m_LocalPosition: {x: -0.5835087, y: 0.96557593, z: 0.12787175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 120779331934137894}
   m_Father: {fileID: 5567470685006785029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811602959268253768
@@ -17319,7 +17320,7 @@ GameObject:
   - component: {fileID: 1944865533012204249}
   m_Layer: 0
   m_Name: Necromancer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17394,8 +17395,11 @@ MonoBehaviour:
   animationController: {fileID: 5594106034062666169}
   animationChangeRate: 1
   spellCooldown: 5
-  spellCastPosition: {fileID: 6407506251060580666}
+  spellCastPosition: {fileID: 120779331934137894}
   weaponCollider: {fileID: 8490509182569284721}
+  spells:
+  - {fileID: 6248638296988901992, guid: 4cee5b1213d331c42a14bfa6224b50a8, type: 3}
+  - {fileID: 2453704118328830514, guid: 9f2e55f6b8cbcbc4bbe89f82cad536fc, type: 3}
 --- !u!195 &5273622685367120409
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17438,9 +17442,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!135 &1944865533012204249
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19058,6 +19062,37 @@ Transform:
   - {fileID: 1009817938663232646}
   - {fileID: 4209666847584241505}
   m_Father: {fileID: 5567470685006785029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7960832443863758912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120779331934137894}
+  m_Layer: 0
+  m_Name: SpellCastPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &120779331934137894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960832443863758912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382843625763064482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7995533799581966132
 GameObject:

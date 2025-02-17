@@ -5,7 +5,10 @@ public class loadHub : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //MainSceneLogic.MSInstance.LoadHub();
+            //Move Player to 0, 0, -32.20
+            MainSceneLogic.MSInstance.mapnum = 0;
+            GameManager.instance.resetPlayerStats();
+            GameManager.instance.TeleportPlayer(0f, 0f, -32.20f);
         }
     }
 }

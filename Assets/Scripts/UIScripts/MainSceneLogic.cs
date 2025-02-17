@@ -1,15 +1,18 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Random = System.Random;
 
 public class MainSceneLogic : MonoBehaviour
 {
-    public static MainSceneLogic MSInstance { get; private set; }
+    public static MainSceneLogic MSInstance;
 
     [Header("---Main Menu Objects---")]
     [SerializeField] private GameObject loadScreen;
@@ -17,25 +20,33 @@ public class MainSceneLogic : MonoBehaviour
 
     [Header("---World 1 Levels---")]
     [SerializeField] private string _Hub = "Hub";
-    [SerializeField] private string[] _DynamicScenes;
+    public string[] DynamicMaps = { "Map1", "Map2"};
     [SerializeField] private string _tutScene = "TutScene";
     [SerializeField] private string _bossScene = "BossRoom";
 
     [Header("---MainStage Player Controller---")]
-    [SerializeField] private GameObject PlayerActivateables;
+    [SerializeField] private GameObject[] PlayerActivateables;
 
-    private List<AsyncOperation> LoadScenes = new List<AsyncOperation> ();
-
-    private string activeLevel;
+    public string currLvl;
+    public GameObject _Hublvl;
+    public int mapnum = 0;
 
     private void Start()
     {
+        MSInstance = this;
+
         Time.timeScale = 0;
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
-        //Lock Cursor so the player can make a selection
 
-        PlayerActivateables.SetActive(false);
+        SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
+
+        //Lock Cursor so the player can make a selection
+        //Load Hub and move it for use later
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(false);
+        }
         loadScreen.SetActive(false);
 
     }
@@ -52,10 +63,13 @@ public class MainSceneLogic : MonoBehaviour
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
-
-        LoadScenes.Add(SceneManager.LoadSceneAsync(_Hub, LoadSceneMode.Additive));
+        currLvl = _tutScene;
+        SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
-        PlayerActivateables.SetActive (true);
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(true);
+        }
     }
 
     public void HideMenu()
@@ -63,12 +77,29 @@ public class MainSceneLogic : MonoBehaviour
         MenuActivatebles.SetActive (false);
     }
 
-    public void loadHub()
+    public void loadLevel()
     {
-        //unload current scene and move hub prefab to 14.003, 0.8610, 2.8657
-        SceneManager.UnloadSceneAsync(activeLevel);
-        //_Hub.transform.position += new Vector3(0, 0, -100);
+        //unload any active scene.
+        if (!string.IsNullOrEmpty(currLvl))
+        {
+            SceneManager.UnloadSceneAsync(currLvl);
+        }
+        if (mapnum >= DynamicMaps.Count())
+        {
+            currLvl = _bossScene;
+            SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
+            return;
+        }
+        else
+        {
+            currLvl = DynamicMaps[mapnum];
+            mapnum++;
+            SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
+        }
+        // Remove the selected map
+        //DynamicMaps.RemoveAt(0);
     }
+
     public void Quitgame()
     {   
 #if UNITY_EDITOR
