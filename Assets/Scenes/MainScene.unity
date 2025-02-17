@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &405346018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1889666777927038104, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+  m_PrefabInstance: {fileID: 2004799809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &727761931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1314316387541837336, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
@@ -740,6 +745,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: PlayerActivateables
+      value: 
+      objectReference: {fileID: 727761931}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: PlayerActivateables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: 'PlayerActivateables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 405346018}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: 'PlayerActivateables.Array.data[1]'
       value: 
       objectReference: {fileID: 727761931}
     - target: {fileID: 1889666777927038104, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
