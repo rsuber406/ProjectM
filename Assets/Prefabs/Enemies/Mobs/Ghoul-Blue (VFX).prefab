@@ -11707,7 +11707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfd4b7b02f57774ca5f30e117d752de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 70
   mana: 50
   range: 50
   projectiles: []

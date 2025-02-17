@@ -94,10 +94,11 @@ public class DemonBossScript : EnemyAI
     {
         
     }
-    protected override void OnDeath()
+    protected override IEnumerator OnDeath()
     {
         animationController.SetTrigger("Death");
         agent.isStopped = true;
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 }
