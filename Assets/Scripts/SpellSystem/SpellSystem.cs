@@ -21,9 +21,9 @@ public class SpellSystem : MonoBehaviour
     public event Action OnSpellOnCoolDown;
 
     
-    void Start()
+    void Awake()
     {
-        masterSpellsList = GameManager.GetInstance().MasterSpellsList;
+        //masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }

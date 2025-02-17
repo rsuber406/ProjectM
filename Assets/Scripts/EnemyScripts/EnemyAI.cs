@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] private int mana;
 
-    [SerializeField] private int range;
+    [SerializeField] protected int range;
 
     // Replace GameObject with the scriptable spell type
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
@@ -20,15 +20,29 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] private int roamDistance;
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] private int FOV;
-    [SerializeField] private Transform headPos;
+    [SerializeField] protected Transform headPos;
     protected float convertedFOV = 0;
     protected Vector3 playerPos;
     protected bool isAttacking;
     protected bool playerDetected = false;
     protected float agentStoppingDistanceOrig;
 
-    void Start()
+    private List<Color> originalColors = new List<Color>();
+
+    protected virtual void Start()
     {
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color"))
+                {
+                    originalColors.Add(renderer.material.color);
+                }
+            }
+        }
+
         convertedFOV = 1f - ((float)FOV / 100f);
     }
 
@@ -36,7 +50,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual void Update()
     {
         CheckPlayerInRange();
-        
     }
 
     protected void CheckPlayerInRange()
@@ -62,7 +75,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerPos = AIController.GetAIController().GetPlayerPosition();
-          Debug.Log("player detected");
+            Debug.Log("player detected");
             playerDetected = true;
         }
     }
@@ -71,7 +84,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
-        Debug.Log(dotProduct);
+
         if (dotProduct > convertedFOV)
         {
             RaycastHit hit;
@@ -80,14 +93,16 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    if(!isAttacking)
-                    agent.SetDestination(playerPos);
+                    if (!isAttacking)
+                        agent.SetDestination(playerPos);
 
                     if (Vector3.Distance(transform.position, playerPos) < agent.stoppingDistance)
                     {
                         // Make the AI face the target
                         FaceTarget(ref playerPos);
                     }
+
+                    if (!isAttacking)
                         AttackPlayer();
                 }
             }
@@ -120,16 +135,47 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void TakeDamage(int amount)
     {
         health -= amount;
+        StartCoroutine(FlashDamage());
         if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+            StartCoroutine(OnDeath());
     }
 
     protected virtual void AttackPlayer()
     {
-        
     }
-    
-   
+
+    protected virtual IEnumerator OnDeath()
+    {
+        yield return null;
+    }
+
+    private IEnumerator FlashDamage()
+    {
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color"))
+                {
+                    renderer.material.color = Color.red;
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        int counter = 0;
+        foreach (Renderer renderer in renderers)
+        {
+            foreach (Material mat in renderer.materials)
+            {
+                if (mat.HasProperty("_Color") && counter < originalColors.Count)
+                {
+                    renderer.material.color = originalColors[counter];
+                }
+            }
+            counter++;
+
+        }
+    }
 }

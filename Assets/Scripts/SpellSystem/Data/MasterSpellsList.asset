@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellList:
   - key: fireball
-    value: {fileID: 11400000, guid: 8f6e7384bdcfe9e478336e7c6b17ebd8, type: 2}
-  - key: raijing
-    value: {fileID: 11400000, guid: 7237b49198908cd40af28d1ccc0f5ad8, type: 2}
+    value: {fileID: 11400000, guid: 5a43a0b862566884e872b5e06f4ec89a, type: 2}
+  - key: blink
+    value: {fileID: 11400000, guid: 77e0284e96265af4d96462a59fceea94, type: 2}
   - key: shield
-    value: {fileID: 11400000, guid: 52ca8420797c5634089bbc3ed5961e4d, type: 2}
+    value: {fileID: 11400000, guid: 391827686481f244c8f21c4c31f4de30, type: 2}

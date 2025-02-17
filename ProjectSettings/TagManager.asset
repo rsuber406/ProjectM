@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - PlayerSocket
+  - LoadLevelTag
+  - LoadHubTag
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
