@@ -748,6 +748,18 @@ PrefabInstance:
       propertyPath: PlayerActivateables
       value: 
       objectReference: {fileID: 727761931}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: PlayerActivateables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: 'PlayerActivateables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 405346018}
+    - target: {fileID: 800347727141538656, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: 'PlayerActivateables.Array.data[1]'
+      value: 
+      objectReference: {fileID: 727761931}
     - target: {fileID: 4232029306780985198, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_Name
       value: UI
