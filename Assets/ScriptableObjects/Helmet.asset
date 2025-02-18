@@ -18,6 +18,6 @@ MonoBehaviour:
   itemType: 1
   rarity: 0
   armor: 0
-  armorModifier: 0
-  healthModifier: 0
-  manaModifier: 0
+  armorModifier: 5
+  healthModifier: 5
+  manaModifier: 5
