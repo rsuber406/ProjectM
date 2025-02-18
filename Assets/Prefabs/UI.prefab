@@ -834,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2933770700048320732
 Transform:
   m_ObjectHideFlags: 0
@@ -6214,7 +6214,6 @@ MonoBehaviour:
   lossMenu: {fileID: 1423528124918164858}
   victoryMenu: {fileID: 0}
   settingsMenu: {fileID: 1124998342795724615}
-  playerInteract: {fileID: 0}
   damagePanel: {fileID: 6705016620589905014}
   interactText: {fileID: 7874574668158562449}
   healthBar: {fileID: 8699799600722866110}
