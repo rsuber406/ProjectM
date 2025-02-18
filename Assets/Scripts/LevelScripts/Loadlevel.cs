@@ -9,7 +9,15 @@ public class LoadLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             MainSceneLogic.MSInstance.loadLevel();
-            GameManager.instance.TeleportPlayer(0f, 0f, 0f);
+          GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
+          if (enemies != null)
+          {
+              for (int i = 0; i < enemies.Length; i++)
+              {
+                  Destroy(enemies[i]);
+              }
+          }
+            GameManager.instance.TeleportPlayer(0f, 1f, 0f);
         }
     }
 

@@ -25,11 +25,10 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] private string _bossScene = "BossRoom";
 
     [Header("---MainStage Player Controller---")]
-    [SerializeField] private GameObject PlayerActivateables;
+    [SerializeField] private GameObject[] PlayerActivateables;
 
     public string currLvl;
     public GameObject _Hublvl;
-
     public int mapnum = 0;
 
     private void Start()
@@ -44,7 +43,10 @@ public class MainSceneLogic : MonoBehaviour
 
         //Lock Cursor so the player can make a selection
         //Load Hub and move it for use later
-        PlayerActivateables.SetActive(false);
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(false);
+        }
         loadScreen.SetActive(false);
 
     }
@@ -64,7 +66,10 @@ public class MainSceneLogic : MonoBehaviour
         currLvl = _tutScene;
         SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
-        PlayerActivateables.SetActive (true);
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(true);
+        }
     }
 
     public void HideMenu()
@@ -93,8 +98,8 @@ public class MainSceneLogic : MonoBehaviour
         }
         // Remove the selected map
         //DynamicMaps.RemoveAt(0);
-
     }
+
     public void Quitgame()
     {   
 #if UNITY_EDITOR
