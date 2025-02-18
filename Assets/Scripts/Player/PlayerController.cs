@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour, IDamage
+public class PlayerController : MonoBehaviour, IDamage, Interact
 {
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
@@ -287,4 +287,8 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
 
+    public void Interactable()
+    {
+        
+    }
 }

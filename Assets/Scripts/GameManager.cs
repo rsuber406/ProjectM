@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject damagePanel;
     private GameObject menuActive = null;
-    
+    public TextMeshProUGUI interactText;
     public Image healthBar;
     public Image manaBar;
     
@@ -111,5 +111,15 @@ public class GameManager : MonoBehaviour
         menuActive = victoryMenu;
         menuActive.SetActive(true);
         StatePause();
+    }
+
+    public void PlayerInteractShow()
+    {
+        interactText.gameObject.SetActive(true);
+    }
+
+    public void PlayerInteractHide()
+    { 
+        interactText.gameObject.SetActive(false);
     }
 }
