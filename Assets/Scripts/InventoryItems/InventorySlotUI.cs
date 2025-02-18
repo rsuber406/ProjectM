@@ -9,6 +9,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private CanvasGroup canvasGroup;
     private Vector2 originalPos;
     private Image itemImage;
+    private bool isDraggingItem = false;
     
     private void Awake()
     {
@@ -16,6 +17,33 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         canvasGroup = GetComponent<CanvasGroup>();
         inventoryUI = GetComponentInParent<InventoryUI>();
         itemImage = GetComponent<Image>();
+    }
+
+    private void OnDisable()
+    {
+        if (isDraggingItem)
+        {
+            ResetDragState();
+        }
+        
+    }
+    private void ResetDragState()
+    {
+        isDraggingItem = false;
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        }
+        if (rectTransform != null)
+        {
+            rectTransform.anchoredPosition = originalPos;
+        }
+    }
+
+    private bool IsBagSlot()
+    {
+        return gameObject.CompareTag("BagSlot");
     }
     
 
@@ -30,8 +58,9 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (itemImage.sprite != null)
+        if (!IsBagSlot() && !isDraggingItem)
         {
+            isDraggingItem = true;
             originalPos = rectTransform.anchoredPosition;
             canvasGroup.alpha = 0.6f;
             canvasGroup.blocksRaycasts = false;
@@ -40,7 +69,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (itemImage.sprite != null)
+        if (!IsBagSlot()&& isDraggingItem)
         {
             rectTransform.position = eventData.position;
         }
@@ -48,13 +77,18 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1;
-        canvasGroup.blocksRaycasts = true;
-        rectTransform.anchoredPosition = originalPos;
+        if (!IsBagSlot()&& isDraggingItem)
+        {
+            ResetDragState();
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (isDraggingItem)
+        {
+            return;
+        }
         InventorySlotUI fromSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
         if (fromSlot != null && fromSlot != this)
         {

@@ -9,6 +9,7 @@ TagManager:
   - LoadHubTag
   - Ground
   - Enemy
+  - BagSlot
   layers:
   - Default
   - TransparentFX
