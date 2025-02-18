@@ -1,7 +1,10 @@
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
 
 
 public class InventoryUI : MonoBehaviour
@@ -21,16 +24,7 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(false);
         Cursor.visible = false;
         
-        for (int i = 0; i < itemIconSlots.Length; i++)
-        {
-            var slotUI = itemIconSlots[i].AddComponent<InventorySlotUI>();
-            slotUI.slotIndex = i;
-            
-            if (!itemIconSlots[i].GetComponent<CanvasGroup>())
-            {
-                itemIconSlots[i].AddComponent<CanvasGroup>();
-            }
-        }
+     
     }
 
     private void DeleteItem(int slotIndex)
@@ -133,6 +127,8 @@ public class InventoryUI : MonoBehaviour
                 if (inventory.slots[i].item != null)
                 {
                     slotImage.sprite = inventory.slots[i].item.data.icon;
+                    RectTransform itemIconRectTransform = itemIconSlots[i].GetComponentInChildren<Image>().rectTransform;
+                    itemIconRectTransform.anchoredPosition = Vector2.zero;
                     itemIconSlots[i].SetActive(true);
                 }
                 else
