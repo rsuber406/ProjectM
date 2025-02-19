@@ -15,7 +15,18 @@ public class SpawnController : MonoBehaviour
     {
         if (other.isTrigger) return;
         DetermineEnemiesForSpawner();
-      
+      BoxCollider boxCollider = this.GetComponent<BoxCollider>();
+      if (boxCollider != null)
+      {
+          boxCollider.enabled = false;
+          return;
+      }
+      SphereCollider sphereCollider = this.GetComponent<SphereCollider>();
+      if (sphereCollider != null)
+      {
+          sphereCollider.enabled = false;
+          return;
+      }
     }
 
     private void Start()

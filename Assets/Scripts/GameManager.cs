@@ -122,4 +122,25 @@ public class GameManager : MonoBehaviour
     { 
         interactText.gameObject.SetActive(false);
     }
+
+    public void RemoveLossMenu()
+    {
+        // call to move player
+        
+        // Remove loss screen after player is moved to specified location
+        
+    }
+
+    public void Respawn()
+    {
+        PlayerController controller = player.GetComponent<PlayerController>();
+        controller.RespawnSequence();
+        player.transform.position = new Vector3(0.000f, 0.00f, -32f);
+        GameObject playerModel = GameObject.FindGameObjectWithTag("PlayerSocket");
+        MainSceneLogic.MSInstance.ResetPlayer();
+        Debug.Log(player.transform.position);
+        Debug.Log(playerModel.transform.position);
+        ResumeGame();
+        
+    }
 }
