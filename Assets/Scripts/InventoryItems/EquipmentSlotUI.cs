@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private Vector2 originalPos;
     private bool isDraggingItem = false;
     private RectTransform rectTransform;
-
+    Item unequippedItemParent;
 
     private void Awake()
     {
@@ -23,11 +24,21 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log($"clicked on {gameObject.name}");
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            
+        }
+    }
+
+    private bool IsBagSlot()
+    {
+        return gameObject.CompareTag("BagSlot");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (imageComponent.sprite != null && !isDraggingItem)
+        if (!IsBagSlot() &&!isDraggingItem)
         {
             isDraggingItem = true;
             originalPos = rectTransform.anchoredPosition;
@@ -38,7 +49,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isDraggingItem)
+        if (!IsBagSlot() && isDraggingItem)
         {
             rectTransform.position = eventData.position;
         }
@@ -46,7 +57,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (isDraggingItem)
+        if (!IsBagSlot() && isDraggingItem)
         {
             ResetDragState();
         }
@@ -61,6 +72,11 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (isDraggingItem)
+        {
+            return;
+        }
+        
         InventorySlotUI fromSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
 
         if (fromSlot != null) 
@@ -73,6 +89,34 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
                 
 
                 fromSlot.inventory.RemoveItem(itemData.itemName, fromSlot.slotIndex);
+            }
+        }
+        EquipmentSlotUI fromEquipmentSlot = eventData.pointerDrag?.GetComponent<EquipmentSlotUI>();
+        InventorySlotUI toInventorySlot = GetComponent<InventorySlotUI>();
+    
+        if (fromEquipmentSlot != null && toInventorySlot != null)
+        {
+          
+            ItemData unequippedItem = fromSlot.inventory.slots[fromSlot.slotIndex].item.data;
+            
+            unequippedItemParent.itemData = unequippedItem;
+           
+        
+            if (unequippedItem.itemType == ItemType.Armor)
+            {
+                
+                unequippedItem = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItem);
+            }
+            else
+            {
+                
+                unequippedItem = equipmentManager.UnequipWeapon();
+            }
+            
+            
+            if (unequippedItem != null)
+            {
+                toInventorySlot.inventory.AddItem(unequippedItemParent);
             }
         }
     }

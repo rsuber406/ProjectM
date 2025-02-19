@@ -13,6 +13,8 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private bool isDraggingItem = false;
     [NonSerialized]
     public Inventory inventory;
+    Item unequippedItemParent;
+    private EquipmentManager equipmentManager;
     
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         inventoryUI = GetComponentInParent<InventoryUI>();
         itemImage = GetComponent<Image>();
         inventory = FindAnyObjectByType<Inventory>();
+        equipmentManager = FindAnyObjectByType<EquipmentManager>();
     }
 
     private void OnDisable()
@@ -98,5 +101,33 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             inventoryUI.SwapItems(fromSlot.slotIndex, slotIndex);
         }
+        EquipmentSlotUI fromEquipmentSlot = eventData.pointerDrag?.GetComponent<EquipmentSlotUI>();
+        InventorySlotUI toInventorySlot = GetComponent<InventorySlotUI>();
+        if (fromEquipmentSlot != null && toInventorySlot != null)
+        {
+          
+            ItemData unequippedItem = fromSlot.inventory.slots[fromSlot.slotIndex].item.data;
+            
+            unequippedItemParent.itemData = unequippedItem;
+           
+        
+            if (unequippedItem.itemType == ItemType.Armor)
+            {
+                
+                unequippedItem = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItem);
+            }
+            else
+            {
+                
+                unequippedItem = equipmentManager.UnequipWeapon();
+            }
+            
+            
+            if (unequippedItem != null)
+            {
+                toInventorySlot.inventory.AddItem(unequippedItemParent);
+            }
+        }
     }
+    
 }
