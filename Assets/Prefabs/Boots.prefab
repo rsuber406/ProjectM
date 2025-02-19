@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8021010739604244520}
   - component: {fileID: 1504219319371770834}
   - component: {fileID: 4468930962156306408}
-  - component: {fileID: 460811442946507088}
   m_Layer: 0
   m_Name: Boots
   m_TagString: Untagged
@@ -108,7 +107,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4468930962156306408
 MonoBehaviour:
@@ -124,16 +123,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: de864153da341117986d90c6c00e396a, type: 2}
   itemName: Boots
---- !u!114 &460811442946507088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8189336601527967886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc4a67a438aa282cb61bcaa94eb366b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Press E to interact
