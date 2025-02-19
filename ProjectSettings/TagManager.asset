@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Enemy
   - BagSlot
+  - HubTeleporter
   layers:
   - Default
   - TransparentFX
