@@ -230,8 +230,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     void UpdatePlayerUI()
     {
-        //   GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
-     //   GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
+        GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
+        GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     IEnumerator FlashDamagePanel()
