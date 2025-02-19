@@ -93,7 +93,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   orientation: {fileID: 7741214145926161047}
-  aud: {fileID: 0}
   joggingSpeed: 5
   sprintingSpeed: 10
   crouchSpeed: 4
@@ -112,7 +111,6 @@ MonoBehaviour:
   groundCheck: 0.77
   crouch: 0.5
   height: 2
-  audSteps: []
   stateController: {fileID: 0}
   moveDir: {x: 0, y: 0, z: 0}
   inCombat: 0
