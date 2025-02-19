@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
     public event Action<Item> OnItemRemoved;
     public event Action OnInventoryChanged;
 
+    public event Action<ItemData> OnEquipItem;
+
     private void Awake()
     {
       InitializeInventory();
@@ -48,6 +50,8 @@ public class Inventory : MonoBehaviour
         }
         return count;
     }
+
+    
     public bool IsFull()
     {
         return CountInventorySlotsLeft() == 0;
@@ -125,6 +129,8 @@ public class Inventory : MonoBehaviour
         }
         return addedItem;
     }
+
+  
 
     public void SwapItemPositions(int fromSlot, int toSlot)
     {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private Vector2 originalPos;
     private Image itemImage;
     private bool isDraggingItem = false;
+    [NonSerialized]
+    public Inventory inventory;
     
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         canvasGroup = GetComponent<CanvasGroup>();
         inventoryUI = GetComponentInParent<InventoryUI>();
         itemImage = GetComponent<Image>();
+        inventory = FindAnyObjectByType<Inventory>();
     }
 
     private void OnDisable()
