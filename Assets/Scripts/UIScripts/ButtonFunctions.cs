@@ -13,6 +13,39 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.GetInstance().SettingsMenu();
     }
+    public void Back()
+    {
+        GameManager.GetInstance().PauseMenu();
+    }
+
+    public void ToggleMasterVolume()
+    {
+        GameManager.GetInstance().GetSoundManager().ToggleMasterVolume();
+    }
+
+    public void VolumeMaster()
+    {
+        GameManager.GetInstance().GetSoundManager().GetMasterVolume();
+    }
+
+    public void ToggleSFXVolume()
+    {
+        GameManager.GetInstance().GetSoundManager().ToggleSFXVolume();
+    }
+
+    public void VolumeSFX()
+    {
+        GameManager.GetInstance().GetSoundManager().GetSFXVolume();
+    }
+    public void ToggleMusicVolume()
+    {
+        GameManager.GetInstance().GetSoundManager().ToggleMusicVolume();
+    }
+
+    public void VolumeMusic()
+    {
+        GameManager.GetInstance().GetSoundManager().GetMusicVolume();
+    }
 
     public void Restart()
     {
