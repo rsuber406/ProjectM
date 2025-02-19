@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
         {
             if (containsBoss)
             {
-                Instantiate(enemyToSpawn[0], spawnPoints[i].position, Quaternion.identity);
+                Instantiate(enemyToSpawn[0], spawnPoints[i].position, spawnPoints[i].rotation);
                 break;
             }
             else
@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
                 int randomEnemy = Random.Range(0, enemyToSpawn.Count);
                 enemyToSpawn[randomEnemy].transform.position = spawnPoints[i].position;
                 // Replace this with object pooling, get it to work and go from there
-                Instantiate(enemyToSpawn[randomEnemy], spawnPoints[i].position, Quaternion.identity);
+                Instantiate(enemyToSpawn[randomEnemy], spawnPoints[i].position, spawnPoints[i].rotation);
             }
         }
     }
