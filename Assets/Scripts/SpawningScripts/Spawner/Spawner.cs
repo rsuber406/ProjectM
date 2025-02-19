@@ -15,6 +15,18 @@ public class Spawner : MonoBehaviour
         if (other.isTrigger) return;
         
         SpawnEnemy();
+        BoxCollider boxCollider = this.GetComponent<BoxCollider>();
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
+            return;
+        }
+        SphereCollider sphereCollider = this.GetComponent<SphereCollider>();
+        if (sphereCollider != null)
+        {
+            sphereCollider.enabled = false;
+            return;
+        }
         
     }
     public void ChosenEnemy(List<GameObject> enemies)
