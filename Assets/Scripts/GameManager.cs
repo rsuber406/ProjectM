@@ -14,13 +14,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject victoryMenu;
 
     [SerializeField] private GameObject settingsMenu;
-    
+
+    private SoundManager soundController;
+    public Slider masterSlider;
+    public Slider SFXSlider;
+    public Slider musicSlider;
+
     public GameObject damagePanel;
     private GameObject menuActive = null;
     public TextMeshProUGUI interactText;
     public Image healthBar;
     public Image manaBar;
-    
+
+
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
     private AIController aiController;
@@ -28,16 +34,22 @@ public class GameManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
-
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
+        soundController = this.GetComponent<SoundManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
     {
+        if (GetInstance().GetSoundManager().masterVol > 0)
+        {
+            GetInstance().GetSoundManager().SFXVol = GetInstance().GetSoundManager().masterVol * GetInstance().SFXSlider.value;
+            GetInstance().GetSoundManager().musicVol = GetInstance().GetSoundManager().masterVol * GetInstance().musicSlider.value;
+        }
+
         if (Input.GetButtonDown("Cancel"))
         {
             if (menuActive == null)
@@ -72,6 +84,11 @@ public class GameManager : MonoBehaviour
         return player;
     }
 
+    public SoundManager GetSoundManager()
+    {
+        return soundController;
+    }
+
     public Camera GetPlayerCamera()
     {
         return playerCamera;
@@ -96,7 +113,15 @@ public class GameManager : MonoBehaviour
 
     public void SettingsMenu()
     {
+        menuActive.SetActive(false);
         menuActive = settingsMenu;
+        menuActive.SetActive(true);
+    }
+
+    public void PauseMenu()
+    {
+        menuActive.SetActive(false);
+        menuActive = pauseMenu;
         menuActive.SetActive(true);
     }
 
