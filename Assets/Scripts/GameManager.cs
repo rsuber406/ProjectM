@@ -15,11 +15,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject settingsMenu;
 
-    [Header ("----- Sound Manager -----")]
     private SoundManager soundController;
-    public Slider masterSlider;
-    public Slider SFXSlider;
-    public Slider musicSlider;
+    
 
     public GameObject damagePanel;
     private GameObject menuActive = null;

@@ -140,6 +140,10 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
+            if (moveDir.magnitude > 0.3f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
+            {
+                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlaySteps());
+            }
         }
 
         else

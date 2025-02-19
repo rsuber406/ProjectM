@@ -1,30 +1,38 @@
 using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
+using System.Collections.Generic;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
+    private AudioSource aud;
 
+    public TMP_Text masterVolumeText;
+    public TMP_Text SFXVolumeText;
+    public TMP_Text musicVolumeText;
+
+    public Slider masterSlider;
+    public Slider SFXSlider;
+    public Slider musicSlider;
 
     public float masterVol;
     public float SFXVol;
     public float musicVol;
 
-    public float prevMasterVol;
-    public float prevSFXVol;
-    public float prevMusicVol;
 
-    public bool masterVolMuted;
-    public bool SFXVolMuted;
-    public bool musicVolMuted;
+    [Header ("----- Player Sounds -----")]
+    [SerializeField] AudioClip[] playerFootsteps;
 
 
-
+    public bool isPlayingSteps;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        aud = GetComponent<AudioSource>();
         ResetVolume();
-
-        masterVol = prevMasterVol = SFXVol = prevSFXVol = musicVol = prevMusicVol = GameManager.GetInstance().masterSlider.value;
+        masterVol = SFXVol = musicVol = masterSlider.value;
 
     }
 
@@ -32,103 +40,54 @@ public class SoundManager : MonoBehaviour
     void Update()
     {
 
-        musicVol = masterVol * GameManager.GetInstance().musicSlider.value;
-        SFXVol = masterVol * GameManager.GetInstance().SFXSlider.value;
+        musicVol = masterVol * musicSlider.value;
+        SFXVol = masterVol * SFXSlider.value;
 
     }
 
-    public void ToggleMasterVolume()
-    {
-        if (!masterVolMuted)
-        {
-            masterVolMuted = true;
-            GameManager.GetInstance().masterSlider.value = 0f;
-        }
-        else
-        {
-            masterVolMuted = false;
-            GameManager.GetInstance().masterSlider.value = prevMasterVol;
-        }
-
-    }
 
     public void GetMasterVolume()
     {
-        masterVol = GameManager.GetInstance().masterSlider.value;
-        prevMasterVol = masterVol;
-
-        if (masterVol > 0)
-        {
-            masterVolMuted = false;
-        }
-
+        masterVol = masterSlider.value;
+        if (masterSlider.value == 1f)
+            masterVolumeText.text = (masterSlider.value * 100f - 1f).ToString("F0");
         else
-            masterVolMuted = true;
+            masterVolumeText.text = (masterSlider.value * 100f).ToString("F0");
     }
-    public void ToggleSFXVolume()
-    {
-        if (!SFXVolMuted)
-        {
-            SFXVolMuted = true;
-            GameManager.GetInstance().SFXSlider.value = 0f;
-        }
-        else
-        {
-            SFXVolMuted = false;
-            GameManager.GetInstance().SFXSlider.value = prevSFXVol;
-        }
-    }
+
 
     public void GetSFXVolume()
     {
-        if (masterVol > 0f)
-            SFXVol = masterVol * GameManager.GetInstance().SFXSlider.value;
-            
-        prevSFXVol = GameManager.GetInstance().SFXSlider.value;
-
-        if (SFXVol > 0)
-        {
-            SFXVolMuted = false;
-        }
-
+        SFXVol = masterVol * SFXSlider.value;
+        if (SFXSlider.value == 1f)
+            SFXVolumeText.text = (SFXSlider.value * 100f - 1f).ToString("F0");
         else
-            SFXVolMuted = true;
-    }
-    public void ToggleMusicVolume()
-    {
-        if (!musicVolMuted)
-        {
-            musicVolMuted = true;
-            GameManager.GetInstance().musicSlider.value = 0f;
-        }
-        else
-        {
-            musicVolMuted = false;
-            GameManager.GetInstance().musicSlider.value = prevMusicVol;
-        }
+            SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
     public void GetMusicVolume()
     {
-        if (masterVol > 0f)
-            musicVol = masterVol * GameManager.GetInstance().musicSlider.value;
-
-        prevMusicVol = GameManager.GetInstance().musicSlider.value;
-
-        if (musicVol > 0)
-        {
-            musicVolMuted = false;
-        }
-
+        musicVol = masterVol * musicSlider.value;
+        if (musicSlider.value == 1f)
+            musicVolumeText.text = (musicSlider.value * 100f - 1f).ToString("F0");
         else
-            musicVolMuted = true;
+            musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
     }
 
     private void ResetVolume()
     {
-        GameManager.GetInstance().masterSlider.value = 1f;
-        GameManager.GetInstance().SFXSlider.value = GameManager.GetInstance().musicSlider.value = GameManager.GetInstance().masterSlider.value;
+        masterSlider.value = 1f;
+        SFXSlider.value = musicSlider.value = masterSlider.value;
     }
 
-   
+    public IEnumerator PlaySteps()
+    {
+        isPlayingSteps = true;
+        aud.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
+        
+        yield return new WaitForSeconds(0.5f);
+
+        isPlayingSteps = false;
+    }
+
 }
