@@ -70,7 +70,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
             if (itemData.itemType == ItemType.Armor || itemData.itemType == ItemType.Weapon)
             {
                 equipmentManager.EquipItem(itemData); 
-                imageComponent.sprite = itemData.icon; 
+                
 
                 fromSlot.inventory.RemoveItem(itemData.itemName, fromSlot.slotIndex);
             }
