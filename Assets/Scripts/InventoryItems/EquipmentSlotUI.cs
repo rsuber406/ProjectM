@@ -1,6 +1,4 @@
 using UnityEngine;
-
-using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -25,7 +23,6 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -68,15 +65,14 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
         if (fromSlot != null) 
         {
-            ItemData itemData = fromSlot.GetComponent<InventorySlotUI>().inventory.slots[fromSlot.slotIndex].item.data; 
+            ItemData itemData = fromSlot.inventory.slots[fromSlot.slotIndex].item.data; 
 
-            if (itemData.itemType == ItemType.Armor)
+            if (itemData.itemType == ItemType.Armor || itemData.itemType == ItemType.Weapon)
             {
-               
+                equipmentManager.EquipItem(itemData); 
+                imageComponent.sprite = itemData.icon; 
+
                 fromSlot.inventory.RemoveItem(itemData.itemName, fromSlot.slotIndex);
-                equipmentManager.EquipItem(itemData);
-                imageComponent.sprite = itemData.icon;
-               
             }
         }
     }

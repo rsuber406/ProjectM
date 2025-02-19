@@ -22,6 +22,8 @@ public class EquipmentUI : MonoBehaviour
 
     void Start()
     {
+   
+        
         equipmentSlots = new Image[] {
             helmetSlot,
             chestSlot,
@@ -41,7 +43,7 @@ public class EquipmentUI : MonoBehaviour
 
     private void UpdateEquipmentSlot(ItemData item, ArmorType slotType)
     {
-        if (item.icon != null && item != null)
+        if (item != null && item.icon != null)
         {
             if (item.itemType == ItemType.Armor)
             {

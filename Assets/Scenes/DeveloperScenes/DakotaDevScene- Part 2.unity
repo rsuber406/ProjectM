@@ -1244,6 +1244,38 @@ PrefabInstance:
       propertyPath: 'itemIconSlots.Array.data[15]'
       value: 
       objectReference: {fileID: 1130243672}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: ringSlot
+      value: 
+      objectReference: {fileID: 1533179868}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: bootsSlot
+      value: 
+      objectReference: {fileID: 1102697752}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: chestSlot
+      value: 
+      objectReference: {fileID: 656384041}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: amuletSlot
+      value: 
+      objectReference: {fileID: 330232525}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: glovesSlot
+      value: 
+      objectReference: {fileID: 1132504698}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: helmetSlot
+      value: 
+      objectReference: {fileID: 661646490}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: weaponSlot
+      value: 
+      objectReference: {fileID: 1595037865}
+    - target: {fileID: 4443877421692931135, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: leggingsSlot
+      value: 
+      objectReference: {fileID: 1693654868}
     - target: {fileID: 4465824423169734599, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.895184
@@ -2270,6 +2302,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 656384041}
     - target: {fileID: 7215002410744837692, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215002410744837692, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: amuletSlot
       value: 
       objectReference: {fileID: 330232525}
@@ -2385,7 +2421,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7215002410744837692, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
