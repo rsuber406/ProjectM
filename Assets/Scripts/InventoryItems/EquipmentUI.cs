@@ -63,7 +63,7 @@ public class EquipmentUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             equipmentUI.SetActive(!equipmentUI.activeSelf);
-            Cursor.lockState = equipmentUI.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+          //  Cursor.lockState = equipmentUI.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = equipmentUI.activeSelf;
         }
     }
