@@ -49,29 +49,20 @@ public class SoundManager : MonoBehaviour
     public void GetMasterVolume()
     {
         masterVol = masterSlider.value;
-        if (masterSlider.value == 1f)
-            masterVolumeText.text = (masterSlider.value * 100f - 1f).ToString("F0");
-        else
-            masterVolumeText.text = (masterSlider.value * 100f).ToString("F0");
+        masterVolumeText.text = (masterSlider.value * 100f).ToString("F0");
     }
 
 
     public void GetSFXVolume()
     {
         SFXVol = masterVol * SFXSlider.value;
-        if (SFXSlider.value == 1f)
-            SFXVolumeText.text = (SFXSlider.value * 100f - 1f).ToString("F0");
-        else
-            SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
+        SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
     public void GetMusicVolume()
     {
         musicVol = masterVol * musicSlider.value;
-        if (musicSlider.value == 1f)
-            musicVolumeText.text = (musicSlider.value * 100f - 1f).ToString("F0");
-        else
-            musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
+        musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
     }
 
     private void ResetVolume()
