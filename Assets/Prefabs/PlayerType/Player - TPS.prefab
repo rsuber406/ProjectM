@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health:
     attribute: 0
-    currentValue: 0
+    currentValue: 100
     maxValue: 100
     minValue: 0
   mana:
@@ -163,8 +163,8 @@ MonoBehaviour:
     currentValue: 0
     maxValue: 0
     minValue: 0
-  healthRegenRate: 2
-  manaRegenRate: 1
+  healthRegenRate: 0
+  manaRegenRate: 0
 --- !u!114 &3987325637387521297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fffa5cfebffbb47a29b05082b25a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedHelmet: {fileID: 0}
-  equippedChestplate: {fileID: 11400000, guid: 786acb0eb9fe36540a0a5f4212b24467, type: 2}
-  equippedBoots: {fileID: 0}
-  equippedLegs: {fileID: 0}
-  equippedRing: {fileID: 0}
-  equippedAmulet: {fileID: 0}
-  equippedGloves: {fileID: 0}
-  equippedWeapon: {fileID: 0}
+  equippedHelmetData: {fileID: 0}
+  equippedChestplateData: {fileID: 0}
+  equippedBootsData: {fileID: 0}
+  equippedLegsData: {fileID: 0}
+  equippedRingData: {fileID: 0}
+  equippedAmuletData: {fileID: 0}
+  equippedGlovesData: {fileID: 0}
+  equippedWeaponData: {fileID: 0}
 --- !u!114 &4443877421692931135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +342,10 @@ MonoBehaviour:
   ringSlot: {fileID: 0}
   amuletSlot: {fileID: 0}
   weaponSlot: {fileID: 0}
+  healthText: {fileID: 0}
+  manaText: {fileID: 0}
+  armorText: {fileID: 0}
+  equipmentUI: {fileID: 0}
 --- !u!114 &7705785872992515908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,8 +455,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12215068, y: -0.2931137, z: -0.037788335, w: 0.94748914}
-  m_LocalPosition: {x: 2.4973955, y: -0.8796278, z: -4.540117}
+  m_LocalRotation: {x: -0.12201863, y: -0.29311904, z: -0.037747495, w: 0.9475061}
+  m_LocalPosition: {x: 2.4973955, y: -0.8796278, z: -4.5401173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,8 +772,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12215069, y: -0.29311377, z: -0.037788343, w: 0.94748914}
-  m_LocalPosition: {x: 2.4973955, y: -0.8796278, z: -4.540117}
+  m_LocalRotation: {x: -0.1220186, y: -0.293119, z: -0.03774748, w: 0.9475061}
+  m_LocalPosition: {x: 1.895184, y: -0.599, z: -3.6599426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -794,7 +798,6 @@ MonoBehaviour:
   crossHair: {fileID: 6076861774419244369}
   basicCam: {fileID: 6030567581599643063}
   combatCam: {fileID: 8764773186653022487}
-  rb: {fileID: 0}
 --- !u!20 &1559988171983968262
 Camera:
   m_ObjectHideFlags: 0
