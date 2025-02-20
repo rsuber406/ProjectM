@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour, IDamage, Interact
 {
@@ -83,6 +84,10 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         unCrouch = transform.localScale.y;
         PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
         Debug.Log(saveData.health);
+        PopulateInventory(saveData.inventory);
+        PopulateEquipment( saveData.equipment);
+        attributes.health.currentValue = saveData.health;
+        attributes.mana.currentValue = saveData.mana;
     }
 
     // Update is called once per frame
@@ -336,6 +341,24 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     {
         float mana = (int)attributes.mana.currentValue;
         return mana;
+    }
+
+    private void PopulateInventory( List<Item> items)
+    {
+        Inventory inventory = this.GetComponent<Inventory>();
+        for (int i = 0; i < items.Count; i++)
+        { 
+            inventory.AddItem(items[i], i);
+        }
+    }
+
+    private void PopulateEquipment( List<ItemData> items)
+    {
+        EquipmentManager equipment = this.GetComponent<EquipmentManager>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            equipment.EquipItem(items[i]);
+        }
     }
     
 }
