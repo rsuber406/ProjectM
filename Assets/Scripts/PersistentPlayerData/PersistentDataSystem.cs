@@ -12,8 +12,8 @@ struct PlayerData
 
     public int health;
     public int mana;
-    public string inventory;
-    public string equipment;
+    public List<string> inventory;
+    public List<string> equipment;
     
 }
 
@@ -52,8 +52,8 @@ public static class PersistentDataSystem
         data.SetData(health, mana);
         List<ItemDataConversion> convertedInventory = ChangeItemToItemData( ref inventory);
         List<ItemDataConversion> convertedEquipment = ChangeItemToItemData( ref equipment);
-        string inventoryJsonData = JsonUtility.ToJson(convertedInventory);
-        string equipmentJsonData = JsonUtility.ToJson(convertedEquipment);
+        List<string> inventoryJsonData = ItemToStringList(ref convertedInventory);
+        List<string> equipmentJsonData = ItemToStringList(ref convertedEquipment);
         data.inventory = inventoryJsonData;
         data.equipment = equipmentJsonData;
         string playerJsonData = JsonUtility.ToJson(data);
@@ -64,8 +64,10 @@ public static class PersistentDataSystem
     {
         string playerData = PlayerPrefs.GetString("PlayerData");
         PlayerData data = JsonUtility.FromJson<PlayerData>(playerData);
-        List<ItemData> equipment = ConvertStringToItemData(data.equipment);
-        List<Item> inventory = ConvertStringToItem(data.inventory);
+        List<ItemDataConversion> convJsonInv = JsonItemToItemDataConversion(ref data.inventory);
+        List<ItemDataConversion> convJsonEquip = JsonItemToItemDataConversion(ref data.equipment);
+        List<Item> inventory = ItemDataConvToItem(ref convJsonInv);
+        List<ItemData> equipment = ItemDataConvToItemData(ref convJsonEquip);
         PlayerLoadedData player = new PlayerLoadedData();
         player.health = data.health;
         player.mana = data.mana;
@@ -80,10 +82,13 @@ public static class PersistentDataSystem
         List<ItemDataConversion> itemData = new List<ItemDataConversion>();
         for (int i = 0; i < items.Length; i++)
         {
+            if (items[i] == null) continue;
             ItemDataConversion conv = new ItemDataConversion();
             conv.itemName = items[i].name;
             conv.description = items[i].GetDescription();
-            byte[] pngToBytes = items[i].data.icon.texture.EncodeToPNG();
+            Texture2D readable = new Texture2D(items[i].data.icon.texture.width, items[i].data.icon.texture.height, TextureFormat.RGBA32, false);
+            Graphics.CopyTexture(items[i].data.icon.texture, readable);
+            byte[] pngToBytes = readable.EncodeToPNG();
             conv.icon = Convert.ToBase64String(pngToBytes);
             conv.itemType = (int) items[i].data.itemType;
             conv.rarity = (int) items[i].data.rarity;
@@ -102,6 +107,7 @@ public static class PersistentDataSystem
         List<ItemDataConversion> itemData = new List<ItemDataConversion>();
         for (int i = 0; i < items.Length; i++)
         {
+            if(items[i] == null) continue;
             ItemDataConversion conv = new ItemDataConversion();
             conv.itemName = items[i].name;
             conv.description = items[i].description;
@@ -119,52 +125,76 @@ public static class PersistentDataSystem
         return itemData;
     }
 
-    private static List<ItemData> ConvertStringToItemData(string itemData)
+    private static ItemData ConvertStringToItemData(ItemDataConversion loadedItems)
     {
-        List<ItemDataConversion> loadedItems = JsonUtility.FromJson<List<ItemDataConversion>>(itemData);
-        List<ItemData> convertedItems = new List<ItemData>();
-        for (int i = 0; i < loadedItems.Count; i++)
-        {
             ItemData item = ScriptableObject.CreateInstance<ItemData>();
-            item.name = loadedItems[i].itemName;
-            item.description = loadedItems[i].description;
-            byte[] iconLoader = System.Convert.FromBase64String(loadedItems[i].icon);
-            item.icon.texture.LoadImage(iconLoader);
-            item.itemType = (ItemType) loadedItems[i].itemType;
-            item.rarity = (ItemRarity) loadedItems[i].rarity;
-            item.armor = (ArmorType) loadedItems[i].armor;
-            item.armorModifier = loadedItems[i].armorModifier;
-            item.healthModifier = loadedItems[i].healthModifier;
-            item.manaModifier = loadedItems[i].manaModifier;
-            convertedItems.Add(item);
+            item.name = loadedItems.itemName;
+            item.description = loadedItems.description;
+            byte[] iconLoader = System.Convert.FromBase64String(loadedItems.icon);
+            Texture2D loadable = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+            loadable.LoadImage(iconLoader);
+            Sprite newSprite = Sprite.Create(loadable, new Rect(0, 0, loadable.width, loadable.height), Vector2.one * 0.5f);
+            item.icon = newSprite;
+            item.itemType = (ItemType) loadedItems.itemType;
+            item.rarity = (ItemRarity) loadedItems.rarity;
+            item.armor = (ArmorType) loadedItems.armor;
+            item.armorModifier = loadedItems.armorModifier;
+            item.healthModifier = loadedItems.healthModifier;
+            item.manaModifier = loadedItems.manaModifier;
 
+
+
+
+            return item;
+    }
+
+    private static List<string> ItemToStringList(ref List<ItemDataConversion> items)
+    {
+        if(items.Count == 0) return new List<string>();
+        List<string> convertedItem = new List<string>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            string item = JsonUtility.ToJson(items[i]);
+            convertedItem.Add(item);
         }
-        
+        return convertedItem;
+    }
+
+    private static List<ItemDataConversion> JsonItemToItemDataConversion(ref List<string> itemData)
+    {
+        List<ItemDataConversion> convertedItems = new List<ItemDataConversion>();
+        for (int i = 0; i < itemData.Count; i++)
+        {
+            ItemDataConversion conv = JsonUtility.FromJson<ItemDataConversion>(itemData[i]);
+            convertedItems.Add(conv);
+        }
         return convertedItems;
     }
-    private static List<Item> ConvertStringToItem(string itemData)
+
+    private static List<Item> ItemDataConvToItem(ref List<ItemDataConversion> convJsonData)
     {
-        List<ItemDataConversion> loadedItems = JsonUtility.FromJson<List<ItemDataConversion>>(itemData);
         List<Item> convertedItems = new List<Item>();
-        for (int i = 0; i < loadedItems.Count; i++)
+        if (convJsonData.Count == 0) return convertedItems;
+        for (int i = 0; i < convJsonData.Count; i++)
         {
-            ItemData item = ScriptableObject.CreateInstance<ItemData>();
-            item.name = loadedItems[i].itemName;
-            item.description = loadedItems[i].description;
-            byte[] iconLoader = System.Convert.FromBase64String(loadedItems[i].icon);
-            item.icon.texture.LoadImage(iconLoader);
-            item.itemType = (ItemType) loadedItems[i].itemType;
-            item.rarity = (ItemRarity) loadedItems[i].rarity;
-            item.armor = (ArmorType) loadedItems[i].armor;
-            item.armorModifier = loadedItems[i].armorModifier;
-            item.healthModifier = loadedItems[i].healthModifier;
-            item.manaModifier = loadedItems[i].manaModifier;
+            ItemData item = ConvertStringToItemData(convJsonData[i]);
             Item loadedItem = new Item();
             loadedItem.itemData = item;
             convertedItems.Add(loadedItem);
-
         }
-        
+        return convertedItems;
+    }
+
+    private static List<ItemData> ItemDataConvToItemData(ref List<ItemDataConversion> convJsonData)
+    {
+        List<ItemData> convertedItems = new List<ItemData>();
+        for (int i = 0; i < convJsonData.Count; i++)
+        {
+            ItemData item = ConvertStringToItemData(convJsonData[i]);
+            convertedItems.Add(item);
+            
+        }
+
         return convertedItems;
     }
 

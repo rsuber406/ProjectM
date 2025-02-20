@@ -165,4 +165,18 @@ public class GameManager : MonoBehaviour
         ResumeGame();
         
     }
+
+    public void SavePlayerData()
+    {
+        // Begin the agony of saving the player data
+        // I need health mana, and some reference to their inventory
+        Inventory inventory = player.GetComponent<Inventory>();
+        Item[] playerItems = inventory.GetInventoryItems();
+        EquipmentManager equipment = player.GetComponent<EquipmentManager>();
+        ItemData[] equippedItems = equipment.GetEquippedItems();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
+        float mana = playerScript.GetMana();
+        float health = playerScript.GetHealth();
+        PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
+    }
 }
