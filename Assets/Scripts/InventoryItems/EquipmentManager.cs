@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -63,6 +64,22 @@ public class EquipmentManager : MonoBehaviour
             default:
                 return null;
         }
+    }
+    
+    public ItemData[] GetEquippedItems()
+    {
+        ItemData[] equippedItems = new ItemData[8]; 
+
+        equippedItems[0] = equippedHelmetData;
+        equippedItems[1] = equippedChestplateData;
+        equippedItems[2] = equippedBootsData;
+        equippedItems[3] = equippedLegsData;
+        equippedItems[4] = equippedRingData;
+        equippedItems[5] = equippedAmuletData;
+        equippedItems[6] = equippedGlovesData;
+        equippedItems[7] = equippedWeaponData;
+
+        return equippedItems; 
     }
     public ItemData UnequipArmor(ArmorType armorType, ItemData itemData)
     {
