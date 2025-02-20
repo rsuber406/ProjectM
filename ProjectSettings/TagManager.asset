@@ -9,6 +9,8 @@ TagManager:
   - LoadHubTag
   - Ground
   - Enemy
+  - BagSlot
+  - HubTeleporter
   layers:
   - Default
   - TransparentFX

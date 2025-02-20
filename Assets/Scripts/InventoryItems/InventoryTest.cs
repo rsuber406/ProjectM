@@ -10,15 +10,21 @@ public class InventoryTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            bool wasAdded = playerInventory.AddItem(testItem);
+            bool wasAdded = playerInventory.AddItem(testItem, 0);
             Debug.Log(wasAdded ? "Item added successfully!" : "Failed to add item - inventory might be full");
 
             Debug.Log($"Inventory slots filled: {playerInventory.GetInventorySize()}");
             Debug.Log($"Slots remaining: {playerInventory.CountInventorySlotsLeft()}");
             Debug.Log($" in bag: {playerInventory.GetItem("Sword")}");
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            playerInventory.PrintInventory(); 
+        }
     }
+    
 }
+
 //    // if (Input.GetKeyDown(KeyCode.K))
     //     {
     //         bool wasRemoved = playerInventory.RemoveItem(("Sword"));

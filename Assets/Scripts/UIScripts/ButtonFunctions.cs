@@ -16,7 +16,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void Restart()
     {
-        // Talk to game manager to teleport player to where they need to go
+        GameManager.GetInstance().Respawn();
     }
 
     public void MainMenu()

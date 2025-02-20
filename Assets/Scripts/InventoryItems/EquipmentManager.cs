@@ -2,43 +2,127 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+
 public class EquipmentManager : MonoBehaviour
 {
-    public ItemData equippedHelmet;
-    public ItemData equippedChestplate;
-    public ItemData equippedBoots;
-    public ItemData equippedLegs;
-    public ItemData equippedRing;
-    public ItemData equippedAmulet;
-    public ItemData equippedGloves;
-    public ItemData equippedWeapon;
+    public ItemData equippedHelmetData;
+    public ItemData equippedChestplateData;
+    public ItemData equippedBootsData;
+    public ItemData equippedLegsData;
+    public ItemData equippedRingData;
+    public ItemData equippedAmuletData;
+    public ItemData equippedGlovesData;
+    public ItemData equippedWeaponData;
 
+
+ 
     public event Action<ItemData, ArmorType> OnArmorEquipped;
     public event Action<ItemData> OnWeaponEquipped;
     public event Action<ArmorType> OnArmorUnequipped;
     public event Action OnWeaponUnequipped;
     
+    
     private AttributesController attributesController;
     private EquipmentManager equipmentManager;
+    
 
     
     
     private void Start()
-    {
-     //   attributesController.armor.currentValue = 0f;
-     //   attributesController.health.currentValue = 0f;
-     ///   attributesController.mana.currentValue = 0f;
-     //   attributesController = GetComponent<AttributesController>();
-       // equipmentManager.EquipItem(equippedChestplate);
+    { 
+         attributesController = GetComponent<AttributesController>();
+         attributesController.armor.currentValue = 1f;
+         attributesController.health.currentValue = 100f;
+         attributesController.mana.currentValue = 10f;
+         FindAnyObjectByType<Inventory>().OnEquipItem += EquipItem;
+
     }
 
-    private void UpdateCharacterUI()
+    public ItemData GetItemData(ArmorType equipmentType)
     {
-        for (int i = 0; i < 7; i++)
+        switch (equipmentType)
         {
-            
+            case ArmorType.Helmet:
+                return equippedHelmetData;
+            case ArmorType.Chestplate:
+                return equippedChestplateData;
+            case ArmorType.Boots:
+                return equippedBootsData;
+            case ArmorType.Leggings:
+                return equippedLegsData;
+            case ArmorType.Ring:
+                return equippedRingData;
+            case ArmorType.Amulet:
+                return equippedAmuletData;
+            case ArmorType.Gloves:
+                return equippedGlovesData;
+            case ArmorType.None:
+                //I know how it looks, but Unity won't allow me to disable enums based on a boolean 8^)
+                return equippedWeaponData;
+            default:
+                return null;
         }
     }
+    public ItemData UnequipArmor(ArmorType armorType, ItemData itemData)
+    {
+        ItemData unequippedItem = itemData;
+    
+    switch (armorType)
+    {
+                    case ArmorType.Helmet:
+                       unequippedItem = equippedHelmetData;
+                       RemoveAttributes(unequippedItem);
+                       equippedHelmetData = null;
+                       OnArmorUnequipped?.Invoke(ArmorType.Helmet);
+            break;
+                    case ArmorType.Chestplate:
+                       unequippedItem = equippedChestplateData;
+                       RemoveAttributes(unequippedItem);
+                       equippedChestplateData = null;
+                       OnArmorUnequipped?.Invoke(ArmorType.Chestplate);
+            
+            break;
+                    case ArmorType.Boots:
+                       unequippedItem = equippedBootsData;
+                       RemoveAttributes(unequippedItem);
+                       equippedBootsData = null;
+                       OnArmorUnequipped?.Invoke(ArmorType.Boots);
+            
+            break;
+                    case ArmorType.Gloves:
+                      unequippedItem = equippedGlovesData;
+                      RemoveAttributes(unequippedItem);
+                      equippedGlovesData = null;
+                      OnArmorUnequipped?.Invoke(ArmorType.Gloves);
+            
+            break;
+                    case ArmorType.Ring:
+                      unequippedItem = equippedRingData;
+                      RemoveAttributes(unequippedItem);
+                      equippedRingData = null;
+                      OnArmorUnequipped?.Invoke(ArmorType.Ring);
+            
+            break;
+                    case ArmorType.Amulet:
+                      unequippedItem = equippedAmuletData;
+                      RemoveAttributes(unequippedItem);
+                      equippedAmuletData = null;
+                      OnArmorUnequipped?.Invoke(ArmorType.Amulet);
+            break;
+                   case ArmorType.Leggings:
+                    unequippedItem = equippedLegsData;
+                    RemoveAttributes(unequippedItem);
+                    equippedLegsData = null;
+                    OnArmorUnequipped?.Invoke(ArmorType.Leggings);
+            break;
+    }
+    
+    return unequippedItem;
+}
+
+    
+
 
     private void UpdateAttributes(ItemData item)
     {
@@ -50,55 +134,80 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void EquipItem(ItemData item)
+    private void RemoveAttributes(ItemData item)
+    {
+        if (item != null)
+        {
+            attributesController.armor.currentValue -= item.armorModifier;
+            attributesController.health.currentValue -= item.healthModifier;
+            attributesController.mana.currentValue -= item.manaModifier;
+        }
+
+    }
+    public ItemData UnequipWeapon()
+    {
+        ItemData unequippedItem = equippedWeaponData;
+    
+        if (unequippedItem != null)
+        {
+            RemoveAttributes(unequippedItem);
+            equippedWeaponData = null;
+            OnWeaponUnequipped?.Invoke();
+        }
+    
+        return unequippedItem;
+    }
+
+    public void EquipItem(ItemData itemData)
     {
         
         
-        if (item.itemType == ItemType.Armor){
+        if (itemData.itemType == ItemType.Armor){
             
-            switch (item.armor)
+            switch (itemData.armor)
             {
                 case ArmorType.Helmet:
-                    equippedHelmet = item;
-                    UpdateAttributes(equippedHelmet);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedHelmetData = itemData; 
+                    UpdateAttributes(equippedHelmetData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Chestplate:
-                    equippedChestplate = item;
-                    UpdateAttributes(equippedChestplate);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedChestplateData = itemData;
+                   
+                    UpdateAttributes(equippedChestplateData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Boots:
-                    equippedBoots = item;
-                    UpdateAttributes(equippedBoots);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedBootsData = itemData;
+                    UpdateAttributes(equippedBootsData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Gloves:
-                    equippedGloves = item;
-                    UpdateAttributes(equippedGloves);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedGlovesData = itemData;
+                    UpdateAttributes(equippedGlovesData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Ring:
-                    equippedRing = item;
-                    UpdateAttributes(equippedRing);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedRingData = itemData;
+                    UpdateAttributes(equippedRingData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Amulet:
-                    equippedAmulet = item;
-                    UpdateAttributes(equippedAmulet);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedAmuletData = itemData;
+                    UpdateAttributes(equippedAmuletData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
                 case ArmorType.Leggings:
-                    equippedLegs = item;
-                    UpdateAttributes(equippedLegs);
-                    OnArmorEquipped?.Invoke(item, item.armor);
+                    equippedLegsData = itemData;
+                    UpdateAttributes(equippedLegsData);
+                    OnArmorEquipped?.Invoke(itemData, itemData.armor);
                     break;
             }
-        } else if (item.itemType == ItemType.Weapon)
+        } else if (itemData.itemType == ItemType.Weapon)
         {
-            equippedWeapon = item;
-            UpdateAttributes(equippedWeapon);
-            OnWeaponEquipped?.Invoke(item);
+            equippedWeaponData = itemData;
+            UpdateAttributes(equippedWeaponData);
+            OnWeaponEquipped?.Invoke(itemData);
 
         }
         

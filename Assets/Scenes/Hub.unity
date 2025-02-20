@@ -12932,6 +12932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2398300088193097689, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
+      propertyPath: m_TagString
+      value: HubTeleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 3164928656060755935, guid: 5c26898352d1fcf46968d0e6ba3e540f, type: 3}
       propertyPath: m_Mesh
       value: 
