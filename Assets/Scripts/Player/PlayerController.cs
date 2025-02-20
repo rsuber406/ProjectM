@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public float HP;
     public float mana;
     public float dodgeCdTimer;
+    private bool isAlive = true;
 
     // private fields
     AttributesController attributes;
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         UpdatePlayerUI();
         SpeedControl();
+        Debug.Log(transform.position);
         
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
@@ -230,8 +232,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     void UpdatePlayerUI()
     {
-        //   GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
-     //   GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
+        GameManager.instance.healthBar.fillAmount = (float)HP / attributes.health.maxValue;
+        GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
     IEnumerator FlashDamagePanel()
@@ -290,5 +292,31 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public void Interactable()
     {
         
+    }
+
+    public void DeathSequence()
+    {
+        if (isAlive)
+        {
+            isAlive = false;
+            PlayerAnimation animScript = GetComponent<PlayerAnimation>();
+            StartCoroutine(animScript.PlayerDeathAnimation());
+            
+        }
+    }
+
+    public void RespawnSequence()
+    {
+        if (!isAlive)
+        {
+            GameObject teleporter = GameObject.FindGameObjectWithTag("HubTeleporter");
+            rb.position = teleporter.transform.position;
+            attributes.ResetStatsAfterDeath();
+            this.transform.position = new Vector3(0.00f, 0.00f, -32f);
+            isAlive = true;
+            PlayerAnimation animScript = GetComponent<PlayerAnimation>();
+            animScript.ResetPlayerDeath();
+            
+        }
     }
 }

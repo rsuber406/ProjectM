@@ -40,20 +40,26 @@ public class NecromancerScript : EnemyAI
 
     protected override void AttackPlayer()
     {
-        if (isAttacking) return;
+       
         float distance = (playerPos - transform.position).magnitude;
 
-        if (distance < agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance)
         {
             int randomAttack = Random.Range(0, 99);
             if (randomAttack < 70)
             {
+                if(!isAttacking)
                 StartCoroutine(FirstMelee());
             }
-            else StartCoroutine(SecondMelee());
+            else
+            {
+                if(!isAttacking)
+                StartCoroutine(SecondMelee());
+            }
         }
         else if (distance > range * 0.25f && cooldownTimer >= spellCooldown)
         {
+            if(!isAttacking)
             StartCoroutine(CastSpell());
             cooldownTimer = 0f;
         }
