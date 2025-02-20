@@ -44,5 +44,6 @@ public enum ArmorType
     Boots,
     Gloves,
     Ring,
-    Amulet
+    Amulet,
+    None
 }

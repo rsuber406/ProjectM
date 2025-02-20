@@ -23,10 +23,22 @@ public class Inventory : MonoBehaviour
     public event Action<Item> OnItemRemoved;
     public event Action OnInventoryChanged;
 
+    public event Action<ItemData> OnEquipItem;
+
     private void Awake()
     {
       InitializeInventory();
     }
+    public Item[] GetInventoryItems()
+    {
+        Item[] inventoryItems = new Item[inventorySize]; 
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventoryItems[i] = slots[i].item;
+        }
+        return inventoryItems;
+    }
+
 
     private void InitializeInventory()
     {
@@ -48,6 +60,22 @@ public class Inventory : MonoBehaviour
         }
         return count;
     }
+    public void PrintInventory()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                Debug.Log($"Slot {i}: {slots[i].item.itemName}"); 
+            }
+            else
+            {
+                Debug.Log($"Slot {i}: Empty");
+            }
+        }
+    }
+
+    
     public bool IsFull()
     {
         return CountInventorySlotsLeft() == 0;
@@ -106,25 +134,23 @@ public class Inventory : MonoBehaviour
     }
     return false;
     }
-    public bool AddItem(Item item)
+    public bool AddItem(Item item, int index)
     {
-        if(item == null) return false;
+        if(item == null || index < 0 || index >= slots.Length) 
+            return false;
 
-        bool addedItem = false;
-        for (int i = 0; i < slots.Length; i++)
+        if (slots[index].item == null)
         {
-            if (slots[i].item == null)
-            {
-                slots[i].item = item;
-                addedItem = true;
-                OnItemAdded?.Invoke(item);
-                OnInventoryChanged?.Invoke();
-                return addedItem;
-            }
-
+            slots[index].item = item;
+            OnItemAdded?.Invoke(item);
+            OnInventoryChanged?.Invoke();
+            return true;
         }
-        return addedItem;
+
+        return false; 
     }
+
+  
 
     public void SwapItemPositions(int fromSlot, int toSlot)
     {
