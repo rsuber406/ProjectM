@@ -9082,7 +9082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolumeText: {fileID: 6502795511212676588}
-  SFXVolumeText: {fileID: 2195473155026887800}
+  SFXVolumeText: {fileID: 5746923736024628595}
   musicVolumeText: {fileID: 2300692629884637813}
   masterSlider: {fileID: 604256467921207340}
   SFXSlider: {fileID: 6433307302799052355}
