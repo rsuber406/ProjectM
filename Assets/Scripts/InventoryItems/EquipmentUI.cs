@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
@@ -13,17 +14,25 @@ public class EquipmentUI : MonoBehaviour
     [SerializeField] private Image amuletSlot;
     [SerializeField] private Image weaponSlot;
 
-
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private TMP_Text manaText;
+    [SerializeField] private TMP_Text armorText;
+    
+    [SerializeField] private GameObject equipmentUI;
+    
     private Image[] equipmentSlots;
+    
+    
 
     private int numOfItems = 8;
 
     private EquipmentManager equipmentManager;
+    private AttributesController attributesController;
 
     void Start()
     {
    
-        
+        equipmentUI.gameObject.SetActive(false);
         equipmentSlots = new Image[] {
             helmetSlot,
             chestSlot,
@@ -39,6 +48,31 @@ public class EquipmentUI : MonoBehaviour
         equipmentManager.OnArmorEquipped += UpdateEquipmentSlot;
         equipmentManager.OnArmorUnequipped += ClearEquipmentSlot;
         equipmentManager.OnWeaponUnequipped += ClearEquipmentSlot;
+        attributesController = FindAnyObjectByType<AttributesController>();
+    }
+    
+    
+
+    private void Update()
+    {
+        UpdateStatText();
+        ToggleCharacterScreen();
+    }
+    private void ToggleCharacterScreen()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            equipmentUI.SetActive(!equipmentUI.activeSelf);
+            Cursor.lockState = equipmentUI.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = equipmentUI.activeSelf;
+        }
+    }
+
+    private void UpdateStatText()
+    {
+        healthText.text = $"$Health: {attributesController.health.currentValue.ToString()}";
+        manaText.text = $"$Mana: {attributesController.mana.currentValue.ToString()}";
+        armorText.text = $"$Armor: {attributesController.armor.currentValue.ToString()}";
     }
 
     private void UpdateEquipmentSlot(ItemData item, ArmorType slotType)
