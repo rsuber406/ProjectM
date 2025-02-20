@@ -100,6 +100,23 @@ public class MainSceneLogic : MonoBehaviour
         //DynamicMaps.RemoveAt(0);
     }
 
+    public void ResetPlayer()
+    {
+        GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Destroy(enemies[i]);
+            }
+        }
+        SceneManager.UnloadSceneAsync(currLvl);
+        
+        
+        currLvl = null;
+        mapnum = 0;
+    }
+
     public void Quitgame()
     {   
 #if UNITY_EDITOR

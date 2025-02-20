@@ -2,7 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
+
+public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler,
+    IDropHandler
 {
     public int slotIndex;
     private InventoryUI inventoryUI;
@@ -11,9 +13,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private Vector2 originalPos;
     private Image itemImage;
     private bool isDraggingItem = false;
-    [NonSerialized]
+    [NonSerialized] 
     public Inventory inventory;
-    
+    Item unequippedItemParent;
+    private EquipmentManager equipmentManager;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -21,6 +25,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         inventoryUI = GetComponentInParent<InventoryUI>();
         itemImage = GetComponent<Image>();
         inventory = FindAnyObjectByType<Inventory>();
+        equipmentManager = FindAnyObjectByType<EquipmentManager>();
     }
 
     private void OnDisable()
@@ -29,8 +34,9 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             ResetDragState();
         }
-        
+
     }
+
     private void ResetDragState()
     {
         isDraggingItem = false;
@@ -39,6 +45,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
             canvasGroup.alpha = 1f;
             canvasGroup.blocksRaycasts = true;
         }
+
         if (rectTransform != null)
         {
             rectTransform.anchoredPosition = originalPos;
@@ -49,7 +56,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     {
         return gameObject.CompareTag("BagSlot");
     }
-    
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -73,7 +80,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!IsBagSlot()&& isDraggingItem)
+        if (!IsBagSlot() && isDraggingItem)
         {
             rectTransform.position = eventData.position;
         }
@@ -81,7 +88,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!IsBagSlot()&& isDraggingItem)
+        if (!IsBagSlot() && isDraggingItem)
         {
             ResetDragState();
         }
@@ -93,10 +100,50 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             return;
         }
+        
         InventorySlotUI fromSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
         if (fromSlot != null && fromSlot != this)
         {
             inventoryUI.SwapItems(fromSlot.slotIndex, slotIndex);
+            return;
         }
+
+        EquipmentSlotUI fromEquipmentSlot = eventData.pointerDrag?.GetComponent<EquipmentSlotUI>();
+        if (fromEquipmentSlot != null)
+        {
+            ArmorType equipmentType = fromEquipmentSlot.armorType;
+            ItemData unequippedItemData = equipmentManager.GetItemData(equipmentType);
+
+            if (unequippedItemData != null)
+            {
+                GameObject itemObject = new GameObject(unequippedItemData.itemName);
+                Item newItem = itemObject.AddComponent<Item>();
+                newItem.itemData = unequippedItemData;
+                newItem.itemName = unequippedItemData.itemName;
+                
+            
+                if (unequippedItemData.itemType == ItemType.Armor)
+                {
+                    unequippedItemData = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItemData);
+                }
+                else
+                {
+                    unequippedItemData = equipmentManager.UnequipWeapon();
+                }
+            
+                if (unequippedItemData != null)
+                {
+                    
+                    newItem.itemData = unequippedItemData;
+                    inventory.AddItem(newItem, this.slotIndex);
+                    
+                }
+                else
+                {
+                    Destroy(itemObject);
+                }
+            }
+        }
+
     }
 }

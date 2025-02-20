@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2567161137599943647}
   - component: {fileID: 6783540890077615859}
   - component: {fileID: 1221241073701358179}
+  - component: {fileID: 5679277109232622577}
+  - component: {fileID: 3847269810894845378}
   m_Layer: 5
   m_Name: pantsIcon
   m_TagString: Untagged
@@ -65,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,6 +77,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5679277109232622577
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642278386387803}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3847269810894845378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642278386387803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 2
 --- !u!1 &19996203527402548
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +827,8 @@ GameObject:
   - component: {fileID: 5634784774955931757}
   - component: {fileID: 4918224310474778180}
   - component: {fileID: 1105580542036441682}
+  - component: {fileID: 6758330230005525943}
+  - component: {fileID: 7000758738243195661}
   m_Layer: 5
   m_Name: BodySlot
   m_TagString: Untagged
@@ -865,6 +894,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6758330230005525943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354151029817373907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 1
+--- !u!225 &7000758738243195661
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354151029817373907}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1465139260761748968
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,9 +930,11 @@ GameObject:
   - component: {fileID: 1807062434559450710}
   - component: {fileID: 9184458639583325067}
   - component: {fileID: 3204646741947573772}
+  - component: {fileID: 1817825065156599302}
+  - component: {fileID: 2596617224284298476}
   m_Layer: 5
   m_Name: HelmetSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,6 +997,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1817825065156599302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465139260761748968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+--- !u!225 &2596617224284298476
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465139260761748968}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1542002662968488747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,9 +1374,11 @@ GameObject:
   - component: {fileID: 8981907935103012042}
   - component: {fileID: 7020985432761844802}
   - component: {fileID: 3004057343875773020}
+  - component: {fileID: 3430648511201870319}
+  - component: {fileID: 7421143112102838015}
   m_Layer: 5
   m_Name: WeaponSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,6 +1441,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3430648511201870319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862134974410752315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 1
+--- !u!225 &7421143112102838015
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862134974410752315}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2036332099120339354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,9 +1716,11 @@ GameObject:
   - component: {fileID: 6829207550819935117}
   - component: {fileID: 2110446488314949844}
   - component: {fileID: 3031537171187037690}
+  - component: {fileID: 4580087608832603406}
+  - component: {fileID: 8881747485269395926}
   m_Layer: 5
   m_Name: PantsSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1673,6 +1783,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4580087608832603406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285255723625115165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 2
+--- !u!225 &8881747485269395926
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285255723625115165}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2370485507430577288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,13 +2066,13 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1978,7 +2113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2539,6 +2674,8 @@ GameObject:
   - component: {fileID: 2849232420817691509}
   - component: {fileID: 6517830658511289690}
   - component: {fileID: 90184244195289985}
+  - component: {fileID: 212222001663584659}
+  - component: {fileID: 3581658399866904191}
   m_Layer: 5
   m_Name: amuletIcon
   m_TagString: Untagged
@@ -2593,7 +2730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2603,6 +2740,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &212222001663584659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224709540236635713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 6
+--- !u!225 &3581658399866904191
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224709540236635713}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3799157285034415238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2776,8 @@ GameObject:
   - component: {fileID: 9075790927175811280}
   - component: {fileID: 4668830168645209270}
   - component: {fileID: 2798070268605705119}
+  - component: {fileID: 2770391747361916748}
+  - component: {fileID: 4531600421815713646}
   m_Layer: 5
   m_Name: ringIcon
   m_TagString: Untagged
@@ -2668,7 +2832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2678,6 +2842,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2770391747361916748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799157285034415238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 5
+--- !u!225 &4531600421815713646
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799157285034415238}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3893420340026375125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,9 +3014,11 @@ GameObject:
   - component: {fileID: 3590346813521343249}
   - component: {fileID: 2684091655206882099}
   - component: {fileID: 2233790583067660793}
+  - component: {fileID: 1730404539621069475}
+  - component: {fileID: 4040138945186316817}
   m_Layer: 5
   m_Name: GlovesSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2890,6 +3081,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1730404539621069475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081029428890852666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 4
+--- !u!225 &4040138945186316817
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081029428890852666}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4105242003775324327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,6 +3117,8 @@ GameObject:
   - component: {fileID: 3098416797855227953}
   - component: {fileID: 2826222949407355188}
   - component: {fileID: 4547878558216237705}
+  - component: {fileID: 1951947407776015763}
+  - component: {fileID: 4737974245560888216}
   m_Layer: 5
   m_Name: bootsIcon
   m_TagString: Untagged
@@ -2955,7 +3173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2965,6 +3183,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1951947407776015763
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105242003775324327}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4737974245560888216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105242003775324327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 3
 --- !u!1 &4214591917039405677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,14 +3217,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4548851927725004946}
-  - component: {fileID: 7215002410744837692}
   m_Layer: 0
-  m_Name: CharacterStuff
+  m_Name: CharacterEquipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4548851927725004946
 Transform:
   m_ObjectHideFlags: 0
@@ -2999,26 +3241,6 @@ Transform:
   - {fileID: 374555493101266923}
   m_Father: {fileID: 2204944859747827622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7215002410744837692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214591917039405677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104c3c008366792f5b84370dbe85cfca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  helmetSlot: {fileID: 0}
-  chestSlot: {fileID: 0}
-  leggingsSlot: {fileID: 0}
-  bootsSlot: {fileID: 0}
-  glovesSlot: {fileID: 0}
-  ringSlot: {fileID: 0}
-  amuletSlot: {fileID: 0}
-  weaponSlot: {fileID: 0}
 --- !u!1 &4505757197819304775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +3584,8 @@ GameObject:
   - component: {fileID: 1120693417503576770}
   - component: {fileID: 7345190624216758965}
   - component: {fileID: 2887901629926361529}
+  - component: {fileID: 5734624260408162152}
+  - component: {fileID: 4501003084537812180}
   m_Layer: 5
   m_Name: helmetIcon
   m_TagString: Untagged
@@ -3416,7 +3640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3426,6 +3650,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5734624260408162152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567157192338478120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+--- !u!225 &4501003084537812180
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567157192338478120}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5624129615570586093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4043,9 +4292,11 @@ GameObject:
   - component: {fileID: 7799394615239691691}
   - component: {fileID: 965334793632670375}
   - component: {fileID: 6004795761173907386}
+  - component: {fileID: 8061705453659461745}
+  - component: {fileID: 6132243655873329774}
   m_Layer: 5
   m_Name: RingSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4108,6 +4359,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8061705453659461745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847795985907990132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 5
+--- !u!225 &6132243655873329774
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847795985907990132}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6191177734639336143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,9 +4617,11 @@ GameObject:
   - component: {fileID: 1380647309782892142}
   - component: {fileID: 8730699953443355160}
   - component: {fileID: 7938611950044289127}
+  - component: {fileID: 8568318918120309112}
+  - component: {fileID: 7935758258126535269}
   m_Layer: 5
   m_Name: BootsSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4406,6 +4684,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8568318918120309112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542899464009136011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 3
+--- !u!225 &7935758258126535269
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542899464009136011}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6739101988279270356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,6 +5162,8 @@ GameObject:
   - component: {fileID: 6753080433622684470}
   - component: {fileID: 7686548558112392424}
   - component: {fileID: 2366622538373785767}
+  - component: {fileID: 5428621753671122104}
+  - component: {fileID: 3068253376235668611}
   m_Layer: 5
   m_Name: glovesIcon
   m_TagString: Untagged
@@ -4913,7 +5218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4923,6 +5228,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5428621753671122104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296332525642544014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 4
+--- !u!225 &3068253376235668611
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296332525642544014}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7389960148763181578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,9 +5708,11 @@ GameObject:
   - component: {fileID: 1704046738444732921}
   - component: {fileID: 7115555111982274588}
   - component: {fileID: 1557522983262358317}
+  - component: {fileID: 758293052632196922}
+  - component: {fileID: 3912658001235037354}
   m_Layer: 5
   m_Name: AmuletSlot
-  m_TagString: Untagged
+  m_TagString: BagSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5443,6 +5775,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &758293052632196922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019814354031013999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 6
+--- !u!225 &3912658001235037354
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019814354031013999}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8035704758889485057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,6 +5811,8 @@ GameObject:
   - component: {fileID: 1471194262525126432}
   - component: {fileID: 6800260468268629516}
   - component: {fileID: 1637188368968850933}
+  - component: {fileID: 1985446235985756490}
+  - component: {fileID: 6072737151482434744}
   m_Layer: 5
   m_Name: weaponIcon
   m_TagString: Untagged
@@ -5508,7 +5867,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5518,6 +5877,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1985446235985756490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035704758889485057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+--- !u!225 &6072737151482434744
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035704758889485057}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8097173034573373776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5707,6 +6091,8 @@ GameObject:
   - component: {fileID: 5608559479827730467}
   - component: {fileID: 6125592673178740823}
   - component: {fileID: 4242510233273973475}
+  - component: {fileID: 9001216484722415675}
+  - component: {fileID: 1495330116075736864}
   m_Layer: 5
   m_Name: bodyIcon
   m_TagString: Untagged
@@ -5761,7 +6147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5771,6 +6157,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9001216484722415675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822825338830477802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 1
+--- !u!225 &1495330116075736864
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822825338830477802}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8891486420392113716
 GameObject:
   m_ObjectHideFlags: 0
@@ -5885,6 +6296,8 @@ GameObject:
   - component: {fileID: 2045329348161586194}
   - component: {fileID: 4992357343572153529}
   - component: {fileID: 2900946773184286838}
+  - component: {fileID: 2253250416259334582}
+  - component: {fileID: 2942650637252537358}
   m_Layer: 5
   m_Name: CharacterSlots
   m_TagString: Untagged
@@ -5960,6 +6373,46 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &2253250416259334582
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913872518772923135}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &2942650637252537358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913872518772923135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8975461969828173508
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -45,15 +46,15 @@ public class PlayerAnimation : MonoBehaviour
         GetPlayerStateAnimation();
         GetCombatStateAnimation();
         GetDodgeStateAnimation();
-        PlayerDeathAnimation();
+        
     }
 
-    void PlayerDeathAnimation()
+   public IEnumerator PlayerDeathAnimation()
     {
-        if (player.HP <= 0)
-        {
-            anim.SetBool("Death", true);
-        }
+       anim.SetBool("Death", true);
+       yield return new WaitForSeconds(1.5f);
+       GameManager.GetInstance().LossMenu();
+       
     }
 
     void GetPlayerStateAnimation()
@@ -365,5 +366,12 @@ public class PlayerAnimation : MonoBehaviour
     {
         OR = 0f;
         anim.SetLayerWeight(1, OR);
+    }
+
+    public void ResetPlayerDeath()
+    {
+        anim.SetBool("Death", false);
+        anim.SetTrigger("ResetDeath");
+        GameManager.GetInstance().RemoveLossMenu();
     }
 }
