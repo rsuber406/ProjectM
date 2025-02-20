@@ -114,7 +114,13 @@ public class EquipmentUI : MonoBehaviour
     } 
     private void ClearEquipmentSlot(ArmorType slotType)
     {
-        
+        for (int i = 0; i < equipmentSlots.Length; i++)
+        {
+            if (equipmentSlots[i] == GetSlotImage(slotType))
+            {
+                equipmentSlots[i].gameObject.SetActive(false);
+            }
+        }
         
         
          
@@ -123,7 +129,7 @@ public class EquipmentUI : MonoBehaviour
 
     private void ClearEquipmentSlot()
     {
-       //overload for weapon
+      
     }
 
    

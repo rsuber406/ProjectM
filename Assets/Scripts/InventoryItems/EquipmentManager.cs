@@ -15,6 +15,7 @@ public class EquipmentManager : MonoBehaviour
     public ItemData equippedGlovesData;
     public ItemData equippedWeaponData;
 
+
  
     public event Action<ItemData, ArmorType> OnArmorEquipped;
     public event Action<ItemData> OnWeaponEquipped;
@@ -24,6 +25,7 @@ public class EquipmentManager : MonoBehaviour
     
     private AttributesController attributesController;
     private EquipmentManager equipmentManager;
+    
 
     
     
@@ -35,6 +37,32 @@ public class EquipmentManager : MonoBehaviour
          attributesController.mana.currentValue = 10f;
          FindAnyObjectByType<Inventory>().OnEquipItem += EquipItem;
 
+    }
+
+    public ItemData GetItemData(ArmorType equipmentType)
+    {
+        switch (equipmentType)
+        {
+            case ArmorType.Helmet:
+                return equippedHelmetData;
+            case ArmorType.Chestplate:
+                return equippedChestplateData;
+            case ArmorType.Boots:
+                return equippedBootsData;
+            case ArmorType.Leggings:
+                return equippedLegsData;
+            case ArmorType.Ring:
+                return equippedRingData;
+            case ArmorType.Amulet:
+                return equippedAmuletData;
+            case ArmorType.Gloves:
+                return equippedGlovesData;
+            case ArmorType.None:
+                //I know how it looks, but Unity won't allow me to disable enums based on a boolean 8^)
+                return equippedWeaponData;
+            default:
+                return null;
+        }
     }
     public ItemData UnequipArmor(ArmorType armorType, ItemData itemData)
     {

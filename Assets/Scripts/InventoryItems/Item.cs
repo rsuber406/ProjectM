@@ -27,7 +27,7 @@ public class Item : MonoBehaviour, IPickup
     public void Pickup()
     {
         Inventory inventory = FindFirstObjectByType<Inventory>();
-        if (inventory != null && inventory.AddItem(this))
+        if (inventory != null && inventory.AddItem(this, 0))
         {
             gameObject.SetActive(false);
         }

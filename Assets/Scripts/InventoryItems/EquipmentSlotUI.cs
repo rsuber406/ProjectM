@@ -65,9 +65,16 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private void ResetDragState()
     {
         isDraggingItem = false;
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-        rectTransform.anchoredPosition = originalPos;
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        }
+
+        if (rectTransform != null)
+        {
+            rectTransform.anchoredPosition = originalPos;
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -104,7 +111,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         
             if (unequippedItem.itemType == ItemType.Armor)
             {
-                
+                fromEquipmentSlot.imageComponent.sprite = null;
                 unequippedItem = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItem);
             }
             else
@@ -116,8 +123,9 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
             
             if (unequippedItem != null)
             {
-                toInventorySlot.inventory.AddItem(unequippedItemParent);
+                toInventorySlot.inventory.AddItem(unequippedItemParent, toInventorySlot.slotIndex);
             }
         }
+        isDraggingItem = false;
     }
 }
