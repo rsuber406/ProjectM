@@ -29,6 +29,16 @@ public class Inventory : MonoBehaviour
     {
       InitializeInventory();
     }
+    public Item[] GetInventoryItems()
+    {
+        Item[] inventoryItems = new Item[inventorySize]; 
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventoryItems[i] = slots[i].item;
+        }
+        return inventoryItems;
+    }
+
 
     private void InitializeInventory()
     {
