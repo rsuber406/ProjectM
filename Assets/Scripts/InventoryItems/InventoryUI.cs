@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
     
     void Start()
     {
-        inventory = FindAnyObjectByType<Inventory>();
+        inventory = GetComponent<Inventory>();
         inventory.OnInventoryChanged += UpdateInventoryUI;
         inventoryPanel.SetActive(false);
         Cursor.visible = false;
