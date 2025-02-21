@@ -45,7 +45,7 @@ public struct PlayerLoadedData
 
 public static class PersistentDataSystem
 {
-    
+    public static List<Item> playerInventory;
     public static void SavePlayerData(int health, int mana, Item[] inventory, ItemData[] equipment)
     {
         PlayerData data = new PlayerData();
@@ -67,6 +67,7 @@ public static class PersistentDataSystem
         List<ItemDataConversion> convJsonInv = JsonItemToItemDataConversion(ref data.inventory);
         List<ItemDataConversion> convJsonEquip = JsonItemToItemDataConversion(ref data.equipment);
         List<Item> inventory = ItemDataConvToItem(ref convJsonInv);
+        playerInventory = inventory;
         List<ItemData> equipment = ItemDataConvToItemData(ref convJsonEquip);
         PlayerLoadedData player = new PlayerLoadedData();
         player.health = data.health;
@@ -86,9 +87,15 @@ public static class PersistentDataSystem
             ItemDataConversion conv = new ItemDataConversion();
             conv.itemName = items[i].name;
             conv.description = items[i].GetDescription();
-            Texture2D readable = new Texture2D(items[i].data.icon.texture.width, items[i].data.icon.texture.height, TextureFormat.RGBA32, false);
-            Graphics.CopyTexture(items[i].data.icon.texture, readable);
-            byte[] pngToBytes = readable.EncodeToPNG();
+
+            RenderTexture render = new RenderTexture(items[i].data.icon.texture.width, items[i].data.icon.texture.height, 0);
+            Graphics.Blit(items[i].data.icon.texture, render);
+            Texture2D convertToTexture = new Texture2D(render.width, render.height, TextureFormat.RGBA32, false);
+            RenderTexture.active = render;
+            convertToTexture.ReadPixels(new Rect(0, 0, render.width, render.height), 0, 0);
+            convertToTexture.Apply();
+            RenderTexture.active = null;
+            byte[] pngToBytes = convertToTexture.EncodeToPNG();
             conv.icon = Convert.ToBase64String(pngToBytes);
             conv.itemType = (int) items[i].data.itemType;
             conv.rarity = (int) items[i].data.rarity;
@@ -132,8 +139,9 @@ public static class PersistentDataSystem
             item.description = loadedItems.description;
             byte[] iconLoader = System.Convert.FromBase64String(loadedItems.icon);
             Texture2D loadable = new Texture2D(1, 1, TextureFormat.RGBA32, false);
-            loadable.LoadImage(iconLoader);
-            Sprite newSprite = Sprite.Create(loadable, new Rect(0, 0, loadable.width, loadable.height), Vector2.one * 0.5f);
+            loadable.LoadImage(iconLoader, false);
+            loadable.Apply(true);
+            Sprite newSprite = Sprite.Create(loadable, new Rect(0, 0, loadable.width, loadable.height), Vector2.zero);
             item.icon = newSprite;
             item.itemType = (ItemType) loadedItems.itemType;
             item.rarity = (ItemRarity) loadedItems.rarity;
@@ -181,6 +189,7 @@ public static class PersistentDataSystem
             GameObject itemGo = new GameObject(convJsonData[i].itemName);
             Item loadedItem = itemGo.AddComponent<Item>();
             loadedItem.itemData = item;
+            loadedItem.itemName = item.name;
             convertedItems.Add(loadedItem);
         }
         return convertedItems;
