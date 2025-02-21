@@ -83,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void TeleportPlayer(float xcords, float ycords, float zcords)
     {
+        Rigidbody playerRB = player.GetComponent<Rigidbody>();
+        playerRB.position = new Vector3(xcords, ycords, zcords);
         player.transform.position = new Vector3(xcords, ycords, zcords);
     }
 
