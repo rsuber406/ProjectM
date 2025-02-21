@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class ButtonFunctions : MonoBehaviour
+public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] GameObject hoverImage;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Resume()
     {
         GameManager.GetInstance().ResumeGame();
     }
-    
+
     public void Settings()
     {
         GameManager.GetInstance().SettingsMenu();
@@ -18,6 +21,10 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.GetInstance().PauseMenu();
     }
 
+    public void TabAudio()
+    {
+        GameManager.GetInstance().AudioTab();
+    }
 
     public void VolumeMaster()
     {
@@ -55,6 +62,18 @@ public class ButtonFunctions : MonoBehaviour
 #endif
     }
 
- 
-    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        hoverImage.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hoverImage.SetActive(false);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        hoverImage.SetActive(false);
+    }
 }

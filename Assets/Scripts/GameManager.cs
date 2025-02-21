@@ -12,22 +12,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
     [SerializeField] private GameObject victoryMenu;
-
     [SerializeField] private GameObject settingsMenu;
+
+    [SerializeField] private GameObject audioTab;
+
 
     private SoundManager soundController;
     
 
     public GameObject damagePanel;
     private GameObject menuActive = null;
+    private GameObject tabActive = null;
+
     public TextMeshProUGUI interactText;
+
     public Image healthBar;
     public Image manaBar;
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     //private fields
     private AIController aiController;
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -41,8 +46,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
-
         if (Input.GetButtonDown("Cancel"))
         {
             if (menuActive == null)
@@ -119,7 +122,25 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = pauseMenu;
         menuActive.SetActive(true);
+        tabActive.SetActive(false);
+        tabActive = null;
     }
+
+
+    public void AudioTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = audioTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
+    }
+
 
     public void LossMenu()
     {

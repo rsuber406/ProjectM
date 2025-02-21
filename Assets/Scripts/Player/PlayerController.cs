@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         IsGrounded();
         Movement();
 
-        if (Input.GetButtonDown("Dodge") && inCombat)
+        if (Input.GetButton("Dodge") && inCombat && dodgeCdTimer == dodgeCd)
             Dodge(); // key bind set to space
     }
 
@@ -142,9 +142,9 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
-            if (moveDir.magnitude > 0.3f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
+            if (moveDir.magnitude > 0.89f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
             {
-                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlaySteps());
+                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlayerSteps());
             }
         }
 
@@ -250,6 +250,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public void TakeDamage(int amount)
     {
         attributes.TakeDamage(amount);
+        GameManager.GetInstance().GetSoundManager().PlayerHurt();
         StartCoroutine(FlashDamagePanel());
 
     }

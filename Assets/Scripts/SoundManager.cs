@@ -9,13 +9,13 @@ public class SoundManager : MonoBehaviour
 {
     private AudioSource aud;
 
-    public TMP_Text masterVolumeText;
-    public TMP_Text SFXVolumeText;
-    public TMP_Text musicVolumeText;
-
     public Slider masterSlider;
     public Slider SFXSlider;
     public Slider musicSlider;
+
+    public TMP_Text masterVolumeText;
+    public TMP_Text SFXVolumeText;
+    public TMP_Text musicVolumeText;
 
     public float masterVol;
     public float SFXVol;
@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
 
     [Header ("----- Player Sounds -----")]
     [SerializeField] AudioClip[] playerFootsteps;
+    [SerializeField] AudioClip[] playerHurtSounds;
 
 
     public bool isPlayingSteps;
@@ -33,6 +34,7 @@ public class SoundManager : MonoBehaviour
         aud = GetComponent<AudioSource>();
         ResetVolume();
         masterVol = SFXVol = musicVol = masterSlider.value;
+        masterVolumeText.text = SFXVolumeText.text = musicVolumeText.text = (100f).ToString("F0");
 
     }
 
@@ -71,14 +73,18 @@ public class SoundManager : MonoBehaviour
         SFXSlider.value = musicSlider.value = masterSlider.value;
     }
 
-    public IEnumerator PlaySteps()
+    public IEnumerator PlayerSteps()
     {
         isPlayingSteps = true;
         aud.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.2f);
 
         isPlayingSteps = false;
     }
 
+    public void PlayerHurt()
+    {
+        aud.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], SFXVol);
+    }
 }
