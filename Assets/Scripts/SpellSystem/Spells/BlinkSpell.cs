@@ -28,6 +28,8 @@ public class BlinkSpell : SpellBase
         GameObject player = GameManager.GetInstance().GetPlayer();
         Rigidbody playerRigidBody = player.GetComponent<Rigidbody>();
 
+        GameManager.GetInstance().GetSoundManager().BlinkSpell();
+
         // Blink in the cameras forward direction by default
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward;

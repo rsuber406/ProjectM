@@ -149,9 +149,9 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
-            if (moveDir.magnitude > 0.3f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
+            if (moveDir.magnitude > 0.89f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
             {
-                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlaySteps());
+                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlayerSteps());
             }
         }
 
@@ -222,6 +222,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             dodgeCdTimer = dodgeCd;
 
         isDodging = true;
+        GameManager.GetInstance().GetSoundManager().PlayerDodge();
 
         Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
         dodgeDelay = dodge;
@@ -257,6 +258,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public void TakeDamage(int amount)
     {
         attributes.TakeDamage(amount);
+        GameManager.GetInstance().GetSoundManager().PlayerHurt();
         StartCoroutine(FlashDamagePanel());
 
     }
@@ -312,7 +314,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             isAlive = false;
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             StartCoroutine(animScript.PlayerDeathAnimation());
-            
+            GameManager.GetInstance().GetSoundManager().PlayerDeath();
+
         }
     }
 
