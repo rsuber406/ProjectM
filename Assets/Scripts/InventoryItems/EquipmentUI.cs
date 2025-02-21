@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
@@ -19,6 +21,10 @@ public class EquipmentUI : MonoBehaviour
     [SerializeField] private TMP_Text armorText;
     
     [SerializeField] private GameObject equipmentUI;
+
+    [SerializeField] private GameObject contextMenu;
+
+    public Button unequipButton;
     
     private Image[] equipmentSlots;
     
@@ -31,6 +37,7 @@ public class EquipmentUI : MonoBehaviour
 
     void Start()
     {
+        
    
         equipmentUI.gameObject.SetActive(false);
         equipmentSlots = new Image[] {
@@ -67,12 +74,20 @@ public class EquipmentUI : MonoBehaviour
             Cursor.visible = equipmentUI.activeSelf;
         }
     }
+   
 
     private void UpdateStatText()
     {
         healthText.text = $"$Health: {attributesController.health.currentValue.ToString()}";
         manaText.text = $"$Mana: {attributesController.mana.currentValue.ToString()}";
         armorText.text = $"$Armor: {attributesController.armor.currentValue.ToString()}";
+    }
+    private void AnchorToZero(Image image)
+    {
+        if (image.rectTransform != null)
+        {
+            image.rectTransform.anchoredPosition = Vector2.zero;
+        }
     }
 
     private void UpdateEquipmentSlot(ItemData item, ArmorType slotType)
@@ -86,30 +101,38 @@ public class EquipmentUI : MonoBehaviour
                 {
                     case ArmorType.Helmet:
                         helmetSlot.sprite = item.icon;
+                        AnchorToZero(helmetSlot);
                         break;
                     case ArmorType.Amulet:
                         amuletSlot.sprite = item.icon;
+                        AnchorToZero(amuletSlot);
                         break;
                     case ArmorType.Gloves:
                         glovesSlot.sprite = item.icon;
+                        AnchorToZero(glovesSlot);
                         break;
                     case ArmorType.Ring:
                         ringSlot.sprite = item.icon;
+                        AnchorToZero(ringSlot);
                         break;
                     case ArmorType.Boots:
                         bootsSlot.sprite = item.icon;
+                        AnchorToZero(bootsSlot);
                         break;
                     case ArmorType.Leggings:
                         leggingsSlot.sprite = item.icon;
+                        AnchorToZero(leggingsSlot);
                         break;
                     case ArmorType.Chestplate:
                         chestSlot.sprite = item.icon;
+                        AnchorToZero(chestSlot);
                         break;
                 }
             }
             else if (item.itemType == ItemType.Weapon)
             {
                 weaponSlot.sprite = item.icon;
+                AnchorToZero(weaponSlot);
             }
         }
 
@@ -126,6 +149,9 @@ public class EquipmentUI : MonoBehaviour
             }
         }
     }
+    
+    
+    
    
 
 
@@ -153,6 +179,7 @@ public class EquipmentUI : MonoBehaviour
             if (equipmentSlots[i] == GetSlotImage(slotType))
             {
                 equipmentSlots[i].gameObject.SetActive(false);
+                break;
             }
         }
         

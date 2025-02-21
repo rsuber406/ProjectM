@@ -346,6 +346,8 @@ MonoBehaviour:
   manaText: {fileID: 0}
   armorText: {fileID: 0}
   equipmentUI: {fileID: 0}
+  contextMenu: {fileID: 0}
+  unequipButton: {fileID: 0}
 --- !u!114 &7705785872992515908
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         UpdatePlayerUI();
         SpeedControl();
-        Debug.Log(transform.position);
+       // Debug.Log(transform.position);
         
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
