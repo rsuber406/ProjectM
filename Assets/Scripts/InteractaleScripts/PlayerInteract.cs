@@ -6,8 +6,10 @@ public class PlayerInteract : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private string interactText;
+    [SerializeField] private bool changeObjectColor = false;
     private List<Color> originalColors = new List<Color>();
     private bool objectEntered = false;
+
 
     void Start()
     {
@@ -36,7 +38,8 @@ public class PlayerInteract : MonoBehaviour
             GameManager.GetInstance().PlayerInteractShow();
             if (!objectEntered)
             {
-                ChangeColor();
+                if (changeObjectColor)
+                    ChangeColor();
                 objectEntered = true;
             }
         }
@@ -49,7 +52,8 @@ public class PlayerInteract : MonoBehaviour
         if (itemInteractable != null)
         {
             GameManager.GetInstance().PlayerInteractHide();
-            ChangeBackToOriginalColor();
+            if (changeObjectColor)
+                ChangeBackToOriginalColor();
         }
     }
 
