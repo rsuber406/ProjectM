@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject victoryMenu;
 
     [SerializeField] private GameObject settingsMenu;
-
+    [SerializeField] private bool enableDebug;
     private SoundManager soundController;
     
 
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleInDungeonMenuBindings()
     {
-        if (gameMode == GameMode.Dungeon)
+        if (gameMode == GameMode.Dungeon || gameMode == GameMode.Hub || enableDebug)
         {
             if (Input.GetButtonDown("Cancel"))
             {
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void TeleportPlayer(float xcords, float ycords, float zcords)
     {
+        Rigidbody playerRB = player.GetComponent<Rigidbody>();
+        playerRB.position = new Vector3(xcords, ycords, zcords);
         player.transform.position = new Vector3(xcords, ycords, zcords);
     }
 
@@ -199,11 +202,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerController controller = player.GetComponent<PlayerController>();
         controller.RespawnSequence();
-        player.transform.position = new Vector3(0.000f, 0.00f, -32f);
-        GameObject playerModel = GameObject.FindGameObjectWithTag("PlayerSocket");
+        //player.transform.position = new Vector3(0.000f, 0.00f, -32f);
         MainSceneLogic.MSInstance.ResetPlayer();
-        Debug.Log(player.transform.position);
-        Debug.Log(playerModel.transform.position);
         ResumeGame();
         
     }
@@ -220,5 +220,11 @@ public class GameManager : MonoBehaviour
         float mana = playerScript.GetMana();
         float health = playerScript.GetHealth();
         PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
+    }
+
+    public void SetGameState(GameState target)
+    {
+        gameState = target;
+        ToggleCursorVisibility();
     }
 }

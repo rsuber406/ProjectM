@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1dc5f58d223d15d4a95d8ef64ef65d7d
+timeCreated: 1532673835
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124997
+  packageName: GameItemIcon
+  packageVersion: 1.0
+  assetPath: Assets/GameItemIcon/Scene/AccessoriesIconScene.unity
+  uploadId: 262542

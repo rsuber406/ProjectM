@@ -3,16 +3,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
+public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler,
+    IDropHandler
 {
     public ArmorType armorType;
     private EquipmentManager equipmentManager;
     private Image imageComponent;
+    private Image oldImage;
     private CanvasGroup canvasGroup;
     private Vector2 originalPos;
     private bool isDraggingItem = false;
     private RectTransform rectTransform;
     Item unequippedItemParent;
+    [SerializeField] private GameObject contextMenuPrefab;
+    private GameObject activeContextMenu;
+    [SerializeField] private InventoryUI inventoryUI;
+
+    private static EquipmentSlotUI currentlyDraggedEquipment = null;
+    private Sprite oldSprite;
 
     private void Awake()
     {
@@ -20,27 +28,92 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         imageComponent = GetComponent<Image>();
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
+        oldSprite = imageComponent.sprite;
+        oldImage = imageComponent;
+        
+        inventoryUI = FindAnyObjectByType<InventoryUI>().GetComponent<InventoryUI>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log($"clicked on {gameObject.name}");
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            
+            ShowContextMenu(eventData.position);
         }
     }
 
-    private bool IsBagSlot()
+    public void ShowContextMenu(Vector2 position)
+    {
+        if (equipmentManager.GetItemData(armorType) == null)
+        {
+            return;
+        }
+
+        if (activeContextMenu != null)
+        {
+            Destroy(activeContextMenu);
+        }
+
+        activeContextMenu = Instantiate(contextMenuPrefab, position, Quaternion.identity, transform);
+        RectTransform contextRect = activeContextMenu.GetComponent<RectTransform>();
+        contextRect.position = position;
+
+        var buttons = activeContextMenu.GetComponentsInChildren<Button>();
+
+        foreach (var button in buttons)
+        {
+            switch (button.name)
+            {
+                case "UnequipButton":
+                    button.onClick.RemoveAllListeners();
+                    button.onClick.AddListener(() => { UnequipItem(armorType); });
+                    break;
+            }
+        }
+    }
+
+    private void UnequipItem(ArmorType armorType)
+    {
+        ItemData unequippedItem = equipmentManager.GetItemData(armorType);
+        Inventory inventory = FindAnyObjectByType<Inventory>();
+
+        if (unequippedItem.itemType == ItemType.Armor)
+        {
+            imageComponent.sprite = oldSprite;
+            canvasGroup.alpha = 1f;
+            unequippedItem = equipmentManager.UnequipArmor(armorType, unequippedItem);
+        }
+        else
+        {
+            imageComponent.sprite = oldSprite;
+            canvasGroup.alpha = 1f;
+            unequippedItem = equipmentManager.UnequipWeapon();
+        }
+
+        if (unequippedItem != null)
+        {
+            inventory.AddItem(unequippedItemParent, 0);
+        }
+
+        if (activeContextMenu != null)
+        {
+            Destroy(activeContextMenu);
+        }
+    }
+
+    
+
+private bool IsBagSlot()
     {
         return gameObject.CompareTag("BagSlot");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!IsBagSlot() &&!isDraggingItem)
+        if (!IsBagSlot() && !isDraggingItem && HasItemToDrag())
         {
             isDraggingItem = true;
+            currentlyDraggedEquipment = this; 
             originalPos = rectTransform.anchoredPosition;
             canvasGroup.alpha = 0.6f;
             canvasGroup.blocksRaycasts = false;
@@ -49,7 +122,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!IsBagSlot() && isDraggingItem)
+        if (!IsBagSlot() && isDraggingItem && HasItemToDrag())
         {
             rectTransform.position = eventData.position;
         }
@@ -60,9 +133,11 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         if (!IsBagSlot() && isDraggingItem)
         {
             ResetDragState();
+            currentlyDraggedEquipment = null; 
         }
     }
-    private void ResetDragState()
+    
+    public void ResetDragState()
     {
         isDraggingItem = false;
         if (canvasGroup != null)
@@ -70,62 +145,98 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
             canvasGroup.alpha = 1f;
             canvasGroup.blocksRaycasts = true;
         }
-
         if (rectTransform != null)
         {
             rectTransform.anchoredPosition = originalPos;
         }
     }
+    private bool HasItemToDrag()
+    {
+        if (IsBagSlot())
+        {
+            return false;
+        }
+        
+        ItemData itemData = equipmentManager.GetItemData(armorType);
+        return itemData != null;
+        //return if not null.
+    }
+
+    private void OnDisable()
+    {
+        if (isDraggingItem)
+        {
+            ResetDragState();
+            currentlyDraggedEquipment = null;
+        }
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
+        
         if (isDraggingItem)
         {
             return;
         }
         
-        InventorySlotUI fromSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
-
+        GameObject draggedObject = eventData.pointerDrag;
+        if (draggedObject == null)
+        {
+            return;
+        }
+        
+        // INVENTORY TO EQUIPMENT
+        InventorySlotUI fromSlot = draggedObject.GetComponent<InventorySlotUI>();
         if (fromSlot != null) 
         {
             ItemData itemData = fromSlot.inventory.slots[fromSlot.slotIndex].item.data; 
 
             if (itemData.itemType == ItemType.Armor || itemData.itemType == ItemType.Weapon)
             {
-                equipmentManager.EquipItem(itemData); 
-                
-
+                equipmentManager.EquipItem(itemData);
+                imageComponent.sprite = itemData.icon;
+                canvasGroup.alpha = 1f;
                 fromSlot.inventory.RemoveItem(itemData.itemName, fromSlot.slotIndex);
             }
         }
-        EquipmentSlotUI fromEquipmentSlot = eventData.pointerDrag?.GetComponent<EquipmentSlotUI>();
-        InventorySlotUI toInventorySlot = GetComponent<InventorySlotUI>();
-    
-        if (fromEquipmentSlot != null && toInventorySlot != null)
-        {
-          
-            ItemData unequippedItem = fromSlot.inventory.slots[fromSlot.slotIndex].item.data;
-            
-            unequippedItemParent.itemData = unequippedItem;
-           
         
-            if (unequippedItem.itemType == ItemType.Armor)
-            {
-                fromEquipmentSlot.imageComponent.sprite = null;
-                unequippedItem = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItem);
-            }
-            else
-            {
+        
+        //EQUIPMENT TO INVENTORY
+        InventorySlotUI toInventorySlot = GetComponent<InventorySlotUI>();
+        
+        if (currentlyDraggedEquipment != null && toInventorySlot != null)
+        {
+                ItemData unequippedItem = equipmentManager.GetItemData(currentlyDraggedEquipment.armorType);
                 
-                unequippedItem = equipmentManager.UnequipWeapon();
-            }
-            
-            
-            if (unequippedItem != null)
-            {
-                toInventorySlot.inventory.AddItem(unequippedItemParent, toInventorySlot.slotIndex);
-            }
+                if (unequippedItem != null)
+                {
+                    if (unequippedItem.itemType == ItemType.Armor)
+                    {
+                        currentlyDraggedEquipment.imageComponent.sprite = unequippedItem.icon;
+                        currentlyDraggedEquipment.canvasGroup.alpha = 0.2f;
+                        unequippedItem = equipmentManager.UnequipArmor(currentlyDraggedEquipment.armorType, unequippedItem);
+                    }
+                    else
+                    {
+                        currentlyDraggedEquipment.imageComponent.sprite = currentlyDraggedEquipment.oldSprite;
+                        currentlyDraggedEquipment.canvasGroup.alpha = 1f;
+                        unequippedItem = equipmentManager.UnequipWeapon();
+                    }
+                    
+                    if (unequippedItem != null)
+                    {
+                        toInventorySlot.inventory.AddItem(unequippedItemParent, toInventorySlot.slotIndex);
+                    }
+                }
+                
+                if (currentlyDraggedEquipment != null)
+                {
+                    currentlyDraggedEquipment.ResetDragState();
+                    currentlyDraggedEquipment = null;
+                }
         }
-        isDraggingItem = false;
     }
 }
+
+
+    

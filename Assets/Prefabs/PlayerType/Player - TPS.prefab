@@ -45,9 +45,7 @@ GameObject:
   - component: {fileID: 8143787931293570805}
   - component: {fileID: 8484086505065435152}
   - component: {fileID: 3987325637387521297}
-  - component: {fileID: 4060631488636382767}
   - component: {fileID: 6357876903979031937}
-  - component: {fileID: 4175419468583804517}
   - component: {fileID: 3839481100040156285}
   - component: {fileID: 2122194703362033314}
   - component: {fileID: 2709934937227216735}
@@ -180,19 +178,6 @@ MonoBehaviour:
   player: {fileID: 6193368412943276983}
   anim: {fileID: 2180704074202749120}
   animTransSpeed: 3
---- !u!114 &4060631488636382767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2ae1ba92a2ae34795969d204475f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySize: 16
 --- !u!114 &6357876903979031937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,39 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testItem: {fileID: 0}
-  playerInventory: {fileID: 4060631488636382767}
---- !u!114 &4175419468583804517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2317e58008cae13408b0d7f968c9c7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIconSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  inventoryPanel: {fileID: 0}
-  contextMenuPrefab: {fileID: 2417468276136194105, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
-  inventory: {fileID: 4060631488636382767}
+  playerInventory: {fileID: 0}
 --- !u!114 &3839481100040156285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +298,9 @@ MonoBehaviour:
   healthText: {fileID: 0}
   manaText: {fileID: 0}
   armorText: {fileID: 0}
-  equipmentUI: {fileID: 0}
+  equipmentUIGameObject: {fileID: 0}
+  contextMenu: {fileID: 0}
+  unequipButton: {fileID: 0}
 --- !u!114 &7705785872992515908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2e9d43bc51002daafce06e7a5ecc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 4060631488636382767}
+  inventory: {fileID: 0}
   equipmentManager: {fileID: 8723265616804472942}
   testItem: {fileID: 0}
 --- !u!1 &1314316387541837336
