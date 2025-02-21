@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject victoryMenu;
 
     [SerializeField] private GameObject settingsMenu;
-
+    [SerializeField] private bool enableDebug;
     private SoundManager soundController;
     
 
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleInDungeonMenuBindings()
     {
-        if (gameMode == GameMode.Dungeon)
+        if (gameMode == GameMode.Dungeon || gameMode == GameMode.Hub || enableDebug)
         {
             if (Input.GetButtonDown("Cancel"))
             {
