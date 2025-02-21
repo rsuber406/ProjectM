@@ -15,22 +15,14 @@ public class EquipmentUI : MonoBehaviour
     [SerializeField] private Image ringSlot;
     [SerializeField] private Image amuletSlot;
     [SerializeField] private Image weaponSlot;
-
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private TMP_Text manaText;
     [SerializeField] private TMP_Text armorText;
-    
-    [SerializeField] private GameObject equipmentUI;
-
+    [SerializeField] private GameObject equipmentUIGameObject;
     [SerializeField] private GameObject contextMenu;
 
     public Button unequipButton;
-    
     private Image[] equipmentSlots;
-    
-    
-
-    private int numOfItems = 8;
 
     private EquipmentManager equipmentManager;
     private AttributesController attributesController;
@@ -39,7 +31,7 @@ public class EquipmentUI : MonoBehaviour
     {
         
    
-        equipmentUI.gameObject.SetActive(false);
+        equipmentUIGameObject.gameObject.SetActive(false);
         equipmentSlots = new Image[] {
             helmetSlot,
             chestSlot,
@@ -53,8 +45,6 @@ public class EquipmentUI : MonoBehaviour
         equipmentManager = FindAnyObjectByType<EquipmentManager>();
         FindAnyObjectByType<EquipmentManager>().OnArmorEquipped += UpdateEquipmentSlot;
         equipmentManager.OnArmorEquipped += UpdateEquipmentSlot;
-        equipmentManager.OnArmorUnequipped += ClearEquipmentSlot;
-        equipmentManager.OnWeaponUnequipped += ClearEquipmentSlot;
         attributesController = FindAnyObjectByType<AttributesController>();
     }
     
@@ -69,9 +59,8 @@ public class EquipmentUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            equipmentUI.SetActive(!equipmentUI.activeSelf);
-          //  Cursor.lockState = equipmentUI.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = equipmentUI.activeSelf;
+            equipmentUIGameObject.SetActive(!equipmentUIGameObject.activeSelf);
+            Cursor.visible = equipmentUIGameObject.activeSelf;
         }
     }
    
@@ -172,26 +161,12 @@ public class EquipmentUI : MonoBehaviour
             default: return null;
         }
     } 
-    private void ClearEquipmentSlot(ArmorType slotType)
-    {
-        for (int i = 0; i < equipmentSlots.Length; i++)
-        {
-            if (equipmentSlots[i] == GetSlotImage(slotType))
-            {
-                equipmentSlots[i].gameObject.SetActive(false);
-                break;
-            }
-        }
+    
         
         
          
        
-    }
-
-    private void ClearEquipmentSlot()
-    {
-      
-    }
+    
 
    
 

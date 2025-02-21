@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         attributes = GetComponent<AttributesController>();
         stateController = GetComponent<PlayerStateController>();
 
+       
         canJump = true;
         unCrouch = transform.localScale.y;
         PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
@@ -345,7 +346,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     private void PopulateInventory( List<Item> items)
     {
-        Inventory inventory = this.GetComponent<Inventory>();
+        Inventory inventory = this.GetComponentInChildren<Inventory>();
         for (int i = 0; i < items.Count; i++)
         { 
             inventory.AddItem(items[i], i);
@@ -354,11 +355,13 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     private void PopulateEquipment( List<ItemData> items)
     {
-        EquipmentManager equipment = this.GetComponent<EquipmentManager>();
+        EquipmentManager equipment = this.GetComponentInChildren<EquipmentManager>();
         for (int i = 0; i < items.Count; i++)
         {
             equipment.EquipItem(items[i]);
         }
     }
+
+   
     
 }
