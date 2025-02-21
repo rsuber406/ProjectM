@@ -202,11 +202,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerController controller = player.GetComponent<PlayerController>();
         controller.RespawnSequence();
-        player.transform.position = new Vector3(0.000f, 0.00f, -32f);
-        GameObject playerModel = GameObject.FindGameObjectWithTag("PlayerSocket");
+        //player.transform.position = new Vector3(0.000f, 0.00f, -32f);
         MainSceneLogic.MSInstance.ResetPlayer();
-        Debug.Log(player.transform.position);
-        Debug.Log(playerModel.transform.position);
         ResumeGame();
         
     }
