@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 15e1b69286bce9c41abd8b5276e37472
+timeCreated: 1532673835
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124997
+  packageName: GameItemIcon
+  packageVersion: 1.0
+  assetPath: Assets/GameItemIcon/Scene/RingIconScene.unity
+  uploadId: 262542
