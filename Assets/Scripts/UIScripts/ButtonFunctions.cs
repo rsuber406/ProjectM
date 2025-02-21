@@ -47,6 +47,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void Exit()
     {
+        GameManager.GetInstance().SavePlayerData();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
