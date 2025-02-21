@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6783540890077615859}
   - component: {fileID: 1221241073701358179}
   - component: {fileID: 3075178972527187906}
+  - component: {fileID: 5270956631438778008}
   m_Layer: 5
   m_Name: pantsIcon
   m_TagString: Untagged
@@ -88,6 +89,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5270956631438778008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642278386387803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &19996203527402548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2685,7 @@ GameObject:
   - component: {fileID: 6517830658511289690}
   - component: {fileID: 90184244195289985}
   - component: {fileID: 7926347079988490798}
+  - component: {fileID: 397421858972697944}
   m_Layer: 5
   m_Name: amuletIcon
   m_TagString: Untagged
@@ -2745,6 +2762,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &397421858972697944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224709540236635713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &3799157285034415238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,6 +2789,7 @@ GameObject:
   - component: {fileID: 4668830168645209270}
   - component: {fileID: 2798070268605705119}
   - component: {fileID: 941175153551359303}
+  - component: {fileID: 7884212634622001060}
   m_Layer: 5
   m_Name: ringIcon
   m_TagString: Untagged
@@ -2833,6 +2866,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7884212634622001060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799157285034415238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &4081029428890852666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,6 +3466,7 @@ GameObject:
   - component: {fileID: 7345190624216758965}
   - component: {fileID: 2887901629926361529}
   - component: {fileID: 368474172194747231}
+  - component: {fileID: 422596321478050980}
   m_Layer: 5
   m_Name: helmetIcon
   m_TagString: Untagged
@@ -3494,6 +3543,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &422596321478050980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567157192338478120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &5624129615570586093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,6 +5050,7 @@ GameObject:
   - component: {fileID: 7686548558112392424}
   - component: {fileID: 2366622538373785767}
   - component: {fileID: 2846545681096765843}
+  - component: {fileID: 220943035760567655}
   m_Layer: 5
   m_Name: glovesIcon
   m_TagString: Untagged
@@ -5062,6 +5127,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &220943035760567655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296332525642544014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &7389960148763181578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5623,6 +5703,7 @@ GameObject:
   - component: {fileID: 6800260468268629516}
   - component: {fileID: 1637188368968850933}
   - component: {fileID: 6141295751832411567}
+  - component: {fileID: 4470768512219457341}
   m_Layer: 5
   m_Name: weaponIcon
   m_TagString: Untagged
@@ -5699,6 +5780,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4470768512219457341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035704758889485057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &8097173034573373776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,6 +5985,7 @@ GameObject:
   - component: {fileID: 6125592673178740823}
   - component: {fileID: 4242510233273973475}
   - component: {fileID: 2249408636745916321}
+  - component: {fileID: 1242629338389930653}
   m_Layer: 5
   m_Name: bodyIcon
   m_TagString: Untagged
@@ -5965,6 +6062,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1242629338389930653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822825338830477802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5457365cb52bd46971794aa1509bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorType: 0
+  contextMenuPrefab: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &8891486420392113716
 GameObject:
   m_ObjectHideFlags: 0
