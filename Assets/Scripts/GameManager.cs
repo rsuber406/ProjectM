@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        GetInstance().GetSoundManager().Ambience();
+
         if (Input.GetButtonDown("Cancel"))
         {
             if (menuActive == null)
@@ -144,6 +146,7 @@ public class GameManager : MonoBehaviour
 
     public void LossMenu()
     {
+        GetInstance().GetSoundManager().LossJingle();
         menuActive = lossMenu;
         menuActive.SetActive(true);
         StatePause();

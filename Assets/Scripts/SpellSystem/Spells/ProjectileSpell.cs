@@ -25,6 +25,9 @@ public class ProjectileSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
+
+        GameManager.GetInstance().GetSoundManager().FireSpell();
+
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward.normalized;
 

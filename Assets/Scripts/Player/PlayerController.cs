@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         IsGrounded();
         Movement();
 
-        if (Input.GetButton("Dodge") && inCombat && dodgeCdTimer == dodgeCd)
+        if (Input.GetButtonDown("Dodge") && inCombat)
             Dodge(); // key bind set to space
     }
 
@@ -215,6 +215,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             dodgeCdTimer = dodgeCd;
 
         isDodging = true;
+        GameManager.GetInstance().GetSoundManager().PlayerDodge();
 
         Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
         dodgeDelay = dodge;
@@ -306,7 +307,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             isAlive = false;
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             StartCoroutine(animScript.PlayerDeathAnimation());
-            
+            GameManager.GetInstance().GetSoundManager().PlayerDeath();
+
         }
     }
 

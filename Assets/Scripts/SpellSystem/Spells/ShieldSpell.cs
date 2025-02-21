@@ -26,6 +26,9 @@ public class ShieldSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
+
+        GameManager.GetInstance().GetSoundManager().ShieldSpell();
+
         playerAttributesRef = player.GetComponent<AttributesController>();
 
         if (ShieldPrefab)

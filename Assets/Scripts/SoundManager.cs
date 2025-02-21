@@ -7,6 +7,7 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
+    public PlayerController player;
     private AudioSource aud;
 
     public Slider masterSlider;
@@ -24,10 +25,24 @@ public class SoundManager : MonoBehaviour
 
     [Header ("----- Player Sounds -----")]
     [SerializeField] AudioClip[] playerFootsteps;
-    [SerializeField] AudioClip[] playerHurtSounds;
-
-
     public bool isPlayingSteps;
+    [SerializeField] AudioClip[] playerHurtSounds;
+    [SerializeField] AudioClip[] playerDeathSounds;
+    [SerializeField] AudioClip[] playerDodgeSounds;
+
+    [Header("----- Spell Cast Sounds -----")]
+    [SerializeField] AudioClip fireSpell;
+    [SerializeField] AudioClip blinkSpell;
+    [SerializeField] AudioClip shieldSpell;
+
+    [Header("----- UI Sounds -----")]
+    [SerializeField] AudioClip lose;
+    [SerializeField] AudioClip ambience;
+
+
+    private float ambienceTimer;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -78,7 +93,10 @@ public class SoundManager : MonoBehaviour
         isPlayingSteps = true;
         aud.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
         
-        yield return new WaitForSeconds(2.2f);
+        if (!player.inCombat)
+            yield return new WaitForSeconds(0.4f);
+        else
+            yield return new WaitForSeconds(0.35f);
 
         isPlayingSteps = false;
     }
@@ -86,5 +104,59 @@ public class SoundManager : MonoBehaviour
     public void PlayerHurt()
     {
         aud.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], SFXVol);
+    }
+
+    public void PlayerDeath()
+    {
+        aud.PlayOneShot(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)], SFXVol);
+    }
+
+    public void PlayerDodge()
+    {
+        aud.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], SFXVol);
+    }
+
+    public void FireSpell()
+    {
+        aud.PlayOneShot(fireSpell, SFXVol);
+    }
+
+    public void BlinkSpell()
+    {
+        aud.PlayOneShot(blinkSpell, SFXVol);
+    }
+
+    public void ShieldSpell()
+    {
+        aud.PlayOneShot(shieldSpell, SFXVol);
+    }
+
+    public void LossJingle()
+    {
+        aud.PlayOneShot(lose, musicVol);
+    }
+
+    public void Ambience()
+    {
+/*
+        if (ambienceTimer > 0)
+        {
+            if (Time.deltaTime == 0)
+            {
+                ambienceTimer = 55.5f;
+                aud.Pause();
+            }
+            else
+            {
+                ambienceTimer -= Time.deltaTime;
+                return;
+            }
+
+            aud.PlayOneShot(ambience, musicVol);
+        }
+        else
+            ambienceTimer = 55.5f;
+*/
+
     }
 }

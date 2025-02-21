@@ -272,27 +272,46 @@ public class PlayerAnimation : MonoBehaviour
         {
             case PlayerStateController.DodgeState.forward:
 
-                DodgeXZ = 1f;
+                DodgeXZ += Time.deltaTime * animTransSpeed;
+                if (DodgeXZ >= 1f)
+                    DodgeXZ = 1f;
 
                 break;
             case PlayerStateController.DodgeState.backward:
 
-                DodgeXZ = 1f;
+                DodgeXZ += Time.deltaTime * animTransSpeed;
+                if (DodgeXZ >= 1f)
+                    DodgeXZ = 1f;
 
                 break;
             case PlayerStateController.DodgeState.left:
 
-                DodgeXZ = 0f;
+                DodgeXZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeXZ <= 0f)
+                    DodgeXZ = 0f;
 
                 break;
             case PlayerStateController.DodgeState.right:
 
-                DodgeXZ = 0f;
+                DodgeXZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeXZ <= 0f)
+                    DodgeXZ = 0f;
 
                 break;
             default:    // if player it dodging diagonally
 
-                DodgeXZ = 0.5f;
+                if (DodgeXZ > 0.5f)
+                {
+                    DodgeXZ -= Time.deltaTime * animTransSpeed;
+                    if (DodgeXZ <= 0.5f)
+                        DodgeXZ = 0.5f;
+                }
+                else if (DodgeXZ < 0.5f)
+                {
+                    DodgeXZ += Time.deltaTime * animTransSpeed;
+                    if (DodgeXZ >= 0.5f)
+                        DodgeXZ = 0.5f;
+                }
 
                 break;
         }
@@ -307,46 +326,74 @@ public class PlayerAnimation : MonoBehaviour
         {
             case PlayerStateController.DodgeState.forward:
 
-                DodgeZ = 1f;
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
 
                 break;
             case PlayerStateController.DodgeState.backward:
 
-                DodgeZ = 0f;
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
 
                 break;
             case PlayerStateController.DodgeState.right:
 
-                DodgeX = 1f;
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
                 break;
             case PlayerStateController.DodgeState.left:
 
-                DodgeX = 0f;
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
                 break;
             case PlayerStateController.DodgeState.FR:
 
-                DodgeZ = 1f;
-                DodgeX = 1f;
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
+
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
                 break;
             case PlayerStateController.DodgeState.FL:
 
-                DodgeZ = 1f;
-                DodgeX = 0f;
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
+
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
                 break;
             case PlayerStateController.DodgeState.BR:
 
-                DodgeZ = 0f;
-                DodgeX = 1f;
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
+
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
                 break;
             case PlayerStateController.DodgeState.BL:
 
-                DodgeZ = 0f;
-                DodgeX = 0f;
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
+
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
                 break;
         }
@@ -364,7 +411,9 @@ public class PlayerAnimation : MonoBehaviour
 
     void BaseLayerOverride()
     {
-        OR = 0f;
+        OR -= 9f * Time.deltaTime;
+        if (OR < 0)
+            OR = 0f;
         anim.SetLayerWeight(1, OR);
     }
 
