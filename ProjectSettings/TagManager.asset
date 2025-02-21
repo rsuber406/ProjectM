@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - BagSlot
   - HubTeleporter
+  - ShopSlot
   layers:
   - Default
   - TransparentFX
