@@ -34,11 +34,17 @@ public class MainSceneLogic : MonoBehaviour
     private void Start()
     {
         MSInstance = this;
-
+        loadScreen.SetActive(false);
+        
+        // Only process main menu things when the game mode is overridden
+        if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
+        {
+            return;
+        }
+        
+        GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
         Time.timeScale = 0;
-        UnityEngine.Cursor.visible = true;
-        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
-
+        GameManager.GetInstance().ToggleCursorVisibility();
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
 
         //Lock Cursor so the player can make a selection
@@ -47,24 +53,19 @@ public class MainSceneLogic : MonoBehaviour
         {
             PlayerActivateables[i].SetActive(false);
         }
-        loadScreen.SetActive(false);
-
+        
     }
 
     public void PlayGame()
     {
         HideMenu();
 
-        //Player Has made a selection. Hide menu, load first scene and lock the cursor
-        //Enable player Hud Here
-
-
         Time.timeScale = 1;
-        UnityEngine.Cursor.visible = false;
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        GameManager.GetInstance().ToggleCursorVisibility();
 
         currLvl = _tutScene;
         SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
+        GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
         for (int i = 0; i < PlayerActivateables.Length; i++)
         {
@@ -98,6 +99,7 @@ public class MainSceneLogic : MonoBehaviour
         }
         // Remove the selected map
         //DynamicMaps.RemoveAt(0);
+        GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
     }
 
     public void ResetPlayer()

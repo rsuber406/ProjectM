@@ -5,6 +5,10 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [SerializeField] private GameMode gameMode;
+    [SerializeField] private GameState gameState;
+    
     [SerializeField] private GameObject player;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private MasterSpellsList masterSpellsList;
@@ -25,11 +29,9 @@ public class GameManager : MonoBehaviour
     public Image manaBar;
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
-    //private fields
     private AIController aiController;
     
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         instance = this;
@@ -43,15 +45,23 @@ public class GameManager : MonoBehaviour
     {
         
 
-        if (Input.GetButtonDown("Cancel"))
+        HandleInDungeonMenuBindings();
+    }
+
+    private void HandleInDungeonMenuBindings()
+    {
+        if (gameMode == GameMode.Dungeon)
         {
-            if (menuActive == null)
+            if (Input.GetButtonDown("Cancel"))
             {
-                menuActive = pauseMenu;
-                menuActive.SetActive(true);
-                StatePause();
+                if (menuActive == null)
+                {
+                    menuActive = pauseMenu;
+                    menuActive.SetActive(true);
+                    StatePause();
+                }
+                else if(menuActive == pauseMenu) ResumeGame();
             }
-            else if(menuActive == pauseMenu) ResumeGame();
         }
     }
 
@@ -89,22 +99,54 @@ public class GameManager : MonoBehaviour
     {
         return playerCamera;
     }
+    
+    public GameMode GetGameMode()
+    {
+        return gameMode;
+    }
+
+    public void SetGameMode(GameMode target)
+    {
+        gameMode = target;
+    }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+        gameState = GameState.Playing;
+        ToggleCursorVisibility();
     }
 
     public void StatePause()
     {
         Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        gameState = GameState.Paused;
+        ToggleCursorVisibility();
+    }
 
+    public void ToggleCursorVisibility()
+    {
+        if (gameMode == GameMode.MainMenu)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            
+            return;
+        }
+        
+        
+        if (gameState == GameState.Paused)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void SettingsMenu()
