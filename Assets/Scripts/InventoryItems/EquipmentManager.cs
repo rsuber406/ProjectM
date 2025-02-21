@@ -33,9 +33,6 @@ public class EquipmentManager : MonoBehaviour
     private void Start()
     { 
          attributesController = GetComponent<AttributesController>();
-         attributesController.armor.currentValue = 1f;
-         attributesController.health.currentValue = 100f;
-         attributesController.mana.currentValue = 10f;
          FindAnyObjectByType<Inventory>().OnEquipItem += EquipItem;
 
     }
