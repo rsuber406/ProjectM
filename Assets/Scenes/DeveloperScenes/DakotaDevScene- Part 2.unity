@@ -211,14 +211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5636146074571766278, guid: 2928c8b84fad9f0649d2d7dec64fd704, type: 3}
-      propertyPath: m_text
-      value: Unequip
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583579997155336629, guid: 2928c8b84fad9f0649d2d7dec64fd704, type: 3}
-      propertyPath: m_Name
-      value: UnequipButton
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
