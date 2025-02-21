@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         attributes = GetComponent<AttributesController>();
         stateController = GetComponent<PlayerStateController>();
 
+       
         canJump = true;
         unCrouch = transform.localScale.y;
         PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
@@ -360,5 +361,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             equipment.EquipItem(items[i]);
         }
     }
+
+   
     
 }
