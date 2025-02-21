@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3f2f76b4db2e74a408ed253cdc797d7a
+timeCreated: 1532673835
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124997
+  packageName: GameItemIcon
+  packageVersion: 1.0
+  assetPath: Assets/GameItemIcon/Scene/ShieldtIconScene.unity
+  uploadId: 262542

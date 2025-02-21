@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dc233eee7d31ae84f97ef18c386fe371
+timeCreated: 1532673835
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124997
+  packageName: GameItemIcon
+  packageVersion: 1.0
+  assetPath: Assets/GameItemIcon/Scene/WeaponIconScene.unity
+  uploadId: 262542
