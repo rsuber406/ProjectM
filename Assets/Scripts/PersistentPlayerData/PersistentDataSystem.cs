@@ -178,7 +178,8 @@ public static class PersistentDataSystem
         for (int i = 0; i < convJsonData.Count; i++)
         {
             ItemData item = ConvertStringToItemData(convJsonData[i]);
-            Item loadedItem = new Item();
+            GameObject itemGo = new GameObject(convJsonData[i].itemName);
+            Item loadedItem = itemGo.AddComponent<Item>();
             loadedItem.itemData = item;
             convertedItems.Add(loadedItem);
         }
