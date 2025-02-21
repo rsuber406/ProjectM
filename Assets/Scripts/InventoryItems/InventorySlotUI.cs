@@ -116,7 +116,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
             if (unequippedItemData != null)
             {
-                GameObject itemObject = new GameObject(unequippedItemData.itemName);
+                GameObject itemObject = new GameObject(unequippedItemData.itemName); 
                 Item newItem = itemObject.AddComponent<Item>();
                 newItem.itemData = unequippedItemData;
                 newItem.itemName = unequippedItemData.itemName;
@@ -134,8 +134,8 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
                 if (unequippedItemData != null)
                 {
                     
-                    newItem.itemData = unequippedItemData;
                     inventory.AddItem(newItem, this.slotIndex);
+                    
                     
                 }
                 else

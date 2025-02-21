@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d93f65a70027687449ac0086ce03354d
+timeCreated: 1533489187
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124997
+  packageName: GameItemIcon
+  packageVersion: 1.0
+  assetPath: Assets/GameItemIcon/readme.txt
+  uploadId: 262542
