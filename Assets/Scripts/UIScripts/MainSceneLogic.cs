@@ -66,6 +66,7 @@ public class MainSceneLogic : MonoBehaviour
         currLvl = _tutScene;
         SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+        GameManager.GetInstance().SetGameState(GameState.Playing);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
         for (int i = 0; i < PlayerActivateables.Length; i++)
         {
