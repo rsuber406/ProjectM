@@ -5,6 +5,10 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [SerializeField] private GameMode gameMode;
+    [SerializeField] private GameState gameState;
+    
     [SerializeField] private GameObject player;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private MasterSpellsList masterSpellsList;
@@ -14,7 +18,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject victoryMenu;
 
     [SerializeField] private GameObject settingsMenu;
+
+    private SoundManager soundController;
     
+
     public GameObject damagePanel;
     private GameObject menuActive = null;
     public TextMeshProUGUI interactText;
@@ -22,31 +29,39 @@ public class GameManager : MonoBehaviour
     public Image manaBar;
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
-    //private fields
     private AIController aiController;
     
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
-
     {
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
+        soundController = this.GetComponent<SoundManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        
+
+        HandleInDungeonMenuBindings();
+    }
+
+    private void HandleInDungeonMenuBindings()
+    {
+        if (gameMode == GameMode.Dungeon)
         {
-            if (menuActive == null)
+            if (Input.GetButtonDown("Cancel"))
             {
-                menuActive = pauseMenu;
-                menuActive.SetActive(true);
-                StatePause();
+                if (menuActive == null)
+                {
+                    menuActive = pauseMenu;
+                    menuActive.SetActive(true);
+                    StatePause();
+                }
+                else if(menuActive == pauseMenu) ResumeGame();
             }
-            else if(menuActive == pauseMenu) ResumeGame();
         }
     }
 
@@ -59,44 +74,92 @@ public class GameManager : MonoBehaviour
     {
         //player Health and Mana needs to be reset here. This is urgent
     }
+
     public Vector3 GetPlayerPosition()
     {
       return player.transform.position;
     }
+
     public void TeleportPlayer(float xcords, float ycords, float zcords)
     {
         player.transform.position = new Vector3(xcords, ycords, zcords);
     }
+
     public GameObject GetPlayer()
     {
         return player;
+    }
+
+    public SoundManager GetSoundManager()
+    {
+        return soundController;
     }
 
     public Camera GetPlayerCamera()
     {
         return playerCamera;
     }
+    
+    public GameMode GetGameMode()
+    {
+        return gameMode;
+    }
+
+    public void SetGameMode(GameMode target)
+    {
+        gameMode = target;
+    }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+        gameState = GameState.Playing;
+        ToggleCursorVisibility();
     }
 
     public void StatePause()
     {
         Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        gameState = GameState.Paused;
+        ToggleCursorVisibility();
+    }
 
+    public void ToggleCursorVisibility()
+    {
+        if (gameMode == GameMode.MainMenu)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            
+            return;
+        }
+        
+        
+        if (gameState == GameState.Paused)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void SettingsMenu()
     {
+        menuActive.SetActive(false);
         menuActive = settingsMenu;
+        menuActive.SetActive(true);
+    }
+
+    public void PauseMenu()
+    {
+        menuActive.SetActive(false);
+        menuActive = pauseMenu;
         menuActive.SetActive(true);
     }
 
@@ -106,6 +169,7 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
         StatePause();
     }
+
     public void tmpVictoryScreen()
     {
         menuActive = victoryMenu;
@@ -142,5 +206,19 @@ public class GameManager : MonoBehaviour
         Debug.Log(playerModel.transform.position);
         ResumeGame();
         
+    }
+
+    public void SavePlayerData()
+    {
+        // Begin the agony of saving the player data
+        // I need health mana, and some reference to their inventory
+        Inventory inventory = player.GetComponent<Inventory>();
+        Item[] playerItems = inventory.GetInventoryItems();
+        EquipmentManager equipment = player.GetComponent<EquipmentManager>();
+        ItemData[] equippedItems = equipment.GetEquippedItems();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
+        float mana = playerScript.GetMana();
+        float health = playerScript.GetHealth();
+        PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
     }
 }

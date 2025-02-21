@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour, IDamage, Interact
 {
@@ -81,6 +82,12 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         canJump = true;
         unCrouch = transform.localScale.y;
+        PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
+        Debug.Log(saveData.health);
+        PopulateInventory(saveData.inventory);
+        PopulateEquipment( saveData.equipment);
+        attributes.health.currentValue = saveData.health;
+        attributes.mana.currentValue = saveData.mana;
     }
 
     // Update is called once per frame
@@ -101,7 +108,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         UpdatePlayerUI();
         SpeedControl();
-       // Debug.Log(transform.position);
+       
         
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
@@ -142,6 +149,10 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
+            if (moveDir.magnitude > 0.3f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
+            {
+                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlaySteps());
+            }
         }
 
         else
@@ -319,4 +330,35 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             
         }
     }
+
+    public float GetHealth()
+    {
+        float health = (int)attributes.health.currentValue;
+        return health;
+    }
+
+    public float GetMana()
+    {
+        float mana = (int)attributes.mana.currentValue;
+        return mana;
+    }
+
+    private void PopulateInventory( List<Item> items)
+    {
+        Inventory inventory = this.GetComponent<Inventory>();
+        for (int i = 0; i < items.Count; i++)
+        { 
+            inventory.AddItem(items[i], i);
+        }
+    }
+
+    private void PopulateEquipment( List<ItemData> items)
+    {
+        EquipmentManager equipment = this.GetComponent<EquipmentManager>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            equipment.EquipItem(items[i]);
+        }
+    }
+    
 }
