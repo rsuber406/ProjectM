@@ -237,9 +237,9 @@ public class GameManager : MonoBehaviour
     {
         // Begin the agony of saving the player data
         // I need health mana, and some reference to their inventory
-        Inventory inventory = player.GetComponent<Inventory>();
+        Inventory inventory = player.GetComponentInChildren<Inventory>();
         Item[] playerItems = inventory.GetInventoryItems();
-        EquipmentManager equipment = player.GetComponent<EquipmentManager>();
+        EquipmentManager equipment = player.GetComponentInChildren<EquipmentManager>();
         ItemData[] equippedItems = equipment.GetEquippedItems();
         PlayerController playerScript = player.GetComponent<PlayerController>();
         float mana = playerScript.GetMana();
