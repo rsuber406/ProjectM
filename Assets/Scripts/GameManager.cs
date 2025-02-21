@@ -221,4 +221,10 @@ public class GameManager : MonoBehaviour
         float health = playerScript.GetHealth();
         PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
     }
+
+    public void SetGameState(GameState target)
+    {
+        gameState = target;
+        ToggleCursorVisibility();
+    }
 }
