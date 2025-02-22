@@ -17,7 +17,9 @@ public class MainSceneLogic : MonoBehaviour
     [Header("---Main Menu Objects---")] [SerializeField]
     private GameObject loadScreen;
 
-    [SerializeField] private GameObject MenuActivatebles;
+    [SerializeField] private GameObject MenuActivateables;
+    [SerializeField] private GameObject CreditsActivateables;
+    [SerializeField] private GameObject PauseMenuActivateables;
 
     [Header("---World 1 Levels---")] [SerializeField]
     private string _Hub = "Hub";
@@ -32,29 +34,14 @@ public class MainSceneLogic : MonoBehaviour
     public string currLvl;
     public GameObject _Hublvl;
     public int mapnum = 0;
-
+    bool tutorialComplete = false;
     private void Start()
     {
         MSInstance = this;
-        loadScreen.SetActive(false);
-
-        // Only process main menu things when the game mode is overridden
-        if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
-        {
-            return;
-        }
-
-        GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
-        Time.timeScale = 0;
-        GameManager.GetInstance().ToggleCursorVisibility();
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
 
-        //Lock Cursor so the player can make a selection
-        //Load Hub and move it for use later
-        for (int i = 0; i < PlayerActivateables.Length; i++)
-        {
-            PlayerActivateables[i].SetActive(false);
-        }
+
+        returnToMenu();
     }
 
     public void PlayGame()
@@ -63,7 +50,7 @@ public class MainSceneLogic : MonoBehaviour
 
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
-        bool tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
+        tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
         if (tutorialComplete)
         {
             
@@ -86,7 +73,7 @@ public class MainSceneLogic : MonoBehaviour
 
     public void HideMenu()
     {
-        MenuActivatebles.SetActive(false);
+        MenuActivateables.SetActive(false);
     }
 
     public void loadLevel()
@@ -135,6 +122,36 @@ public class MainSceneLogic : MonoBehaviour
         mapnum = 0;
     }
 
+    public void CreditsScreen()
+    {
+        HideMenu();
+        CreditsActivateables.SetActive(true);
+    }
+
+    public void returnToMenu()
+    {
+        PauseMenuActivateables.SetActive(false);
+        CreditsActivateables.SetActive(false);
+        loadScreen.SetActive(false);
+
+        // Only process main menu things when the game mode is overridden
+        if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
+        {
+        //    return;
+        }
+
+        GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
+        Time.timeScale = 0;
+        GameManager.GetInstance().ToggleCursorVisibility();
+
+        //Lock Cursor so the player can make a selection
+        //Load Hub and move it for use later
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(false);
+        }
+        MenuActivateables.SetActive(true);
+    }
     public void Quitgame()
     {
 #if UNITY_EDITOR
