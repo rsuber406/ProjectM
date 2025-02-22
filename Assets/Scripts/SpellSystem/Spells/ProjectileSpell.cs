@@ -9,7 +9,7 @@ public class ProjectileSpell : SpellBase
     public int damageAmount;
     public Vector3 SpawnOffset;
     public Vector3 SpawnOffsetCombat;
-    public LayerMask layerMask;
+    public float spawnDelay;
     public override bool CanActivate()
     {
         return spellSystem.HasEnoughMana(cost);
@@ -25,23 +25,29 @@ public class ProjectileSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
+        PlayerAnimation playerAnimRef = player.GetComponent<PlayerAnimation>();
+        playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
+        
+        yield return new WaitForSeconds(spawnDelay);
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward.normalized;
 
         if (ProjectilePrefab)
         {
 
-            Vector3 spawnPosition = player.transform.GetChild(0).position;
+            Vector3 selectedOffset;
 
             if (player.GetComponent<PlayerController>().inCombat)
             {
-                spawnPosition += SpawnOffsetCombat;
+                selectedOffset = SpawnOffsetCombat;
             }
             else
             {
-                spawnPosition += SpawnOffset;
+                selectedOffset = SpawnOffset;
                 player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             }
+            
+            Vector3 spawnPosition = player.transform.position + selectedOffset;
             
             GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
 

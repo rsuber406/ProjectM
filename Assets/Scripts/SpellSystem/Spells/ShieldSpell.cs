@@ -7,7 +7,8 @@ public class ShieldSpell : SpellBase
     [Header("Spell Properties")]
     public float Duration;
     public GameObject ShieldPrefab;
-    
+    public float spawnDelay;
+
     private GameObject shieldObj;
     private AttributesController playerAttributesRef;
 
@@ -27,7 +28,10 @@ public class ShieldSpell : SpellBase
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
         playerAttributesRef = player.GetComponent<AttributesController>();
-
+        PlayerAnimation playerAnimRef = player.GetComponent<PlayerAnimation>();
+        playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
+        
+        yield return new WaitForSeconds(spawnDelay);
         if (ShieldPrefab)
         {
             shieldObj = Instantiate(ShieldPrefab, player.transform);
