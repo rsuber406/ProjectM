@@ -3899,6 +3899,7 @@ MonoBehaviour:
   loadScreen: {fileID: 9090705654975436562}
   MenuActivateables: {fileID: 0}
   CreditsActivateables: {fileID: 0}
+  PauseMenuActivateables: {fileID: 0}
   _Hub: Hub
   DynamicMaps:
   - Map1
@@ -10593,9 +10594,9 @@ MonoBehaviour:
   masterSlider: {fileID: 604256467921207340}
   SFXSlider: {fileID: 6433307302799052355}
   musicSlider: {fileID: 4920073788467492447}
-  masterVol: 0
-  SFXVol: 0
-  musicVol: 0
+  masterVol: 100
+  SFXVol: 100
+  musicVol: 100
   playerFootsteps:
   - {fileID: 8300000, guid: 95799011fcdb02a4aafad634a08222dc, type: 3}
   - {fileID: 8300000, guid: 56dffd3612400ae4fa5c282e4c5270a3, type: 3}

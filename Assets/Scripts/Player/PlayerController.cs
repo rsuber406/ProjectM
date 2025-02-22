@@ -320,7 +320,6 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             isAlive = false;
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             StartCoroutine(animScript.PlayerDeathAnimation());
-            
         }
     }
 
