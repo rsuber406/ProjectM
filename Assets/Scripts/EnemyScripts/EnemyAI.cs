@@ -132,11 +132,15 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, DamageSourceType type)
     {
         health -= amount;
         StartCoroutine(FlashDamage());
-        agent.SetDestination(playerPos);
+        if (type == DamageSourceType.Player)
+        {
+            agent.SetDestination(playerPos);
+        }
+        
         if (health <= 0)
             StartCoroutine(OnDeath());
     }

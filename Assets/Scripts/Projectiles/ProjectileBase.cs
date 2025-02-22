@@ -8,10 +8,12 @@ public class ProjectileBase : MonoBehaviour
     private int damage;
     private ConstantForce constantForceRef;
     private Coroutine coroutineRef;
+    private DamageSourceType damageSource;
     
-    public void Init(Vector3 direction, int damageAmount)
+    public void Init(Vector3 direction, int damageAmount, DamageSourceType source)
     {
         damage = damageAmount;
+        damageSource = source;
         constantForceRef = gameObject.GetComponent<ConstantForce>();
         constantForceRef.force = direction * ForceToApply;
         coroutineRef = StartCoroutine(DelayDestroy());
@@ -25,7 +27,7 @@ public class ProjectileBase : MonoBehaviour
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {
-            dmg.TakeDamage(damage);
+            dmg.TakeDamage(damage, damageSource);
         }
         
         StopCoroutine(coroutineRef);

@@ -9,7 +9,7 @@ public class Damage : MonoBehaviour
         ,stationary
     }
     [SerializeField] DamageType type;
-
+    [SerializeField] DamageSourceType damageSourceType;
     [SerializeField] Rigidbody rb;
 
     [SerializeField] int damageAmount;
@@ -41,7 +41,7 @@ public class Damage : MonoBehaviour
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {
-            dmg.TakeDamage(damageAmount);
+            dmg.TakeDamage(damageAmount, damageSourceType);
         }
 
         if (type == DamageType.moving)

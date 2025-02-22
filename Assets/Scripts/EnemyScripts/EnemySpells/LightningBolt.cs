@@ -64,7 +64,7 @@ public class LightningBolt : MonoBehaviour
             IDamage dmg = hit.collider.GetComponent<IDamage>();
             if (dmg != null)
             {
-                dmg.TakeDamage(damage);
+                dmg.TakeDamage(damage, DamageSourceType.Enemy);
             }
         }
     }

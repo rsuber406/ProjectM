@@ -46,7 +46,7 @@ public class ProjectileSpell : SpellBase
             GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
 
             ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
-            projectileRef.Init(direction, damageAmount);
+            projectileRef.Init(direction, damageAmount, DamageSourceType.Player);
         }
 
         // Cast time , for some reason this is needed before we can call end
