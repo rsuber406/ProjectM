@@ -22,12 +22,13 @@ public class SpellSystem : MonoBehaviour
     public event Action OnSpellOnCoolDown;
 
     
-    void Awake()
+    void Start()
     {
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
         
         GameManager.GetInstance().OnGameResumed += HandleGameResumed;
+        GameManager.GetInstance().OnGamePaused += HandleGamePaused;
     }
     
     void HandleGamePaused()

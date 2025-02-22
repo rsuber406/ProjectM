@@ -92,6 +92,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   orientation: {fileID: 7741214145926161047}
+  HandSocket: {fileID: 2445459691434501964}
   joggingSpeed: 5
   sprintingSpeed: 10
   crouchSpeed: 4
@@ -772,6 +773,37 @@ Transform:
   - {fileID: 6423730428231168063}
   - {fileID: 2719719732131448300}
   m_Father: {fileID: 574052677956551155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7501815345737698569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2445459691434501964}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2445459691434501964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501815345737698569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.413, y: 1.391, z: 0.435}
+  m_LocalScale: {x: 0.27168, y: 0.27168, z: 0.27168}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5234104268115919546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8684131270940623896
 GameObject:
@@ -2045,6 +2077,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7741214145926161047}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2445459691434501964}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 541d19afcf032d44f916fbcbde3d3eed, type: 3}
 --- !u!95 &2180704074202749120 stripped
