@@ -73,7 +73,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             isDraggingItem = true;
             originalPos = rectTransform.anchoredPosition;
-            canvasGroup.alpha = 0.6f;
+            canvasGroup.alpha = 0.5f;
             canvasGroup.blocksRaycasts = false;
         }
     }
