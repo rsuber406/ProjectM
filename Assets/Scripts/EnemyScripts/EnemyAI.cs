@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
@@ -21,11 +23,21 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] private int FOV;
     [SerializeField] protected Transform headPos;
+
+    [Header("Sound configs")] [SerializeField]
+    protected AudioSource audioSource;
+    [SerializeField] protected AudioClip[] footsteps;
+    [SerializeField] protected AudioClip[] spellSounds;
+    [SerializeField] protected AudioClip[] meleeSounds;
+    [SerializeField] protected float footstepVolume;
+    [SerializeField] protected float spellVolume;
+    [SerializeField] protected float meleeAttack;
     protected float convertedFOV = 0;
     protected Vector3 playerPos;
     protected bool isAttacking;
     protected bool playerDetected = false;
     protected float agentStoppingDistanceOrig;
+    protected bool [] playSounds = new bool[3];
 
     private List<Color> originalColors = new List<Color>();
 
@@ -44,6 +56,10 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
 
         convertedFOV = 1f - ((float)FOV / 100f);
+        for (int i = 0; i < playSounds.Length; i++)
+        {
+            playSounds[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -88,6 +104,11 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (dotProduct > convertedFOV)
         {
             RaycastHit hit;
+            
+            if (Vector3.Distance(transform.position, playerPos) > agent.stoppingDistance && !playSounds[(int) PlayNumber.Footstep])
+            {
+                StartCoroutine(PlaySound(footsteps, footstepVolume, PlayNumber.Footstep));
+            }
             Debug.DrawRay(headPos.position, (playerPos - headPos.position), Color.red);
             if (Physics.Raycast(headPos.position, playerPos - headPos.position, out hit))
             {
@@ -183,4 +204,20 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         }
     }
+    
+    protected IEnumerator PlaySound(AudioClip[] sounds, float volume, PlayNumber sound, bool isLightning = false)
+    {
+        playSounds[(int)sound] = true;
+        AudioClip randomClip = isLightning ? sounds[2] : sounds[Random.Range(0, sounds.Length)];
+        audioSource.PlayOneShot(randomClip, volume);
+        yield return new WaitForSeconds(randomClip.length);
+        playSounds[(int)sound] = false;
+    }
+}
+
+public enum PlayNumber
+{
+    Footstep,
+    Spellcast,
+    MeleeAttack
 }
