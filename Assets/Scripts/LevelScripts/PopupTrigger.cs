@@ -5,6 +5,7 @@ using System.Collections;
 public class PopupTrigger : MonoBehaviour
 {
     public GameObject popupPanel;
+    public GameObject popupTrigger;
     public TextMeshProUGUI popupText;
 
     private Coroutine mainCoroutine;
@@ -12,11 +13,13 @@ public class PopupTrigger : MonoBehaviour
 
 
     private string[] messages = {
-        "Test1",
-        "Test2",
-        "Test3",
-        "Test4",
-        "Test5"
+        "Welcome to Dungeon Delvers! You are in a Djinn's Lair and must plunder it for glory!",
+        "His Dungeon is full of monsters that want to kill you\nFight back using your fireball! [Mouse1 or 1].",
+        "You Found some Loot!\nEquip it from your Bag [B].",
+        "Sometimes there are too many monsters to fight\nUse your Blink [2] or Dash [Spacebar] to evade enemies.",
+        "Other times the way through is not immediately clear..\nExplore a bit, find some treasure and find an exit portal!",
+        "The exit is just up ahead! Use your Shield ability [3] to block incoming damage",
+        "Well Done! Up ahead is the Hub. A safe space to recuperate. From there you can Delve Further into the Dungeon."
     };
 
     public void ShowPopup(int messageIndex, float duration = 4f)
@@ -24,7 +27,6 @@ public class PopupTrigger : MonoBehaviour
         popupText.text = messages[messageIndex];
         popupPanel.SetActive(true);
 
-        //StopCoroutine(mainCoroutine);
 
         mainCoroutine = StartCoroutine(HidePopup(duration));
 
@@ -34,13 +36,15 @@ public class PopupTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         popupPanel.SetActive(false);
+        popupTrigger.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            ShowPopup(messageIndex, 4f);
+            ShowPopup(messageIndex, 5f);
         }
     }
 }
