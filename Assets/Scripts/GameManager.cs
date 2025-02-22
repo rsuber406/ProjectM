@@ -18,9 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lossMenu;
     [SerializeField] private GameObject victoryMenu;
     [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private bool enableDebug;
+    [SerializeField] public bool enableDebug;
 
     [SerializeField] private GameObject audioTab;
+    [SerializeField] private GameObject controlsTab;
+    [SerializeField] private GameObject graphicsTab;
 
 
     private SoundManager soundController;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
         soundController = this.GetComponent<SoundManager>();
@@ -50,9 +53,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        GetInstance().GetSoundManager().Ambience();
-
         HandleInDungeonMenuBindings();
+
     }
 
     private void HandleInDungeonMenuBindings()
@@ -182,6 +184,12 @@ public class GameManager : MonoBehaviour
             tabActive = audioTab;
             tabActive.SetActive(true);
         }
+        else if (tabActive == controlsTab || tabActive == graphicsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = audioTab;
+            tabActive.SetActive(true);
+        }
         else
         {
             tabActive.SetActive(false);
@@ -189,6 +197,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ControlsTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = controlsTab;
+            tabActive.SetActive(true);
+        }
+        else if (tabActive == audioTab || tabActive == graphicsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = controlsTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
+    }
+    
+    public void GraphicsTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = graphicsTab;
+            tabActive.SetActive(true);
+        }
+        else if (tabActive == audioTab || tabActive == controlsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = graphicsTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
+    }
 
     public void LossMenu()
     {

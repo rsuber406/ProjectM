@@ -8,7 +8,9 @@ using System.Collections;
 public class SoundManager : MonoBehaviour
 {
     public PlayerController player;
-    private AudioSource aud;
+    private GameMode mode;
+    public AudioSource audSFX;
+    public AudioSource audMusic;
 
     public Slider masterSlider;
     public Slider SFXSlider;
@@ -37,28 +39,43 @@ public class SoundManager : MonoBehaviour
 
     [Header("----- UI Sounds -----")]
     [SerializeField] AudioClip lose;
+    [SerializeField] AudioClip menuSelect;
+
+    [Header("----- In Game Sounds -----")]
     [SerializeField] AudioClip ambience;
+    [SerializeField] AudioClip pickup;
+
+    [Header("-----  Music -----")]
+    [SerializeField] AudioClip titleMusic;
+    [SerializeField] AudioClip tutorialMusic;
+    [SerializeField] AudioClip hubMusic;
+    [SerializeField] AudioClip dungeonMusic;
+    [SerializeField] AudioClip bossMusic;
 
 
-    private float ambienceTimer;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        aud = GetComponent<AudioSource>();
         ResetVolume();
         masterVol = SFXVol = musicVol = masterSlider.value;
         masterVolumeText.text = SFXVolumeText.text = musicVolumeText.text = (100f).ToString("F0");
-
+        mode = GameManager.GetInstance().GetGameMode();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         musicVol = masterVol * musicSlider.value;
         SFXVol = masterVol * SFXSlider.value;
+
+        if (!GameManager.GetInstance().enableDebug)
+        {
+            GetGameModeMusic();
+            PlayAmbience();
+        }
 
     }
 
@@ -91,7 +108,7 @@ public class SoundManager : MonoBehaviour
     public IEnumerator PlayerSteps()
     {
         isPlayingSteps = true;
-        aud.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
+        audSFX.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
         
         if (!player.inCombat)
             yield return new WaitForSeconds(0.4f);
@@ -103,60 +120,128 @@ public class SoundManager : MonoBehaviour
 
     public void PlayerHurt()
     {
-        aud.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], SFXVol);
     }
 
     public void PlayerDeath()
     {
-        aud.PlayOneShot(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)], SFXVol);
     }
 
     public void PlayerDodge()
     {
-        aud.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], SFXVol);
     }
 
     public void FireSpell()
     {
-        aud.PlayOneShot(fireSpell, SFXVol);
+        audSFX.PlayOneShot(fireSpell, SFXVol);
     }
 
     public void BlinkSpell()
     {
-        aud.PlayOneShot(blinkSpell, SFXVol);
+        audSFX.PlayOneShot(blinkSpell, SFXVol);
     }
 
     public void ShieldSpell()
     {
-        aud.PlayOneShot(shieldSpell, SFXVol);
+        audSFX.PlayOneShot(shieldSpell, SFXVol);
     }
 
     public void LossJingle()
     {
-        aud.PlayOneShot(lose, musicVol);
+        audMusic.PlayOneShot(lose, musicVol);
+    }
+
+    public void Pickup()
+    {
+        audSFX.PlayOneShot(pickup, SFXVol);
+    }
+
+    public void MenuClick()
+    {
+        audSFX.PlayOneShot(menuSelect, SFXVol);
     }
 
     public void Ambience()
     {
-/*
-        if (ambienceTimer > 0)
-        {
-            if (Time.deltaTime == 0)
-            {
-                ambienceTimer = 55.5f;
-                aud.Pause();
-            }
-            else
-            {
-                ambienceTimer -= Time.deltaTime;
-                return;
-            }
-
-            aud.PlayOneShot(ambience, musicVol);
-        }
-        else
-            ambienceTimer = 55.5f;
-*/
-
+        if (dungeonMusic.loadState != AudioDataLoadState.Loaded)
+            audMusic.PlayOneShot(dungeonMusic, musicVol);
     }
+
+    public void PlayAmbience()
+    {
+        if (mode != GameMode.MainMenu && mode != GameMode.Hub)
+            Ambience();
+    }
+
+    public void GetGameModeMusic()
+    {
+        if (mode != GameManager.GetInstance().GetGameMode())
+        {
+            audMusic.Stop();
+            mode = GameManager.GetInstance().GetGameMode();
+        }
+
+        MusicSelect();
+    }
+
+    public void MusicSelect()
+    {
+        switch (mode)
+        {
+            case GameMode.MainMenu:
+
+                TitleMusic();
+                
+                break;
+            case GameMode.Tutorial:
+
+                TutorialMusic();
+
+                break;
+            case GameMode.Hub:
+                
+                HubMusic();
+                
+                break;
+            case GameMode.Dungeon:
+
+                DungeonMusic();
+                
+                break;
+            case GameMode.Boss:
+
+                BossMusic();
+                
+                break;
+        }
+    }
+
+    public void TitleMusic()
+    {
+        if (!audMusic.isPlaying)
+            audMusic.PlayOneShot(titleMusic, musicVol);
+    }
+    public void TutorialMusic()
+    {
+        if (!audMusic.isPlaying)
+            audMusic.PlayOneShot(tutorialMusic, musicVol);
+    }
+    public void HubMusic()
+    {
+        if (!audMusic.isPlaying)
+            audMusic.PlayOneShot(hubMusic, musicVol);
+    }
+    public void DungeonMusic()
+    {
+        if (!audMusic.isPlaying)
+            audMusic.PlayOneShot(dungeonMusic, musicVol);
+    }
+    public void BossMusic()
+    {
+        if (!audMusic.isPlaying)
+            audMusic.PlayOneShot(bossMusic, musicVol);
+    }
+
 }

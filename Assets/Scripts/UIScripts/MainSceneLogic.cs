@@ -74,6 +74,11 @@ public class MainSceneLogic : MonoBehaviour
         }
     }
 
+    public void Settings()
+    {
+        GameManager.GetInstance().SettingsMenu();
+    }
+
     public void HideMenu()
     {
         MenuActivatebles.SetActive (false);
