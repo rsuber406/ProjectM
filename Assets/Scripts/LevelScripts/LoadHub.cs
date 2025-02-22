@@ -9,6 +9,7 @@ public class loadHub : MonoBehaviour
             MainSceneLogic.MSInstance.mapnum = 0;
             GameManager.instance.resetPlayerStats();
             GameManager.GetInstance().SetGameMode(GameMode.Hub);
+            GameManager.GetInstance().SetPlayerCompleteTutorial(true);
             GameManager.instance.TeleportPlayer(0f, 0f, -32.20f);
         }
     }
