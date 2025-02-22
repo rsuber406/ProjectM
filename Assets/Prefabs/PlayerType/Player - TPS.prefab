@@ -162,9 +162,9 @@ MonoBehaviour:
     currentValue: 0
     maxValue: 0
     minValue: 0
-  healthRegenRate: 0
-  manaRegenRate: 0
-  regenDelay: 0
+  healthRegenRate: 1
+  manaRegenRate: 1
+  regenDelay: 3
 --- !u!114 &3987325637387521297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellSlotMapping: {fileID: 11400000, guid: 0699ff10d145e0641a2795a11a6267c9, type: 2}
+  spellCastDelayAfterResume: 1
 --- !u!54 &2122194703362033314
 Rigidbody:
   m_ObjectHideFlags: 0
