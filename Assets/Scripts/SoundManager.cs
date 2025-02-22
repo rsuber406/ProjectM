@@ -17,14 +17,13 @@ public class SoundManager : MonoBehaviour
     public Slider SFXSlider;
     public Slider musicSlider;
 
-    public float masterVol;
-    public float SFXVol;
-    public float musicVol;
+    [Range(0,100)] public float masterVol;
+    [Range(0,100)] public float SFXVol;
+    [Range(0,100)] public float musicVol;
 
 
     [Header ("----- Player Sounds -----")]
     [SerializeField] AudioClip[] playerFootsteps;
-
 
     public bool isPlayingSteps;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

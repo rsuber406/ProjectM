@@ -1,0 +1,6 @@
+﻿[FireBall Sound] https://opengameart.org/content/fireball-1
+[Fireball Explosion] https://freesound.org/people/HighPixel/sounds/431174/
+
+[Teleport Sound] https://freesound.org/people/EminYILDIRIM/sounds/554791/
+
+[Shield Sound] https://freesound.org/people/ryusa/sounds/531096/

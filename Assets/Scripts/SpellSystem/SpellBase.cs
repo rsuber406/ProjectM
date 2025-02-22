@@ -10,7 +10,7 @@ public abstract class SpellBase : ScriptableObject, ISpell
     public string displayName;
     public string description;
     public string AbilityAnimationTriggerName;
-
+    
     [Header("Base Spell Properties")]
     public Sprite icon;
     public float cooldown;
