@@ -47,7 +47,6 @@ public class MainSceneLogic : MonoBehaviour
     public void PlayGame()
     {
         HideMenu();
-
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
         tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
@@ -130,6 +129,7 @@ public class MainSceneLogic : MonoBehaviour
 
     public void returnToMenu()
     {
+        mapnum = 0;
         PauseMenuActivateables.SetActive(false);
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
