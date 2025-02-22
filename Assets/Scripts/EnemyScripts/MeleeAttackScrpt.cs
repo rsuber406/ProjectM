@@ -10,9 +10,6 @@ public class MeleeAttackScrpt : MonoBehaviour
     {
         if (other.isTrigger) return;
 
-        // Remove after debug
-
-
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {

@@ -22,7 +22,6 @@ public class LightningStrike : MonoBehaviour
         {
             if (hit.point.magnitude < distance)
             {
-              
                 
                 IDamage dmg = hit.collider.GetComponent<IDamage>();
                 if (dmg != null)
