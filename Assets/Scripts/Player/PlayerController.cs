@@ -258,11 +258,10 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         GameManager.instance.damagePanel.SetActive(false);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, DamageSourceType type)
     {
-        attributes.TakeDamage(amount);
+        attributes.TakeDamage(amount, type);
         StartCoroutine(FlashDamagePanel());
-
     }
 
     

@@ -16,7 +16,7 @@ public class MeleeAttackScrpt : MonoBehaviour
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {
-            dmg.TakeDamage(damage);
+            dmg.TakeDamage(damage, DamageSourceType.Enemy);
             Debug.Log("Damage has been taken");
         }
 

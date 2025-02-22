@@ -27,7 +27,7 @@ public class LightningStrike : MonoBehaviour
                 IDamage dmg = hit.collider.GetComponent<IDamage>();
                 if (dmg != null)
                 {
-                    dmg.TakeDamage(damage);
+                    dmg.TakeDamage(damage, DamageSourceType.Enemy);
                 }
 
                 yield return new WaitForSeconds(0.5f);

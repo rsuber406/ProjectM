@@ -9,8 +9,7 @@ public class AttributesController : MonoBehaviour
     public AttributeInfo armor;
     public float healthRegenRate;
     public float manaRegenRate;
-
-    private bool isImmuneToDamage;
+    public float regenDelay;
 
     public bool IsImmune { get; set; }
     public event Action OnImmune;
@@ -18,6 +17,8 @@ public class AttributesController : MonoBehaviour
 
     private bool isHealing = false;
     private bool isDead = false;
+    private float lastDamageTime;
+    private bool isImmuneToDamage;
 
     void Awake()
     {
@@ -29,9 +30,9 @@ public class AttributesController : MonoBehaviour
     void Update()
     {
         // Dont update attributes if not un dungeon...
-        if (GameManager.GetInstance().GetGameMode()!= GameMode.Dungeon) return;
+        if (GameManager.GetInstance().GetGameMode() != GameMode.Dungeon) return;
 
-        if (!isHealing && !isDead)
+        if (!isHealing && !isDead && Time.time >= lastDamageTime + regenDelay)
             StartCoroutine(RegenerateAttributes());
     }
 
@@ -59,9 +60,12 @@ public class AttributesController : MonoBehaviour
         return armor / (armor + k);
     }
 
-    public void TakeDamage(float baseDamage)
+    public void TakeDamage(float baseDamage, DamageSourceType type)
     {
-        if (isImmuneToDamage)
+        // If player can damage self, fix using damage type
+        
+        
+        if (isImmuneToDamage && type == DamageSourceType.Enemy)
         {
             Debug.Log($"Player Immune To damage; Health left: {health.currentValue}");
             OnImmune?.Invoke();
@@ -73,7 +77,8 @@ public class AttributesController : MonoBehaviour
         float actualDamage = baseDamage * (1f - damageReduction);
         actualDamage = Mathf.Max(actualDamage, 0f);
         health.ReduceValue(actualDamage);
-
+        lastDamageTime = Time.time;
+        
         Debug.Log($"Took {actualDamage} damage. Health left: {health.currentValue}");
 
         if (health.currentValue <= 0f)

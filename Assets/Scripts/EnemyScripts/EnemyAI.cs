@@ -132,7 +132,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, DamageSourceType type)
     {
         health -= amount;
         StartCoroutine(FlashDamage());
