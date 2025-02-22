@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         PopulateEquipment( saveData.equipment);
         attributes.health.currentValue = saveData.health;
         attributes.mana.currentValue = saveData.mana;
+        hasCompletedTutorial = PersistentDataSystem.LoadPlayerProgress();
     }
 
     // Update is called once per frame
