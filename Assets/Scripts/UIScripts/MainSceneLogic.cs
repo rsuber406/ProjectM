@@ -58,6 +58,8 @@ public class MainSceneLogic : MonoBehaviour
 
     public void PlayGame()
     {
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
+
         HideMenu();
 
         Time.timeScale = 1;
@@ -126,7 +128,9 @@ public class MainSceneLogic : MonoBehaviour
     }
 
     public void Quitgame()
-    {   
+    {
+        GameManager.GetInstance().GetSoundManager().MenuClick(1);
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

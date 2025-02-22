@@ -9122,8 +9122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3212165843444282627}
-        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 800347727141538656}
+        m_TargetAssemblyTypeName: MainSceneLogic, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
@@ -12059,8 +12059,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8292118581882178741}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14511131, y: -0.027222738, z: 0.0039941315, w: 0.9890327}
-  m_LocalPosition: {x: -931.6284, y: -415.979, z: 48.186005}
+  m_LocalRotation: {x: -0.122018576, y: -0.29311898, z: -0.03774747, w: 0.9475062}
+  m_LocalPosition: {x: -929.63794, y: -417.8427, z: 26.263084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13146,7 +13146,7 @@ MonoBehaviour:
   lossMenu: {fileID: 1423528124918164858}
   victoryMenu: {fileID: 0}
   settingsMenu: {fileID: 8137035459971225560}
-  enableDebug: 0
+  enableDebug: 1
   audioTab: {fileID: 8874271309393895049}
   controlsTab: {fileID: 5389960434341658352}
   graphicsTab: {fileID: 3217564842445605090}
