@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
     [SerializeField] GameObject hoverImage;
 
@@ -88,7 +88,15 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
         //hoverImage.SetActive(false);
     }
 
-  
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Exit()
     {
