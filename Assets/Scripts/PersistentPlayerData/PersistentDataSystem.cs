@@ -17,6 +17,10 @@ struct PlayerData
     
 }
 
+struct PlayerProgress
+{
+    public bool completeTutorial;
+}
 
 struct ItemDataConversion
 {
@@ -62,6 +66,15 @@ public static class PersistentDataSystem
 
     public static PlayerLoadedData LoadPlayerData()
     {
+        if (!PlayerPrefs.HasKey("PlayerData"))
+        {
+            PlayerLoadedData loadedData = new PlayerLoadedData();
+            loadedData.health = 100;
+            loadedData.mana = 100;
+            loadedData.inventory = new List<Item>();
+            loadedData.equipment = new List<ItemData>();
+            return loadedData;
+        }
         string playerData = PlayerPrefs.GetString("PlayerData");
         PlayerData data = JsonUtility.FromJson<PlayerData>(playerData);
         List<ItemDataConversion> convJsonInv = JsonItemToItemDataConversion(ref data.inventory);
@@ -206,6 +219,27 @@ public static class PersistentDataSystem
         }
 
         return convertedItems;
+    }
+
+    public static void SavePlayerProgress(bool completedTutorial)
+    {
+        PlayerProgress player = new PlayerProgress();
+        player.completeTutorial = completedTutorial;
+        string json = JsonUtility.ToJson(player);
+        PlayerPrefs.SetString("CompleteTutorial", json);
+    }
+
+    public static bool LoadPlayerProgress()
+    {
+        if (PlayerPrefs.HasKey("CompleteTutorial"))
+        {
+            PlayerProgress player = new PlayerProgress();
+            string json = PlayerPrefs.GetString("CompleteTutorial");
+            PlayerProgress completed = JsonUtility.FromJson<PlayerProgress>(json);
+            return completed.completeTutorial;
+        }
+
+        return false;
     }
 
 

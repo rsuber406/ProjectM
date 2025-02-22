@@ -176,6 +176,8 @@ public class GameManager : MonoBehaviour
     public void tmpVictoryScreen()
     {
         menuActive = victoryMenu;
+        SphereCollider returnToHub = GameObject.FindGameObjectWithTag("LoadHubTag").GetComponent<SphereCollider>();
+        returnToHub.enabled = true;
         menuActive.SetActive(true);
         StatePause();
     }
@@ -212,6 +214,7 @@ public class GameManager : MonoBehaviour
     {
         // Begin the agony of saving the player data
         // I need health mana, and some reference to their inventory
+        
         Inventory inventory = player.GetComponentInChildren<Inventory>();
         Item[] playerItems = inventory.GetInventoryItems();
         EquipmentManager equipment = player.GetComponentInChildren<EquipmentManager>();
@@ -219,12 +222,27 @@ public class GameManager : MonoBehaviour
         PlayerController playerScript = player.GetComponent<PlayerController>();
         float mana = playerScript.GetMana();
         float health = playerScript.GetHealth();
+        bool completeTutorial = playerScript.HasCompletedTutorial();
         PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
+        PersistentDataSystem.SavePlayerProgress(completeTutorial);
     }
 
     public void SetGameState(GameState target)
     {
         gameState = target;
         ToggleCursorVisibility();
+    }
+
+    public bool PlayerCompletedTutorial()
+    {
+        PlayerController playerScript = player.GetComponent<PlayerController>();
+        return playerScript.HasCompletedTutorial();
+        
+    }
+
+    public void SetPlayerCompleteTutorial(bool complete)
+    {
+        PlayerController playerScript = player.GetComponent<PlayerController>();
+        playerScript.HasCompletedTutorial(complete);
     }
 }

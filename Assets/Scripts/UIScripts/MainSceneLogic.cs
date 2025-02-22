@@ -14,18 +14,20 @@ public class MainSceneLogic : MonoBehaviour
 {
     public static MainSceneLogic MSInstance;
 
-    [Header("---Main Menu Objects---")]
-    [SerializeField] private GameObject loadScreen;
+    [Header("---Main Menu Objects---")] [SerializeField]
+    private GameObject loadScreen;
+
     [SerializeField] private GameObject MenuActivatebles;
 
-    [Header("---World 1 Levels---")]
-    [SerializeField] private string _Hub = "Hub";
-    public string[] DynamicMaps = { "Map1", "Map2"};
+    [Header("---World 1 Levels---")] [SerializeField]
+    private string _Hub = "Hub";
+
+    public string[] DynamicMaps = { "Map1", "Map2" };
     [SerializeField] private string _tutScene = "TutScene";
     [SerializeField] private string _bossScene = "BossRoom";
 
-    [Header("---MainStage Player Controller---")]
-    [SerializeField] private GameObject[] PlayerActivateables;
+    [Header("---MainStage Player Controller---")] [SerializeField]
+    private GameObject[] PlayerActivateables;
 
     public string currLvl;
     public GameObject _Hublvl;
@@ -35,13 +37,13 @@ public class MainSceneLogic : MonoBehaviour
     {
         MSInstance = this;
         loadScreen.SetActive(false);
-        
+
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
         {
             return;
         }
-        
+
         GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
         Time.timeScale = 0;
         GameManager.GetInstance().ToggleCursorVisibility();
@@ -53,7 +55,6 @@ public class MainSceneLogic : MonoBehaviour
         {
             PlayerActivateables[i].SetActive(false);
         }
-        
     }
 
     public void PlayGame()
@@ -62,10 +63,19 @@ public class MainSceneLogic : MonoBehaviour
 
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
-
-        currLvl = _tutScene;
-        SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
-        GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+        bool tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
+        if (tutorialComplete)
+        {
+            
+            GameManager.GetInstance().SetGameMode(GameMode.Hub);
+            GameManager.GetInstance().TeleportPlayer(0,0, -32f);
+        }
+        else
+        {
+            currLvl = _tutScene;
+            SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
+            GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+        }
         GameManager.GetInstance().SetGameState(GameState.Playing);
         //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
         for (int i = 0; i < PlayerActivateables.Length; i++)
@@ -76,7 +86,7 @@ public class MainSceneLogic : MonoBehaviour
 
     public void HideMenu()
     {
-        MenuActivatebles.SetActive (false);
+        MenuActivatebles.SetActive(false);
     }
 
     public void loadLevel()
@@ -86,6 +96,7 @@ public class MainSceneLogic : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync(currLvl);
         }
+
         if (mapnum >= DynamicMaps.Count())
         {
             currLvl = _bossScene;
@@ -98,14 +109,17 @@ public class MainSceneLogic : MonoBehaviour
             mapnum++;
             SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         }
+
         // Remove the selected map
         //DynamicMaps.RemoveAt(0);
+       
+        
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
     }
 
     public void ResetPlayer()
     {
-        GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies != null)
         {
             for (int i = 0; i < enemies.Length; i++)
@@ -113,15 +127,16 @@ public class MainSceneLogic : MonoBehaviour
                 Destroy(enemies[i]);
             }
         }
+
         SceneManager.UnloadSceneAsync(currLvl);
-        
-        
+
+
         currLvl = null;
         mapnum = 0;
     }
 
     public void Quitgame()
-    {   
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
