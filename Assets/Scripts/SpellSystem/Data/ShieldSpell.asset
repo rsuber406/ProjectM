@@ -21,3 +21,5 @@ MonoBehaviour:
   Duration: 8
   ShieldPrefab: {fileID: 2983227091093743947, guid: 05b000fac61cdf743bb2d88cbd51defe, type: 3}
   spawnDelay: 0.5
+  CastAudioClip: {fileID: 8300000, guid: 47e7f8a8c618b984885d3a721d843417, type: 3}
+  CastAudioPitch: 0.18
