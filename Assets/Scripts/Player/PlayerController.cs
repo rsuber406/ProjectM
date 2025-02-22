@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     public void TakeDamage(int amount, DamageSourceType type)
     {
-        attributes.TakeDamage(amount);
+        attributes.TakeDamage(amount, type);
         GameManager.GetInstance().GetSoundManager().PlayerHurt();
         StartCoroutine(FlashDamagePanel());
 
