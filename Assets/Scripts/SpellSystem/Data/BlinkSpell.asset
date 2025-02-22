@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Blink Spell
   description: 
-  failedActivationMessage: 
+  AbilityAnimationTriggerName: 
   icon: {fileID: 21300000, guid: 37dfc42e9fbd733499f079acc91f5f87, type: 3}
   cooldown: 6
   cost: 8
   Distance: 500
-  DefaultDirection: {x: 0, y: 0, z: 1}
+  CastAudioClip: {fileID: 8300000, guid: ae437560c06eb0440888f494b04975fe, type: 3}
+  CastAudioPitch: 0.16
   ParticleEffects: {fileID: 2944396702758532163, guid: e190bf97c041e58448af6b043116cba0, type: 3}
