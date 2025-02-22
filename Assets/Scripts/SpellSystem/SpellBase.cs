@@ -9,7 +9,7 @@ public abstract class SpellBase : ScriptableObject, ISpell
     [Header("Spell Info")]
     public string displayName;
     public string description;
-    public string failedActivationMessage;
+    public string AbilityAnimationTriggerName;
 
     [Header("Base Spell Properties")]
     public Sprite icon;
