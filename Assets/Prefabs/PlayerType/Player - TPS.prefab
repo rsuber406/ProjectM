@@ -1418,7 +1418,7 @@ PrefabInstance:
     - target: {fileID: 4580087608832603406, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventoryUI
       value: 
-      objectReference: {fileID: 3553631752564776869}
+      objectReference: {fileID: 0}
     - target: {fileID: 4879153757292553720, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
