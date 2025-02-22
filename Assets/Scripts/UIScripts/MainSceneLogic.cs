@@ -66,7 +66,7 @@ public class MainSceneLogic : MonoBehaviour
         bool tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
         if (tutorialComplete)
         {
-            currLvl = _Hub;
+            
             GameManager.GetInstance().SetGameMode(GameMode.Hub);
             GameManager.GetInstance().TeleportPlayer(0,0, -32f);
         }
