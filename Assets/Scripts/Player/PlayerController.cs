@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(PlayerStateController))]
 public class PlayerController : MonoBehaviour, IDamage, Interact
@@ -81,8 +82,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         attributes = GetComponent<AttributesController>();
         stateController = GetComponent<PlayerStateController>();
-
-       
+        
         canJump = true;
         unCrouch = transform.localScale.y;
         PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         attributes.health.currentValue = saveData.health;
         attributes.mana.currentValue = saveData.mana;
         hasCompletedTutorial = PersistentDataSystem.LoadPlayerProgress();
+        
+        
+        attributes.OnDamage += () => HandleDamageIndicator();
     }
 
     // Update is called once per frame
@@ -251,6 +254,11 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
+    void HandleDamageIndicator()
+    {
+        StartCoroutine(FlashDamagePanel());
+    }
+
     IEnumerator FlashDamagePanel()
     {
         GameManager.instance.damagePanel.SetActive(true);
@@ -261,11 +269,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public void TakeDamage(int amount, DamageSourceType type)
     {
         attributes.TakeDamage(amount, type);
-        StartCoroutine(FlashDamagePanel());
     }
-
     
-
     // ----- SCRAPPED CODE ----- //
 
     void Crouch()

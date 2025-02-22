@@ -13,12 +13,12 @@ public class AttributesController : MonoBehaviour
 
     public bool IsImmune { get; set; }
     public event Action OnImmune;
+    public event Action OnDamage;
     public event Action OnDeath;
 
     private bool isHealing = false;
     private bool isDead = false;
     private float lastDamageTime;
-    private bool isImmuneToDamage;
 
     void Awake()
     {
@@ -65,7 +65,7 @@ public class AttributesController : MonoBehaviour
         // If player can damage self, fix using damage type
         
         
-        if (isImmuneToDamage && type == DamageSourceType.Enemy)
+        if (IsImmune && type == DamageSourceType.Enemy)
         {
             Debug.Log($"Player Immune To damage; Health left: {health.currentValue}");
             OnImmune?.Invoke();
@@ -78,6 +78,7 @@ public class AttributesController : MonoBehaviour
         actualDamage = Mathf.Max(actualDamage, 0f);
         health.ReduceValue(actualDamage);
         lastDamageTime = Time.time;
+        OnDamage?.Invoke();
         
         Debug.Log($"Took {actualDamage} damage. Health left: {health.currentValue}");
 

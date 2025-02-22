@@ -14580,7 +14580,7 @@ GameObject:
   - component: {fileID: 5245204408044463350}
   m_Layer: 0
   m_Name: Magic shield blue - Static
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
