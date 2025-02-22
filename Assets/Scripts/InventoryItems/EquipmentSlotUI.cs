@@ -18,6 +18,8 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     [SerializeField] private GameObject contextMenuPrefab;
     private GameObject activeContextMenu;
     [SerializeField] private InventoryUI inventoryUI;
+    [SerializeField] private Inventory inventory;
+    
 
     private static EquipmentSlotUI currentlyDraggedEquipment = null;
     private Sprite oldSprite;
@@ -30,6 +32,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         rectTransform = GetComponent<RectTransform>();
         oldSprite = imageComponent.sprite;
         oldImage = imageComponent;
+        inventory = FindFirstObjectByType<Inventory>().GetComponent<Inventory>();
         
         inventoryUI = FindAnyObjectByType<InventoryUI>().GetComponent<InventoryUI>();
     }
@@ -82,11 +85,13 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private void UnequipItem(ArmorType armorType)
     {
         ItemData unequippedItem = equipmentManager.GetItemData(armorType);
-        Inventory inventory = FindAnyObjectByType<Inventory>();
+        GameObject newItemObject = new GameObject(unequippedItem.name);
+        Item newItem = newItemObject.AddComponent<Item>();
+        newItem.itemData = unequippedItem;
 
         if (unequippedItem.itemType == ItemType.Armor)
         {
-            unequippedItem = equipmentManager.UnequipArmor(armorType, unequippedItem);
+            unequippedItem = equipmentManager.UnequipArmor(unequippedItem.armor, unequippedItem);
             ResetEquipmentSlotImage();
         }
         else
@@ -97,7 +102,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
         if (unequippedItem != null)
         {
-            inventory.AddItem(unequippedItemParent, 0);
+            inventory.AddItem(newItem, 1);
         }
 
         if (activeContextMenu != null)
@@ -204,6 +209,12 @@ private bool IsBagSlot()
 
             if (itemData.itemType == ItemType.Armor || itemData.itemType == ItemType.Weapon)
             {
+                
+                ItemData existingItem = equipmentManager.GetItemData(armorType);
+                if (existingItem != null) 
+                {
+                    UnequipItem(armorType); 
+                }
                 equipmentManager.EquipItem(itemData);
                 imageComponent.sprite = itemData.icon;
                 canvasGroup.alpha = 1f;
