@@ -176,6 +176,8 @@ public class GameManager : MonoBehaviour
     public void tmpVictoryScreen()
     {
         menuActive = victoryMenu;
+        SphereCollider returnToHub = GameObject.FindGameObjectWithTag("LoadHubTag").GetComponent<SphereCollider>();
+        returnToHub.enabled = true;
         menuActive.SetActive(true);
         StatePause();
     }

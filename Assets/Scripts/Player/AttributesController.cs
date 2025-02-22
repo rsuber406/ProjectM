@@ -16,32 +16,40 @@ public class AttributesController : MonoBehaviour
     public event Action OnImmune;
     public event Action OnDeath;
 
+    private bool isHealing = false;
+    private bool isDead = false;
+
     void Awake()
     {
         health.Reset();
         mana.Reset();
         armor.Reset();
         // This needs moved to an update loop
-        StartCoroutine(RegenerateAttributes());
+    }
+
+    void Update()
+    {
+        if (!isHealing && !isDead)
+            StartCoroutine(RegenerateAttributes());
     }
 
 
     private IEnumerator RegenerateAttributes()
     {
-        while (true)
+        isHealing = true;
+        yield return new WaitForSeconds(1f);
+
+        if (health.currentValue < health.maxValue)
         {
-            yield return new WaitForSeconds(1f);
-
-            if (health.currentValue < health.maxValue)
-            {
-                health.AddValue(healthRegenRate);
-            }
-
-            if (mana.currentValue < mana.maxValue)
-            {
-                mana.AddValue(manaRegenRate);
-            }
+            health.AddValue(healthRegenRate);
         }
+
+        if (mana.currentValue < mana.maxValue)
+        {
+            mana.AddValue(manaRegenRate);
+        }
+
+        isHealing = false;
     }
 
     public static float CalculateDamageReduction(float armor, float k)
@@ -72,6 +80,7 @@ public class AttributesController : MonoBehaviour
             OnDeath?.Invoke();
             PlayerController controller = GameManager.GetInstance().GetPlayer().GetComponent<PlayerController>();
             controller.DeathSequence();
+            isDead = true;
         }
     }
 
@@ -79,5 +88,6 @@ public class AttributesController : MonoBehaviour
     {
         health.Reset();
         mana.Reset();
+        isDead = false;
     }
 }

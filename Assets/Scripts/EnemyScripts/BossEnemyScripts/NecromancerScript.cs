@@ -113,6 +113,7 @@ public class NecromancerScript : EnemyAI
         animationController.SetTrigger("Death");
         agent.isStopped = true;
         yield return new WaitForSeconds(2f);
+        GameManager.GetInstance().tmpVictoryScreen();
         Destroy(gameObject);
     }
 private void AttackSpell(GameObject spell)
