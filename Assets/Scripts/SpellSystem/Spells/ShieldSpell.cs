@@ -27,6 +27,9 @@ public class ShieldSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
+
+        GameManager.GetInstance().GetSoundManager().ShieldSpell();
+
         playerAttributesRef = player.GetComponent<AttributesController>();
         PlayerAnimation playerAnimRef = player.GetComponent<PlayerAnimation>();
         playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);

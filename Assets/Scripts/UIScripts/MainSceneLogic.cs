@@ -46,6 +46,8 @@ public class MainSceneLogic : MonoBehaviour
 
     public void PlayGame()
     {
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
+
         HideMenu();
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
@@ -68,6 +70,11 @@ public class MainSceneLogic : MonoBehaviour
         {
             PlayerActivateables[i].SetActive(true);
         }
+    }
+
+    public void Settings()
+    {
+        GameManager.GetInstance().SettingsMenu();
     }
 
     public void HideMenu()
@@ -154,6 +161,8 @@ public class MainSceneLogic : MonoBehaviour
     }
     public void Quitgame()
     {
+        GameManager.GetInstance().GetSoundManager().MenuClick(1);
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
