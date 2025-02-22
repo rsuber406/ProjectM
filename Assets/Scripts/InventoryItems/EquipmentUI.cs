@@ -29,8 +29,6 @@ public class EquipmentUI : MonoBehaviour
 
     void Start()
     {
-        
-   
         equipmentUIGameObject.gameObject.SetActive(false);
         equipmentSlots = new Image[] {
             helmetSlot,
@@ -43,13 +41,14 @@ public class EquipmentUI : MonoBehaviour
             weaponSlot    };
         
         equipmentManager = FindAnyObjectByType<EquipmentManager>();
-        FindAnyObjectByType<EquipmentManager>().OnArmorEquipped += UpdateEquipmentSlot;
+       equipmentManager.OnArmorEquipped += UpdateEquipmentSlot;
         equipmentManager.OnArmorEquipped += UpdateEquipmentSlot;
+        equipmentManager.OnEquipmentNeedReset += ResetEmptyEquipmentSlots;
         attributesController = FindAnyObjectByType<AttributesController>();
+        ResetEmptyEquipmentSlots();
+
     }
     
-    
-
     private void Update()
     {
         UpdateStatText();
@@ -61,6 +60,20 @@ public class EquipmentUI : MonoBehaviour
         {
             equipmentUIGameObject.SetActive(!equipmentUIGameObject.activeSelf);
             Cursor.visible = equipmentUIGameObject.activeSelf;
+        }
+    }
+    public void ResetEmptyEquipmentSlots()
+    {
+        foreach (ArmorType armorType in Enum.GetValues(typeof(ArmorType)))
+        {
+            if (equipmentManager.GetItemData(armorType) == null)
+            {
+                Image slotImage = GetSlotImage(armorType);
+                if (slotImage != null)
+                {
+                    slotImage.GetComponent<EquipmentSlotUI>().ResetEquipmentSlotImage(); 
+                }
+            }
         }
     }
    
@@ -127,6 +140,7 @@ public class EquipmentUI : MonoBehaviour
 
         ActivateImage();
     }
+    
 
     private void ActivateImage()
     {

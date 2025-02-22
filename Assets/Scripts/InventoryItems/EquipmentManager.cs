@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class EquipmentManager : MonoBehaviour
@@ -22,6 +22,8 @@ public class EquipmentManager : MonoBehaviour
     public event Action<ItemData> OnWeaponEquipped;
     public event Action<ArmorType> OnArmorUnequipped;
     public event Action OnWeaponUnequipped;
+
+    public event Action OnEquipmentNeedReset;
     
     
     private AttributesController attributesController;
@@ -131,9 +133,10 @@ public class EquipmentManager : MonoBehaviour
                     OnArmorUnequipped?.Invoke(ArmorType.Leggings);
             break;
     }
-    
+    OnEquipmentNeedReset?.Invoke();
     return unequippedItem;
 }
+    
 
     
 
