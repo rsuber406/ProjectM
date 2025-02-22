@@ -80,9 +80,9 @@ public class EquipmentUI : MonoBehaviour
 
     private void UpdateStatText()
     {
-        healthText.text = $"Health: {attributesController.health.currentValue.ToString()}";
-        manaText.text = $"Mana: {attributesController.mana.currentValue.ToString()}";
-        armorText.text = $"Armor: {attributesController.armor.currentValue.ToString()}";
+        healthText.text = $"$Health: {attributesController.health.currentValue.ToString()}";
+        manaText.text = $"$Mana: {attributesController.mana.currentValue.ToString()}";
+        armorText.text = $"$Armor: {attributesController.armor.currentValue.ToString()}";
     }
     private void AnchorToZero(Image image)
     {
