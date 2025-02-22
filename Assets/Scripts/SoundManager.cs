@@ -39,11 +39,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip[] playerDeathSounds;
     [SerializeField] AudioClip[] playerDodgeSounds;
 
-    [Header("----- Spell Cast Sounds -----")]
-    [SerializeField] AudioClip fireSpell;
-    [SerializeField] AudioClip blinkSpell;
-    [SerializeField] AudioClip shieldSpell;
-
     [Header("----- UI Sounds -----")]
     [SerializeField] AudioClip lose;
     [SerializeField] AudioClip[] menuSelect;    
@@ -148,21 +143,6 @@ public class SoundManager : MonoBehaviour
     public void PlayerDodge()
     {
         audSFX.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], SFXVol);
-    }
-
-    public void FireSpell()
-    {
-        audSFX.PlayOneShot(fireSpell, SFXVol);
-    }
-
-    public void BlinkSpell()
-    {
-        audSFX.PlayOneShot(blinkSpell, SFXVol);
-    }
-
-    public void ShieldSpell()
-    {
-        audSFX.PlayOneShot(shieldSpell, SFXVol);
     }
 
     public void LossJingle()

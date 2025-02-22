@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject controlsTab;
     [SerializeField] private GameObject graphicsTab;
 
+    [SerializeField] private GameObject returnBtn;
+    [SerializeField] private GameObject backBtn;
 
     private SoundManager soundController;
     
@@ -165,6 +167,9 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = settingsMenu;
         menuActive.SetActive(true);
+
+        returnBtn.SetActive(false);
+        backBtn.SetActive(true);
     }
 
     public void PauseMenu()

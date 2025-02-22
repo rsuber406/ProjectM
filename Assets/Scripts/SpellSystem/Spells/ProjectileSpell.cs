@@ -30,8 +30,6 @@ public class ProjectileSpell : SpellBase
         
         yield return new WaitForSeconds(spawnDelay);
 
-        GameManager.GetInstance().GetSoundManager().FireSpell();
-
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward.normalized;
 

@@ -18,8 +18,12 @@ public class MainSceneLogic : MonoBehaviour
     private GameObject loadScreen;
 
     [SerializeField] private GameObject MenuActivateables;
-    [SerializeField] private GameObject CreditsActivateables;
     [SerializeField] private GameObject PauseMenuActivateables;
+    [SerializeField] private GameObject SettingsActivateables;
+    [SerializeField] private GameObject CreditsActivateables;
+
+    [SerializeField] private GameObject returnBtn;
+    [SerializeField] private GameObject backBtn;
 
     [Header("---World 1 Levels---")] [SerializeField]
     private string _Hub = "Hub";
@@ -71,12 +75,7 @@ public class MainSceneLogic : MonoBehaviour
             PlayerActivateables[i].SetActive(true);
         }
     }
-
-    public void Settings()
-    {
-        GameManager.GetInstance().SettingsMenu();
-    }
-
+    
     public void HideMenu()
     {
         MenuActivateables.SetActive(false);
@@ -131,13 +130,23 @@ public class MainSceneLogic : MonoBehaviour
     public void CreditsScreen()
     {
         HideMenu();
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
         CreditsActivateables.SetActive(true);
     }
-
+    public void SettingsScreen()
+    {
+        HideMenu();
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        SettingsActivateables.SetActive(true);
+        returnBtn.SetActive(true);
+        backBtn.SetActive(false);
+    }
+   
     public void returnToMenu()
     {
         mapnum = 0;
         PauseMenuActivateables.SetActive(false);
+        SettingsActivateables.SetActive(false);
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
 
