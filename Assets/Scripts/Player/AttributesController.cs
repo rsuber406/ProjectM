@@ -24,11 +24,13 @@ public class AttributesController : MonoBehaviour
         health.Reset();
         mana.Reset();
         armor.Reset();
-        // This needs moved to an update loop
     }
 
     void Update()
     {
+        // Dont update attributes if not un dungeon...
+        if (GameManager.GetInstance().GetGameMode()!= GameMode.Dungeon) return;
+
         if (!isHealing && !isDead)
             StartCoroutine(RegenerateAttributes());
     }

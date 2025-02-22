@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(PlayerStateController))]
 public class PlayerController : MonoBehaviour, IDamage, Interact
 {
     [Header("----- Components -----")]

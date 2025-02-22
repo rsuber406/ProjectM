@@ -14,8 +14,6 @@ public class SpellSystem : MonoBehaviour
     private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
     
     private AttributesController attributesController;
-    private MasterSpellsList masterSpellsList;
-    
     public event Action OnInsufficientMana;
     public event Action OnSpellSystemBusy;
     public event Action OnSpellOnCoolDown;
@@ -23,7 +21,6 @@ public class SpellSystem : MonoBehaviour
     
     void Awake()
     {
-        //masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
     }
@@ -77,6 +74,13 @@ public class SpellSystem : MonoBehaviour
             
             if (Input.GetButtonUp(pair.Key))
             {
+                // Dont cast spells if not in dungeon...
+                // I can cast blink while in the hub and glitch through the level
+                if (GameManager.GetInstance().GetGameMode() != GameMode.Dungeon)
+                {
+                    OnSpellSystemBusy?.Invoke();
+                    return;
+                }
                 // When input is detected and a spell was previously activated then exit
                 if (state == SpellSystemState.Activated)
                 {
