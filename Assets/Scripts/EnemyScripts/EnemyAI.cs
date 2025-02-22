@@ -136,6 +136,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         health -= amount;
         StartCoroutine(FlashDamage());
+        agent.SetDestination(playerPos);
         if (health <= 0)
             StartCoroutine(OnDeath());
     }

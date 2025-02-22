@@ -9960,7 +9960,7 @@ MonoBehaviour:
   masterSpellsList: {fileID: 11400000, guid: aaec4fb0fd6f42c4683d42a1e17a37bd, type: 2}
   pauseMenu: {fileID: 1667068098124983983}
   lossMenu: {fileID: 1423528124918164858}
-  victoryMenu: {fileID: 0}
+  victoryMenu: {fileID: 4081482688183836976}
   settingsMenu: {fileID: 5480643032427801140}
   enableDebug: 0
   damagePanel: {fileID: 6705016620589905014}
