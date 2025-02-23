@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
 
 public class LoadLevel : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class LoadLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            MainSceneLogic.MSInstance.loadScreen.SetActive(true);
+
             MainSceneLogic.MSInstance.loadLevel();
           GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
           if (enemies != null)
@@ -18,7 +22,8 @@ public class LoadLevel : MonoBehaviour
               }
           }
             GameManager.instance.TeleportPlayer(0f, 1f, 0f);
+            MainSceneLogic.MSInstance.loadScreen.SetActive(false);
+
         }
     }
-
 }

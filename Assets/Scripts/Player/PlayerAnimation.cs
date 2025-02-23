@@ -421,7 +421,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("Death", false);
         anim.SetTrigger("ResetDeath");
-        GameManager.GetInstance().RemoveLossMenu();
+        GameManager.GetInstance().removeLossMenu();
     }
 
     public void PlayAbilityByTriggerName(string name)
