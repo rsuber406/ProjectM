@@ -52,7 +52,7 @@ public class ProjectileSpell : SpellBase
             cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
             Vector3 spawnPosition = playerControllerRef.HandSocket.position + selectedOffset;
             
-            GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
+            GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, cameraTransform.rotation);
 
             ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
             projectileRef.Init(direction, damageAmount, DamageSourceType.Player);
