@@ -18,15 +18,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject lossMenu;
     [SerializeField] private GameObject victoryMenu;
-
     [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private bool enableDebug;
+    [SerializeField] public bool enableDebug;
+
+    [SerializeField] private GameObject audioTab;
+    [SerializeField] private GameObject controlsTab;
+    [SerializeField] private GameObject graphicsTab;
+
+    [SerializeField] private GameObject returnBtn;
+    [SerializeField] private GameObject backBtn;
+
     private SoundManager soundController;
     
 
     public GameObject damagePanel;
     private GameObject menuActive = null;
+    private GameObject tabActive = null;
+
     public TextMeshProUGUI interactText;
+
     public Image healthBar;
     public Image manaBar;
     
@@ -40,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
         soundController = this.GetComponent<SoundManager>();
@@ -49,9 +60,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
-
         HandleInDungeonMenuBindings();
+
     }
 
     private void HandleInDungeonMenuBindings()
@@ -166,6 +176,9 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = settingsMenu;
         menuActive.SetActive(true);
+
+        returnBtn.SetActive(false);
+        backBtn.SetActive(true);
     }
 
     public void PauseMenu()
@@ -173,10 +186,74 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = pauseMenu;
         menuActive.SetActive(true);
+        tabActive.SetActive(false);
+        tabActive = null;
+    }
+
+
+    public void AudioTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = audioTab;
+            tabActive.SetActive(true);
+        }
+        else if (tabActive == controlsTab || tabActive == graphicsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = audioTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
+    }
+
+    public void ControlsTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = controlsTab;
+            tabActive.SetActive(true);
+        }
+        else if (tabActive == audioTab || tabActive == graphicsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = controlsTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
+    }
+    
+    public void GraphicsTab()
+    {
+        if (tabActive == null)
+        {
+            tabActive = graphicsTab;
+            tabActive.SetActive(true);
+        }
+        else if (tabActive == audioTab || tabActive == controlsTab)
+        {
+            tabActive.SetActive(false);
+            tabActive = graphicsTab;
+            tabActive.SetActive(true);
+        }
+        else
+        {
+            tabActive.SetActive(false);
+            tabActive = null;
+        }
     }
 
     public void LossMenu()
     {
+        GetInstance().GetSoundManager().LossJingle();
         menuActive = lossMenu;
         menuActive.SetActive(true);
         StatePause();

@@ -29,6 +29,7 @@ public class ProjectileSpell : SpellBase
         playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
         
         yield return new WaitForSeconds(spawnDelay);
+
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward.normalized;
 
