@@ -116,10 +116,15 @@ public class GameManager : MonoBehaviour
     {
         return playerCamera;
     }
-    
+
     public GameMode GetGameMode()
     {
         return gameMode;
+    }
+
+    public GameState GetGameState()
+    {
+        return gameState;
     }
 
     public void SetGameMode(GameMode target)
@@ -135,6 +140,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Playing;
         ToggleCursorVisibility();
         OnGameResumed?.Invoke();
+
     }
 
     public void StatePause()
@@ -143,6 +149,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Paused;
         ToggleCursorVisibility();
         OnGamePaused?.Invoke();
+
     }
 
     public void ToggleCursorVisibility()

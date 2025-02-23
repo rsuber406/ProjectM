@@ -70,7 +70,28 @@ public class SoundManager : MonoBehaviour
 
         if (!GameManager.GetInstance().enableDebug)
         {
-            GetGameModeMusic();
+            if (GameManager.GetInstance().GetGameState() == GameState.Paused)
+            {
+                if (GameManager.GetInstance().GetGameMode() == GameMode.MainMenu)
+                {
+                    GetGameModeMusic();
+                    return;
+                }
+                else
+                {
+                    if (audMusic.isPlaying)
+                        audMusic.Pause();
+                }
+            }
+            else
+            {
+                //if (!audMusic.isPlaying)
+                    GetGameModeMusic();
+             
+                //else
+                    //audMusic.UnPause();
+            }
+            
             PlayAmbience();
         }
 
