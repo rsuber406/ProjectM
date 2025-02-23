@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lifetime: 8
-  ForceToApply: 50
+  ForceToApply: 20
+  damage: 50
+  damageSource: 1
   CastAudioClip: {fileID: 8300000, guid: c1374ccb6e643f649a8528666dcd7455, type: 3}
   ImpactAudioClip: {fileID: 8300000, guid: fd58fa574b0f4e947950bcc9c6239c62, type: 3}
   CastAudioPitch: 1
