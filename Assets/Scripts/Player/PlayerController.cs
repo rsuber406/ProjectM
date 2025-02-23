@@ -325,7 +325,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             StartCoroutine(animScript.PlayerDeathAnimation());
             GameManager.GetInstance().GetSoundManager().PlayerDeath();
-
+            rb.isKinematic = true;
         }
     }
 
@@ -335,12 +335,14 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         {
             GameObject teleporter = GameObject.FindGameObjectWithTag("HubTeleporter");
             rb.position = teleporter.transform.position;
+            rb.isKinematic = false;
             attributes.ResetStatsAfterDeath();
             this.transform.position = new Vector3(0.00f, 0.00f, -32f);
             isAlive = true;
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             animScript.ResetPlayerDeath();
-            
+         
+
         }
     }
 
