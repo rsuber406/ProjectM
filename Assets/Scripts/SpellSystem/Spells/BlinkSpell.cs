@@ -39,8 +39,10 @@ public class BlinkSpell : SpellBase
         if (playerRigidBody.linearVelocity.magnitude > 0.13) 
             direction = playerRigidBody.linearVelocity.normalized;
         
+        direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+        
         playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
-        player.transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
         
         float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
         playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
