@@ -29,6 +29,7 @@ public class EquipmentManager : MonoBehaviour
     private AttributesController attributesController;
     private EquipmentManager equipmentManager;
     
+    
 
     
     
@@ -145,9 +146,10 @@ public class EquipmentManager : MonoBehaviour
     {
         if (item != null)
         {
-            attributesController.armor.currentValue += item.armorModifier;
-            attributesController.health.currentValue += item.healthModifier;
-            attributesController.mana.currentValue += item.manaModifier;
+            attributesController.armor.AddValue((float)item.armor);
+            attributesController.health.AddValue(item.healthModifier);
+            attributesController.mana.AddValue(item.manaModifier);
+            
         }
     }
 
@@ -155,9 +157,9 @@ public class EquipmentManager : MonoBehaviour
     {
         if (item != null)
         {
-            attributesController.armor.currentValue -= item.armorModifier;
-            attributesController.health.currentValue -= item.healthModifier;
-            attributesController.mana.currentValue -= item.manaModifier;
+            attributesController.armor.ReduceValue((float)item.armor);
+            attributesController.health.ReduceValue(item.healthModifier);
+            attributesController.mana.ReduceValue(item.manaModifier);       
         }
 
     }

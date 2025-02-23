@@ -23,6 +23,15 @@ public class InventoryUI : MonoBehaviour
         inventory.OnInventoryChanged += UpdateInventoryUI;
         inventoryPanel.SetActive(false);
         Cursor.visible = false;
+        for (int i = 0; i < itemIconSlots.Length; i++)
+        {
+            InventorySlotUI slotUI = itemIconSlots[i].GetComponent<InventorySlotUI>();
+            if (slotUI != null)
+            {
+                slotUI.inventory = inventory;
+                slotUI.slotIndex = i;
+            }
+        }
         
      
     }
