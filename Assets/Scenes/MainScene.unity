@@ -177,6 +177,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SettingsScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 3212515670474041267, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -648
+      objectReference: {fileID: 0}
     - target: {fileID: 3437192083457085187, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -193,9 +197,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Quitgame
       objectReference: {fileID: 0}
+    - target: {fileID: 3744334699219788429, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017770121414676494, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4232029306780985198, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373933518542500879, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373933518542500879, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373933518542500879, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373933518542500879, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 4409188324167074952, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_SizeDelta.x
@@ -217,6 +245,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -54
       objectReference: {fileID: 0}
+    - target: {fileID: 4844780048002629059, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7815703846759135558, guid: b142868f0ab95754080ebf203034b7a4, type: 2}
     - target: {fileID: 5613485286628644911, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_SizeDelta.x
       value: -46.5362
@@ -249,10 +281,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6568447956395342254, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6881845277899677634, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: lossMenu
       value: 
       objectReference: {fileID: 1538745261}
+    - target: {fileID: 6881845277899677634, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: victoryMenu
+      value: 
+      objectReference: {fileID: 1983697744}
     - target: {fileID: 6881845277899677634, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -261,6 +301,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7122920977794112975, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -508379822839665775, guid: 53962efa62824064b9c2a6de4412ca21, type: 2}
     - target: {fileID: 7357507125808034037, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 158.793
@@ -372,6 +416,10 @@ PrefabInstance:
     - {fileID: 8107710544194998809, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
     - {fileID: 626824305361967839, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
     - {fileID: 6382407042945660919, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+    - {fileID: 2716986454646994883, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+    - {fileID: 8573039055100031657, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+    - {fileID: 1469107101432160454, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+    - {fileID: 9175419127619891727, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
@@ -523,6 +571,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1983697744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6568447956395342254, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+  m_PrefabInstance: {fileID: 118553247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2086992807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2875892736834660763, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}

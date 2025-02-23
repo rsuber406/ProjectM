@@ -140,7 +140,6 @@ public class MainSceneLogic : MonoBehaviour
 
     public void SettingsScreen()
     {
-        GameManager.instance.removeLossMenu();
         HideMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         SettingsActivateables.SetActive(true);
