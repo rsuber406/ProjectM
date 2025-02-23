@@ -111,9 +111,19 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         }
     }
 
-    
+    private ItemData GetItemDataFromSlot()
+    {
+        if (gameObject.CompareTag("BagSlot"))
+        {
+            return equipmentManager.GetItemData(armorType);
+        }
+        
+        else return null;
+    }
 
-private bool IsBagSlot()
+
+
+    private bool IsBagSlot()
     {
         return gameObject.CompareTag("BagSlot");
     }
