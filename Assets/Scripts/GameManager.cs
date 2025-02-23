@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameMode gameMode;
     [SerializeField] private GameState gameState;
-    
+
     [SerializeField] private GameObject player;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private MasterSpellsList masterSpellsList;
@@ -78,6 +78,15 @@ public class GameManager : MonoBehaviour
                 else if(menuActive == pauseMenu) ResumeGame();
             }
         }
+    }
+
+    public void toggleKinematics()
+    {
+        Rigidbody plrb = GetComponent<Rigidbody>();
+        if(plrb == null)
+            plrb.isKinematic = true;
+        else
+            plrb.isKinematic = false;
     }
 
     public static GameManager GetInstance()
@@ -275,16 +284,9 @@ public class GameManager : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
-    public void RemoveLossMenu()
-    {
-        // call to move player
-        
-        // Remove loss screen after player is moved to specified location
-        
-    }
-
     public void Respawn()
     {
+        removeLossMenu();
         PlayerController controller = player.GetComponent<PlayerController>();
         controller.RespawnSequence();
         //player.transform.position = new Vector3(0.000f, 0.00f, -32f);
@@ -316,6 +318,10 @@ public class GameManager : MonoBehaviour
         ToggleCursorVisibility();
     }
 
+    public void removeLossMenu()
+    {
+        lossMenu.SetActive(false);
+    }
     public bool PlayerCompletedTutorial()
     {
         PlayerController playerScript = player.GetComponent<PlayerController>();
