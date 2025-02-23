@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
 
+
     private SoundManager soundController;
     
 
@@ -135,7 +136,6 @@ public class GameManager : MonoBehaviour
         menuActive = null;
         gameState = GameState.Playing;
         ToggleCursorVisibility();
-        
         OnGameResumed?.Invoke();
     }
 
@@ -144,7 +144,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameState = GameState.Paused;
         ToggleCursorVisibility();
-        
         OnGamePaused?.Invoke();
     }
 

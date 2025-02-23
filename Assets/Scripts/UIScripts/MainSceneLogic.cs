@@ -16,6 +16,7 @@ public class MainSceneLogic : MonoBehaviour
 
     [Header("---Main Menu Objects---")] [SerializeField]
     private GameObject loadScreen;
+    [SerializeField] public GameObject MMCamera;
 
     [SerializeField] private GameObject MenuActivateables;
     [SerializeField] private GameObject PauseMenuActivateables;
@@ -51,8 +52,9 @@ public class MainSceneLogic : MonoBehaviour
     public void PlayGame()
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
-
         HideMenu();
+        MMCamera.SetActive(false);
+
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
         tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
@@ -149,6 +151,7 @@ public class MainSceneLogic : MonoBehaviour
         SettingsActivateables.SetActive(false);
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
+        MMCamera.SetActive(true);
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
