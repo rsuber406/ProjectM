@@ -85,11 +85,11 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
-                //if (!audMusic.isPlaying)
+                if (!audMusic.isPlaying)
                     GetGameModeMusic();
              
-                //else
-                    //audMusic.UnPause();
+                else
+                    audMusic.UnPause();
             }
             
             PlayAmbience();
@@ -118,19 +118,19 @@ public class SoundManager : MonoBehaviour
 
     public void GetSFXVolume()
     {
-        audSFX.volume = SFXSlider.value / 2;
+        audSFX.volume = SFXSlider.value / 2f;
         SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
     public void GetAmbienceVolume()
     {
-        audAmbience.volume = ambienceSlider.value / 2;
+        audAmbience.volume = ambienceSlider.value / 1.5f;
         ambienceVolumeText.text = (ambienceSlider.value * 100f).ToString("F0");
     }
 
     public void GetMusicVolume()
     {
-        audMusic.volume = musicSlider.value / 2;
+        audMusic.volume = musicSlider.value / 2f;
         musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
     }
 
@@ -164,6 +164,7 @@ public class SoundManager : MonoBehaviour
 
     public void LossJingle()
     {
+        audMusic.Stop();
         audMusic.PlayOneShot(lose, musicVol);
     }
 
