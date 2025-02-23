@@ -50,9 +50,9 @@ public class ProjectileSpell : SpellBase
             yield return new WaitForSeconds(spawnDelay);
             
             cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
-            Vector3 spawnPosition = playerControllerRef.HandSocket.position + selectedOffset;
+            Vector3 spawnPosition = playerControllerRef.HandSocket.position;
             
-            GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
+            GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, cameraTransform.rotation);
 
             ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
             projectileRef.Init(direction, damageAmount, DamageSourceType.Player);
