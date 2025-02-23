@@ -46,9 +46,7 @@ public class GameManager : MonoBehaviour
     
     public event Action OnGameResumed;
     public event Action OnGamePaused;
-
     
-
     void Awake()
     {
 
