@@ -6,10 +6,11 @@ public class ProjectileBase : MonoBehaviour
 {
     public float Lifetime;
     public float ForceToApply;
-    private int damage;
-    private ConstantForce constantForceRef;
+    public int damage;
+    
+   // private ConstantForce constantForceRef;
     private Coroutine coroutineRef;
-    private DamageSourceType damageSource;
+    public DamageSourceType damageSource;
     private AudioSource audioSource;
     
     public AudioClip CastAudioClip;
@@ -17,18 +18,42 @@ public class ProjectileBase : MonoBehaviour
     [Range(0,1)] public float CastAudioPitch;
 
     private bool hasImpact;
-    
+
+    private void Start()
+    {
+        RaycastHit hit;
+        Transform cameraDirection = GameManager.GetInstance().GetPlayerCamera().transform;
+        if (Physics.Raycast(cameraDirection.transform.position, cameraDirection.forward, out hit))
+        {
+                Camera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+                Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, hit.point.magnitude);
+                Vector3 offsetToCenter = Camera.main.ScreenToWorldPoint(screenCenter);
+                Vector3 adjustedDirection = (offsetToCenter - this.transform.position);
+                Vector3 direction = (adjustedDirection).normalized;
+               // Quaternion rotation = Quaternion.LookRotation(direction);
+                
+                //this.transform.rotation = rotation;
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.linearVelocity = direction * ForceToApply;
+                rb.isKinematic = false;
+                audioSource = gameObject.GetComponent<AudioSource>();
+                if (CastAudioClip) PlaySfxClip(CastAudioClip);
+                coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
+                
+            
+        }
+    }
     public void Init(Vector3 direction, int damageAmount, DamageSourceType source)
     {
-        damage = damageAmount;
-        damageSource = source;
-        constantForceRef = gameObject.GetComponent<ConstantForce>();
-        constantForceRef.force = direction * ForceToApply;
-        
-        audioSource = gameObject.GetComponent<AudioSource>();
-        if(CastAudioClip) PlaySfxClip(CastAudioClip);
-        
-        coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
+        // damage = damageAmount;
+        // damageSource = source;
+        // constantForceRef = gameObject.GetComponent<ConstantForce>();
+        // constantForceRef.force = direction * ForceToApply;
+        //
+        // audioSource = gameObject.GetComponent<AudioSource>();
+        // if(CastAudioClip) PlaySfxClip(CastAudioClip);
+        //
+        // coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
     }
 
     void OnTriggerEnter(Collider other)

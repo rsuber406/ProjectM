@@ -50,12 +50,11 @@ public class ProjectileSpell : SpellBase
             yield return new WaitForSeconds(spawnDelay);
             
             cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
-            Vector3 spawnPosition = playerControllerRef.HandSocket.position + selectedOffset;
+            Vector3 spawnPosition = playerControllerRef.HandSocket.position;
             
-            GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
+           Instantiate(ProjectilePrefab, spawnPosition, player.transform.GetChild(0).rotation);
 
-            ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
-            projectileRef.Init(direction, damageAmount, DamageSourceType.Player);
+          
         }
 
         // Cast time , for some reason this is needed before we can call end

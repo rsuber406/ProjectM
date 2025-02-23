@@ -15,7 +15,7 @@ public class MainSceneLogic : MonoBehaviour
     public static MainSceneLogic MSInstance;
 
     [Header("---Main Menu Objects---")] [SerializeField]
-    private GameObject loadScreen;
+    public GameObject loadScreen;
     [SerializeField] public GameObject MMCamera;
 
     [SerializeField] private GameObject MenuActivateables;
@@ -53,6 +53,7 @@ public class MainSceneLogic : MonoBehaviour
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         HideMenu();
+        
         MMCamera.SetActive(false);
 
         Time.timeScale = 1;
@@ -95,6 +96,7 @@ public class MainSceneLogic : MonoBehaviour
         {
             currLvl = _bossScene;
             SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
+            loadScreen.SetActive(false);
             return;
         }
         else
@@ -124,7 +126,7 @@ public class MainSceneLogic : MonoBehaviour
 
         SceneManager.UnloadSceneAsync(currLvl);
 
-
+        
         currLvl = null;
         mapnum = 0;
     }
@@ -135,8 +137,10 @@ public class MainSceneLogic : MonoBehaviour
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         CreditsActivateables.SetActive(true);
     }
+
     public void SettingsScreen()
     {
+        GameManager.instance.removeLossMenu();
         HideMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         SettingsActivateables.SetActive(true);
@@ -152,6 +156,7 @@ public class MainSceneLogic : MonoBehaviour
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
         MMCamera.SetActive(true);
+        GameManager.instance.removeLossMenu();
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
@@ -174,6 +179,7 @@ public class MainSceneLogic : MonoBehaviour
     public void Quitgame()
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().SavePlayerData();
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
