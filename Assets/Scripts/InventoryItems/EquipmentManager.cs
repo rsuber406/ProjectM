@@ -146,9 +146,9 @@ public class EquipmentManager : MonoBehaviour
     {
         if (item != null)
         {
-            attributesController.armor.AddValue((float)item.armor);
-            attributesController.health.AddValue(item.healthModifier);
-            attributesController.mana.AddValue(item.manaModifier);
+            attributesController.armor.IncreaseMaxbyValue((float)item.armor);
+            attributesController.health.IncreaseMaxbyValue(item.healthModifier);
+            attributesController.mana.IncreaseMaxbyValue(item.manaModifier);
             
         }
     }
@@ -157,9 +157,9 @@ public class EquipmentManager : MonoBehaviour
     {
         if (item != null)
         {
-            attributesController.armor.ReduceValue((float)item.armor);
-            attributesController.health.ReduceValue(item.healthModifier);
-            attributesController.mana.ReduceValue(item.manaModifier);       
+            attributesController.armor.DecreaseMaxByValue((float)item.armor);
+            attributesController.health.DecreaseMaxByValue(item.healthModifier);
+            attributesController.mana.DecreaseMaxByValue(item.manaModifier);       
         }
 
     }

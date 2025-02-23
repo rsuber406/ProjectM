@@ -33,4 +33,14 @@ public struct AttributeInfo
         currentValue -= value;
         Mathf.Clamp(currentValue, minValue, maxValue);
     }
+    
+    public void IncreaseMaxbyValue(float value)
+    {
+        maxValue += value;
+    }
+
+    public void DecreaseMaxByValue(float value)
+    {
+        maxValue -= value;
+    }
 }
