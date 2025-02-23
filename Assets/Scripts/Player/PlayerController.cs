@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR;
 
+[RequireComponent(typeof(PlayerStateController))]
 public class PlayerController : MonoBehaviour, IDamage, Interact
 {
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
+    public Transform HandSocket;
 
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] public int joggingSpeed;
@@ -80,8 +83,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
         attributes = GetComponent<AttributesController>();
         stateController = GetComponent<PlayerStateController>();
-
-       
+        
         canJump = true;
         unCrouch = transform.localScale.y;
         PlayerLoadedData saveData = PersistentDataSystem.LoadPlayerData();
@@ -91,12 +93,14 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         attributes.health.currentValue = saveData.health;
         attributes.mana.currentValue = saveData.mana;
         hasCompletedTutorial = PersistentDataSystem.LoadPlayerProgress();
+        
+        
+        attributes.OnDamage += () => HandleDamageIndicator();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // for debugging
         x = rb.linearVelocity.x;
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
@@ -152,9 +156,9 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
                     rb.linearVelocity = new Vector3(moveDir.normalized.x * movementSpeed, rb.linearVelocity.y - 0.15f, moveDir.normalized.z * movementSpeed);
             }
 
-            if (moveDir.magnitude > 0.3f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
+            if (moveDir.magnitude > 0.89f && !GameManager.GetInstance().GetSoundManager().isPlayingSteps)
             {
-                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlaySteps());
+                StartCoroutine(GameManager.GetInstance().GetSoundManager().PlayerSteps());
             }
         }
 
@@ -225,6 +229,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             dodgeCdTimer = dodgeCd;
 
         isDodging = true;
+        GameManager.GetInstance().GetSoundManager().PlayerDodge();
 
         Vector3 dodge = new Vector3(moveDir.normalized.x * dodgeForce, moveDir.normalized.y, moveDir.normalized.z * dodgeForce);
         dodgeDelay = dodge;
@@ -250,6 +255,11 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         GameManager.instance.manaBar.fillAmount = (float)mana / attributes.mana.maxValue;
     }
 
+    void HandleDamageIndicator()
+    {
+        StartCoroutine(FlashDamagePanel());
+    }
+
     IEnumerator FlashDamagePanel()
     {
         GameManager.instance.damagePanel.SetActive(true);
@@ -257,15 +267,14 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         GameManager.instance.damagePanel.SetActive(false);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, DamageSourceType type)
     {
-        attributes.TakeDamage(amount);
+        attributes.TakeDamage(amount, type);
+        GameManager.GetInstance().GetSoundManager().PlayerHurt();
         StartCoroutine(FlashDamagePanel());
 
     }
-
     
-
     // ----- SCRAPPED CODE ----- //
 
     void Crouch()
@@ -315,7 +324,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             isAlive = false;
             PlayerAnimation animScript = GetComponent<PlayerAnimation>();
             StartCoroutine(animScript.PlayerDeathAnimation());
-            
+            GameManager.GetInstance().GetSoundManager().PlayerDeath();
+
         }
     }
 

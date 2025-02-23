@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 'Mana Shield '
   description: 
-  failedActivationMessage: 
+  AbilityAnimationTriggerName: ShieldAbility
   icon: {fileID: 21300000, guid: b7fe80fa6f21e0c419dce02e1c1da4f7, type: 3}
   cooldown: 10
   cost: 30
-  Duration: 20
+  Duration: 8
   ShieldPrefab: {fileID: 2983227091093743947, guid: 05b000fac61cdf743bb2d88cbd51defe, type: 3}
+  spawnDelay: 0.5
+  CastAudioClip: {fileID: 8300000, guid: 47e7f8a8c618b984885d3a721d843417, type: 3}
+  CastAudioPitch: 0.18

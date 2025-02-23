@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class ProjectileBase : MonoBehaviour
 {
     public float Lifetime;
@@ -8,33 +9,58 @@ public class ProjectileBase : MonoBehaviour
     private int damage;
     private ConstantForce constantForceRef;
     private Coroutine coroutineRef;
+    private DamageSourceType damageSource;
+    private AudioSource audioSource;
     
-    public void Init(Vector3 direction, int damageAmount)
+    public AudioClip CastAudioClip;
+    public AudioClip ImpactAudioClip;
+    [Range(0,1)] public float CastAudioPitch;
+
+    private bool hasImpact;
+    
+    public void Init(Vector3 direction, int damageAmount, DamageSourceType source)
     {
         damage = damageAmount;
+        damageSource = source;
         constantForceRef = gameObject.GetComponent<ConstantForce>();
         constantForceRef.force = direction * ForceToApply;
-        coroutineRef = StartCoroutine(DelayDestroy());
+        
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if(CastAudioClip) PlaySfxClip(CastAudioClip);
+        
+        coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if (hasImpact) return;
+
         if (other.isTrigger)
             return;
+
+        hasImpact = true;
 
         IDamage dmg = other.GetComponentInParent<IDamage>();
         if (dmg != null)
         {
-            dmg.TakeDamage(damage);
+            dmg.TakeDamage(damage, damageSource);
         }
         
         StopCoroutine(coroutineRef);
-        Destroy(gameObject);
+        if(ImpactAudioClip) PlaySfxClip(ImpactAudioClip);
+
+        StartCoroutine(DelayDestroy(ImpactAudioClip.length));
     }
     
-    IEnumerator DelayDestroy()
+    IEnumerator DelayDestroy(float time)
     {
-        yield return new WaitForSeconds(Lifetime);
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
+    }
+
+    void PlaySfxClip(AudioClip clip)
+    {
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        audioSource.PlayOneShot(clip, CastAudioPitch * sfxVolume);
     }
 }

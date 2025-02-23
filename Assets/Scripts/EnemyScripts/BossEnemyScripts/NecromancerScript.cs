@@ -99,6 +99,10 @@ public class NecromancerScript : EnemyAI
       
         if (randomSpell > 70)
         {
+            if (!playSounds[(int)PlayNumber.Spellcast])
+            {
+                StartCoroutine(PlaySound(spellSounds, spellVolume, PlayNumber.Spellcast));
+            }
           GameObject spell =  Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
           
         }
@@ -120,6 +124,11 @@ private void AttackSpell(GameObject spell)
 {
     float distance = Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition());
    // spell.transform.localScale = new Vector3(1f, 1f, distance);
+   if (!playSounds[(int)PlayNumber.Spellcast])
+   {
+       
+       StartCoroutine(PlaySound(spellSounds ,spellVolume, PlayNumber.Spellcast, true));
+   }
    Instantiate(spell, spellCastPosition.position, spellCastPosition.rotation);
  
 }

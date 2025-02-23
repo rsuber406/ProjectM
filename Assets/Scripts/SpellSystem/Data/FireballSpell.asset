@@ -14,14 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Fireball
   description: 
-  failedActivationMessage: 
+  AbilityAnimationTriggerName: FireballAbility
   icon: {fileID: 21300000, guid: ae5d341a866c92f4c92ceb7b36cd96b5, type: 3}
   cooldown: 2
   cost: 8
   ProjectilePrefab: {fileID: 5109770639775916724, guid: ba612037a14c48d44b5f7a6677f59db1, type: 3}
-  damageAmount: 50
-  SpawnOffset: {x: 0.1, y: 1.5, z: 0.5}
-  SpawnOffsetCombat: {x: 0.5, y: 1.5, z: 0.5}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
+  damageAmount: 8
+  SpawnOffset: {x: 0, y: 0, z: 0}
+  SpawnOffsetCombat: {x: 1, y: 0, z: 1}
+  spawnDelay: 0.75

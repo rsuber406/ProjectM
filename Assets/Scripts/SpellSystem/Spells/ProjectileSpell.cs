@@ -9,7 +9,7 @@ public class ProjectileSpell : SpellBase
     public int damageAmount;
     public Vector3 SpawnOffset;
     public Vector3 SpawnOffsetCombat;
-    public LayerMask layerMask;
+    public float spawnDelay;
     public override bool CanActivate()
     {
         return spellSystem.HasEnoughMana(cost);
@@ -25,28 +25,37 @@ public class ProjectileSpell : SpellBase
     {
         Debug.Log($"Casting {displayName}");
         GameObject player = GameManager.GetInstance().GetPlayer();
+        PlayerAnimation playerAnimRef = player.GetComponent<PlayerAnimation>();
+        PlayerController playerControllerRef = player.GetComponent<PlayerController>();
+
+        playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
+        
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
         Vector3 direction = cameraTransform.forward.normalized;
 
         if (ProjectilePrefab)
         {
 
-            Vector3 spawnPosition = player.transform.GetChild(0).position;
+            Vector3 selectedOffset;
 
-            if (player.GetComponent<PlayerController>().inCombat)
+            if (playerControllerRef.inCombat)
             {
-                spawnPosition += SpawnOffsetCombat;
+                selectedOffset = SpawnOffsetCombat;
             }
             else
             {
-                spawnPosition += SpawnOffset;
+                selectedOffset = SpawnOffset;
                 player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             }
+            yield return new WaitForSeconds(spawnDelay);
+            
+            cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
+            Vector3 spawnPosition = playerControllerRef.HandSocket.position + selectedOffset;
             
             GameObject projectile = Instantiate(ProjectilePrefab, spawnPosition, Quaternion.LookRotation(cameraTransform.forward));
 
             ProjectileBase projectileRef = projectile.GetComponent<ProjectileBase>();
-            projectileRef.Init(direction, damageAmount);
+            projectileRef.Init(direction, damageAmount, DamageSourceType.Player);
         }
 
         // Cast time , for some reason this is needed before we can call end

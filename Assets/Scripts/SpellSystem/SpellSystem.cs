@@ -9,23 +9,37 @@ public class SpellSystem : MonoBehaviour
     
     [SerializeField] private SpellSlotMap spellSlotMapping;
 
+    [SerializeField] private float spellCastDelayAfterResume;
+
+    private float resumeCooldownEndTime = 0f;
     public Dictionary<string, RuntimeSpell> BoundSpells => boundSpells;
     private Dictionary<string, RuntimeSpell> boundSpells = new Dictionary<string, RuntimeSpell>();
     private HashSet<SpellBase> grantedSpells = new HashSet<SpellBase>();
     
     private AttributesController attributesController;
-    private MasterSpellsList masterSpellsList;
-    
     public event Action OnInsufficientMana;
     public event Action OnSpellSystemBusy;
     public event Action OnSpellOnCoolDown;
 
     
-    void Awake()
+    void Start()
     {
-        //masterSpellsList = GameManager.GetInstance().MasterSpellsList;
         attributesController = GetComponent<AttributesController>();
         InitializeSpells();
+        
+        GameManager.GetInstance().OnGameResumed += HandleGameResumed;
+        GameManager.GetInstance().OnGamePaused += HandleGamePaused;
+    }
+    
+    void HandleGamePaused()
+    {
+        state = SpellSystemState.Offline;
+    }
+    
+    void HandleGameResumed()
+    {
+        state = SpellSystemState.Ready;
+        resumeCooldownEndTime = Time.time + spellCastDelayAfterResume;
     }
 
     void GrantSpells(SpellBase spell)
@@ -41,6 +55,8 @@ public class SpellSystem : MonoBehaviour
 
     void Update()
     {
+        if (state != SpellSystemState.Ready || Time.time < resumeCooldownEndTime) return;
+        
         CheckForInput();
     }
 
@@ -77,6 +93,13 @@ public class SpellSystem : MonoBehaviour
             
             if (Input.GetButtonUp(pair.Key))
             {
+                // Dont cast spells if not in dungeon...
+                // I can cast blink while in the hub and glitch through the level
+                if (GameManager.GetInstance().GetGameMode() != GameMode.Dungeon)
+                {
+                    OnSpellSystemBusy?.Invoke();
+                    return;
+                }
                 // When input is detected and a spell was previously activated then exit
                 if (state == SpellSystemState.Activated)
                 {

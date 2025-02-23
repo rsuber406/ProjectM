@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerStateController : MonoBehaviour
 {
     [SerializeField] PlayerController player;
@@ -43,7 +44,7 @@ public class PlayerStateController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

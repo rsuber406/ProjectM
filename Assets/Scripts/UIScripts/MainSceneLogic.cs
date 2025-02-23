@@ -16,8 +16,15 @@ public class MainSceneLogic : MonoBehaviour
 
     [Header("---Main Menu Objects---")] [SerializeField]
     private GameObject loadScreen;
+    [SerializeField] public GameObject MMCamera;
 
-    [SerializeField] private GameObject MenuActivatebles;
+    [SerializeField] private GameObject MenuActivateables;
+    [SerializeField] private GameObject PauseMenuActivateables;
+    [SerializeField] private GameObject SettingsActivateables;
+    [SerializeField] private GameObject CreditsActivateables;
+
+    [SerializeField] private GameObject returnBtn;
+    [SerializeField] private GameObject backBtn;
 
     [Header("---World 1 Levels---")] [SerializeField]
     private string _Hub = "Hub";
@@ -32,38 +39,25 @@ public class MainSceneLogic : MonoBehaviour
     public string currLvl;
     public GameObject _Hublvl;
     public int mapnum = 0;
-
+    bool tutorialComplete = false;
     private void Start()
     {
         MSInstance = this;
-        loadScreen.SetActive(false);
-
-        // Only process main menu things when the game mode is overridden
-        if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
-        {
-            return;
-        }
-
-        GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
-        Time.timeScale = 0;
-        GameManager.GetInstance().ToggleCursorVisibility();
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
 
-        //Lock Cursor so the player can make a selection
-        //Load Hub and move it for use later
-        for (int i = 0; i < PlayerActivateables.Length; i++)
-        {
-            PlayerActivateables[i].SetActive(false);
-        }
+
+        returnToMenu();
     }
 
     public void PlayGame()
     {
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
         HideMenu();
+        MMCamera.SetActive(false);
 
         Time.timeScale = 1;
         GameManager.GetInstance().ToggleCursorVisibility();
-        bool tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
+        tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
         if (tutorialComplete)
         {
             
@@ -83,10 +77,10 @@ public class MainSceneLogic : MonoBehaviour
             PlayerActivateables[i].SetActive(true);
         }
     }
-
+    
     public void HideMenu()
     {
-        MenuActivatebles.SetActive(false);
+        MenuActivateables.SetActive(false);
     }
 
     public void loadLevel()
@@ -135,8 +129,52 @@ public class MainSceneLogic : MonoBehaviour
         mapnum = 0;
     }
 
+    public void CreditsScreen()
+    {
+        HideMenu();
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        CreditsActivateables.SetActive(true);
+    }
+    public void SettingsScreen()
+    {
+        HideMenu();
+        GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        SettingsActivateables.SetActive(true);
+        returnBtn.SetActive(true);
+        backBtn.SetActive(false);
+    }
+   
+    public void returnToMenu()
+    {
+        mapnum = 0;
+        PauseMenuActivateables.SetActive(false);
+        SettingsActivateables.SetActive(false);
+        CreditsActivateables.SetActive(false);
+        loadScreen.SetActive(false);
+        MMCamera.SetActive(true);
+
+        // Only process main menu things when the game mode is overridden
+        if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
+        {
+        //    return;
+        }
+
+        GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
+        Time.timeScale = 0;
+        GameManager.GetInstance().ToggleCursorVisibility();
+
+        //Lock Cursor so the player can make a selection
+        //Load Hub and move it for use later
+        for (int i = 0; i < PlayerActivateables.Length; i++)
+        {
+            PlayerActivateables[i].SetActive(false);
+        }
+        MenuActivateables.SetActive(true);
+    }
     public void Quitgame()
     {
+        GameManager.GetInstance().GetSoundManager().MenuClick(1);
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
