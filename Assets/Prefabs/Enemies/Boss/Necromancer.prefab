@@ -17387,11 +17387,11 @@ MonoBehaviour:
   range: 50
   projectiles: []
   isMelee: 0
-  rotationSpeed: 15
+  rotationSpeed: 25
   canRoam: 0
   roamDistance: 5
   agent: {fileID: 5273622685367120409}
-  FOV: 80
+  FOV: 90
   headPos: {fileID: 989808079313734662}
   audioSource: {fileID: 153528334194520120}
   footsteps:
@@ -17404,7 +17404,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   meleeSounds: []
   footstepVolume: 0.3
-  spellVolume: 0.5
+  spellVolume: 0.7
   meleeAttack: 0
   animationController: {fileID: 5594106034062666169}
   animationChangeRate: 1
