@@ -174,6 +174,7 @@ public class MainSceneLogic : MonoBehaviour
     public void Quitgame()
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().SavePlayerData();
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
