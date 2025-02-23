@@ -3338,9 +3338,11 @@ MonoBehaviour:
   headPos: {fileID: 7540374062933393832}
   audioSource: {fileID: -1784722584443119527}
   footsteps:
-  - {fileID: 8300000, guid: 1c308f121249ec547b07d6680156b4e8, type: 3}
-  - {fileID: 8300000, guid: b4f5f8837948be54592f79ddd193855d, type: 3}
-  - {fileID: 8300000, guid: 85dcb37fe57832542bd8f5fa74ff3fba, type: 3}
+  - {fileID: 8300000, guid: a03a96c5d1e99b4409ddd79098abd9ab, type: 3}
+  - {fileID: 8300000, guid: 7187dc81f98b8be4eb97bfc4dd9a5abf, type: 3}
+  - {fileID: 8300000, guid: e3cfcb32689b274419ac73380ea96888, type: 3}
+  - {fileID: 8300000, guid: 314d37dfb74502a4094b835d0e0d6c23, type: 3}
+  - {fileID: 8300000, guid: f0f794c67e9233d468a38d165590d253, type: 3}
   spellSounds: []
   meleeSounds: []
   footstepVolume: 0.3

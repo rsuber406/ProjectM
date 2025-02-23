@@ -17395,9 +17395,11 @@ MonoBehaviour:
   headPos: {fileID: 989808079313734662}
   audioSource: {fileID: 153528334194520120}
   footsteps:
-  - {fileID: 8300000, guid: 1c308f121249ec547b07d6680156b4e8, type: 3}
-  - {fileID: 8300000, guid: b4f5f8837948be54592f79ddd193855d, type: 3}
-  - {fileID: 8300000, guid: 85dcb37fe57832542bd8f5fa74ff3fba, type: 3}
+  - {fileID: 8300000, guid: 1f0199a4c6005ec4abbb302f71bc036d, type: 3}
+  - {fileID: 8300000, guid: 53e2adf2ac488ef46bb2b4074de9e363, type: 3}
+  - {fileID: 8300000, guid: a03a96c5d1e99b4409ddd79098abd9ab, type: 3}
+  - {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
+  - {fileID: 8300000, guid: 0bc66974c41ff8c4fa15f46d21ad3548, type: 3}
   spellSounds:
   - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
   - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}

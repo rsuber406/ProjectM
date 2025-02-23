@@ -157,9 +157,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         health -= amount;
         StartCoroutine(FlashDamage());
+            agent.SetDestination(playerPos);
         if (type == DamageSourceType.Player)
         {
-            agent.SetDestination(playerPos);
         }
         
         if (health <= 0)
