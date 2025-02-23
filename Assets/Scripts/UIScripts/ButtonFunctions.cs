@@ -12,40 +12,40 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Resume()
     {
-        GameManager.GetInstance().ResumeGame();
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().ResumeGame();
     }
 
     public void Settings()
     {
-        GameManager.GetInstance().SettingsMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().SettingsMenu();
     }
     public void Back()
     {
-        GameManager.GetInstance().PauseMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().PauseMenu();
     }
 
     public void TabAudio()
     {
         tabPressed = true;
-        GameManager.GetInstance().GetAudioTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetAudioTab();
     }
 
     public void TabControls()
     {
         tabPressed = true;
-        GameManager.GetInstance().GetControlsTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetControlsTab();
     }
 
     public void TabGraphics()
     {
         tabPressed = true;
-        GameManager.GetInstance().GetGraphicsTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetGraphicsTab();
     }
 
     public void VolumeMaster()
