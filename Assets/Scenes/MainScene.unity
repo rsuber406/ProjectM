@@ -236,6 +236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &761102673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3553631752564776869, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+  m_PrefabInstance: {fileID: 2113860888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2317e58008cae13408b0d7f968c9c7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &951674949 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1032161289519637973, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
@@ -378,6 +389,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -130.6
       objectReference: {fileID: 0}
+    - target: {fileID: 533255366483971436, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 761102673}
     - target: {fileID: 574052677956551155, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -902,6 +917,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -291.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8197584078155309855, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: contextMenu
+      value: 
+      objectReference: {fileID: 2417468276136194105, guid: 2928c8b84fad9f0649d2d7dec64fd704, type: 3}
     - target: {fileID: 8484086505065435152, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: manaRegenRate
       value: 10

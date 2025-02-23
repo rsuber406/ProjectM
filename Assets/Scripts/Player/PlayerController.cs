@@ -361,6 +361,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         Inventory inventory = this.GetComponentInChildren<Inventory>();
         for (int i = 0; i < items.Count; i++)
         { 
+            if(items[i] != null)
             inventory.AddItem(items[i], i);
         }
     }
