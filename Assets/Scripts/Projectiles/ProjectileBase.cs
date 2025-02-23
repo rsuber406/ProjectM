@@ -26,12 +26,13 @@ public class ProjectileBase : MonoBehaviour
         if (Physics.Raycast(cameraDirection.transform.position, cameraDirection.forward, out hit))
         {
                 Camera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-                Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, camera.nearClipPlane);
+                Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, hit.point.magnitude);
                 Vector3 offsetToCenter = Camera.main.ScreenToWorldPoint(screenCenter);
-                Vector3 direction = (hit.point - offsetToCenter).normalized;
-                Quaternion rotation = Quaternion.LookRotation(direction);
+                Vector3 adjustedDirection = (offsetToCenter - this.transform.position);
+                Vector3 direction = (adjustedDirection).normalized;
+               // Quaternion rotation = Quaternion.LookRotation(direction);
                 
-                this.transform.rotation = rotation;
+                //this.transform.rotation = rotation;
                 Rigidbody rb = gameObject.GetComponent<Rigidbody>();
                 rb.linearVelocity = direction * ForceToApply;
                 rb.isKinematic = false;
