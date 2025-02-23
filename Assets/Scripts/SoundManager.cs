@@ -5,16 +5,16 @@ using TMPro;
 using System.Collections.Generic;
 using System.Collections;
 using NUnit.Framework.Constraints;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoBehaviour
 {
     public PlayerController player;
     private GameMode mode;
 
-    // this is the audio source order related to the components in GameManager
-    public AudioSource audSFX;
-    public AudioSource audMusic;
-    public AudioSource audAmbience;
+    public AudioSource audSFX;      // 1st audio source
+    public AudioSource audMusic;    // 2nd audio source
+    public AudioSource audAmbience; // 3rd audio source
 
     public Slider masterSlider;
     public Slider SFXSlider;
@@ -27,10 +27,9 @@ public class SoundManager : MonoBehaviour
     public TMP_Text musicVolumeText;
 
     public float masterVol;
-    public float SFXVol;
+    public float sfxVol;
     public float ambienceVol;
-    public float musicVol;
-
+    public float musicVol; 
 
     [Header ("----- Player Sounds -----")]
     [SerializeField] AudioClip[] playerFootsteps;
@@ -54,7 +53,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip dungeonMusic;
     [SerializeField] AudioClip bossMusic;
 
-
+    private bool paused;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,7 +65,7 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateVolumes();
+        UpdateAudioSources();
 
         if (!GameManager.GetInstance().enableDebug)
         {
@@ -80,64 +79,79 @@ public class SoundManager : MonoBehaviour
                 else
                 {
                     if (audMusic.isPlaying)
+                    { 
                         audMusic.Pause();
+                        paused = true;
+                    }
                 }
             }
             else
             {
-                if (!audMusic.isPlaying)
+                if (!paused)
                     GetGameModeMusic();
-             
+                
                 else
+                {
                     audMusic.UnPause();
+                    paused = false;
+                }
             }
             
             PlayAmbience();
         }
-
     }
+
     private void ResetVolume()
     {
         SFXSlider.value = ambienceSlider.value = musicSlider.value = masterSlider.value = 1f;
-        audSFX.volume = audAmbience.volume = audMusic.volume = 0.5f;
+        audSFX.volume = audMusic.volume = 0.5f;
+        audAmbience.volume = 0.75f;
         masterVolumeText.text = SFXVolumeText.text = ambienceVolumeText.text = musicVolumeText.text = (100f).ToString("F0");
+    }
+
+    public void UpdateAudioSources()
+    {
+        audSFX.volume = sfxVol;
+        audAmbience.volume = ambienceVol;
+        audMusic.volume = musicVol;
     }
 
     public void UpdateVolumes()
     {
-        SFXVol = masterVol * audSFX.volume;
-        musicVol = masterVol * audMusic.volume;
-        ambienceVol = masterVol * audAmbience.volume;
+        sfxVol = (SFXSlider.value / 2f) * masterVol;
+        ambienceVol = (ambienceSlider.value / 1.33f) * masterVol;
+        musicVol = (musicSlider.value / 2f) * masterVol;
     }
 
     public void GetMasterVolume()
     {
         masterVol = masterSlider.value;
         masterVolumeText.text = (masterSlider.value * 100f).ToString("F0");
+        UpdateVolumes();
     }
 
     public void GetSFXVolume()
     {
-        audSFX.volume = SFXSlider.value / 2f;
+        sfxVol = (SFXSlider.value / 2f) * masterVol;
         SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
     public void GetAmbienceVolume()
     {
-        audAmbience.volume = ambienceSlider.value / 1.5f;
+        ambienceVol = (ambienceSlider.value / 1.33f) * masterVol;
         ambienceVolumeText.text = (ambienceSlider.value * 100f).ToString("F0");
     }
 
     public void GetMusicVolume()
     {
-        audMusic.volume = musicSlider.value / 2f;
+        musicVol = (musicSlider.value / 2f) * masterVol;
         musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
     }
 
     public IEnumerator PlayerSteps()
     {
         isPlayingSteps = true;
-        audSFX.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], SFXVol);
+        audSFX.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], audSFX.volume);
         
         if (!player.inCombat)
             yield return new WaitForSeconds(0.4f);
@@ -149,40 +163,40 @@ public class SoundManager : MonoBehaviour
 
     public void PlayerHurt()
     {
-        audSFX.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerHurtSounds[Random.Range(0, playerHurtSounds.Length)], audSFX.volume);
     }
 
     public void PlayerDeath()
     {
-        audSFX.PlayOneShot(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)], audSFX.volume);
     }
 
     public void PlayerDodge()
     {
-        audSFX.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], SFXVol);
+        audSFX.PlayOneShot(playerDodgeSounds[Random.Range(0, playerDodgeSounds.Length)], audSFX.volume);
     }
 
     public void LossJingle()
     {
         audMusic.Stop();
-        audMusic.PlayOneShot(lose, musicVol);
+        audMusic.PlayOneShot(lose, audMusic.volume);
     }
 
     public void Pickup()
     {
-        audSFX.PlayOneShot(pickup, SFXVol);
+        audSFX.PlayOneShot(pickup, audSFX.volume);
     }
 
     public void MenuClick(int index)
     {
         // 0 is regualr select, 1 is backwards select, 2 is hover noise
-        audSFX.PlayOneShot(menuSelect[index], SFXVol);
+        audSFX.PlayOneShot(menuSelect[index], audSFX.volume);
     }
 
     public void Ambience()
     {
         if (!audAmbience.isPlaying)
-            audAmbience.PlayOneShot(ambience, ambienceVol);
+            audAmbience.PlayOneShot(ambience, audAmbience.volume);
     }
 
     public void PlayAmbience()
@@ -237,27 +251,27 @@ public class SoundManager : MonoBehaviour
     public void TitleMusic()
     {
         if (!audMusic.isPlaying)
-            audMusic.PlayOneShot(titleMusic, musicVol);
+            audMusic.PlayOneShot(titleMusic, audMusic.volume);
     }
     public void TutorialMusic()
     {
         if (!audMusic.isPlaying)
-            audMusic.PlayOneShot(tutorialMusic, musicVol);
+            audMusic.PlayOneShot(tutorialMusic, audMusic.volume);
     }
     public void HubMusic()
     {
         if (!audMusic.isPlaying)
-            audMusic.PlayOneShot(hubMusic, musicVol);
+            audMusic.PlayOneShot(hubMusic, audMusic.volume);
     }
     public void DungeonMusic()
     {
         if (!audMusic.isPlaying)
-            audMusic.PlayOneShot(dungeonMusic, musicVol);
+            audMusic.PlayOneShot(dungeonMusic, audMusic.volume);
     }
     public void BossMusic()
     {
         if (!audMusic.isPlaying)
-            audMusic.PlayOneShot(bossMusic, musicVol);
+            audMusic.PlayOneShot(bossMusic, audMusic.volume);
     }
 
 }

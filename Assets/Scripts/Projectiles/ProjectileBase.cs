@@ -60,7 +60,7 @@ public class ProjectileBase : MonoBehaviour
 
     void PlaySfxClip(AudioClip clip)
     {
-        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().audSFX.volume;
         audioSource.PlayOneShot(clip, CastAudioPitch * sfxVolume);
     }
 }
