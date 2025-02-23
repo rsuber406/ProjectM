@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void AudioTab()
+    public void GetAudioTab()
     {
         if (tabActive == null)
         {
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ControlsTab()
+    public void GetControlsTab()
     {
         if (tabActive == null)
         {
@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void GraphicsTab()
+    public void GetGraphicsTab()
     {
         if (tabActive == null)
         {

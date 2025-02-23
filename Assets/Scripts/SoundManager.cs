@@ -55,9 +55,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip bossMusic;
 
 
-    public float num;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,9 +66,7 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SFXVol = masterVol * SFXSlider.value;
-        ambienceVol = masterVol * ambienceSlider.value;
-        musicVol = masterVol * musicSlider.value;
+        UpdateVolumes();
 
         if (!GameManager.GetInstance().enableDebug)
         {
@@ -79,10 +74,20 @@ public class SoundManager : MonoBehaviour
             PlayAmbience();
         }
 
-        num = audMusic.time;
-
+    }
+    private void ResetVolume()
+    {
+        SFXSlider.value = ambienceSlider.value = musicSlider.value = masterSlider.value = 1f;
+        audSFX.volume = audAmbience.volume = audMusic.volume = 0.5f;
+        masterVolumeText.text = SFXVolumeText.text = ambienceVolumeText.text = musicVolumeText.text = (100f).ToString("F0");
     }
 
+    public void UpdateVolumes()
+    {
+        SFXVol = masterVol * audSFX.volume;
+        musicVol = masterVol * audMusic.volume;
+        ambienceVol = masterVol * audAmbience.volume;
+    }
 
     public void GetMasterVolume()
     {
@@ -90,31 +95,22 @@ public class SoundManager : MonoBehaviour
         masterVolumeText.text = (masterSlider.value * 100f).ToString("F0");
     }
 
-
     public void GetSFXVolume()
     {
-        SFXVol = masterVol * SFXSlider.value;
+        audSFX.volume = SFXSlider.value / 2;
         SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
     public void GetAmbienceVolume()
     {
-        ambienceVol = masterVol * ambienceSlider.value;
+        audAmbience.volume = ambienceSlider.value / 2;
         ambienceVolumeText.text = (ambienceSlider.value * 100f).ToString("F0");
     }
 
     public void GetMusicVolume()
     {
-        musicVol = masterVol * musicSlider.value;
+        audMusic.volume = musicSlider.value / 2;
         musicVolumeText.text = (musicSlider.value * 100f).ToString("F0");
-    }
-
-    private void ResetVolume()
-    {
-        masterSlider.value = 1f;
-        SFXSlider.value = ambienceSlider.value = musicSlider.value = masterSlider.value;
-        masterVol = SFXVol = ambienceVol = musicVol = masterSlider.value;
-        masterVolumeText.text = SFXVolumeText.text = ambienceVolumeText.text = musicVolumeText.text = (100f).ToString("F0");
     }
 
     public IEnumerator PlayerSteps()

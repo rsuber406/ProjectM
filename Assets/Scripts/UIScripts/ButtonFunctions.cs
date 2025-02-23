@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
     [SerializeField] GameObject hoverImage;
+
+    public bool tabPressed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Resume()
@@ -26,19 +29,22 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void TabAudio()
     {
-        GameManager.GetInstance().AudioTab();
+        tabPressed = true;
+        GameManager.GetInstance().GetAudioTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
     }
 
     public void TabControls()
     {
-        GameManager.GetInstance().ControlsTab();
+        tabPressed = true;
+        GameManager.GetInstance().GetControlsTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
     }
 
     public void TabGraphics()
     {
-        GameManager.GetInstance().GraphicsTab();
+        tabPressed = true;
+        GameManager.GetInstance().GetGraphicsTab();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
     }
 
@@ -80,17 +86,21 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        tabPressed = false;
         hoverImage.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //hoverImage.SetActive(false);
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        
+        if (tabPressed)
+            return;
+
+        hoverImage.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

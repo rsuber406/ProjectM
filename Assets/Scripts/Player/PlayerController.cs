@@ -105,8 +105,11 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
 
+        
+
         HP = attributes.health.currentValue;
         mana = attributes.mana.currentValue;
+
 
         isOnSlope = OnSlope();
 
@@ -124,6 +127,9 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     void FixedUpdate()
     {
+        /*Debug.DrawRay(transform.position, transform.right * 10, Color.green);
+        transform.rotation = orientation.rotation;*/
+
         IsGrounded();
         Movement();
 
