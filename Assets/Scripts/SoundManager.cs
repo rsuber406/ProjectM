@@ -62,7 +62,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         ResetVolume();
-        
+        player = GameManager.GetInstance().GetPlayer().GetComponent<PlayerController>();
         mode = GameManager.GetInstance().GetGameMode();
     }
 

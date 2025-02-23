@@ -7,6 +7,8 @@ public class BlinkSpell : SpellBase
     [Header("Spell Properties")]
     public float Distance;
 
+    public AudioClip CastAudioClip;
+    [Range(0,1)] public float CastAudioPitch;
     public GameObject ParticleEffects;
     private GameObject effect;
 
@@ -27,6 +29,8 @@ public class BlinkSpell : SpellBase
 
         GameObject player = GameManager.GetInstance().GetPlayer();
         Rigidbody playerRigidBody = player.GetComponent<Rigidbody>();
+        AudioSource playerAudioSource = player.GetComponent<AudioSource>();
+
 
         // Blink in the cameras forward direction by default
         Transform cameraTransform = GameManager.GetInstance().GetPlayerCamera().transform;
@@ -37,6 +41,9 @@ public class BlinkSpell : SpellBase
         
         playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
         player.transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
         
         if (ParticleEffects)
         {

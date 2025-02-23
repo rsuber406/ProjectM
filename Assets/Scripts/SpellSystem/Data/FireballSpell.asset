@@ -20,6 +20,6 @@ MonoBehaviour:
   cost: 8
   ProjectilePrefab: {fileID: 5109770639775916724, guid: ba612037a14c48d44b5f7a6677f59db1, type: 3}
   damageAmount: 8
-  SpawnOffset: {x: 0.1, y: 1.5, z: 0.5}
-  SpawnOffsetCombat: {x: 0.5, y: 1.5, z: 0.5}
-  spawnDelay: 1
+  SpawnOffset: {x: 0, y: 0, z: 0}
+  SpawnOffsetCombat: {x: 1, y: 0, z: 1}
+  spawnDelay: 0.75

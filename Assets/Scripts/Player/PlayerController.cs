@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     [Header("----- Components -----")]
     [SerializeField] LayerMask ground;
     [SerializeField] Transform orientation;
+    public Transform HandSocket;
 
     [Header("----- Speeds -----")]
     [SerializeField][Range(4, 10)] public int joggingSpeed;
@@ -100,7 +101,6 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     // Update is called once per frame
     void Update()
     {
-        // for debugging
         x = rb.linearVelocity.x;
         z = rb.linearVelocity.z;
         y = rb.linearVelocity.y;
@@ -361,6 +361,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         Inventory inventory = this.GetComponentInChildren<Inventory>();
         for (int i = 0; i < items.Count; i++)
         { 
+            if(items[i] != null)
             inventory.AddItem(items[i], i);
         }
     }

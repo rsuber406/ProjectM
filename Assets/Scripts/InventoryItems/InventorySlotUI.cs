@@ -1,10 +1,11 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler,
-    IDropHandler
+    IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public int slotIndex;
     private InventoryUI inventoryUI;
@@ -13,10 +14,21 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
     private Vector2 originalPos;
     private Image itemImage;
     private bool isDraggingItem = false;
-    [NonSerialized] 
     public Inventory inventory;
+
+
+    [SerializeField] private GameObject itemStatsMenu;
+    public TMP_Text itemName;
+    public TMP_Text itemArmor;
+    public TMP_Text itemMana;
+    public TMP_Text itemHealth;
+    public TMP_Text itemDescription;
+
+    [NonSerialized] private GameObject currentHoveredItem;
+   
     Item unequippedItemParent;
     private EquipmentManager equipmentManager;
+
 
     private void Awake()
     {
@@ -67,6 +79,56 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         }
     }
 
+    private ItemData GetItemDataFromSlot()
+    {
+        return inventory.slots[slotIndex].item?.data;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ItemData itemData = GetItemDataFromSlot();
+
+        if (itemData != null)
+        {
+            ShowItemStats(itemData, eventData);
+        }
+    }
+
+    private void ShowItemStats(ItemData itemData, PointerEventData eventData)
+    {
+        if (itemData != null)
+        {
+            itemName.text = itemData.itemName;
+            itemArmor.text = itemData.armor.ToString();
+            itemHealth.text = itemData.healthModifier.ToString();
+            itemMana.text = itemData.manaModifier.ToString();
+            itemDescription.text = itemData.description;
+            currentHoveredItem = Instantiate(itemStatsMenu, transform);
+
+            Canvas menuCanvas = currentHoveredItem.GetComponent<Canvas>();
+            menuCanvas.overrideSorting = true;
+            menuCanvas.sortingOrder = 450;
+
+            RectTransform rectTransform = currentHoveredItem.GetComponent<RectTransform>();
+            rectTransform.position = eventData.position + new Vector2(150, -150);
+        }
+    }
+
+    private void HideItemStats()
+    {
+        if (currentHoveredItem != null)
+        {
+            currentHoveredItem.SetActive(false);
+            Destroy(currentHoveredItem);
+        }
+    }
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideItemStats();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!IsBagSlot() && !isDraggingItem)
@@ -100,11 +162,25 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         {
             return;
         }
-        
+
         InventorySlotUI fromSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
         if (fromSlot != null && fromSlot != this)
         {
-            inventoryUI.SwapItems(fromSlot.slotIndex, slotIndex);
+            if (fromSlot.inventory != this.inventory)
+            {
+                Item itemToTransfer = fromSlot.inventory.slots[fromSlot.slotIndex].item;
+                if (itemToTransfer != null)
+                {
+                    if (this.inventory.AddItem(itemToTransfer, this.slotIndex))
+                    {
+                        fromSlot.inventory.RemoveItem(itemToTransfer.itemName, fromSlot.slotIndex);
+                    }
+                }
+            }
+            else
+            {
+                inventoryUI.SwapItems(fromSlot.slotIndex, this.slotIndex);
+            }
             return;
         }
 
@@ -116,12 +192,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
             if (unequippedItemData != null)
             {
-                GameObject itemObject = new GameObject(unequippedItemData.itemName); 
+                GameObject itemObject = new GameObject(unequippedItemData.itemName);
                 Item newItem = itemObject.AddComponent<Item>();
                 newItem.itemData = unequippedItemData;
                 newItem.itemName = unequippedItemData.itemName;
-                
-            
+
                 if (unequippedItemData.itemType == ItemType.Armor)
                 {
                     unequippedItemData = equipmentManager.UnequipArmor(fromEquipmentSlot.armorType, unequippedItemData);
@@ -130,13 +205,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
                 {
                     unequippedItemData = equipmentManager.UnequipWeapon();
                 }
-            
+
                 if (unequippedItemData != null)
                 {
-                    
                     inventory.AddItem(newItem, this.slotIndex);
-                    
-                    
                 }
                 else
                 {
@@ -144,6 +216,5 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
                 }
             }
         }
-
     }
 }

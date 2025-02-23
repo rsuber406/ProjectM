@@ -8,7 +8,9 @@ public class ShieldSpell : SpellBase
     public float Duration;
     public GameObject ShieldPrefab;
     public float spawnDelay;
-
+    public AudioClip CastAudioClip;
+    [Range(0,1)] public float CastAudioPitch;
+    
     private GameObject shieldObj;
     private AttributesController playerAttributesRef;
 
@@ -30,7 +32,11 @@ public class ShieldSpell : SpellBase
 
         playerAttributesRef = player.GetComponent<AttributesController>();
         PlayerAnimation playerAnimRef = player.GetComponent<PlayerAnimation>();
+        AudioSource playerAudioSource = player.GetComponent<AudioSource>();
+
         playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
         
         yield return new WaitForSeconds(spawnDelay);
         if (ShieldPrefab)

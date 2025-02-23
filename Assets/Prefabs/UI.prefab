@@ -5453,6 +5453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadScreen: {fileID: 9090705654975436562}
+  MMCamera: {fileID: 8292118581882178741}
   MenuActivateables: {fileID: 199305662377188588}
   PauseMenuActivateables: {fileID: 8077058009677809909}
   SettingsActivateables: {fileID: 8137035459971225560}
@@ -15946,7 +15947,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
