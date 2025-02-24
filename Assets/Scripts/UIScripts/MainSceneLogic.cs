@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
@@ -136,6 +137,8 @@ public class MainSceneLogic : MonoBehaviour
         HideMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         CreditsActivateables.SetActive(true);
+        //Start Scroll of Text
+
     }
 
     public void SettingsScreen()
