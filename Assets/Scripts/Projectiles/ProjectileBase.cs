@@ -7,42 +7,33 @@ public class ProjectileBase : MonoBehaviour
     public float Lifetime;
     public float ForceToApply;
     public int damage;
-    
-   // private ConstantForce constantForceRef;
+
+    // private ConstantForce constantForceRef;
     private Coroutine coroutineRef;
     public DamageSourceType damageSource;
     private AudioSource audioSource;
-    
+
     public AudioClip CastAudioClip;
     public AudioClip ImpactAudioClip;
-    [Range(0,1)] public float CastAudioPitch;
+    [Range(0, 1)] public float CastAudioPitch;
 
     private bool hasImpact;
 
     private void Start()
     {
         RaycastHit hit;
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         Transform cameraDirection = GameManager.GetInstance().GetPlayerCamera().transform;
-        if (Physics.Raycast(cameraDirection.transform.position, cameraDirection.forward, out hit))
-        {
-                Camera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-                Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, hit.point.magnitude);
-                Vector3 offsetToCenter = Camera.main.ScreenToWorldPoint(screenCenter);
-                Vector3 adjustedDirection = (offsetToCenter - this.transform.position);
-                Vector3 direction = (adjustedDirection).normalized;
-               // Quaternion rotation = Quaternion.LookRotation(direction);
-                
-                //this.transform.rotation = rotation;
-                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-                rb.linearVelocity = direction * ForceToApply;
-                rb.isKinematic = false;
-                audioSource = gameObject.GetComponent<AudioSource>();
-                if (CastAudioClip) PlaySfxClip(CastAudioClip);
-                coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
-                
-            
-        }
+
+        Vector3 direction = this.transform.rotation * GameManager.GetInstance().GetPlayer().transform.forward;
+        rb.linearVelocity = this.transform.forward * ForceToApply;
+
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (CastAudioClip) PlaySfxClip(CastAudioClip);
+        coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
     }
+
     public void Init(Vector3 direction, int damageAmount, DamageSourceType source)
     {
         // damage = damageAmount;
@@ -70,13 +61,13 @@ public class ProjectileBase : MonoBehaviour
         {
             dmg.TakeDamage(damage, damageSource);
         }
-        
+
         StopCoroutine(coroutineRef);
-        if(ImpactAudioClip) PlaySfxClip(ImpactAudioClip);
+        if (ImpactAudioClip) PlaySfxClip(ImpactAudioClip);
 
         StartCoroutine(DelayDestroy(ImpactAudioClip.length));
     }
-    
+
     IEnumerator DelayDestroy(float time)
     {
         yield return new WaitForSeconds(time);

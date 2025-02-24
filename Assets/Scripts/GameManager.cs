@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Playing;
         ToggleCursorVisibility();
         OnGameResumed?.Invoke();
-
+        victoryMenu.SetActive(false);
     }
 
     public void StatePause()
