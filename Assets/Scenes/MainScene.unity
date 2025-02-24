@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177473168909196072, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6283179975719507243, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_IsActive
@@ -320,7 +320,8 @@ PrefabInstance:
         Glenn\nAs Composer of All Music\n\nAssets Used\n------------------\nBlink
         - blinkstudios.dev\r\nDecrepit Dungeon Lite - Prodigious Creations\r\nFree
         Quick Effects Vol.1 - Gabriel Anguiar Prod\r\nRPG Skeleton - IronicGame\r\nNecromancer
-        - Simple Game Assets\r\nNecromancer Low - Andryuha1981"
+        - Simple Game Assets\r\nNecromancer Low - Andryuha1981\nEffects - Magic Effects
+        FREE\r\nEffects - Hovl Studio"
       objectReference: {fileID: 0}
     - target: {fileID: 6524449951080509247, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
