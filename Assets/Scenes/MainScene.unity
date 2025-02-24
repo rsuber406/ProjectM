@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: returnToMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3466214019240040518, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
     - target: {fileID: 3520329859122340717, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -215,23 +219,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 5319c46518ca51245871a54f19badbea, type: 3}
+      objectReference: {fileID: 782732130}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
+      value: PlayScrollAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: ScrollTextTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4202594274651500831, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -299,11 +303,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177473168909196072, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6283179975719507243, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436524445227584114, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
+      propertyPath: m_text
+      value: "Gameplay \n------------------\nRyan Suber\nGareth Thomas\nLuis Nunez\n\nUI
+        Developers\n------------------\nDakota Cottman\nAdrian McDonald\nLuis Nunez\n\nUX
+        Design\n------------------\nDakota Cottman\nRyan Suber\nAdrian McDonald\n\nAnimation
+        Integration\n------------------\nGareth Thomas\nRyan Suber\n\nLevel Design\n------------------\nAdrian
+        McDonald\nRyan Suber\n\n\nQA Testing\n------------------\nDakota Cottman\nGareth
+        Thomas\nAdrian McDonald\nRyan Suber\nLuis Nunez\n\nSpecial Thanks To\n\nWilliam
+        Glenn\nAs Composer of All Music\n\nAssets Used\n------------------\nBlink
+        - blinkstudios.dev\r\nDecrepit Dungeon Lite - Prodigious Creations\r\nFree
+        Quick Effects Vol.1 - Gabriel Anguiar Prod\r\nRPG Skeleton - IronicGame\r\nNecromancer
+        - Simple Game Assets\r\nNecromancer Low - Andryuha1981"
       objectReference: {fileID: 0}
     - target: {fileID: 6524449951080509247, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -421,8 +438,6 @@ PrefabInstance:
     - {fileID: 8573039055100031657, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
     - {fileID: 1469107101432160454, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
     - {fileID: 9175419127619891727, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3269383738014668560, guid: 12d5c3775ad27de4f8927424fee72f0b, type: 3}
@@ -790,6 +805,14 @@ PrefabInstance:
     - target: {fileID: 2224949626756419648, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -291.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8480191
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719719732131448300, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.6921144
       objectReference: {fileID: 0}
     - target: {fileID: 3024324375206935472, guid: 491ae2bb515ae3f44961b8a45249e0b3, type: 3}
       propertyPath: m_AnchorMax.y

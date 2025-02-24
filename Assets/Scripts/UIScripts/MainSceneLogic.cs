@@ -127,7 +127,6 @@ public class MainSceneLogic : MonoBehaviour
 
         SceneManager.UnloadSceneAsync(currLvl);
 
-        
         currLvl = null;
         mapnum = 0;
     }
