@@ -1,45 +1,51 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
     [SerializeField] GameObject hoverImage;
 
+    public bool tabPressed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Resume()
     {
-        GameManager.GetInstance().ResumeGame();
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().ResumeGame();
     }
 
     public void Settings()
     {
-        GameManager.GetInstance().SettingsMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().SettingsMenu();
     }
     public void Back()
     {
-        GameManager.GetInstance().PauseMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
+        GameManager.GetInstance().PauseMenu();
     }
 
     public void TabAudio()
     {
-        GameManager.GetInstance().AudioTab();
+        tabPressed = true;
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetAudioTab();
     }
 
     public void TabControls()
     {
-        GameManager.GetInstance().ControlsTab();
+        tabPressed = true;
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetControlsTab();
     }
 
     public void TabGraphics()
     {
-        GameManager.GetInstance().GraphicsTab();
+        tabPressed = true;
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
+        GameManager.GetInstance().GetGraphicsTab();
     }
 
     public void VolumeMaster()
@@ -80,17 +86,21 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        tabPressed = false;
         hoverImage.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //hoverImage.SetActive(false);
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        
+        if (tabPressed)
+            return;
+
+        hoverImage.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

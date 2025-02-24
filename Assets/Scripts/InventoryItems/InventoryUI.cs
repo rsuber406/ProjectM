@@ -14,6 +14,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject contextMenuPrefab;
     private GameObject activeContextMenu;
     [SerializeField] public Inventory inventory;
+    private bool isPlayerInventory;
     
     private int currentSelectedSlotIndex = -1; 
     
@@ -23,6 +24,8 @@ public class InventoryUI : MonoBehaviour
         inventory.OnInventoryChanged += UpdateInventoryUI;
         inventoryPanel.SetActive(false);
         Cursor.visible = false;
+        
+        isPlayerInventory = CompareTag("Player");
         for (int i = 0; i < itemIconSlots.Length; i++)
         {
             InventorySlotUI slotUI = itemIconSlots[i].GetComponent<InventorySlotUI>();
@@ -62,7 +65,10 @@ public class InventoryUI : MonoBehaviour
     }
     void Update()
     {
-        ToggleInventory();
+        if (isPlayerInventory)
+        {
+            ToggleInventory();
+        }
     }
 
     public void ShowContextMenu(InventorySlotUI slot, Vector2 position)
@@ -114,7 +120,6 @@ public class InventoryUI : MonoBehaviour
     private void EquipItem(int slotIndex)
     {
         Item item = inventory.slots[slotIndex].item;
-        //equip logic
         
         CloseContextMenu();
     }
@@ -125,7 +130,7 @@ public class InventoryUI : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         for (int i = 0; i < inventory.slots.Length; i++)
         {
@@ -148,4 +153,27 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+    private InventoryUI inventoryUI;
+
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+           inventoryUI = other.gameObject.GetComponent<InventoryUI>();
+           inventoryPanel.SetActive(true);
+           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inventoryPanel.SetActive(false);
+            
+        }
+    }
+  
 }

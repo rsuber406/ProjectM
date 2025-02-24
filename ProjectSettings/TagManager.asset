@@ -12,6 +12,7 @@ TagManager:
   - BagSlot
   - HubTeleporter
   - ShopSlot
+  - Chest
   layers:
   - Default
   - TransparentFX

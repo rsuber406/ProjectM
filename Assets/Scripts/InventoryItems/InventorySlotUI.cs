@@ -36,7 +36,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         canvasGroup = GetComponent<CanvasGroup>();
         inventoryUI = GetComponentInParent<InventoryUI>();
         itemImage = GetComponent<Image>();
-        inventory = FindAnyObjectByType<Inventory>();
+        inventory = inventoryUI.GetComponent<Inventory>();
         equipmentManager = FindAnyObjectByType<EquipmentManager>();
     }
 
@@ -99,9 +99,9 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         if (itemData != null)
         {
             itemName.text = itemData.itemName;
-            itemArmor.text = itemData.armor.ToString();
-            itemHealth.text = itemData.healthModifier.ToString();
-            itemMana.text = itemData.manaModifier.ToString();
+            itemArmor.text = "Armor: " + itemData.armor.ToString();
+            itemHealth.text = "Health: " + itemData.healthModifier.ToString();
+            itemMana.text = "Mana: " + itemData.manaModifier.ToString();
             itemDescription.text = itemData.description;
             currentHoveredItem = Instantiate(itemStatsMenu, transform);
 

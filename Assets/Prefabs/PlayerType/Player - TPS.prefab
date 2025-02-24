@@ -45,12 +45,10 @@ GameObject:
   - component: {fileID: 8143787931293570805}
   - component: {fileID: 8484086505065435152}
   - component: {fileID: 3987325637387521297}
-  - component: {fileID: 6357876903979031937}
   - component: {fileID: 3839481100040156285}
   - component: {fileID: 2122194703362033314}
   - component: {fileID: 2709934937227216735}
   - component: {fileID: 8723265616804472942}
-  - component: {fileID: 7705785872992515908}
   - component: {fileID: 780750596959045492}
   m_Layer: 7
   m_Name: PlayerObj
@@ -181,20 +179,6 @@ MonoBehaviour:
   player: {fileID: 6193368412943276983}
   anim: {fileID: 2180704074202749120}
   animTransSpeed: 3
---- !u!114 &6357876903979031937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6ccd21596225340ae1158e24cc2d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testItem: {fileID: 0}
-  playerInventory: {fileID: 6082519075663171487}
 --- !u!114 &3839481100040156285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,21 +263,6 @@ MonoBehaviour:
   equippedAmuletData: {fileID: 0}
   equippedGlovesData: {fileID: 0}
   equippedWeaponData: {fileID: 0}
---- !u!114 &7705785872992515908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444834868501528335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e9d43bc51002daafce06e7a5ecc4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  equipmentManager: {fileID: 8723265616804472942}
-  testItem: {fileID: 0}
 --- !u!82 &780750596959045492
 AudioSource:
   m_ObjectHideFlags: 0
@@ -402,7 +371,7 @@ GameObject:
   - component: {fileID: 574052677956551155}
   m_Layer: 7
   m_Name: Player - TPS
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,6 +1213,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 9005052214310101234}
     m_Modifications:
     - target: {fileID: 220943035760567655, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 220943035760567655, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 6082519075663171487}
@@ -1259,6 +1232,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 6082519075663171487}
+    - target: {fileID: 397421858972697944, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 397421858972697944, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
       value: 
@@ -1283,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 700367773562808263, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: contextMenuPrefab
+      value: 
+      objectReference: {fileID: 8864919961244336780}
     - target: {fileID: 701310741750895763, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
       value: 
@@ -1354,6 +1335,10 @@ PrefabInstance:
     - target: {fileID: 1229961506137310162, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242629338389930653, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1242629338389930653, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
@@ -1527,6 +1512,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2692273053782294027, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2740904789957142562, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1582,6 +1571,10 @@ PrefabInstance:
     - target: {fileID: 3279088827272415912, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3430648511201870319, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3430648511201870319, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
@@ -1654,6 +1647,10 @@ PrefabInstance:
     - target: {fileID: 4438876858827354569, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470768512219457341, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4470768512219457341, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
@@ -1740,6 +1737,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5270956631438778008, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270956631438778008, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 6082519075663171487}
@@ -1750,6 +1751,10 @@ PrefabInstance:
     - target: {fileID: 5688254323190659008, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688254323190659008, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5914016805951111180, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1885,7 +1890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285537110317781060, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 7459848910765092352, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_OverrideSorting
@@ -1931,6 +1936,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 6082519075663171487}
+    - target: {fileID: 7884212634622001060, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+      propertyPath: armorType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7884212634622001060, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: inventory
       value: 
@@ -2207,6 +2216,11 @@ MonoBehaviour:
   equipmentUIGameObject: {fileID: 185774047423263247}
   contextMenu: {fileID: 0}
   unequipButton: {fileID: 0}
+--- !u!1 &8864919961244336780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4895333884679863022, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
+  m_PrefabInstance: {fileID: 4100876588973537378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5704371211440137553
 PrefabInstance:
   m_ObjectHideFlags: 0

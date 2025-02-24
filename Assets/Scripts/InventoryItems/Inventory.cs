@@ -18,7 +18,7 @@ public class InventorySlot
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private int inventorySize;
-    public InventorySlot[] slots;
+      public InventorySlot[] slots;
     public event Action<Item> OnItemAdded;
     public event Action<Item> OnItemRemoved;
     public event Action OnInventoryChanged;
