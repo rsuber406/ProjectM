@@ -93,11 +93,11 @@ MonoBehaviour:
   slotIndex: 15
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &4982920830442400409
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -305,11 +305,11 @@ MonoBehaviour:
   slotIndex: 11
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &6344641580498007010
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -413,12 +413,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 7
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &4595606104543673991
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -522,12 +522,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 2
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &7460125127761885387
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -631,12 +631,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 10
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &18070979534892821
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -764,6 +764,7 @@ RectTransform:
   m_LocalScale: {x: 1.0768552, y: 1.0768552, z: 1.0768552}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5764198265620570616}
   - {fileID: 512399230179648135}
   m_Father: {fileID: 376085246768782779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -888,11 +889,11 @@ MonoBehaviour:
   slotIndex: 10
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &3995223829590700909
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -998,11 +999,11 @@ MonoBehaviour:
   slotIndex: 4
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &4660762425825722735
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1108,11 +1109,11 @@ MonoBehaviour:
   slotIndex: 12
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &6664330486897649752
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1218,11 +1219,11 @@ MonoBehaviour:
   slotIndex: 0
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &471873405194092516
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1326,12 +1327,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 3
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &1862524202256951153
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1555,11 +1556,11 @@ MonoBehaviour:
   slotIndex: 9
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &7457543543743841528
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1665,11 +1666,11 @@ MonoBehaviour:
   slotIndex: 14
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &1809435500432371068
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1775,11 +1776,11 @@ MonoBehaviour:
   slotIndex: 8
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &3118231159831344677
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1985,12 +1986,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 5
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &424170491314139844
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2230,12 +2231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 8
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &3123755419962601375
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2341,11 +2342,11 @@ MonoBehaviour:
   slotIndex: 7
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &6385780262415145073
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2526,11 +2527,11 @@ MonoBehaviour:
   slotIndex: 13
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &1547172434829643144
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2634,12 +2635,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 9
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &6112854781532079573
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2743,12 +2744,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 13
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &5100889305001695284
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2852,12 +2853,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 6
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &8219688946688942962
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2961,12 +2962,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 12
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &847761593293074881
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3070,12 +3071,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &7515880494235584769
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3179,12 +3180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 15
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &9181953494472263665
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3288,12 +3289,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 11
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &8133920257234640915
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3397,12 +3398,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 14
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &4470046558630876100
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3508,11 +3509,11 @@ MonoBehaviour:
   slotIndex: 3
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &9215382312768489640
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3618,11 +3619,11 @@ MonoBehaviour:
   slotIndex: 2
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &5654019240675439047
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3740,11 +3741,11 @@ MonoBehaviour:
   slotIndex: 1
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!1 &8724094998632129920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 812599337467797357}
   - {fileID: 2967507369638614261}
   - {fileID: 376085246768782779}
   m_Father: {fileID: 0}
@@ -3833,7 +3835,7 @@ MonoBehaviour:
   - {fileID: 7923917662587112902}
   - {fileID: 7368555325713220832}
   inventoryPanel: {fileID: 176659431059403805}
-  contextMenuPrefab: {fileID: 0}
+  contextMenuPrefab: {fileID: 7037438209463857686}
   inventory: {fileID: 6635687711647516741}
 --- !u!114 &6635687711647516741
 MonoBehaviour:
@@ -3964,11 +3966,11 @@ MonoBehaviour:
   slotIndex: 5
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &7409745133232706077
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4074,11 +4076,11 @@ MonoBehaviour:
   slotIndex: 6
   inventory: {fileID: 6635687711647516741}
   itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &8861004508781586547
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4182,12 +4184,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 1
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &491278607026464701
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4291,12 +4293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 4
   inventory: {fileID: 6635687711647516741}
-  itemStatsMenu: {fileID: 0}
-  itemName: {fileID: 0}
-  itemArmor: {fileID: 0}
-  itemMana: {fileID: 0}
-  itemHealth: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemStatsMenu: {fileID: 1654767192179957460}
+  itemName: {fileID: 3883242467092619977}
+  itemArmor: {fileID: 6547683536375910521}
+  itemMana: {fileID: 8097532192160320908}
+  itemHealth: {fileID: 4949725262498664241}
+  itemDescription: {fileID: 3861642611873245034}
 --- !u!225 &7491493232739479880
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4309,3 +4311,232 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1001 &2548057790549770473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6440403168077643207}
+    m_Modifications:
+    - target: {fileID: 3867023012448017981, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_Name
+      value: StatsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2586
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.96322
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+--- !u!1 &1654767192179957460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3867023012448017981, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3861642611873245034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1642629078250268547, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3883242467092619977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1637209631881601568, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4949725262498664241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7488485529036541912, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &5764198265620570616 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7827835350819954961, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6547683536375910521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8755717251337736336, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8097532192160320908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5997866369023167845, guid: 08c2c815b62ab2748841070ac255a967, type: 3}
+  m_PrefabInstance: {fileID: 2548057790549770473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4622542962470224431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6857474119317197154}
+    m_Modifications:
+    - target: {fileID: 2417468276136194105, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_Name
+      value: ContextMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 747.9997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -38.96322
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+--- !u!4 &812599337467797357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5431478175156231490, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+  m_PrefabInstance: {fileID: 4622542962470224431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7037438209463857686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2417468276136194105, guid: 611c461155ba2d6e3b9936da389a6937, type: 3}
+  m_PrefabInstance: {fileID: 4622542962470224431}
+  m_PrefabAsset: {fileID: 0}
