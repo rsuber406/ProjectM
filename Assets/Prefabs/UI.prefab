@@ -790,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3744334699219788429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -923,11 +923,11 @@ RectTransform:
   - {fileID: 5390178856521603321}
   m_Father: {fileID: 6519817181262712058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 72}
+  m_SizeDelta: {x: 664, y: 368}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &423527876522350626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6047,7 @@ GameObject:
   - component: {fileID: 4114685588233002408}
   - component: {fileID: 2380488013353494408}
   m_Layer: 5
-  m_Name: Menubtn
+  m_Name: MMBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6072,7 +6072,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 644, y: 120}
+  m_SizeDelta: {x: 640, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1147283013391973601
 CanvasRenderer:
@@ -7125,7 +7125,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -62.797546, y: -0.010772705, z: -76.01807, w: 0}
+  m_margin: {x: 0.012634277, y: -0.010772705, z: -0.0063476562, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7988,11 +7988,11 @@ RectTransform:
   - {fileID: 5156283616675670115}
   m_Father: {fileID: 8393814043426143272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -240}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 72}
   m_SizeDelta: {x: 504, y: 464}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &3269383738014668560
 GameObject:
   m_ObjectHideFlags: 0
@@ -8888,10 +8888,10 @@ RectTransform:
   - {fileID: 3585926457855518667}
   m_Father: {fileID: 7632343105492600990}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3843700607834200038
 GameObject:
@@ -10923,8 +10923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 853, y: 440.9}
+  m_AnchoredPosition: {x: 0, y: 72}
+  m_SizeDelta: {x: 664, y: 368}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &4691971485363051525
 GameObject:
@@ -11930,8 +11930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 832, y: 440}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 104}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2524040005142976671
 CanvasRenderer:
@@ -12026,7 +12026,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -0.29858398, z: 0, w: -193.68658}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13703,10 +13703,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6305690372829816723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 120}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &362728318828635550
 CanvasRenderer:
@@ -14179,7 +14179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 688, y: 120}
+  m_SizeDelta: {x: 624, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3419454992977950133
 CanvasRenderer:
@@ -14274,7 +14274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7357507125808034037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14638,7 +14638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2376308631237075362
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16796,7 +16796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3582842924460813463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19414,8 +19414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -174}
-  m_SizeDelta: {x: 832, y: 440}
+  m_AnchoredPosition: {x: 0, y: -280}
+  m_SizeDelta: {x: 888, y: 248}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &107357108920075206
 CanvasRenderer:
@@ -19510,7 +19510,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -258.5747, y: 0, z: -235.17395, w: 0}
+  m_margin: {x: -0.79803467, y: 0, z: 0.4593506, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -19829,8 +19829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.652893, y: 0}
-  m_SizeDelta: {x: -70.3542, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8316975856938541208
 GameObject:
@@ -21163,7 +21163,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   masterSpellsList: {fileID: 11400000, guid: aaec4fb0fd6f42c4683d42a1e17a37bd, type: 2}
   pauseMenu: {fileID: 8077058009677809909}
-  lossMenu: {fileID: 6889775379694002549}
+  lossMenu: {fileID: 7049498798249329730}
   victoryMenu: {fileID: 3754243570380309407}
   settingsMenu: {fileID: 8137035459971225560}
   enableDebug: 0
