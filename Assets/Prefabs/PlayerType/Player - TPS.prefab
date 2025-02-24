@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 574052677956551155}
   m_Layer: 7
   m_Name: Player - TPS
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1802,7 +1802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2692273053782294027, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2740904789957142562, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2258,7 +2258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5688254323190659008, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5914016805951111180, guid: acd9254666d7a0cd583670f43a1306f4, type: 3}
       propertyPath: m_AnchorMax.y
