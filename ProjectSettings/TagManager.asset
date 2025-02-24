@@ -13,6 +13,7 @@ TagManager:
   - HubTeleporter
   - ShopSlot
   - Chest
+  - PlayerInventory
   layers:
   - Default
   - TransparentFX
