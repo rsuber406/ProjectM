@@ -99,7 +99,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
         if (itemData != null)
         {
             itemName.text = itemData.itemName;
-            itemArmor.text = "Armor: " + itemData.armor.ToString();
+            itemArmor.text = "Armor: " + itemData.armorModifier.ToString();
             itemHealth.text = "Health: " + itemData.healthModifier.ToString();
             itemMana.text = "Mana: " + itemData.manaModifier.ToString();
             itemDescription.text = itemData.description;
