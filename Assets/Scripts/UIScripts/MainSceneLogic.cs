@@ -140,7 +140,6 @@ public class MainSceneLogic : MonoBehaviour
 
     public void SettingsScreen()
     {
-        GameManager.instance.removeLossMenu();
         HideMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         SettingsActivateables.SetActive(true);
@@ -163,6 +162,7 @@ public class MainSceneLogic : MonoBehaviour
         {
         //    return;
         }
+        GameManager.GetInstance().GetSoundManager().MenuClick(1);
 
         GameManager.GetInstance().SetGameMode(GameMode.MainMenu);
         Time.timeScale = 0;

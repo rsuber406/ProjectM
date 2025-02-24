@@ -35,7 +35,7 @@ public class ShieldSpell : SpellBase
         AudioSource playerAudioSource = player.GetComponent<AudioSource>();
 
         playerAnimRef.PlayAbilityByTriggerName(AbilityAnimationTriggerName);
-        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().audSFX.volume;
         playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
         
         yield return new WaitForSeconds(spawnDelay);
