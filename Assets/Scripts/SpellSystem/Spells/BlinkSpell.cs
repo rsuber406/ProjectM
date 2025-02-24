@@ -44,7 +44,7 @@ public class BlinkSpell : SpellBase
         playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
         player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
         
-        float sfxVolume = GameManager.GetInstance().GetSoundManager().SFXVol;
+        float sfxVolume = GameManager.GetInstance().GetSoundManager().audSFX.volume;
         playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
         
         if (ParticleEffects)
