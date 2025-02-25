@@ -3022,7 +3022,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -112, y: -152}
-  m_SizeDelta: {x: 264, y: 108}
+  m_SizeDelta: {x: 264, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730497788730575447
 CanvasRenderer:
@@ -4478,7 +4478,7 @@ GameObject:
   - component: {fileID: 5179863352136962001}
   - component: {fileID: 4046917027519853271}
   m_Layer: 5
-  m_Name: Wintxt
+  m_Name: WinTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4500,8 +4500,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 856, y: 320}
+  m_AnchoredPosition: {x: 0, y: -32}
+  m_SizeDelta: {x: 856, y: 256}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5179863352136962001
 CanvasRenderer:
@@ -4558,8 +4558,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 358
-  m_fontSizeBase: 358
+  m_fontSize: 360
+  m_fontSizeBase: 360
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11851,7 +11851,7 @@ GameObject:
   - component: {fileID: 2524040005142976671}
   - component: {fileID: 4373933518542500879}
   m_Layer: 5
-  m_Name: Deathmsg
+  m_Name: DeathTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11873,8 +11873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 104}
+  m_AnchoredPosition: {x: 0, y: -32}
+  m_SizeDelta: {x: 864, y: 256}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2524040005142976671
 CanvasRenderer:
@@ -11931,8 +11931,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 336
-  m_fontSizeBase: 336
+  m_fontSize: 360
+  m_fontSizeBase: 360
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11969,7 +11969,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.29858398, z: 0, w: -193.68658}
+  m_margin: {x: 0, y: -0.29858398, z: 0, w: -0.12158203}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17967,7 +17967,7 @@ GameObject:
   - component: {fileID: 1678093988233038850}
   - component: {fileID: 4136359389089114799}
   m_Layer: 5
-  m_Name: Wintxtcont
+  m_Name: WinMsg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17989,8 +17989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 128}
-  m_SizeDelta: {x: 1280, y: 176}
+  m_AnchoredPosition: {x: 0, y: 120}
+  m_SizeDelta: {x: 1240, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1678093988233038850
 CanvasRenderer:
@@ -18020,10 +18020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'But There is still more to plunder
-
-    Delve in further and see what
-    else you can steal!'
+  m_text: "There is still more to plunder! \nDelve in further and look for more loot!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee2ab6be3fb9b3c439f1790ff56cc141, type: 2}
   m_sharedMaterial: {fileID: 7815703846759135558, guid: ee2ab6be3fb9b3c439f1790ff56cc141, type: 2}
@@ -18050,8 +18047,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 112
+  m_fontSizeBase: 112
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19006,7 +19003,7 @@ GameObject:
   - component: {fileID: 107357108920075206}
   - component: {fileID: 6516257991750708389}
   m_Layer: 5
-  m_Name: DeathmsgCont
+  m_Name: DeathMsg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19028,8 +19025,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -280}
-  m_SizeDelta: {x: 888, y: 248}
+  m_AnchoredPosition: {x: 0, y: -352}
+  m_SizeDelta: {x: 792, y: 112}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &107357108920075206
 CanvasRenderer:
@@ -19059,7 +19056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: But Death is not the end
+  m_text: Death is not the end
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b142868f0ab95754080ebf203034b7a4, type: 2}
   m_sharedMaterial: {fileID: 7815703846759135558, guid: b142868f0ab95754080ebf203034b7a4, type: 2}
@@ -19086,8 +19083,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 144
+  m_fontSizeBase: 144
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20814,10 +20811,6 @@ MonoBehaviour:
   SFXVolumeText: {fileID: 1532563057741297624}
   ambienceVolumeText: {fileID: 3023697537399293987}
   musicVolumeText: {fileID: 3608015240515807533}
-  masterVol: 0
-  sfxVol: 0
-  ambienceVol: 0
-  musicVol: 0
   playerFootsteps:
   - {fileID: 8300000, guid: 1f0199a4c6005ec4abbb302f71bc036d, type: 3}
   - {fileID: 8300000, guid: 53e2adf2ac488ef46bb2b4074de9e363, type: 3}

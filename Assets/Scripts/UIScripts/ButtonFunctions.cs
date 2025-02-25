@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
 {
     [SerializeField] GameObject hoverImage;
 
@@ -90,11 +90,6 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
         hoverImage.SetActive(false);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        
-    }
-
     public void OnPointerUp(PointerEventData eventData)
     {
         if (tabPressed)
@@ -102,12 +97,7 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         hoverImage.SetActive(false);
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-      //  throw new System.NotImplementedException();
-    }
-
+ 
     public void Exit()
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
