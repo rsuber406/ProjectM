@@ -466,7 +466,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2872276651089418213
 MonoBehaviour:
@@ -1288,7 +1288,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3756030302588608046
 MonoBehaviour:
@@ -3266,7 +3266,7 @@ GameObject:
   - component: {fileID: 4575811554164944174}
   - component: {fileID: 6622301553325756541}
   - component: {fileID: -1784722584443119527}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DemonBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3366,7 +3366,7 @@ NavMeshAgent:
   m_Acceleration: 32
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.25
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

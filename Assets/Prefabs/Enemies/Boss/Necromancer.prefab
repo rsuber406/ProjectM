@@ -17319,7 +17319,7 @@ GameObject:
   - component: {fileID: 6463834854650372685}
   - component: {fileID: 1944865533012204249}
   - component: {fileID: 153528334194520120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Necromancer
   m_TagString: Enemy
   m_Icon: {fileID: 0}

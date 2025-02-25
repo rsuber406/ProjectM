@@ -46,17 +46,17 @@ public  class AIController : MonoBehaviour
 
    public bool CanAttackPlayer()
     {
-        if (currentlyAttackingPlayer >= allowedAmountToTargetPlayer)
-        {
-            return false;
-        }
-        else
-        {
-            currentlyAttackingPlayer++;
-           // Debug.Log(currentlyAttackingPlayer);
-            return true;
-        }
-        
+        // if (currentlyAttackingPlayer >= allowedAmountToTargetPlayer)
+        // {
+        //     return false;
+        // }
+        // else
+        // {
+        //     currentlyAttackingPlayer++;
+        //    // Debug.Log(currentlyAttackingPlayer);
+        //     return true;
+        // }
+        return true;
     }
    
 

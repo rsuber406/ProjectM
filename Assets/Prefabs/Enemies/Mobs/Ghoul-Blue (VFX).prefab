@@ -11647,7 +11647,7 @@ GameObject:
   - component: {fileID: 4639760624489660506}
   - component: {fileID: 5412709975245809415}
   - component: {fileID: -8539608017217164980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ghoul-Blue (VFX)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -11663,7 +11663,7 @@ Transform:
   m_GameObject: {fileID: 1607809758808254684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.210001, y: -0.09000015, z: 15.5}
+  m_LocalPosition: {x: 4.210001, y: -0.188, z: 15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11779,7 +11779,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -27991,7 +27991,7 @@ Transform:
   m_GameObject: {fileID: 4996383641883346545}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.0073, z: 0.0116}
+  m_LocalPosition: {x: 0, y: -0.00858, z: 0.00904}
   m_LocalScale: {x: 0.010000002, y: 0.010000004, z: 0.010000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
