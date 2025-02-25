@@ -221,6 +221,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7600667519100248133}
     m_Modifications:
+    - target: {fileID: 82465397278485010, guid: 856f1f18fb8861d4499813c38a5963ae, type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 389821699222927281, guid: 856f1f18fb8861d4499813c38a5963ae, type: 3}
       propertyPath: m_Name
       value: vfx_Flamethrower_02
