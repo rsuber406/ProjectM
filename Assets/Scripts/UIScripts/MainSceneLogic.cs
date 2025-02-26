@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Random = System.Random;
 
 public class MainSceneLogic : MonoBehaviour
@@ -22,7 +21,7 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] private GameObject MenuActivateables;
     [SerializeField] private GameObject PauseMenuActivateables;
     [SerializeField] private GameObject SettingsActivateables;
-    [SerializeField] private GameObject CreditsActivateables;
+    [SerializeField] public GameObject CreditsActivateables;
 
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
@@ -45,9 +44,15 @@ public class MainSceneLogic : MonoBehaviour
     {
         MSInstance = this;
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
+        Cursor.visible = true;
 
 
         returnToMenu();
+    }
+
+    public static MainSceneLogic GetInstance()
+    {
+        return MSInstance;
     }
 
     public void PlayGame()
@@ -148,7 +153,15 @@ public class MainSceneLogic : MonoBehaviour
         returnBtn.SetActive(true);
         backBtn.SetActive(false);
     }
-   
+
+    public void DisableTabs()
+    {
+        GameManager.GetInstance().audioTab.SetActive(false);
+        GameManager.GetInstance().controlsTab.SetActive(false);
+        GameManager.GetInstance().graphicsTab.SetActive(false);
+        GameManager.GetInstance().tabActive = null;
+    }
+
     public void returnToMenu()
     {
         mapnum = 0;
@@ -157,7 +170,8 @@ public class MainSceneLogic : MonoBehaviour
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
         MMCamera.SetActive(true);
-        GameManager.instance.removeLossMenu();
+        DisableTabs();
+        GameManager.GetInstance().removeLossMenu();
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)

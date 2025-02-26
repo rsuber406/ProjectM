@@ -3,46 +3,35 @@ using UnityEngine;
 
 public class ScrollTextTrigger : MonoBehaviour
 {
+    [SerializeField][Range(1, 10)] int scrollSpeed;
+    public GameObject TextToScroll;
+    private bool ismoving = false;
+    private bool startmoving = false;
+    private Transform originalPosition;
 
-    public GameObject TexttoScroll;
-    bool ismoving = false;
-    bool startmoving = false;
-    Transform originalPosition;
+    public float x;
+    public float y;
+    public float z;
 
-    private void Start()
+    void Start()
     {
-        originalPosition = TexttoScroll.transform;
+        originalPosition.position = TextToScroll.transform.position;
     }
-    private void Update()
+    void Update()
     {
-        if(!ismoving && startmoving)
-        {
-            StartCoroutine(moveText());
-        }
+        x = originalPosition.position.x;
+        y = originalPosition.position.y;
+        z = originalPosition.position.z;
+        x = 1; 
+        if (MainSceneLogic.GetInstance().CreditsActivateables.activeInHierarchy)
+          MoveText();
 
-        if (!startmoving)
-        {
-            TexttoScroll.transform.position = originalPosition.position;
-        }
-    }
-
-    IEnumerator moveText()
-    {
-        ismoving = true;
-        TexttoScroll.transform.position += new Vector3(0, 1f, 0);
-        ismoving = false;
-        yield return new WaitForSeconds(0.13f);
-    }
-
-    public void StartScrolling()
-    {
-        if (startmoving)
-        {
-            startmoving = false;
-        }
         else
-        {
-            startmoving = true;
-        }    
+            TextToScroll.transform.position = new Vector3(originalPosition.position.x, originalPosition.position.y, originalPosition.position.z);
+    }
+
+    private void MoveText()
+    {
+        TextToScroll.transform.position = new Vector3(TextToScroll.transform.position.x, TextToScroll.transform.position.y + scrollSpeed, TextToScroll.transform.position.z);
     }
 }
