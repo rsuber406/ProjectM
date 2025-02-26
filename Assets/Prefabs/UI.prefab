@@ -4981,18 +4981,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2583313934110991961}
-        m_TargetAssemblyTypeName: ScrollTextTrigger, Assembly-CSharp
-        m_MethodName: StartScrolling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6433218441190468410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6726,7 +6714,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 800347727141538656}
         m_TargetAssemblyTypeName: MainSceneLogic, Assembly-CSharp
-        m_MethodName: returnToMenu
+        m_MethodName: ResetText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7970,7 +7958,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7261060461559937638}
   - component: {fileID: 800347727141538656}
-  - component: {fileID: 2583313934110991961}
   m_Layer: 0
   m_Name: MainSceneManager
   m_TagString: Untagged
@@ -7987,7 +7974,7 @@ Transform:
   m_GameObject: {fileID: 3269383738014668560}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8025,19 +8012,8 @@ MonoBehaviour:
   currLvl: 
   _Hublvl: {fileID: 0}
   mapnum: 0
---- !u!114 &2583313934110991961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269383738014668560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5319c46518ca51245871a54f19badbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   TextToScroll: {fileID: 7440095541678001988}
+  scrollSpeed: 1
 --- !u!1 &3273460159920745947
 GameObject:
   m_ObjectHideFlags: 0
@@ -14254,7 +14230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2443521155547596411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17427,11 +17403,11 @@ RectTransform:
   - {fileID: 4663922829523100291}
   m_Father: {fileID: 2510279777211983575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1752, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 1752, y: 1080}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &7474494555865349273
 GameObject:
   m_ObjectHideFlags: 0
@@ -20933,6 +20909,7 @@ MonoBehaviour:
   returnBtn: {fileID: 4607673083773895702}
   backBtn: {fileID: 4454570356359246416}
   damagePanel: {fileID: 6705016620589905014}
+  tabActive: {fileID: 0}
   interactText: {fileID: 7874574668158562449}
   healthBar: {fileID: 8699799600722866110}
   manaBar: {fileID: 5244538663912994116}

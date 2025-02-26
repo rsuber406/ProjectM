@@ -14,8 +14,8 @@ public class MainSceneLogic : MonoBehaviour
 {
     public static MainSceneLogic MSInstance;
 
-    [Header("---Main Menu Objects---")] [SerializeField]
-    public GameObject loadScreen;
+    [Header("---Main Menu Objects---")] 
+    [SerializeField] public GameObject loadScreen;
     [SerializeField] public GameObject MMCamera;
 
     [SerializeField] private GameObject MenuActivateables;
@@ -26,28 +26,40 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
 
-    [Header("---World 1 Levels---")] [SerializeField]
-    private string _Hub = "Hub";
+    [Header("---World 1 Levels---")] 
+    [SerializeField] private string _Hub = "Hub";
 
     public string[] DynamicMaps = { "Map1", "Map2" };
     [SerializeField] private string _tutScene = "TutScene";
     [SerializeField] private string _bossScene = "BossRoom";
 
-    [Header("---MainStage Player Controller---")] [SerializeField]
-    private GameObject[] PlayerActivateables;
+    [Header("---MainStage Player Controller---")] 
+    [SerializeField] private GameObject[] PlayerActivateables;
 
     public string currLvl;
     public GameObject _Hublvl;
     public int mapnum = 0;
     bool tutorialComplete = false;
+
+    [Header("---Credits Scroll---")]
+    public GameObject TextToScroll;
+    [SerializeField] int scrollSpeed;
+    private Vector3 originalPosition;
+
     private void Start()
     {
         MSInstance = this;
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
-        Cursor.visible = true;
-
 
         returnToMenu();
+
+        Cursor.visible = true;
+        originalPosition = TextToScroll.transform.position;
+    }
+
+    private void Update()
+    {
+        CreditsText();
     }
 
     public static MainSceneLogic GetInstance()
@@ -162,6 +174,14 @@ public class MainSceneLogic : MonoBehaviour
         GameManager.GetInstance().tabActive = null;
     }
 
+    private void CreditsText()
+    {
+        if (CreditsActivateables.activeInHierarchy)
+            TextToScroll.transform.position = new Vector3(TextToScroll.transform.position.x, TextToScroll.transform.position.y + scrollSpeed, TextToScroll.transform.position.z);
+        else
+            TextToScroll.transform.position = originalPosition;
+    }
+
     public void returnToMenu()
     {
         mapnum = 0;
@@ -172,6 +192,7 @@ public class MainSceneLogic : MonoBehaviour
         MMCamera.SetActive(true);
         DisableTabs();
         GameManager.GetInstance().removeLossMenu();
+
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
