@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     
 
     public GameObject damagePanel;
-    private GameObject menuActive = null;
+    public GameObject menuActive = null;
     public GameObject tabActive = null;
 
     public TextMeshProUGUI interactText;
@@ -75,12 +75,12 @@ public class GameManager : MonoBehaviour
                 }
                 else if (menuActive == settingsMenu)
                 {
-                    GameManager.GetInstance().GetSoundManager().MenuClick(1);
-                    menuActive = pauseMenu;
+                    GetSoundManager().MenuClick(1);
+                    PauseMenu();
                 }
                 else if (menuActive == pauseMenu)
                 {
-                    GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                    GetSoundManager().MenuClick(1);
                     ResumeGame();
                 }
             }

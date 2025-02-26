@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
@@ -53,7 +54,6 @@ public class MainSceneLogic : MonoBehaviour
 
         returnToMenu();
 
-        Cursor.visible = true;
         originalPosition = TextToScroll.transform.position;
     }
 
