@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] public bool enableDebug;
 
-    [SerializeField] private GameObject audioTab;
-    [SerializeField] private GameObject controlsTab;
-    [SerializeField] private GameObject graphicsTab;
+    [SerializeField] public GameObject audioTab;
+    [SerializeField] public GameObject controlsTab;
+    [SerializeField] public GameObject graphicsTab;
 
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject damagePanel;
     private GameObject menuActive = null;
-    private GameObject tabActive = null;
+    public GameObject tabActive = null;
 
     public TextMeshProUGUI interactText;
 
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
-
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
         soundController = this.GetComponent<SoundManager>();
@@ -77,6 +76,10 @@ public class GameManager : MonoBehaviour
                 else if(menuActive == pauseMenu) ResumeGame();
             }
         }
+
+        if (enableDebug)
+            gameMode = GameMode.Dungeon;
+
     }
 
     public void toggleKinematics()
@@ -162,19 +165,12 @@ public class GameManager : MonoBehaviour
 
     public void ToggleCursorVisibility()
     {
-        if (gameMode == GameMode.MainMenu)
+        if (gameMode == GameMode.MainMenu || gameState == GameState.Paused)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             
             return;
-        }
-        
-        
-        if (gameState == GameState.Paused)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
         }
         else
         {
