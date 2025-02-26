@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     
     public MasterSpellsList MasterSpellsList => masterSpellsList;
     private AIController aiController;
-    
+    private bool playerIsInCombatMode = false;
     public event Action OnGameResumed;
     public event Action OnGamePaused;
     
@@ -339,5 +339,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         playerScript.HasCompletedTutorial(complete);
+    }
+
+    public bool IsInCombatMode()
+    {
+        return playerIsInCombatMode;
+    }
+
+    public void SetPlayerIsInCombatMode(bool isInCombatMode)
+    {
+        playerIsInCombatMode = isInCombatMode;
     }
 }

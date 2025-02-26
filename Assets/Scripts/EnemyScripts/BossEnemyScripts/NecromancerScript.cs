@@ -10,7 +10,7 @@ public class NecromancerScript : EnemyAI
     [SerializeField] private Transform spellCastPosition;
     [SerializeField] private SphereCollider weaponCollider;
     [SerializeField] private List<GameObject> spells;
-    
+    private Coroutine attackCo;
 
     private float cooldownTimer;
 
@@ -24,15 +24,15 @@ public class NecromancerScript : EnemyAI
     {
         if (playerDetected)
         {
-            
             float animSpeed = animationController.GetFloat("Speed");
             float speed = agent.velocity.magnitude;
             speed = speed * 0.5f;
             animationController.SetFloat("Speed",
                 Mathf.MoveTowards(animSpeed, speed, Time.deltaTime * animationChangeRate));
         }
-      
-        Debug.DrawRay(spellCastPosition.position, AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position, Color.green);
+
+        Debug.DrawRay(spellCastPosition.position,
+            AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position, Color.green);
         base.Update();
 
         cooldownTimer += Time.deltaTime;
@@ -40,7 +40,6 @@ public class NecromancerScript : EnemyAI
 
     protected override void AttackPlayer()
     {
-       
         float distance = (playerPos - transform.position).magnitude;
 
         if (distance <= agent.stoppingDistance)
@@ -48,19 +47,19 @@ public class NecromancerScript : EnemyAI
             int randomAttack = Random.Range(0, 99);
             if (randomAttack < 70)
             {
-                if(!isAttacking)
-                StartCoroutine(FirstMelee());
+                if (!isAttacking)
+                    attackCo = StartCoroutine(FirstMelee());
             }
             else
             {
-                if(!isAttacking)
-                StartCoroutine(SecondMelee());
+                if (!isAttacking)
+                    attackCo = StartCoroutine(SecondMelee());
             }
         }
         else if (distance > range * 0.25f && cooldownTimer >= spellCooldown)
         {
-            if(!isAttacking)
-            StartCoroutine(CastSpell());
+            if (!isAttacking)
+                attackCo = StartCoroutine(CastSpell());
             cooldownTimer = 0f;
         }
     }
@@ -72,17 +71,19 @@ public class NecromancerScript : EnemyAI
         animationController.SetTrigger("Attack1");
         yield return new WaitForSeconds(1.2f);
         isAttacking = false;
+        weaponCollider.enabled = false;
     }
 
     private IEnumerator SecondMelee()
     {
         isAttacking = true;
-        
+
         animationController.SetTrigger("Attack2");
         yield return new WaitForSeconds(1.25f);
         weaponCollider.enabled = true;
         yield return new WaitForSeconds(2.05f);
         isAttacking = false;
+        weaponCollider.enabled = false;
     }
 
     private IEnumerator CastSpell()
@@ -96,43 +97,49 @@ public class NecromancerScript : EnemyAI
         Vector3 directionToPlayer = (AIController.GetAIController().GetPlayerPosition() - spellCastPosition.position);
         Quaternion rotationToApply = Quaternion.LookRotation(-directionToPlayer);
         spellCastPosition.rotation = rotationToApply;
-      
+
         if (randomSpell > 70)
         {
             if (!playSounds[(int)PlayNumber.Spellcast])
             {
                 StartCoroutine(PlaySound(spellSounds, spellVolume, PlayNumber.Spellcast));
             }
-          GameObject spell =  Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
-          
+
+            GameObject spell = Instantiate(spells[0], spellCastPosition.position, spellCastPosition.rotation);
         }
         else AttackSpell(spells[1]);
+
         Debug.Log(spellCastPosition.rotation);
         yield return new WaitForSeconds(2.0f);
         agent.isStopped = false;
         isAttacking = false;
     }
+
     protected override IEnumerator OnDeath()
     {
+        if (attackCo != null)
+        {
+            StopCoroutine(attackCo);
+        }
+        weaponCollider.enabled = false;
         animationController.SetTrigger("Death");
         agent.isStopped = true;
         yield return new WaitForSeconds(2f);
         GameManager.GetInstance().tmpVictoryScreen();
         Destroy(gameObject);
     }
-private void AttackSpell(GameObject spell)
-{
-    float distance = Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition());
-   // spell.transform.localScale = new Vector3(1f, 1f, distance);
-   if (!playSounds[(int)PlayNumber.Spellcast])
-   {
-       
-       StartCoroutine(PlaySound(spellSounds ,spellVolume, PlayNumber.Spellcast, true));
-   }
-   Instantiate(spell, spellCastPosition.position, spellCastPosition.rotation);
- 
-}
 
+    private void AttackSpell(GameObject spell)
+    {
+        float distance = Vector3.Distance(transform.position, AIController.GetAIController().GetPlayerPosition());
+        // spell.transform.localScale = new Vector3(1f, 1f, distance);
+        if (!playSounds[(int)PlayNumber.Spellcast])
+        {
+            StartCoroutine(PlaySound(spellSounds, spellVolume, PlayNumber.Spellcast, true));
+        }
+
+        Instantiate(spell, spellCastPosition.position, spellCastPosition.rotation);
+    }
 }
 
 
