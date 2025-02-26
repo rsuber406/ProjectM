@@ -19,6 +19,8 @@ public class GhoulScript : EnemyAI
     [Range(1, 8)] [SerializeField] private int animationChangeRate;
     private float cooldownCompare;
 
+    private Coroutine attackCo;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected IEnumerator RangeAttackPlayer()
     {
@@ -42,7 +44,8 @@ public class GhoulScript : EnemyAI
         {
             float animSpeed = animationController.GetFloat("Speed");
             float speed = agent.velocity.magnitude;
-            animationController.SetFloat("Speed", Mathf.MoveTowards(speed, animSpeed, animationChangeRate * Time.deltaTime));
+            animationController.SetFloat("Speed",
+                Mathf.MoveTowards(speed, animSpeed, animationChangeRate * Time.deltaTime));
         }
         else
         {
@@ -51,7 +54,7 @@ public class GhoulScript : EnemyAI
                 animationController.SetFloat("Speed", 0);
             }
         }
-        
+
         base.Update();
     }
 
@@ -60,12 +63,13 @@ public class GhoulScript : EnemyAI
         if (AIController.GetAIController().CanAttackPlayer())
         {
             float distance = (playerPos - transform.position).magnitude;
-           
+
             if (!isAttacking && distance <= agent.stoppingDistance)
             {
                 Debug.Log("Can attack");
-                StartCoroutine((MeleeAttack()));
+                attackCo = StartCoroutine((MeleeAttack()));
             }
+
             AIController.GetAIController().RemoveFromAttackQue();
         }
     }
@@ -78,11 +82,16 @@ public class GhoulScript : EnemyAI
         animationController.SetTrigger("Attack");
 
         yield return new WaitForSeconds(2f);
-        
+
         isAttacking = false;
+        rightWeapon.enabled = false;
+        leftWeapon.enabled = false;
     }
+
     protected override IEnumerator OnDeath()
     {
+        if(attackCo != null)
+        StopCoroutine(attackCo);
         leftWeapon.enabled = false;
         rightWeapon.enabled = false;
         animationController.SetTrigger("Death");

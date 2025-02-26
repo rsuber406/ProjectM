@@ -17319,7 +17319,7 @@ GameObject:
   - component: {fileID: 6463834854650372685}
   - component: {fileID: 1944865533012204249}
   - component: {fileID: 153528334194520120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Necromancer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -17401,9 +17401,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
   - {fileID: 8300000, guid: 0bc66974c41ff8c4fa15f46d21ad3548, type: 3}
   spellSounds:
-  - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
-  - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
-  - {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
+  - {fileID: 8300000, guid: d8bfa2f0d1a7c224da1c0ea2b3818444, type: 3}
+  - {fileID: 8300000, guid: cfaedc9af8528774990b8445f869e5f9, type: 3}
+  - {fileID: 8300000, guid: 5c5d7ce89f4c1f047b5ebd132279f910, type: 3}
   meleeSounds: []
   footstepVolume: 0.3
   spellVolume: 0.7

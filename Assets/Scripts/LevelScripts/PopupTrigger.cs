@@ -42,6 +42,7 @@ public class PopupTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
         if (other.CompareTag("Player"))
         {
             ShowPopup(messageIndex, 5f);

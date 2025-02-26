@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] private int FOV;
     [SerializeField] protected Transform headPos;
+    
 
     [Header("Sound configs")] [SerializeField]
     protected AudioSource audioSource;
@@ -38,11 +39,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected bool playerDetected = false;
     protected float agentStoppingDistanceOrig;
     protected bool [] playSounds = new bool[3];
-
+    private int layerMask;
     private List<Color> originalColors = new List<Color>();
 
     protected virtual void Start()
     {
+        layerMask = ~LayerMask.GetMask("AI");
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
@@ -66,6 +68,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected virtual void Update()
     {
         CheckPlayerInRange();
+        
     }
 
     protected void CheckPlayerInRange()
@@ -101,16 +104,17 @@ public class EnemyAI : MonoBehaviour, IDamage
         playerPos = AIController.GetAIController().GetPlayerPosition();
         float dotProduct = Vector3.Dot(transform.forward, (playerPos - transform.position).normalized);
 
-        if (dotProduct > convertedFOV)
-        {
+        
             RaycastHit hit;
             
             if (Vector3.Distance(transform.position, playerPos) > agent.stoppingDistance && !playSounds[(int) PlayNumber.Footstep])
             {
                 StartCoroutine(PlaySound(footsteps, footstepVolume, PlayNumber.Footstep));
             }
+
+            playerPos.y += 1;
             Debug.DrawRay(headPos.position, (playerPos - headPos.position), Color.red);
-            if (Physics.Raycast(headPos.position, playerPos - headPos.position, out hit))
+            if (Physics.Raycast(headPos.position, playerPos - headPos.position, out hit, Mathf.Infinity, layerMask))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
@@ -129,7 +133,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             }
 
             return true;
-        }
+        
 
 
         return false;
