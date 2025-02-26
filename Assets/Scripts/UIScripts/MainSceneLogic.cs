@@ -60,6 +60,7 @@ public class MainSceneLogic : MonoBehaviour
     private void Update()
     {
         CreditsText();
+        ESC();
     }
 
     public static MainSceneLogic GetInstance()
@@ -129,6 +130,18 @@ public class MainSceneLogic : MonoBehaviour
        
         
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+    }
+
+    private void ESC()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (SettingsActivateables.activeInHierarchy || CreditsActivateables.activeInHierarchy)
+            {
+                GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                returnToMenu();
+            }
+        }
     }
 
     public void ResetPlayer()

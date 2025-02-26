@@ -73,7 +73,16 @@ public class GameManager : MonoBehaviour
                     menuActive.SetActive(true);
                     StatePause();
                 }
-                else if(menuActive == pauseMenu) ResumeGame();
+                else if (menuActive == settingsMenu)
+                {
+                    GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                    menuActive = pauseMenu;
+                }
+                else if (menuActive == pauseMenu)
+                {
+                    GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                    ResumeGame();
+                }
             }
         }
 
