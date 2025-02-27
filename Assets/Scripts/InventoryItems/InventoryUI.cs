@@ -25,7 +25,7 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(false);
         Cursor.visible = false;
         
-        isPlayerInventory = CompareTag("Player");
+        isPlayerInventory = CompareTag("PlayerInventory");
         for (int i = 0; i < itemIconSlots.Length; i++)
         {
             InventorySlotUI slotUI = itemIconSlots[i].GetComponent<InventorySlotUI>();

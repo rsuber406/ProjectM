@@ -3872,7 +3872,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 357c90d951f35adcbbc6d9ffb5cf9a14, type: 2}
   minItems: 4
   maxItems: 9
-  inventory: {fileID: 0}
+  inventory: {fileID: 6635687711647516741}
 --- !u!1 &8752674075093048232
 GameObject:
   m_ObjectHideFlags: 0
