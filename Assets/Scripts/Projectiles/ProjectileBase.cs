@@ -31,7 +31,7 @@ public class ProjectileBase : MonoBehaviour
 
         audioSource = gameObject.GetComponent<AudioSource>();
         if (CastAudioClip) PlaySfxClip(CastAudioClip);
-        coroutineRef = StartCoroutine(DelayDestroy(Lifetime));
+        Destroy(this.gameObject, Lifetime);
     }
 
     public void Init(Vector3 direction, int damageAmount, DamageSourceType source)
@@ -62,14 +62,18 @@ public class ProjectileBase : MonoBehaviour
             dmg.TakeDamage(damage, damageSource);
         }
 
-        StopCoroutine(coroutineRef);
+       // StopCoroutine(coroutineRef);
         if (ImpactAudioClip) PlaySfxClip(ImpactAudioClip);
-
+        ParticleSystem particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
+        particleSystem.Stop();
+        
         StartCoroutine(DelayDestroy(ImpactAudioClip.length));
     }
 
     IEnumerator DelayDestroy(float time)
     {
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.linearVelocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
