@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -108,9 +109,22 @@ public class GameManager : MonoBehaviour
 
     public void TeleportPlayer(float xcords, float ycords, float zcords)
     {
+       StartCoroutine(TeleportPlayerWithDelay(xcords, ycords, zcords));
+    }
+
+    private IEnumerator TeleportPlayerWithDelay(float xcords, float ycords, float zcords)
+    {
         Rigidbody playerRB = player.GetComponent<Rigidbody>();
-        playerRB.position = new Vector3(xcords, ycords, zcords);
-        player.transform.position = new Vector3(xcords, ycords, zcords);
+        bool kinematic = playerRB.isKinematic;
+        playerRB.isKinematic = true;
+        
+        playerRB.position = new Vector3(xcords, ycords * 0.2f, zcords);
+        player.transform.position = new Vector3(xcords, ycords * 0.2f, zcords);
+
+        yield return new WaitForSeconds(1.0f);
+        
+        playerRB.position = player.transform.position;
+        playerRB.isKinematic = kinematic;
     }
 
     public GameObject GetPlayer()
