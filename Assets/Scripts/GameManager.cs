@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     [SerializeField] private GameMode gameMode;
     [SerializeField] private GameState gameState;
 
@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] public bool enableDebug;
 
-    [SerializeField] private GameObject audioTab;
-    [SerializeField] private GameObject controlsTab;
-    [SerializeField] private GameObject graphicsTab;
+    [SerializeField] public GameObject audioTab;
+    [SerializeField] public GameObject controlsTab;
+    [SerializeField] public GameObject graphicsTab;
 
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     
 
     public GameObject damagePanel;
-    private GameObject menuActive = null;
-    private GameObject tabActive = null;
+    public GameObject menuActive = null;
+    public GameObject tabActive = null;
 
     public TextMeshProUGUI interactText;
 
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
-
         instance = this;
         aiController = this.GetComponentInParent<AIController>();
         soundController = this.GetComponent<SoundManager>();
@@ -75,9 +74,22 @@ public class GameManager : MonoBehaviour
                     menuActive.SetActive(true);
                     StatePause();
                 }
-                else if(menuActive == pauseMenu) ResumeGame();
+                else if (menuActive == settingsMenu)
+                {
+                    GetSoundManager().MenuClick(1);
+                    PauseMenu();
+                }
+                else if (menuActive == pauseMenu)
+                {
+                    GetSoundManager().MenuClick(1);
+                    ResumeGame();
+                }
             }
         }
+
+        if (enableDebug)
+            gameMode = GameMode.Dungeon;
+
     }
 
     public void toggleKinematics()
@@ -106,9 +118,22 @@ public class GameManager : MonoBehaviour
 
     public void TeleportPlayer(float xcords, float ycords, float zcords)
     {
+       StartCoroutine(TeleportPlayerWithDelay(xcords, ycords, zcords));
+    }
+
+    private IEnumerator TeleportPlayerWithDelay(float xcords, float ycords, float zcords)
+    {
         Rigidbody playerRB = player.GetComponent<Rigidbody>();
-        playerRB.position = new Vector3(xcords, ycords, zcords);
-        player.transform.position = new Vector3(xcords, ycords, zcords);
+        bool kinematic = playerRB.isKinematic;
+        playerRB.isKinematic = true;
+        
+        playerRB.position = new Vector3(xcords, ycords * 0.2f, zcords);
+        player.transform.position = new Vector3(xcords, ycords * 0.2f, zcords);
+
+        yield return new WaitForSeconds(1.0f);
+        
+        playerRB.position = player.transform.position;
+        playerRB.isKinematic = kinematic;
     }
 
     public GameObject GetPlayer()
@@ -163,19 +188,12 @@ public class GameManager : MonoBehaviour
 
     public void ToggleCursorVisibility()
     {
-        if (gameMode == GameMode.MainMenu)
+        if (gameMode == GameMode.MainMenu || gameState == GameState.Paused)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             
             return;
-        }
-        
-        
-        if (gameState == GameState.Paused)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
         }
         else
         {

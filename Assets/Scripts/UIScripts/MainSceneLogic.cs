@@ -5,49 +5,72 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Random = System.Random;
 
 public class MainSceneLogic : MonoBehaviour
 {
     public static MainSceneLogic MSInstance;
 
-    [Header("---Main Menu Objects---")] [SerializeField]
-    public GameObject loadScreen;
+    [Header("---Main Menu Objects---")] 
+    [SerializeField] public GameObject loadScreen;
     [SerializeField] public GameObject MMCamera;
 
     [SerializeField] private GameObject MenuActivateables;
     [SerializeField] private GameObject PauseMenuActivateables;
     [SerializeField] private GameObject SettingsActivateables;
-    [SerializeField] private GameObject CreditsActivateables;
+    [SerializeField] public GameObject CreditsActivateables;
 
     [SerializeField] private GameObject returnBtn;
     [SerializeField] private GameObject backBtn;
 
-    [Header("---World 1 Levels---")] [SerializeField]
-    private string _Hub = "Hub";
+    [Header("---World 1 Levels---")] 
+    [SerializeField] private string _Hub = "Hub";
 
     public string[] DynamicMaps = { "Map1", "Map2" };
     [SerializeField] private string _tutScene = "TutScene";
     [SerializeField] private string _bossScene = "BossRoom";
 
-    [Header("---MainStage Player Controller---")] [SerializeField]
-    private GameObject[] PlayerActivateables;
+    [Header("---MainStage Player Controller---")] 
+    [SerializeField] private GameObject[] PlayerActivateables;
 
     public string currLvl;
     public GameObject _Hublvl;
     public int mapnum = 0;
     bool tutorialComplete = false;
+
+    [Header("---Credits Scroll---")]
+    public GameObject TextToScroll;
+    [SerializeField] int scrollSpeed;
+    private Vector3 originalPosition;
+
+    private bool cursorOn;
+
     private void Start()
     {
         MSInstance = this;
         SceneManager.LoadScene(_Hub, LoadSceneMode.Additive);
 
-
         returnToMenu();
+
+        originalPosition = TextToScroll.transform.position;
+    }
+
+    private void Update()
+    {
+        if (!cursorOn)
+            Cursor.visible = true;
+
+        CreditsText();
+        ESC();
+    }
+
+    public static MainSceneLogic GetInstance()
+    {
+        return MSInstance;
     }
 
     public void PlayGame()
@@ -114,6 +137,18 @@ public class MainSceneLogic : MonoBehaviour
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
     }
 
+    private void ESC()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (SettingsActivateables.activeInHierarchy || CreditsActivateables.activeInHierarchy)
+            {
+                GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                returnToMenu();
+            }
+        }
+    }
+
     public void ResetPlayer()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -148,7 +183,23 @@ public class MainSceneLogic : MonoBehaviour
         returnBtn.SetActive(true);
         backBtn.SetActive(false);
     }
-   
+
+    public void DisableTabs()
+    {
+        GameManager.GetInstance().audioTab.SetActive(false);
+        GameManager.GetInstance().controlsTab.SetActive(false);
+        GameManager.GetInstance().graphicsTab.SetActive(false);
+        GameManager.GetInstance().tabActive = null;
+    }
+
+    private void CreditsText()
+    {
+        if (CreditsActivateables.activeInHierarchy)
+            TextToScroll.transform.position = new Vector3(TextToScroll.transform.position.x, TextToScroll.transform.position.y + scrollSpeed, TextToScroll.transform.position.z);
+        else
+            TextToScroll.transform.position = originalPosition;
+    }
+
     public void returnToMenu()
     {
         mapnum = 0;
@@ -157,7 +208,9 @@ public class MainSceneLogic : MonoBehaviour
         CreditsActivateables.SetActive(false);
         loadScreen.SetActive(false);
         MMCamera.SetActive(true);
-        GameManager.instance.removeLossMenu();
+        DisableTabs();
+        GameManager.GetInstance().removeLossMenu();
+
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)

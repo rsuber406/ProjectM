@@ -68,10 +68,6 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
 
     float unCrouch;
 
-    // for debugging
-    float y;
-    float x;
-    float z;
     private bool hasCompletedTutorial = false;
 
 
@@ -101,11 +97,6 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     // Update is called once per frame
     void Update()
     {
-        x = rb.linearVelocity.x;
-        z = rb.linearVelocity.z;
-        y = rb.linearVelocity.y;
-
-        
 
         HP = attributes.health.currentValue;
         mana = attributes.mana.currentValue;
@@ -276,9 +267,11 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
     public void TakeDamage(int amount, DamageSourceType type)
     {
         attributes.TakeDamage(amount, type);
-        GameManager.GetInstance().GetSoundManager().PlayerHurt();
-        StartCoroutine(FlashDamagePanel());
 
+        if (HP > 0)
+            GameManager.GetInstance().GetSoundManager().PlayerHurt();
+        
+        StartCoroutine(FlashDamagePanel());
     }
     
     // ----- SCRAPPED CODE ----- //
@@ -311,6 +304,8 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
+
+    // ----- SCRAPPED CODE ----- //
 
     void ResetJump()
     {
