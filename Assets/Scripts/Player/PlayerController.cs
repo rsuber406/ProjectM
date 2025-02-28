@@ -123,12 +123,12 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         // Vector3 adjustedDirection = HandSocket.forward;
         // if (rb.velocity.z < 0)
         // {
-        //     Quaternion adjustRotation = Quaternion.Euler(-15, 0, 0);
+        //     Quaternion adjustRotation = Quaternion.Euler(-10, 0, 0);
         //     adjustedDirection = adjustRotation * adjustedDirection;
         // }
         // else
         // {
-        //     Quaternion adjustRotation = Quaternion.Euler(15, 0, 0);
+        //     Quaternion adjustRotation = Quaternion.Euler(10, 0, 0);
         //     adjustedDirection = adjustRotation * adjustedDirection;
         // }
         //
