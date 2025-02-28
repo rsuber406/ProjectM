@@ -50043,6 +50043,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5719572483405338088, guid: 87079d355d95356428b68c7d449340fa, type: 3}
+      propertyPath: m_TagString
+      value: Stair
+      objectReference: {fileID: 0}
     - target: {fileID: 6503592201793795688, guid: 87079d355d95356428b68c7d449340fa, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -59000,6 +59004,10 @@ PrefabInstance:
     - target: {fileID: 4794756602346004627, guid: 87079d355d95356428b68c7d449340fa, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719572483405338088, guid: 87079d355d95356428b68c7d449340fa, type: 3}
+      propertyPath: m_TagString
+      value: Stair
       objectReference: {fileID: 0}
     - target: {fileID: 6503592201793795688, guid: 87079d355d95356428b68c7d449340fa, type: 3}
       propertyPath: m_Mesh

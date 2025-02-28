@@ -56,19 +56,18 @@ public class BlinkSpell : SpellBase
             if (hit.collider.CompareTag("Stair"))
             {
                 Vector3 playerNewPosition = new Vector3(hit.point.x, hit.collider.bounds.max.y, hit.point.z);
-                player.transform.position = playerNewPosition;
-                playerRigidBody.position = playerNewPosition;
+                player.transform.position = hit.point;
+                playerRigidBody.position = hit.point;
                 
             }
             else
             {
-                player.transform.position = hit.point;
-                playerRigidBody.position = hit.point;
+                 playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
+                 player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+                
             }
         }
 
-        // playerRigidBody.AddForce(direction * Distance, ForceMode.Impulse);
-        // player.transform.GetChild(0).rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
 
         float sfxVolume = GameManager.GetInstance().GetSoundManager().audSFX.volume;
         playerAudioSource.PlayOneShot(CastAudioClip, CastAudioPitch * sfxVolume);
