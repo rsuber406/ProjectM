@@ -110,7 +110,20 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         UpdatePlayerUI();
         SpeedControl();
        
-        
+        // Please leave for debug purposes on blink
+        // Vector3 adjustedDirection = HandSocket.forward;
+        // if (rb.velocity.z < 0)
+        // {
+        //     Quaternion adjustRotation = Quaternion.Euler(-15, 0, 0);
+        //     adjustedDirection = adjustRotation * adjustedDirection;
+        // }
+        // else
+        // {
+        //     Quaternion adjustRotation = Quaternion.Euler(15, 0, 0);
+        //     adjustedDirection = adjustRotation * adjustedDirection;
+        // }
+        //
+        // Debug.DrawRay(HandSocket.position, adjustedDirection * 10f, Color.red);
         //Jump(); // jump keybind temporarily set to "t"
         //Crouch(); // keybind set to left ctrl
         
