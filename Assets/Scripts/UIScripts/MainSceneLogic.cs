@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
@@ -46,6 +47,8 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] int scrollSpeed;
     private Vector3 originalPosition;
 
+    private bool cursorOn;
+
     private void Start()
     {
         MSInstance = this;
@@ -53,13 +56,16 @@ public class MainSceneLogic : MonoBehaviour
 
         returnToMenu();
 
-        Cursor.visible = true;
         originalPosition = TextToScroll.transform.position;
     }
 
     private void Update()
     {
+        if (!cursorOn)
+            Cursor.visible = true;
+
         CreditsText();
+        ESC();
     }
 
     public static MainSceneLogic GetInstance()
@@ -129,6 +135,18 @@ public class MainSceneLogic : MonoBehaviour
        
         
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+    }
+
+    private void ESC()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (SettingsActivateables.activeInHierarchy || CreditsActivateables.activeInHierarchy)
+            {
+                GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                returnToMenu();
+            }
+        }
     }
 
     public void ResetPlayer()

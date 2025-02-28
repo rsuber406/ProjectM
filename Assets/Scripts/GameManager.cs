@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     
 
     public GameObject damagePanel;
-    private GameObject menuActive = null;
+    public GameObject menuActive = null;
     public GameObject tabActive = null;
 
     public TextMeshProUGUI interactText;
@@ -74,7 +74,16 @@ public class GameManager : MonoBehaviour
                     menuActive.SetActive(true);
                     StatePause();
                 }
-                else if(menuActive == pauseMenu) ResumeGame();
+                else if (menuActive == settingsMenu)
+                {
+                    GetSoundManager().MenuClick(1);
+                    PauseMenu();
+                }
+                else if (menuActive == pauseMenu)
+                {
+                    GetSoundManager().MenuClick(1);
+                    ResumeGame();
+                }
             }
         }
 
