@@ -47,6 +47,8 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] int scrollSpeed;
     private Vector3 originalPosition;
 
+    private bool cursorOn;
+
     private void Start()
     {
         MSInstance = this;
@@ -59,6 +61,9 @@ public class MainSceneLogic : MonoBehaviour
 
     private void Update()
     {
+        if (!cursorOn)
+            Cursor.visible = true;
+
         CreditsText();
         ESC();
     }

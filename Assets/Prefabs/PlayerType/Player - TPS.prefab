@@ -153,7 +153,7 @@ MonoBehaviour:
     minValue: 0
   mana:
     attribute: 1
-    currentValue: 100
+    currentValue: 0
     maxValue: 100
     minValue: 0
   armor:
@@ -454,8 +454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07245689, y: -0.29468822, z: -0.02241514, w: 0.95257884}
-  m_LocalPosition: {x: 2.3103728, y: -0.34605378, z: -4.26677}
+  m_LocalRotation: {x: -0.07758557, y: -0.29456323, z: -0.024001744, w: 0.95217484}
+  m_LocalPosition: {x: 2.1548817, y: -0.34605378, z: -4.0395093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -533,7 +533,7 @@ MonoBehaviour:
       Radius: 3.55
       Height: 1.57
     Bottom:
-      Radius: 4.74
+      Radius: 3.93
       Height: -0.71
     SplineCurvature: 0.473
   RecenteringTarget: 2
@@ -689,12 +689,12 @@ MonoBehaviour:
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  MinimumDistanceFromTarget: 0.3
+  MinimumDistanceFromTarget: 0.2
   AvoidObstacles:
     Enabled: 1
     DistanceLimit: 0
     MinimumOcclusionTime: 0
-    CameraRadius: 0.4
+    CameraRadius: 0.18
     UseFollowTarget:
       Enabled: 0
       YOffset: 0
@@ -802,8 +802,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07245689, y: -0.29468822, z: -0.022415146, w: 0.95257884}
-  m_LocalPosition: {x: 2.3103726, y: -0.34605378, z: -4.26677}
+  m_LocalRotation: {x: -0.077585585, y: -0.29456326, z: -0.024001747, w: 0.95217484}
+  m_LocalPosition: {x: 2.1548817, y: -0.34605378, z: -4.0395093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -949,8 +949,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8764773186653022487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04171077, y: 0.18661363, z: -0.007930387, w: 0.9815155}
-  m_LocalPosition: {x: 0, y: 0.84801924, z: -3.8021142}
+  m_LocalRotation: {x: -0.047808707, y: 0.196015, z: 0.00956845, w: 0.97938806}
+  m_LocalPosition: {x: 0, y: 0.11801922, z: -4.4934893}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -980,7 +980,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 6076861774419244369}
     CustomLookAtTarget: 1
   Lens:
-    FieldOfView: 45
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0.73, z: 0}
+  TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 0, y: 0, z: 0}
@@ -1028,7 +1028,7 @@ MonoBehaviour:
       Radius: 3.55
       Height: 1.57
     Bottom:
-      Radius: 4.74
+      Radius: 3.39
       Height: -0.71
     SplineCurvature: 0.473
   RecenteringTarget: 3
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: -0.0004166663, y: 0}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -1184,20 +1184,20 @@ MonoBehaviour:
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  MinimumDistanceFromTarget: 0.3
+  MinimumDistanceFromTarget: 0.01
   AvoidObstacles:
     Enabled: 1
     DistanceLimit: 0
     MinimumOcclusionTime: 0
-    CameraRadius: 0.4
+    CameraRadius: 1e-11
     UseFollowTarget:
       Enabled: 0
       YOffset: 0
     Strategy: 0
     MaximumEffort: 4
     SmoothingTime: 0
-    Damping: 0.4
-    DampingWhenOccluded: 0.2
+    Damping: 0
+    DampingWhenOccluded: 0
   ShotQualityEvaluation:
     Enabled: 0
     OptimalDistance: 10
