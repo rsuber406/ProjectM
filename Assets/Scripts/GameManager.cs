@@ -326,12 +326,18 @@ public class GameManager : MonoBehaviour
         // I need health mana, and some reference to their inventory
         
         Inventory inventory = player.GetComponentInChildren<Inventory>();
-        Item[] playerItems = inventory.GetInventoryItems();
+        Item[] playerItems = {};
+        if (inventory)
+        {
+            playerItems = inventory.GetInventoryItems();
+        }
+        
         EquipmentManager equipment = player.GetComponentInChildren<EquipmentManager>();
         ItemData[] equippedItems = equipment.GetEquippedItems();
         PlayerController playerScript = player.GetComponent<PlayerController>();
-        float mana = playerScript.GetMana();
-        float health = playerScript.GetHealth();
+        AttributesController attributes = player.GetComponent<AttributesController>();
+        float mana = attributes.mana.maxValue;
+        float health = attributes.health.maxValue;
         bool completeTutorial = playerScript.HasCompletedTutorial();
         PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
         PersistentDataSystem.SavePlayerProgress(completeTutorial);
