@@ -102,11 +102,11 @@ public class ButtonFunctions : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
         GameManager.GetInstance().SavePlayerData();
+#if UNITY_STANDALONE
+        Application.Quit();
+#endif
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-
 #endif
     }
 

@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         HandleInDungeonMenuBindings();
-
     }
 
     private void HandleInDungeonMenuBindings()
