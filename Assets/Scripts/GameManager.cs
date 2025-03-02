@@ -129,10 +129,10 @@ public class GameManager : MonoBehaviour
         playerRB.position = new Vector3(xcords, ycords * 0.2f, zcords);
         player.transform.position = new Vector3(xcords, ycords * 0.2f, zcords);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         
         playerRB.position = player.transform.position;
-        playerRB.isKinematic = kinematic;
+        playerRB.isKinematic = false;
     }
 
     public GameObject GetPlayer()
