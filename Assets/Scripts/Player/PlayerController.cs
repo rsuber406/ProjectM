@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         IsGrounded();
         Movement();
 
-        if (Input.GetButtonDown("Dodge") && inCombat)
+        if (Input.GetButton("Dodge") && inCombat)
             Dodge(); // key bind set to space
     }
 
