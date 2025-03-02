@@ -40,6 +40,7 @@ public class NecromancerScript : EnemyAI
 
     protected override void AttackPlayer()
     {
+        if (!isAlive) return;
         float distance = (playerPos - transform.position).magnitude;
 
         if (distance <= agent.stoppingDistance)
@@ -117,6 +118,7 @@ public class NecromancerScript : EnemyAI
 
     protected override IEnumerator OnDeath()
     {
+        isAlive = false;
         if (attackCo != null)
         {
             StopCoroutine(attackCo);

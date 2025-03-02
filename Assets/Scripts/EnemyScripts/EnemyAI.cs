@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected bool [] playSounds = new bool[3];
     private int layerMask;
     private List<Color> originalColors = new List<Color>();
+    protected bool isAlive = true;
 
     protected virtual void Start()
     {
@@ -73,6 +74,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     protected void CheckPlayerInRange()
     {
+        if (!isAlive) return;
         if (playerDetected && !CanSeePlayer())
         {
         }
@@ -127,7 +129,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                         FaceTarget(ref playerPos);
                     }
 
-                    if (!isAttacking)
+                    if (!isAttacking && isAlive)
                         AttackPlayer();
                 }
             }

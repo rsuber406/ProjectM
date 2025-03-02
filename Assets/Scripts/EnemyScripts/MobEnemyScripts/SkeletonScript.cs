@@ -34,7 +34,7 @@ public class SkeletonScript : EnemyAI
 
     protected override void AttackPlayer()
     {
-        if (isAttacking) return;
+        if (isAttacking || !isAlive) return;
         if (AIController.GetAIController().CanAttackPlayer())
         {
             float distance = (playerPos - transform.position).magnitude;
@@ -62,11 +62,12 @@ public class SkeletonScript : EnemyAI
 
     protected override IEnumerator OnDeath()
     {
+        isAlive = false;
         if(attackCo != null)
         StopCoroutine(attackCo);
         weaponCollider.enabled = false;
         animationController.SetTrigger("Death");
-        agent.isStopped = true;
+        agent.enabled = false;
         yield return new WaitForSeconds(1.2f);
         Destroy(gameObject);
     }
