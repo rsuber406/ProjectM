@@ -57,7 +57,7 @@ public class ProjectileSpell : SpellBase
                 Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f);
                 Vector3 worldTarget = (playerControllerRef.HandSocket.position) - Camera.main.ScreenToWorldPoint(screenCenter);
                 Quaternion spawnRotation = Quaternion.LookRotation(worldTarget);
-                spawnRotation *= Quaternion.Euler(-2.25f, 17.25f, 0);
+                spawnRotation *= Quaternion.Euler(-2.25f, 17.75f, 0);
                 Instantiate(ProjectilePrefab, spawnPosition, spawnRotation);
             }
             else
