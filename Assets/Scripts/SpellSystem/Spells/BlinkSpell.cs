@@ -39,7 +39,7 @@ public class BlinkSpell : SpellBase
             direction = playerRigidBody.linearVelocity.normalized;
        
         Vector3 adjustedDirection = playerControllerRef.HandSocket.forward;
-        if (playerRigidBody.velocity.z < 0)
+        if (playerRigidBody.linearVelocity.z < 0)
         {
             Quaternion adjustRotation = Quaternion.Euler(-10, 0, 0);
             adjustedDirection = adjustRotation * adjustedDirection;

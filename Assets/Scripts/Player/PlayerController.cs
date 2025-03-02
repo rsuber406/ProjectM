@@ -360,18 +360,6 @@ public class PlayerController : MonoBehaviour, IDamage, Interact
         }
     }
 
-    public float GetHealth()
-    {
-        float health = (int)attributes.health.currentValue;
-        return health;
-    }
-
-    public float GetMana()
-    {
-        float mana = (int)attributes.mana.currentValue;
-        return mana;
-    }
-
     private void PopulateInventory( List<Item> items)
     {
         Inventory inventory = this.GetComponentInChildren<Inventory>();

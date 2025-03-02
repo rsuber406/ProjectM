@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         HandleInDungeonMenuBindings();
-
     }
 
     private void HandleInDungeonMenuBindings()
@@ -173,8 +172,9 @@ public class GameManager : MonoBehaviour
         menuActive = null;
         gameState = GameState.Playing;
         ToggleCursorVisibility();
-        OnGameResumed?.Invoke();
         victoryMenu.SetActive(false);
+
+        OnGameResumed?.Invoke();
     }
 
     public void StatePause()
@@ -309,6 +309,21 @@ public class GameManager : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
+    public void OnTransitionToNextLevel()
+    {
+        OnGameResumed?.Invoke();
+    }
+
+    void HandleRespawnCleanup()
+    {
+        Time.timeScale = 1;
+        menuActive.SetActive(false);
+        menuActive = null;
+        gameState = GameState.Playing;
+        ToggleCursorVisibility();
+        victoryMenu.SetActive(false);
+    }
+
     public void Respawn()
     {
         removeLossMenu();
@@ -316,8 +331,7 @@ public class GameManager : MonoBehaviour
         controller.RespawnSequence();
         //player.transform.position = new Vector3(0.000f, 0.00f, -32f);
         MainSceneLogic.MSInstance.ResetPlayer();
-        ResumeGame();
-        
+        HandleRespawnCleanup();
     }
 
     public void SavePlayerData()
@@ -326,12 +340,18 @@ public class GameManager : MonoBehaviour
         // I need health mana, and some reference to their inventory
         
         Inventory inventory = player.GetComponentInChildren<Inventory>();
-        Item[] playerItems = inventory.GetInventoryItems();
+        Item[] playerItems = {};
+        if (inventory)
+        {
+            playerItems = inventory.GetInventoryItems();
+        }
+        
         EquipmentManager equipment = player.GetComponentInChildren<EquipmentManager>();
         ItemData[] equippedItems = equipment.GetEquippedItems();
         PlayerController playerScript = player.GetComponent<PlayerController>();
-        float mana = playerScript.GetMana();
-        float health = playerScript.GetHealth();
+        AttributesController attributes = player.GetComponent<AttributesController>();
+        float mana = attributes.mana.maxValue;
+        float health = attributes.health.maxValue;
         bool completeTutorial = playerScript.HasCompletedTutorial();
         PersistentDataSystem.SavePlayerData((int)health, (int)mana, playerItems, equippedItems);
         PersistentDataSystem.SavePlayerProgress(completeTutorial);
