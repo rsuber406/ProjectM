@@ -26,10 +26,10 @@ public class SoundManager : MonoBehaviour
     public TMP_Text ambienceVolumeText;
     public TMP_Text musicVolumeText;
 
-    public float masterVol;
-    public float sfxVol;
-    public float ambienceVol;
-    public float musicVol; 
+    private float masterVol;
+    private float sfxVol;
+    private float ambienceVol;
+    private float musicVol; 
 
     [Header ("----- Player Sounds -----")]
     [SerializeField] AudioClip[] playerFootsteps;
@@ -69,34 +69,7 @@ public class SoundManager : MonoBehaviour
 
         if (!GameManager.GetInstance().enableDebug)
         {
-            if (GameManager.GetInstance().GetGameState() == GameState.Paused)
-            {
-                if (GameManager.GetInstance().GetGameMode() == GameMode.MainMenu)
-                {
-                    GetGameModeMusic();
-                    return;
-                }
-                else
-                {
-                    if (audMusic.isPlaying)
-                    { 
-                        audMusic.Pause();
-                        paused = true;
-                    }
-                }
-            }
-            else
-            {
-                if (!paused)
-                    GetGameModeMusic();
-                
-                else
-                {
-                    audMusic.UnPause();
-                    paused = false;
-                }
-            }
-            
+            GetMusic();
             PlayAmbience();
         }
     }
@@ -118,7 +91,7 @@ public class SoundManager : MonoBehaviour
 
     public void UpdateVolumes()
     {
-        sfxVol = (SFXSlider.value / 2f) * masterVol;
+        sfxVol = (SFXSlider.value / 1.33f) * masterVol;
         ambienceVol = (ambienceSlider.value / 1.33f) * masterVol;
         musicVol = (musicSlider.value / 2f) * masterVol;
     }
@@ -132,7 +105,7 @@ public class SoundManager : MonoBehaviour
 
     public void GetSFXVolume()
     {
-        sfxVol = (SFXSlider.value / 2f) * masterVol;
+        sfxVol = (SFXSlider.value / 1.33f) * masterVol;
         SFXVolumeText.text = (SFXSlider.value * 100f).ToString("F0");
     }
 
@@ -203,6 +176,8 @@ public class SoundManager : MonoBehaviour
     {
         if (mode != GameMode.MainMenu && mode != GameMode.Hub)
             Ambience();
+        else
+            audAmbience.Stop();
     }
 
     public void GetGameModeMusic()
@@ -214,6 +189,37 @@ public class SoundManager : MonoBehaviour
         }
 
         MusicSelect();
+    }
+
+    public void GetMusic()
+    {
+        if (GameManager.GetInstance().GetGameState() == GameState.Paused)
+        {
+            if (GameManager.GetInstance().GetGameMode() == GameMode.MainMenu)
+            {
+                GetGameModeMusic();
+                return;
+            }
+            else
+            {
+                if (audMusic.isPlaying)
+                {
+                    audMusic.Pause();
+                    paused = true;
+                }
+            }
+        }
+        else
+        {
+            if (!paused)
+                GetGameModeMusic();
+
+            else
+            {
+                audMusic.UnPause();
+                paused = false;
+            }
+        }
     }
 
     public void MusicSelect()
