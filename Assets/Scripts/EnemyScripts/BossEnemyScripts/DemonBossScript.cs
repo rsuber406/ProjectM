@@ -29,7 +29,7 @@ public class DemonBossScript : EnemyAI
 
     protected override void AttackPlayer()
     {
-        if (isAttacking) return;
+        if (isAttacking || !isAlive) return;
         float distance = (playerPos - transform.position).magnitude;
         if (distance < agent.stoppingDistance)
         {
@@ -96,6 +96,7 @@ public class DemonBossScript : EnemyAI
     }
     protected override IEnumerator OnDeath()
     {
+        isAlive = false;
         animationController.SetTrigger("Death");
         agent.isStopped = true;
         yield return new WaitForSeconds(2f);

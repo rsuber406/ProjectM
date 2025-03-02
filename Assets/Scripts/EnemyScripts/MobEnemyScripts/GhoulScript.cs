@@ -60,6 +60,7 @@ public class GhoulScript : EnemyAI
 
     protected override void AttackPlayer()
     {
+        if (!isAlive) return;
         if (AIController.GetAIController().CanAttackPlayer())
         {
             float distance = (playerPos - transform.position).magnitude;
@@ -90,12 +91,13 @@ public class GhoulScript : EnemyAI
 
     protected override IEnumerator OnDeath()
     {
+        isAlive = false;
         if(attackCo != null)
         StopCoroutine(attackCo);
         leftWeapon.enabled = false;
         rightWeapon.enabled = false;
         animationController.SetTrigger("Death");
-        agent.isStopped = true;
+        agent.enabled = false;
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
