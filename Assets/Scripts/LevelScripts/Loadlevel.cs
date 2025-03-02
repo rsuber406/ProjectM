@@ -13,17 +13,16 @@ public class LoadLevel : MonoBehaviour
             MainSceneLogic.MSInstance.loadScreen.SetActive(true);
 
             MainSceneLogic.MSInstance.loadLevel();
-          GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
-          if (enemies != null)
-          {
+            GameObject[] enemies =  GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemies != null)
+            {
               for (int i = 0; i < enemies.Length; i++)
               {
                   Destroy(enemies[i]);
               }
-          }
+            }
             GameManager.instance.TeleportPlayer(0f, 1f, 0f);
             MainSceneLogic.MSInstance.loadScreen.SetActive(false);
-
         }
     }
 }

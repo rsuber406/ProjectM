@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
@@ -46,6 +47,8 @@ public class MainSceneLogic : MonoBehaviour
     [SerializeField] int scrollSpeed;
     private Vector3 originalPosition;
 
+    private bool cursorOn;
+
     private void Start()
     {
         MSInstance = this;
@@ -53,13 +56,16 @@ public class MainSceneLogic : MonoBehaviour
 
         returnToMenu();
 
-        Cursor.visible = true;
         originalPosition = TextToScroll.transform.position;
     }
 
     private void Update()
     {
+        if (!cursorOn)
+            Cursor.visible = true;
+
         CreditsText();
+        ESC();
     }
 
     public static MainSceneLogic GetInstance()
@@ -79,7 +85,6 @@ public class MainSceneLogic : MonoBehaviour
         tutorialComplete = PersistentDataSystem.LoadPlayerProgress();
         if (tutorialComplete)
         {
-            
             GameManager.GetInstance().SetGameMode(GameMode.Hub);
             GameManager.GetInstance().TeleportPlayer(0,0, -32f);
         }
@@ -90,7 +95,6 @@ public class MainSceneLogic : MonoBehaviour
             GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
         }
         GameManager.GetInstance().SetGameState(GameState.Playing);
-        //LoadScenes.Add(SceneManager.LoadSceneAsync(_DynamicScenes, LoadSceneMode.Additive));
         for (int i = 0; i < PlayerActivateables.Length; i++)
         {
             PlayerActivateables[i].SetActive(true);
@@ -123,12 +127,21 @@ public class MainSceneLogic : MonoBehaviour
             mapnum++;
             SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         }
-
-        // Remove the selected map
-        //DynamicMaps.RemoveAt(0);
-       
         
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+        GameManager.GetInstance().OnTransitionToNextLevel();
+    }
+
+    private void ESC()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (SettingsActivateables.activeInHierarchy || CreditsActivateables.activeInHierarchy)
+            {
+                GameManager.GetInstance().GetSoundManager().MenuClick(1);
+                returnToMenu();
+            }
+        }
     }
 
     public void ResetPlayer()
@@ -153,8 +166,6 @@ public class MainSceneLogic : MonoBehaviour
         HideMenu();
         GameManager.GetInstance().GetSoundManager().MenuClick(0);
         CreditsActivateables.SetActive(true);
-        //Start Scroll of Text
-
     }
 
     public void SettingsScreen()
@@ -196,8 +207,8 @@ public class MainSceneLogic : MonoBehaviour
 
         // Only process main menu things when the game mode is overridden
         if (GameManager.GetInstance().GetGameMode() == GameMode.Dungeon)
-        {
-        //    return;
+        { 
+            //    return;
         }
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
 
@@ -218,10 +229,11 @@ public class MainSceneLogic : MonoBehaviour
         GameManager.GetInstance().GetSoundManager().MenuClick(1);
         GameManager.GetInstance().SavePlayerData();
 
+#if UNITY_STANDALONE
+        Application.Quit();
+#endif
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
 #endif
     }
 }
