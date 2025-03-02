@@ -102,7 +102,15 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
 
         if (unequippedItem != null)
         {
-            inventory.AddItem(newItem, 1);
+            for (int i = 0; i < inventory.slots.Length; i++)
+            {
+                if (inventory.slots[i].item == null)
+                {
+                    inventory.AddItem(newItem, i);
+                    break;
+                }
+
+            }
         }
 
         if (activeContextMenu != null)
@@ -226,11 +234,13 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerClickHandler, IDragHandler
                 {
                     return;
                 }
+                
 
                 ItemData existingItem = equipmentManager.GetItemData(armorType);
                 if (existingItem != null)
                 {
                     UnequipItem(armorType);
+                    equipmentManager.UnequipArmor(armorType, existingItem);
                 }
 
                 equipmentManager.EquipItem(itemData);
