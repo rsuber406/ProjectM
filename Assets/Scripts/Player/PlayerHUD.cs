@@ -13,7 +13,7 @@ public class PlayerHUD : MonoBehaviour
     private TMP_Text spellActivationMessage;
     private SpellSystem playerSpellSystem;
     
-    void Start()
+    public void Start()
     {
         GameObject go = GameManager.GetInstance().GetPlayer();
         playerSpellSystem = go.GetComponentInChildren<SpellSystem>();
