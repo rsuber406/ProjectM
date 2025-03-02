@@ -165,15 +165,20 @@ public class GameManager : MonoBehaviour
         gameMode = target;
     }
 
-    public void ResumeGame()
+    public void ResumeGame(bool isToHub = true)
     {
         Time.timeScale = 1;
         menuActive.SetActive(false);
         menuActive = null;
         gameState = GameState.Playing;
         ToggleCursorVisibility();
-        OnGameResumed?.Invoke();
         victoryMenu.SetActive(false);
+
+        if (!isToHub)
+        {
+            OnGameResumed?.Invoke();
+        }
+        
     }
 
     public void StatePause()
@@ -308,6 +313,11 @@ public class GameManager : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
+    public void OnTransitionToNextLevel()
+    {
+        OnGameResumed?.Invoke();
+    }
+
     public void Respawn()
     {
         removeLossMenu();
@@ -315,8 +325,7 @@ public class GameManager : MonoBehaviour
         controller.RespawnSequence();
         //player.transform.position = new Vector3(0.000f, 0.00f, -32f);
         MainSceneLogic.MSInstance.ResetPlayer();
-        ResumeGame();
-        
+        ResumeGame(true);
     }
 
     public void SavePlayerData()

@@ -127,12 +127,9 @@ public class MainSceneLogic : MonoBehaviour
             mapnum++;
             SceneManager.LoadSceneAsync(currLvl, LoadSceneMode.Additive);
         }
-
-        // Remove the selected map
-        //DynamicMaps.RemoveAt(0);
-       
         
         GameManager.GetInstance().SetGameMode(GameMode.Dungeon);
+        GameManager.GetInstance().OnTransitionToNextLevel();
     }
 
     private void ESC()
