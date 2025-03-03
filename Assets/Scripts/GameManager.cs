@@ -367,6 +367,11 @@ public class GameManager : MonoBehaviour
     {
         lossMenu.SetActive(false);
     }
+    public void removeWinMenu()
+    {
+        victoryMenu.SetActive(false);
+    }
+
     public bool PlayerCompletedTutorial()
     {
         PlayerController playerScript = player.GetComponent<PlayerController>();

@@ -102,7 +102,7 @@ MonoBehaviour:
   airMult: 0.4
   dodgeForce: 50
   dodgeDur: 0.25
-  dodgeCd: 1
+  dodgeCd: 2
   maxSlopeAngle: 40
   slopeCheck: 0.77
   groundDrag: 5
@@ -454,8 +454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030567581599643063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07758557, y: -0.29456323, z: -0.024001744, w: 0.95217484}
-  m_LocalPosition: {x: 2.1548817, y: -0.34605378, z: -4.0395093}
+  m_LocalRotation: {x: 0.065826505, y: -0.29483706, z: 0.02036398, w: 0.95306}
+  m_LocalPosition: {x: 1.9737273, y: 0.7651491, z: -3.7747393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -538,7 +538,7 @@ MonoBehaviour:
     SplineCurvature: 0.473
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -34.379776
+    Value: -34.37978
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 7.679455
+    Value: 19.72297
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -802,8 +802,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684131270940623896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.077585585, y: -0.29456326, z: -0.024001747, w: 0.95217484}
-  m_LocalPosition: {x: 2.1548817, y: -0.34605378, z: -4.0395093}
+  m_LocalRotation: {x: 0.065826505, y: -0.29483706, z: 0.020363979, w: 0.95306}
+  m_LocalPosition: {x: 1.9737273, y: 0.7651491, z: -3.7747393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
