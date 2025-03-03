@@ -59,12 +59,14 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetPlayerStateAnimation()
     {
-        if (player.inCombat) {
+        if (player.inCombat) 
+        {
             anim.SetBool("CombatMode", true);
             onActionModeEnabled?.Invoke();
         }
             
-        else {
+        else 
+        {
             anim.SetBool("CombatMode", false);
             onActionModeDisabled?.Invoke();
         }
@@ -118,7 +120,7 @@ public class PlayerAnimation : MonoBehaviour
             }
             anim.SetFloat("ICSpeed", ICSpeed);
             
-            if (player.dodgeCdTimer < 0)
+            if (!player.isDodging)
             {
                 anim.SetBool("isDodging", false);
                 BaseLayerOverride();

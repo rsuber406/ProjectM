@@ -203,6 +203,7 @@ public class MainSceneLogic : MonoBehaviour
         MMCamera.SetActive(true);
         DisableTabs();
         GameManager.GetInstance().removeLossMenu();
+        GameManager.GetInstance().removeWinMenu();
 
 
         // Only process main menu things when the game mode is overridden
