@@ -59,12 +59,14 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetPlayerStateAnimation()
     {
-        if (player.inCombat) {
+        if (player.inCombat) 
+        {
             anim.SetBool("CombatMode", true);
             onActionModeEnabled?.Invoke();
         }
             
-        else {
+        else 
+        {
             anim.SetBool("CombatMode", false);
             onActionModeDisabled?.Invoke();
         }
@@ -118,7 +120,7 @@ public class PlayerAnimation : MonoBehaviour
             }
             anim.SetFloat("ICSpeed", ICSpeed);
             
-            if (player.dodgeCdTimer < 0)
+            if (!player.isDodging)
             {
                 anim.SetBool("isDodging", false);
                 BaseLayerOverride();
@@ -320,88 +322,85 @@ public class PlayerAnimation : MonoBehaviour
 
     void GetDodgeStateAnimation()
     {
-        if (player.isDodging)
+        GetXZDodgeStateAnimation();
+
+        switch (player.stateController.dodgeState)
         {
-            GetXZDodgeStateAnimation();
+            case PlayerStateController.DodgeState.forward:
 
-            switch (player.stateController.dodgeState)
-            {
-                case PlayerStateController.DodgeState.forward:
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
 
-                    DodgeZ += Time.deltaTime * animTransSpeed;
-                    if (DodgeZ >= 1f)
-                        DodgeZ = 1f;
+                break;
+            case PlayerStateController.DodgeState.backward:
 
-                    break;
-                case PlayerStateController.DodgeState.backward:
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
 
-                    DodgeZ -= Time.deltaTime * animTransSpeed;
-                    if (DodgeZ <= 0f)
-                        DodgeZ = 0f;
+                break;
+            case PlayerStateController.DodgeState.right:
 
-                    break;
-                case PlayerStateController.DodgeState.right:
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
-                    DodgeX += Time.deltaTime * animTransSpeed;
-                    if (DodgeX >= 1f)
-                        DodgeX = 1f;
+                break;
+            case PlayerStateController.DodgeState.left:
 
-                    break;
-                case PlayerStateController.DodgeState.left:
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
-                    DodgeX -= Time.deltaTime * animTransSpeed;
-                    if (DodgeX <= 0f)
-                        DodgeX = 0f;
+                break;
+            case PlayerStateController.DodgeState.FR:
 
-                    break;
-                case PlayerStateController.DodgeState.FR:
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
 
-                    DodgeZ += Time.deltaTime * animTransSpeed;
-                    if (DodgeZ >= 1f)
-                        DodgeZ = 1f;
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
-                    DodgeX += Time.deltaTime * animTransSpeed;
-                    if (DodgeX >= 1f)
-                        DodgeX = 1f;
+                break;
+            case PlayerStateController.DodgeState.FL:
 
-                    break;
-                case PlayerStateController.DodgeState.FL:
+                DodgeZ += Time.deltaTime * animTransSpeed;
+                if (DodgeZ >= 1f)
+                    DodgeZ = 1f;
 
-                    DodgeZ += Time.deltaTime * animTransSpeed;
-                    if (DodgeZ >= 1f)
-                        DodgeZ = 1f;
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
-                    DodgeX -= Time.deltaTime * animTransSpeed;
-                    if (DodgeX <= 0f)
-                        DodgeX = 0f;
+                break;
+            case PlayerStateController.DodgeState.BR:
 
-                    break;
-                case PlayerStateController.DodgeState.BR:
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
 
-                    DodgeZ -= Time.deltaTime * animTransSpeed;
-                    if (DodgeZ <= 0f)
-                        DodgeZ = 0f;
+                DodgeX += Time.deltaTime * animTransSpeed;
+                if (DodgeX >= 1f)
+                    DodgeX = 1f;
 
-                    DodgeX += Time.deltaTime * animTransSpeed;
-                    if (DodgeX >= 1f)
-                        DodgeX = 1f;
+                break;
+            case PlayerStateController.DodgeState.BL:
 
-                    break;
-                case PlayerStateController.DodgeState.BL:
+                DodgeZ -= Time.deltaTime * animTransSpeed;
+                if (DodgeZ <= 0f)
+                    DodgeZ = 0f;
 
-                    DodgeZ -= Time.deltaTime * animTransSpeed;
-                    if (DodgeZ <= 0f)
-                        DodgeZ = 0f;
+                DodgeX -= Time.deltaTime * animTransSpeed;
+                if (DodgeX <= 0f)
+                    DodgeX = 0f;
 
-                    DodgeX -= Time.deltaTime * animTransSpeed;
-                    if (DodgeX <= 0f)
-                        DodgeX = 0f;
-
-                    break;
-            }
-            anim.SetFloat("DodgeZ", DodgeZ);
-            anim.SetFloat("DodgeX", DodgeX);
+                break;
         }
+        anim.SetFloat("DodgeZ", DodgeZ);
+        anim.SetFloat("DodgeX", DodgeX);
     }
 
     void DodgeLayerOverride()
